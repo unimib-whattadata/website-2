@@ -41,7 +41,7 @@
         #custom-cursor {
             width: 16px;
             height: 16px;
-            border: 2px solid #4F46E5;
+            border: 2px solid rgb(79, 70, 229);
             position: fixed;
             pointer-events: none;
             z-index: 9999;
@@ -50,7 +50,7 @@
         }
 
         #custom-cursor.on-dark {
-            border-color: #A3E635;
+            border-color: rgb(163, 230, 53);
         }
 
         #custom-cursor.hover {
@@ -78,6 +78,34 @@
                 cursor: pointer !important;
             }
         }
+
+        @keyframes square-move {
+            0% {
+                transform: translate(var(--start-x), var(--start-y)) scale(2);
+                opacity: 0;
+            }
+            20% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        .animate-square-move {
+            animation: square-move 2s ease-out forwards;
+            position: relative;
+            left: 0;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgb(163, 230, 53);
+            background-color: transparent;
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -87,7 +115,7 @@
     <!-- Navigation -->
     <nav class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4">
         <div class="container mx-auto px-4 flex items-center justify-between">
-            <a href="#" class="text-xl md:text-2xl flex items-center">
+            <a href="#" class="text-xl md:text-2xl flex items-center" id="logo">
                 <img src="img/logo.svg" alt="Whattadata Logo" class="h-8 w-auto mr-3">
                 <span class="font-bold">Whatta</span><span class="font-light">data</span>
             </a>
@@ -139,7 +167,7 @@
                     <span id="typed-text"></span><span class="animate-pulse text-gray-400 font-thin">|</span>
                 </div>
                 <p class="text-4xl sm:text-5xl md:text-7xl mb-8 md:mb-12 [text-shadow:_0_1px_2px_rgb(0_0_0_/_10%)] leading-tight text-left">
-                    con soluzioni innovative<span class="inline-block w-4 h-4 border-2 border-lime-400 bg-transparent ml-2 align-baseline"></span>
+                    con soluzioni innovative<span class="animate-square-move" id="square"></span>
                 </p>
             </div>
             
@@ -161,7 +189,7 @@
             <div class="w-4 h-1.5 bg-black/30 transition-all duration-300"></div>
         </div>
         
-        <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform">
+        <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono">
             →
         </button>
     </section>
@@ -599,6 +627,25 @@
                     mobileMenu.classList.add('hidden');
                 }
             });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.getElementById('logo');
+            const square = document.getElementById('square');
+            
+            // Calcola la posizione iniziale e finale
+            const logoRect = logo.getBoundingClientRect();
+            const squareRect = square.getBoundingClientRect();
+            
+            // Calcola la distanza tra il logo e il quadrato
+            const startX = logoRect.left - squareRect.left;
+            const startY = logoRect.top - squareRect.top;
+            
+            // Imposta le variabili CSS per l'animazione
+            square.style.setProperty('--start-x', `${startX}px`);
+            square.style.setProperty('--start-y', `${startY}px`);
         });
     </script>
 </body>
