@@ -220,6 +220,41 @@
             opacity: 1;
             position: relative;
         }
+
+        /* Graph Animation Styles */
+        .graph-node {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        }
+
+        .graph-node:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+
+        .graph-line {
+            stroke: #84cc16;
+            stroke-width: 1.5;
+            opacity: 0.7;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @keyframes floatNode {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .floating-node {
+            animation: floatNode 3s ease-in-out infinite;
+        }
+
+        #message-container {
+            transition: all 0.3s ease-in-out;
+        }
+
+        #graph-container {
+            mix-blend-mode: screen;
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -316,6 +351,44 @@
         <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono">
             →
         </button>
+    </section>
+
+    <!-- Message Section -->
+    <section class="min-h-screen bg-white flex items-center justify-center">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div id="message-container" class="bg-primary p-16 text-white relative overflow-hidden">
+                    <!-- Graph Background -->
+                    <div class="absolute inset-0 pointer-events-none" id="graph-container">
+                        <svg width="100%" height="100%" class="graph-svg">
+                            <defs>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <!-- Dynamic nodes and edges will be added here via JavaScript -->
+                        </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="relative z-10">
+                        <h2 class="text-5xl md:text-7xl mb-8 leading-tight">
+                            Sblocca infinite possibilità per il tuo business
+                        </h2>
+                        <div class="flex justify-end">
+                            <a href="#contatti" class="inline-flex items-center px-8 py-3 text-base bg-white text-[#4F46E5] hover:scale-105 transition-transform font-mono">
+                                Parliamone
+                                <span class="ml-2">→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Value Proposition Section -->
@@ -795,6 +868,167 @@
         document.querySelector('a[href="#chi-siamo"]').addEventListener('click', function(e) {
             e.preventDefault();
             smoothScrollTo(this.getAttribute('href'));
+        });
+
+        // Graph Animation Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const graphContainer = document.querySelector('.graph-svg');
+            const containerRect = graphContainer.getBoundingClientRect();
+            const nodeSize = 16;
+            const numNodes = 12;
+            const maxConnections = 3;
+            const connectionThreshold = 200;
+            
+            // Aggiungi tracciamento della posizione del mouse
+            let mouseX = 0;
+            let mouseY = 0;
+            const mouseRadius = 150; // Raggio di influenza del mouse
+            const mouseForce = 5; // Forza della repulsione
+            
+            graphContainer.addEventListener('mousemove', (e) => {
+                const rect = graphContainer.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+            });
+            
+            // Distribuisci i nodi con velocità iniziale
+            const nodes = Array.from({ length: numNodes }, () => ({
+                x: Math.random() * containerRect.width,
+                y: Math.random() * containerRect.height,
+                vx: (Math.random() - 0.5) * 1.5,
+                vy: (Math.random() - 0.5) * 1.5,
+                connections: []
+            }));
+
+            // Crea elementi SVG per i nodi
+            nodes.forEach(node => {
+                const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                rect.setAttribute("class", "graph-node");
+                rect.setAttribute("width", nodeSize);
+                rect.setAttribute("height", nodeSize);
+                rect.setAttribute("stroke", "#84cc16");
+                rect.setAttribute("stroke-width", "3");
+                rect.setAttribute("fill", "none");
+                rect.setAttribute("opacity", "0.8");
+                graphContainer.appendChild(rect);
+            });
+
+            // Funzione per calcolare la repulsione dal mouse
+            function applyMouseForce(node) {
+                const dx = node.x - mouseX;
+                const dy = node.y - mouseY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                
+                if (distance < mouseRadius) {
+                    const force = (1 - distance / mouseRadius) * mouseForce;
+                    node.vx += (dx / distance) * force;
+                    node.vy += (dy / distance) * force;
+                }
+            }
+
+            // Funzione per aggiornare le connessioni dinamicamente
+            function updateConnections() {
+                // Rimuovi tutte le linee esistenti
+                const oldLines = document.querySelectorAll('.graph-line');
+                oldLines.forEach(line => line.remove());
+
+                // Crea nuove connessioni basate sulla distanza
+                nodes.forEach((node, i) => {
+                    node.connections = [];
+                    nodes.forEach((otherNode, j) => {
+                        if (i !== j) {
+                            const dx = otherNode.x - node.x;
+                            const dy = otherNode.y - node.y;
+                            const distance = Math.sqrt(dx * dx + dy * dy);
+
+                            if (distance < connectionThreshold && node.connections.length < maxConnections) {
+                                // Crea connessione solo se entrambi i nodi hanno spazio
+                                if (otherNode.connections.length < maxConnections) {
+                                    node.connections.push(otherNode);
+                                    
+                                    // Crea linea SVG
+                                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                                    line.setAttribute("class", "graph-line");
+                                    line.setAttribute("stroke", "#84cc16");
+                                    line.setAttribute("stroke-width", "1.5");
+                                    line.setAttribute("x1", node.x);
+                                    line.setAttribute("y1", node.y);
+                                    line.setAttribute("x2", otherNode.x);
+                                    line.setAttribute("y2", otherNode.y);
+                                    
+                                    // Opacità basata sulla distanza ma con un minimo più alto
+                                    const opacity = 0.8 * (1 - distance / connectionThreshold) + 0.3;
+                                    line.setAttribute("opacity", opacity);
+                                    
+                                    graphContainer.appendChild(line);
+                                }
+                            }
+                        }
+                    });
+                });
+            }
+
+            // Animazione migliorata per effetto molecolare
+            function animate() {
+                // Movimento dei nodi
+                nodes.forEach(node => {
+                    // Applica forza di repulsione dal mouse
+                    applyMouseForce(node);
+                    
+                    // Movimento browniano più leggero
+                    node.vx += (Math.random() - 0.5) * 0.1;
+                    node.vy += (Math.random() - 0.5) * 0.1;
+                    
+                    // Limita la velocità massima
+                    const maxSpeed = 3; // Aumentato per movimento più reattivo
+                    const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
+                    if (speed > maxSpeed) {
+                        node.vx = (node.vx / speed) * maxSpeed;
+                        node.vy = (node.vy / speed) * maxSpeed;
+                    }
+                    
+                    // Smorzamento per movimento più fluido
+                    node.vx *= 0.98;
+                    node.vy *= 0.98;
+                    
+                    // Aggiorna posizione
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    
+                    // Rimbalzo ai bordi con effetto elastico
+                    const margin = nodeSize / 2;
+                    if (node.x < margin) {
+                        node.x = margin;
+                        node.vx *= -0.8;
+                    }
+                    if (node.x > containerRect.width - margin) {
+                        node.x = containerRect.width - margin;
+                        node.vx *= -0.8;
+                    }
+                    if (node.y < margin) {
+                        node.y = margin;
+                        node.vy *= -0.8;
+                    }
+                    if (node.y > containerRect.height - margin) {
+                        node.y = containerRect.height - margin;
+                        node.vy *= -0.8;
+                    }
+                });
+
+                // Aggiorna connessioni dinamiche
+                updateConnections();
+
+                // Aggiorna posizione dei nodi
+                const nodeElements = document.querySelectorAll('.graph-node');
+                nodeElements.forEach((el, i) => {
+                    el.setAttribute("x", nodes[i].x - nodeSize/2);
+                    el.setAttribute("y", nodes[i].y - nodeSize/2);
+                });
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
         });
     </script>
 </body>
