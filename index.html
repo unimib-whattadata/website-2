@@ -19,10 +19,11 @@
                 extend: {
                     colors: {
                         primary: '#4C4AF3',
+                        secondary: "#FF7F36",
                         accent: '#E5F940',
                     },
                     fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
+                        'sans': ['TT Hoves SL', 'sans-serif'],
                         'mono': ['JetBrains Mono', 'monospace'],
                     },
                 },
@@ -33,7 +34,7 @@
     <!-- Base Styles -->
     <style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'TT Hoves SL', sans-serif;
             cursor: none;
         }
         
@@ -91,16 +92,15 @@
             </a>
             
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#chi-siamo" class="hover:text-primary transition-colors">CHI SIAMO</a>
-                <a href="#progetti" class="hover:text-primary transition-colors">PROGETTI</a>
-                <a href="#team" class="hover:text-primary transition-colors">TEAM</a>
-                <a href="#contatti" class="hover:text-primary transition-colors">CONTATTI</a>
+                <a href="#chi-siamo" class="hover:text-gray-900 transition-colors">CHI SIAMO</a>
+                <a href="#progetti" class="hover:text-gray-900 transition-colors">PROGETTI</a>
+                <a href="#team" class="hover:text-gray-900 transition-colors">TEAM</a>
+                <a href="#contatti" class="hover:text-gray-900 transition-colors">CONTATTI</a>
             </div>
             
             <div class="flex items-center space-x-4">
-                <a href="#" class="hidden md:block hover:text-primary transition-colors">ACCEDI</a>
                 <a href="#" class="bg-accent px-6 py-2 font-mono text-sm hover:scale-105 transition-transform">
-                    INIZIA ORA ↳
+                    INIZI ORA
                 </a>
             </div>
         </div>
@@ -110,19 +110,21 @@
     <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl">
-                <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                <h1 class="text-5xl md:text-7xl mb-4">
                     Potenziamo i tuoi dati
                 </h1>
-                <div class="text-4xl md:text-6xl text-primary mb-4 h-20 flex items-center">
-                    <span id="typed-text"></span><span class="animate-pulse">|</span>
+                <div class="text-4xl md:text-6xl text-gray-900 mb-4 h-20 flex items-center">
+                    <span class="text-primary" id="typed-text"></span>
+                    <span class="animate-pulse font-thin">|</span>
                 </div>
-                <p class="text-5xl md:text-7xl font-bold mb-12">
-                    con soluzioni innovative<span class="inline-block w-4 h-4 border-2 border-accent bg-transparent ml-2 relative -top-4"></span>
+                <p class="text-5xl md:text-7xl mb-12">
+                    con soluzioni innovative
+                    <span class="inline-block w-4 h-4 border-2 border-accent bg-transparent ml-2 align-baseline"></span>
                 </p>
             </div>
             
             <div class="absolute left-1/2 transform -translate-x-1/2" style="width: fit-content;">
-                <a href="#chi-siamo" class="inline-flex items-center bg-primary text-white px-8 py-4 hover:scale-105 transition-transform">
+                <a href="#chi-siamo" class="inline-flex items-center bg-primary text-white px-8 py-2 hover:scale-105 transition-transform">
                     Esplora
                     <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
@@ -138,13 +140,13 @@
         
         <!-- Navigation Dots -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
-            <div class="w-2 h-2 rounded-full bg-primary"></div>
-            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+            <div class="w-6 h-1.5 bg-black transition-all duration-300"></div>
+            <div class="w-4 h-1.5 bg-black/30 transition-all duration-300"></div>
+            <div class="w-4 h-1.5 bg-black/30 transition-all duration-300"></div>
         </div>
         
         <!-- Navigation Arrow -->
-        <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-primary hover:scale-110 transition-transform">
+        <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform">
             →
         </button>
     </section>
@@ -155,7 +157,7 @@
             <h2 class="text-4xl font-bold text-center mb-4">
                 Diamo valore ai tuoi dati con soluzioni intelligenti
             </h2>
-            <p class="text-primary text-xl text-center max-w-3xl mx-auto mb-16">
+            <p class="text-gray-700 text-xl text-center max-w-3xl mx-auto mb-16">
                 In qualità di partner tecnologico, accompagniamo le aziende nel loro percorso di innovazione, 
                 integrando soluzioni avanzate di intelligenza artificiale e analisi dati.
             </p>
@@ -217,15 +219,15 @@
                 <!-- Project Menu -->
                 <div class="md:w-1/3">
                     <div class="space-y-4">
-                        <button class="w-full text-left p-4 bg-primary/5 text-primary font-semibold rounded-lg transition-all"
+                        <button class="w-full text-left p-4 bg-gray-100 text-gray-900 font-semibold rounded-lg transition-all"
                                 onclick="showProject('healthcare')">
                             Sanità Digitale
                         </button>
-                        <button class="w-full text-left p-4 hover:bg-primary/5 text-gray-600 hover:text-primary font-semibold rounded-lg transition-all opacity-70 hover:opacity-100"
+                        <button class="w-full text-left p-4 hover:bg-gray-100 text-gray-600 hover:text-gray-900 font-semibold rounded-lg transition-all opacity-70 hover:opacity-100"
                                 onclick="showProject('finance')">
                             Finanza Intelligente
                         </button>
-                        <button class="w-full text-left p-4 hover:bg-primary/5 text-gray-600 hover:text-primary font-semibold rounded-lg transition-all opacity-70 hover:opacity-100"
+                        <button class="w-full text-left p-4 hover:bg-gray-100 text-gray-600 hover:text-gray-900 font-semibold rounded-lg transition-all opacity-70 hover:opacity-100"
                                 onclick="showProject('industry')">
                             Industria 4.0
                         </button>
@@ -235,8 +237,8 @@
                 <!-- Project Panels -->
                 <div class="md:w-2/3">
                     <!-- Healthcare Panel -->
-                    <div id="healthcare-panel" class="bg-primary/5 p-8 rounded-2xl">
-                        <span class="text-primary text-sm font-mono">HEALTHCARE</span>
+                    <div id="healthcare-panel" class="bg-gray-100 p-8 rounded-2xl">
+                        <span class="text-gray-900 text-sm font-mono">HEALTHCARE</span>
                         <h3 class="text-3xl font-bold mt-2 mb-4">Sanità Digitale</h3>
                         <p class="text-gray-600 mb-8">
                             Sviluppiamo soluzioni innovative per la gestione e l'analisi dei dati sanitari, 
@@ -245,14 +247,14 @@
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                                 </svg>
                                 <h4 class="font-bold mb-1">Cartella Clinica Digitale</h4>
                                 <p class="text-sm text-gray-600">Gestione integrata dei dati paziente</p>
                             </div>
                             <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                                 </svg>
                                 <h4 class="font-bold mb-1">Analisi Predittiva</h4>
@@ -262,8 +264,8 @@
                     </div>
 
                     <!-- Finance Panel (Hidden by default) -->
-                    <div id="finance-panel" class="hidden bg-accent/5 p-8 rounded-2xl">
-                        <span class="text-primary text-sm font-mono">FINTECH</span>
+                    <div id="finance-panel" class="hidden bg-gray-100 p-8 rounded-2xl">
+                        <span class="text-gray-900 text-sm font-mono">FINTECH</span>
                         <h3 class="text-3xl font-bold mt-2 mb-4">Finanza Intelligente</h3>
                         <p class="text-gray-600 mb-8">
                             Trasformiamo i dati finanziari in vantaggio competitivo attraverso 
@@ -272,14 +274,14 @@
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                                 </svg>
                                 <h4 class="font-bold mb-1">Risk Management</h4>
                                 <p class="text-sm text-gray-600">Analisi e prevenzione dei rischi finanziari</p>
                             </div>
                             <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
                                 </svg>
                                 <h4 class="font-bold mb-1">Trading Algoritmico</h4>
@@ -289,8 +291,8 @@
                     </div>
 
                     <!-- Industry Panel (Hidden by default) -->
-                    <div id="industry-panel" class="hidden bg-primary/5 p-8 rounded-2xl">
-                        <span class="text-primary text-sm font-mono">INDUSTRY 4.0</span>
+                    <div id="industry-panel" class="hidden bg-gray-100 p-8 rounded-2xl">
+                        <span class="text-gray-900 text-sm font-mono">INDUSTRY 4.0</span>
                         <h3 class="text-3xl font-bold mt-2 mb-4">Industria 4.0</h3>
                         <p class="text-gray-600 mb-8">
                             Ottimizziamo i processi industriali attraverso l'IoT e l'intelligenza 
@@ -299,7 +301,7 @@
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
@@ -307,7 +309,7 @@
                                 <p class="text-sm text-gray-600">Prevenzione dei guasti e ottimizzazione</p>
                             </div>
                             <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
                                 </svg>
                                 <h4 class="font-bold mb-1">Automazione Smart</h4>
@@ -332,11 +334,11 @@
                 <!-- Team Member 1 -->
                 <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
                      data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-primary">MC</span>
+                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-gray-900">MC</span>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-1">Marco Cremaschi</h3>
-                    <p class="text-primary text-center text-sm mb-2">CTO</p>
+                    <p class="text-gray-700 text-center text-sm mb-2">CTO</p>
                     <p class="text-gray-600 text-center text-sm">
                         Esperto di architetture cloud e sistemi distribuiti con focus su soluzioni enterprise.
                     </p>
@@ -345,11 +347,11 @@
                 <!-- Team Member 2 -->
                 <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
                      data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-primary">DC</span>
+                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-gray-900">DC</span>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-1">David Chieregato</h3>
-                    <p class="text-primary text-center text-sm mb-2">CEO</p>
+                    <p class="text-gray-700 text-center text-sm mb-2">CEO</p>
                     <p class="text-gray-600 text-center text-sm">
                         Visione strategica e leadership nell'innovazione tecnologica.
                     </p>
@@ -358,11 +360,11 @@
                 <!-- Team Member 3 -->
                 <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
                      data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-primary">FD</span>
+                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-gray-900">FD</span>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-1">Fabio D'Adda</h3>
-                    <p class="text-primary text-center text-sm mb-2">Responsabile AI</p>
+                    <p class="text-gray-700 text-center text-sm mb-2">Responsabile AI</p>
                     <p class="text-gray-600 text-center text-sm">
                         Ricercatore e sviluppatore di soluzioni di intelligenza artificiale avanzate.
                     </p>
@@ -371,11 +373,11 @@
                 <!-- Team Member 4 -->
                 <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
                      data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-24 h-24 bg-accent/20 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-primary">HC</span>
+                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-gray-900">HC</span>
                     </div>
                     <h3 class="text-xl font-bold text-center mb-1">HACCA501 S.r.l.</h3>
-                    <p class="text-primary text-center text-sm mb-2">Partner Finanziario</p>
+                    <p class="text-gray-700 text-center text-sm mb-2">Partner Finanziario</p>
                     <p class="text-gray-600 text-center text-sm">
                         Supporto strategico e finanziario per la crescita aziendale.
                     </p>
@@ -399,7 +401,7 @@
                                    required>
                         </div>
                         <button type="submit" 
-                                class="bg-primary hover:bg-primary/90 text-white font-mono py-3 px-6 transition-colors inline-flex items-center">
+                                class="bg-primary hover:bg-primary/90 text-white font-mono py-2 px-6 transition-colors inline-flex items-center">
                             INVIA ↳
                         </button>
                         <p class="text-sm text-gray-400">
@@ -574,10 +576,10 @@
             // Update button styles
             document.querySelectorAll('button').forEach(btn => {
                 if (btn.onclick.toString().includes(id)) {
-                    btn.classList.add('bg-primary/5', 'text-primary');
+                    btn.classList.add('bg-gray-100', 'text-gray-900');
                     btn.classList.remove('opacity-70');
                 } else {
-                    btn.classList.remove('bg-primary/5', 'text-primary');
+                    btn.classList.remove('bg-gray-100', 'text-gray-900');
                     btn.classList.add('opacity-70');
                 }
             });
