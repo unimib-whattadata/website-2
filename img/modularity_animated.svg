@@ -1,42 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" baseProfile="full" height="84px" version="1.1" width="84px" viewBox="56 56 92 72">
+<svg xmlns="http://www.w3.org/2000/svg" 
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     baseProfile="full" 
+     height="84px" 
+     version="1.1" 
+     width="84px"
+     viewBox="0 0 84 84">
+    
+    <!-- Title and Description -->
+    <title>Modularity Diagram</title>
+    <desc>A diagram showing modular components connected by lines, representing system architecture</desc>
     
     <!-- Styles -->
     <style>
-        @keyframes pulseMod {
+        @keyframes pulse {
             0% { fill: #4F46E5; }
             50% { fill: #A3E635; }
             100% { fill: #4F46E5; }
         }
         
         @keyframes draw {
-            to { stroke-dashoffset: 0; }
+            0% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 100; }
         }
         
         .animated-square {
-            animation: pulseMod 2s infinite;
+            animation: pulse 2s infinite;
         }
         
         .animated-line {
             stroke-dasharray: 100;
             stroke-dashoffset: 100;
-            animation: draw 2s forwards;
+            animation: draw 2s ease-in infinite;
         }
     </style>
     
     <defs />
     
     <!-- Lines -->
-    <line stroke="#000" stroke-width="2" x1="68" x2="108" y1="68" y2="68" class="animated-line" />
-    
-    <line stroke="#000" stroke-width="2" x1="88" x2="128" y1="108" y2="108" class="animated-line" />
+    <g role="presentation" aria-label="Connecting lines">
+        <line stroke="#000" 
+              stroke-width="2" 
+              x1="12" 
+              x2="52" 
+              y1="12" 
+              y2="12" 
+              class="animated-line" />
+        
+        <line stroke="#000" 
+              stroke-width="2" 
+              x1="32" 
+              x2="72" 
+              y1="72" 
+              y2="72" 
+              class="animated-line" />
+    </g>
     
     <!-- Squares -->
-    <rect fill="#F97316" height="16" stroke="#000" stroke-width="2" width="16" x="60" y="60" />
-    
-    <rect fill="#4F46E5" height="16" stroke="#000" stroke-width="2" width="16" x="100" y="60" class="animated-square" />
-    
-    <rect fill="white" height="16" stroke="#000" stroke-width="2" width="16" x="80" y="100" />
-    
-    <rect fill="white" height="16" stroke="#000" stroke-width="2" width="16" x="120" y="100" />
+    <g role="presentation" aria-label="Modular components">
+        <!-- Square Top Left -->
+        <rect fill="#F97316" 
+              height="16" 
+              stroke="#000" 
+              stroke-width="2" 
+              width="16" 
+              x="4" 
+              y="4"
+              role="img"
+              aria-label="Orange module" />
+        
+        <!-- Square Top Right -->
+        <rect fill="#4F46E5" 
+              height="16" 
+              stroke="#000" 
+              stroke-width="2" 
+              width="16" 
+              x="44" 
+              y="4" 
+              class="animated-square"
+              role="img"
+              aria-label="Animated indigo module" />
+        
+        <!-- Square Bottom Left -->
+        <rect fill="white" 
+              height="16" 
+              stroke="#000" 
+              stroke-width="2" 
+              width="16" 
+              x="24" 
+              y="64"
+              role="img"
+              aria-label="White module" />
+        
+        <!-- Square Bottom Right -->
+        <rect fill="white" 
+              height="16" 
+              stroke="#000" 
+              stroke-width="2" 
+              width="16" 
+              x="64" 
+              y="64"
+              role="img"
+              aria-label="White module" />
+    </g>
 </svg>

@@ -15,7 +15,9 @@
         }
         
         @keyframes draw {
-            to { stroke-dashoffset: 0; }
+            0% { stroke-dashoffset: 100; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 100; }
         }
         
         .animated-square {
@@ -25,7 +27,7 @@
         .animated-line {
             stroke-dasharray: 100;
             stroke-dashoffset: 100;
-            animation: draw 2s forwards;
+            animation: draw 2s ease-in infinite;
         }
     </style>
     
@@ -66,6 +68,7 @@
           class="animated-line" />
     
     <!-- Squares -->
+    <!-- Square Top Center -->
     <rect fill="#4F46E5" 
           height="16" 
           stroke="#000" 
@@ -75,6 +78,7 @@
           y="4" 
           class="animated-square" />
     
+    <!-- Square Center Left -->
     <rect fill="#A3E635" 
           height="16" 
           stroke="#000" 
@@ -83,6 +87,7 @@
           x="4" 
           y="34" />
     
+    <!-- Square Center Right -->
     <rect fill="white" 
           height="16" 
           stroke="#000" 
@@ -91,6 +96,7 @@
           x="64" 
           y="34" />
     
+    <!-- Square Bottom Center -->
     <rect fill="white" 
           height="16" 
           stroke="#000" 
@@ -99,6 +105,7 @@
           x="34" 
           y="64" />
     
+    <!-- Square Center -->
     <rect fill="#4F46E5" 
           height="16" 
           stroke="#000" 
