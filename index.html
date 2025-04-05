@@ -105,7 +105,7 @@
             background-color: transparent;
             margin-left: 8px;
             display: inline-block;
-            vertical-align: middle;
+            vertical-align: baseline;
             margin-bottom: 0;
         }
     </style>
@@ -227,8 +227,8 @@
             </div>
 
             <!-- Value Cards Grid -->
-            <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                <div class="p-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 pl-0">
                     <div class="flex justify-center mb-8">
                         <img src="img/predictive_animated.svg" alt="Predictive Analysis">
                     </div>
@@ -240,11 +240,11 @@
                     <div class="flex justify-center mb-8">
                         <img src="img/ethics_animated.svg" alt="Ethical AI">
                     </div>
-                    <h3 class="text-2xl mb-4">Intelligenza artificiale etica</h3>
+                    <h3 class="text-2xl mb-4">IA etica</h3>
                     <p class="text-gray-600 text-lg">Progettiamo strumenti che rispettano i principi etici, trasparenti e responsabili, per un'innovazione sostenibile e inclusiva</p>
                 </div>
 
-                <div class="p-8">
+                <div class="p-8 pr-0">
                     <div class="flex justify-center mb-8">
                         <img src="img/modularity_animated.svg" alt="Modular Solutions">
                     </div>
@@ -550,11 +550,18 @@
                 
                 const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
                 if (elementUnderCursor) {
-                    const isPrimaryElement = elementUnderCursor.closest('.bg-indigo-600, .hover\\:bg-indigo-600, button, a');
-                    if (isPrimaryElement) {
+                    const isIndigoButton = elementUnderCursor.closest('.bg-indigo-600, .hover\\:bg-indigo-600');
+                    const isLimeButton = elementUnderCursor.closest('.bg-lime-400');
+                    
+                    if (isIndigoButton) {
                         cursor.classList.add('on-dark');
+                        cursor.style.borderColor = 'rgb(163, 230, 53)';
+                    } else if (isLimeButton) {
+                        cursor.classList.add('on-dark');
+                        cursor.style.borderColor = 'rgb(79, 70, 229)';
                     } else {
                         cursor.classList.remove('on-dark');
+                        cursor.style.borderColor = 'rgb(163, 230, 53)';
                     }
                 }
             });
