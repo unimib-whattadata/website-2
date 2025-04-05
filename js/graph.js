@@ -5,43 +5,40 @@ document.addEventListener('DOMContentLoaded', function() {
     const numNodes = 12;
     const maxConnections = 3;
     const connectionThreshold = 200;
-    const constantSpeed = 1; // velocità base (unità per secondo)
+    const baseSpeed = 0.8;
 
-    // Distribuisci i nodi con velocità costante in direzioni casuali
-    const nodes = Array.from({ length: numNodes }, () => {
+    // Crea nodi con un nodo speciale
+    const nodes = Array.from({ length: numNodes }, (_, index) => {
         const angle = Math.random() * 2 * Math.PI;
         return {
             x: Math.random() * containerRect.width,
             y: Math.random() * containerRect.height,
-            vx: constantSpeed * Math.cos(angle),
-            vy: constantSpeed * Math.sin(angle),
-            connections: []
+            vx: baseSpeed * Math.cos(angle),
+            vy: baseSpeed * Math.sin(angle),
+            connections: [],
+            isSpecial: index === 3 // Modifica questo numero per cambiare il nodo speciale
         };
     });
 
-    // Crea un gruppo SVG per le linee
     const edgesGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
     edgesGroup.setAttribute("class", "edges-group");
     graphContainer.appendChild(edgesGroup);
 
-    // Crea gli elementi SVG per i nodi
+    // Crea elementi SVG per i nodi
     const nodeElements = nodes.map(node => {
         const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         rect.setAttribute("class", "graph-node");
         rect.setAttribute("width", nodeSize);
         rect.setAttribute("height", nodeSize);
-        rect.setAttribute("stroke", "#84cc16");
+        rect.setAttribute("stroke", node.isSpecial ? "#F97316" : "#84cc16");
         rect.setAttribute("stroke-width", "2");
         rect.setAttribute("fill", "rgb(79 70 229)");
         graphContainer.appendChild(rect);
         return rect;
     });
 
-    // Funzione per aggiornare le connessioni
     function updateConnections() {
-        while (edgesGroup.firstChild) {
-            edgesGroup.removeChild(edgesGroup.firstChild);
-        }
+        while (edgesGroup.firstChild) edgesGroup.removeChild(edgesGroup.firstChild);
 
         nodes.forEach((node, i) => {
             node.connections = [];
@@ -51,8 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const dy = otherNode.y - node.y;
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
-                    if (distance < connectionThreshold && node.connections.length < maxConnections) {
-                        if (otherNode.connections.length < maxConnections) {
+                    if (distance < connectionThreshold) {
+                        if (node.connections.length < maxConnections && otherNode.connections.length < maxConnections) {
                             node.connections.push(otherNode);
                             const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
                             line.setAttribute("class", "graph-line");
@@ -64,54 +61,66 @@ document.addEventListener('DOMContentLoaded', function() {
                             line.setAttribute("y2", otherNode.y);
                             edgesGroup.appendChild(line);
                         }
+
+                        // Repulsione tra nodi vicini
+                        if (distance < 40) {
+                            const repulsion = 0.015;
+                            node.vx -= (dx * repulsion);
+                            node.vy -= (dy * repulsion);
+                            otherNode.vx += (dx * repulsion);
+                            otherNode.vy += (dy * repulsion);
+                        }
                     }
                 }
             });
         });
     }
 
-    // Animazione con delta time
     let lastTime = performance.now();
-    
+
     function animate(currentTime) {
         const deltaTime = currentTime - lastTime;
         lastTime = currentTime;
 
         nodes.forEach(node => {
-            // Applica movimento in base al tempo trascorso
-            node.x += node.vx * (deltaTime / 16.67); // Normalizza per 60 FPS
+            // Aggiorna posizione
+            node.x += node.vx * (deltaTime / 16.67);
             node.y += node.vy * (deltaTime / 16.67);
-            
+
+            // Rimbalzi dai bordi
             const margin = nodeSize / 2;
-            // Gestione rimbalzi
-            if (node.x < margin) {
-                node.x = margin;
-                node.vx = Math.abs(node.vx);
+            if (node.x < margin || node.x > containerRect.width - margin) {
+                node.vx *= -0.95;
+                node.x = Math.max(margin, Math.min(node.x, containerRect.width - margin));
             }
-            if (node.x > containerRect.width - margin) {
-                node.x = containerRect.width - margin;
-                node.vx = -Math.abs(node.vx);
+            if (node.y < margin || node.y > containerRect.height - margin) {
+                node.vy *= -0.95;
+                node.y = Math.max(margin, Math.min(node.y, containerRect.height - margin));
             }
-            if (node.y < margin) {
-                node.y = margin;
-                node.vy = Math.abs(node.vy);
-            }
-            if (node.y > containerRect.height - margin) {
-                node.y = containerRect.height - margin;
-                node.vy = -Math.abs(node.vy);
-            }
+
+            // Leggero attrito
+            node.vx *= 0.999;
+            node.vy *= 0.999;
         });
 
         updateConnections();
 
+        // Aggiorna posizioni SVG
         nodeElements.forEach((el, i) => {
             el.setAttribute("x", nodes[i].x - nodeSize / 2);
             el.setAttribute("y", nodes[i].y - nodeSize / 2);
         });
 
-        requestAnimationFrame((timestamp) => animate(timestamp));
+        requestAnimationFrame(animate);
     }
 
-    // Avvia animazione
-    requestAnimationFrame((timestamp) => animate(timestamp));
+    // Aggiungi variazione casuale del movimento
+    setInterval(() => {
+        nodes.forEach(node => {
+            node.vx += (Math.random() - 0.5) * 0.008;
+            node.vy += (Math.random() - 0.5) * 0.008;
+        });
+    }, 2000);
+
+    requestAnimationFrame(animate);
 });
