@@ -34,9 +34,71 @@
     <!-- Custom Styles -->
     <style>
         /* Base Styles */
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'TT Hoves SL', sans-serif;
             cursor: none;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+        
+        section {
+            height: 100vh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+        }
+        
+        footer {
+            height: 100vh;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .project-screenshot {
+            margin: 1.5rem auto;
+            max-width: 500px;
+            height: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            display: block;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+
+        .project-screenshot img {
+            width: 100%;
+            height: auto;
+            animation: scrollScreenshot 20s linear infinite;
+            transform-origin: top;
+        }
+        
+        @keyframes scrollScreenshot {
+            0% {
+                transform: translateY(0);
+            }
+            45% {
+                transform: translateY(calc(-100% + 300px));
+            }
+            55% {
+                transform: translateY(calc(-100% + 300px));
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        .project-screenshot:hover {
+            transform: translateY(-100px);
+            z-index: 10;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
         
         /* Custom Cursor */
@@ -108,6 +170,56 @@
             vertical-align: baseline;
             margin-bottom: 0;
         }
+
+        /* Animazioni pannelli */
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideOutLeft {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+        }
+
+        .panel-enter {
+            animation: slideInRight 0.5s ease forwards;
+        }
+
+        .panel-exit {
+            animation: slideOutLeft 0.3s ease forwards;
+        }
+
+        #project-container {
+            position: relative;
+        }
+
+        #project-container > div {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #project-container > div:not(.hidden) {
+            opacity: 1;
+            position: relative;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -119,7 +231,7 @@
         <div class="container mx-auto px-4 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" class="text-xl md:text-2xl flex items-center" id="logo">
-                <img src="img/logo.svg" alt="Whattadata Logo" class="h-8 w-auto mr-3">
+                <img src="img/logo.svg" alt="Whatta Logo" class="h-8 w-auto mr-3">
                 <span>Whatta</span><span class="font-light">data</span>
             </a>
             
@@ -271,108 +383,57 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="progetti" class="py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">Progetti</h2>
-            <p class="text-xl text-center max-w-3xl mx-auto mb-16">
-                Le nostre soluzioni trasformano la ricerca in impatto concreto
-            </p>
+    <section id="progetti" class="min-h-screen">
+        <div class="container mx-auto px-4 h-full flex items-center">
+            <div class="w-full">
+                <h2 class="text-4xl font-bold text-center mb-4">Progetti</h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16">
+                    Le nostre soluzioni trasformano la ricerca in impatto concreto
+                </p>
 
-            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-                <div class="md:w-1/3">
-                    <div class="space-y-4">
-                        <button class="w-full text-left p-4 bg-gray-100 text-gray-900 font-semibold rounded-lg transition-all font-mono"
-                                onclick="showProject('healthcare')">
-                            Sanità Digitale
-                        </button>
-                        <button class="w-full text-left p-4 hover:bg-gray-100 text-gray-600 hover:text-gray-900 font-semibold rounded-lg transition-all opacity-70 hover:opacity-100 font-mono"
-                                onclick="showProject('finance')">
-                            Finanza Intelligente
-                        </button>
-                        <button class="w-full text-left p-4 hover:bg-gray-100 text-gray-600 hover:text-gray-900 font-semibold rounded-lg transition-all opacity-70 hover:opacity-100 font-mono"
-                                onclick="showProject('industry')">
-                            Industria 4.0
-                        </button>
-                    </div>
-                </div>
-
-                <div class="md:w-2/3">
-                    <div id="healthcare-panel" class="bg-gray-100 p-8 rounded-2xl">
-                        <span class="text-gray-900 text-sm font-mono">HEALTHCARE</span>
-                        <h3 class="text-3xl font-bold mt-2 mb-4">Sanità Digitale</h3>
-                        <p class="text-gray-600 mb-8">
-                            Sviluppiamo soluzioni innovative per la gestione e l'analisi dei dati sanitari, 
-                            migliorando l'efficienza operativa e la qualità delle cure.
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                </svg>
-                                <h4 class="font-bold mb-1">Cartella Clinica Digitale</h4>
-                                <p class="text-sm text-gray-600">Gestione integrata dei dati paziente</p>
+                <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+                    <div class="md:w-1/3">
+                        <div class="space-y-4">
+                            <div class="w-full h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('arianne')">
+                                <img src="img/logo_arianne.svg" alt="Arianne" class="h-12 w-auto" style="filter: invert(56%) sepia(96%) saturate(1731%) hue-rotate(346deg) brightness(97%) contrast(96%);">
                             </div>
-                            <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                                </svg>
-                                <h4 class="font-bold mb-1">Analisi Predittiva</h4>
-                                <p class="text-sm text-gray-600">Prevenzione e gestione del rischio</p>
+                            <div class="w-full h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('esg')">
+                                <img src="img/esgquest.svg" alt="ESGquest" class="h-12 w-auto" style="filter: invert(27%) sepia(91%) saturate(1954%) hue-rotate(231deg) brightness(97%) contrast(94%);">
+                            </div>
+                            <div class="w-full h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('micare')">
+                                <h3 class="text-3xl text-indigo-400">MiCare</h3>
                             </div>
                         </div>
                     </div>
 
-                    <div id="finance-panel" class="hidden bg-gray-100 p-8 rounded-2xl">
-                        <span class="text-gray-900 text-sm font-mono">FINTECH</span>
-                        <h3 class="text-3xl font-bold mt-2 mb-4">Finanza Intelligente</h3>
-                        <p class="text-gray-600 mb-8">
-                            Trasformiamo i dati finanziari in vantaggio competitivo attraverso 
-                            soluzioni di analisi predittiva e automazione dei processi.
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                                </svg>
-                                <h4 class="font-bold mb-1">Risk Management</h4>
-                                <p class="text-sm text-gray-600">Analisi e prevenzione dei rischi finanziari</p>
-                            </div>
-                            <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
-                                </svg>
-                                <h4 class="font-bold mb-1">Trading Algoritmico</h4>
-                                <p class="text-sm text-gray-600">Strategie automatizzate di trading</p>
-                            </div>
+                    <div id="project-container" class="md:w-2/3 overflow-hidden h-[500px]">
+                        <div id="arianne-panel" class="bg-gray-100 p-8 rounded-2xl">
+                            <p class="text-gray-600 mb-8">
+                                Arianne è la nuova piattaforma digitale concepita per sostenere psicologi, psicoterapeuti e psichiatri in ogni fase del percorso di cura. Un ambiente unico, completo e sicuro, che integra videochiamate, oltre 50 test psicodiagnostici e strumenti di monitoraggio e diario digitale, consentendo ai professionisti di fornire interventi personalizzati e di mantenere un contatto costante con i pazienti. Grazie a una suite di funzionalità avanzate, Arianne offre un servizio più completo rispetto ai competitor, distinguendosi per l'approccio innovativo, l'elevata protezione dei dati e la semplicità d'uso, migliorando così l'efficacia terapeutica e la qualità dell'esperienza di cura.
+                            </p>
+                            <a href="https://arianne.whattadata.it" target="_blank" rel="noopener noreferrer" class="project-screenshot">
+                                <img src="img/arriane-screenshot.png" alt="Arianne Platform Dashboard" />
+                            </a>
                         </div>
-                    </div>
 
-                    <div id="industry-panel" class="hidden bg-gray-100 p-8 rounded-2xl">
-                        <span class="text-gray-900 text-sm font-mono">INDUSTRY 4.0</span>
-                        <h3 class="text-3xl font-bold mt-2 mb-4">Industria 4.0</h3>
-                        <p class="text-gray-600 mb-8">
-                            Ottimizziamo i processi industriali attraverso l'IoT e l'intelligenza 
-                            artificiale per una produzione più efficiente e sostenibile.
-                        </p>
-                        
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                                <h4 class="font-bold mb-1">Manutenzione Predittiva</h4>
-                                <p class="text-sm text-gray-600">Prevenzione dei guasti e ottimizzazione</p>
-                            </div>
-                            <div class="p-4 bg-white rounded-lg">
-                                <svg class="w-8 h-8 text-gray-900 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                                </svg>
-                                <h4 class="font-bold mb-1">Automazione Smart</h4>
-                                <p class="text-sm text-gray-600">Controllo e ottimizzazione dei processi</p>
-                            </div>
+                        <div id="esg-panel" class="hidden bg-gray-100 p-8 rounded-2xl">
+                            <p class="text-gray-600 mb-8">
+                                ESGQuest è un tool che sfrutta l'intelligenza artificiale per analizzare i documenti non finanziari delle aziende, valutando l'implementazione di iniziative ESG. Grazie a tecniche di elaborazione del linguaggio naturale, elabora fattori ambientali, sociali e di governance per fornire una panoramica accurata delle performance complessive.
+                                Le analisi di ESGQuest evidenziano punti di forza e aree di miglioramento, facilitando una maggiore trasparenza e responsabilità. L'interfaccia intuitiva consente di tradurre i risultati in azioni strategiche, rispondendo alla crescente attenzione verso la sostenibilità
+                            </p>
+                            <a href="https://esgquest.whattadata.it" target="_blank" rel="noopener noreferrer" class="project-screenshot">
+                                <img src="https://placehold.co/1200x900/CCCCCC/f5f5f5?text=ESGquest+Dashboard" alt="ESGquest Platform Dashboard" />
+                            </a>
+                        </div>
+
+                        <div id="micare-panel" class="hidden bg-gray-100 p-8 rounded-2xl">
+                            <p class="text-gray-600 mb-8">
+                                MiCare è un sistema intelligente pensato per supportare i clinici nel processo decisionale attraverso modelli avanzati di intelligenza artificiale. Utilizza dati clinici eterogenei – come anamnesi, esami diagnostici e informazioni dalle cartelle elettroniche – per costruire una rappresentazione completa del paziente.
+                                Questa visione integrata consente di fornire raccomandazioni dettagliate, favorendo un approccio personalizzato alla diagnosi e alla cura. MiCare contribuisce all'identificazione precoce del rischio di patologie e si integra facilmente nei flussi di lavoro clinici grazie a un'interfaccia intuitiva e strumenti di visualizzazione chiari.
+                            </p>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="project-screenshot">
+                                <img src="img/micare-screenshot.png" alt="MiCare Platform Dashboard" />
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -381,159 +442,163 @@
     </section>
 
     <!-- Team Section -->
-    <section id="team" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">Il nostro team</h2>
-            <p class="text-xl text-center max-w-3xl mx-auto mb-16">
-                Esperienza accademica e passione per l'innovazione
-            </p>
+    <section id="team" class="min-h-screen bg-gray-50">
+        <div class="container mx-auto px-4 h-full flex items-center">
+            <div class="w-full">
+                <h2 class="text-4xl font-bold text-center mb-4">Il nostro team</h2>
+                <p class="text-xl text-center max-w-3xl mx-auto mb-16">
+                    Esperienza accademica e passione per l'innovazione
+                </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
-                     data-aos="fade-up" data-aos-delay="0">
-                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-gray-900">MC</span>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                         data-aos="fade-up" data-aos-delay="0">
+                        <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-gray-900">MC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-1">Marco Cremaschi</h3>
+                        <p class="text-gray-700 text-center text-sm mb-2">CTO</p>
+                        <p class="text-gray-600 text-center text-sm">
+                            Esperto di architetture cloud e sistemi distribuiti con focus su soluzioni enterprise.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-1">Marco Cremaschi</h3>
-                    <p class="text-gray-700 text-center text-sm mb-2">CTO</p>
-                    <p class="text-gray-600 text-center text-sm">
-                        Esperto di architetture cloud e sistemi distribuiti con focus su soluzioni enterprise.
-                    </p>
-                </div>
 
-                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
-                     data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-gray-900">DC</span>
+                    <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                         data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-gray-900">DC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-1">David Chieregato</h3>
+                        <p class="text-gray-700 text-center text-sm mb-2">CEO</p>
+                        <p class="text-gray-600 text-center text-sm">
+                            Visione strategica e leadership nell'innovazione tecnologica.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-1">David Chieregato</h3>
-                    <p class="text-gray-700 text-center text-sm mb-2">CEO</p>
-                    <p class="text-gray-600 text-center text-sm">
-                        Visione strategica e leadership nell'innovazione tecnologica.
-                    </p>
-                </div>
 
-                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
-                     data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-gray-900">FD</span>
+                    <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                         data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-gray-900">FD</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-1">Fabio D'Adda</h3>
+                        <p class="text-gray-700 text-center text-sm mb-2">Responsabile AI</p>
+                        <p class="text-gray-600 text-center text-sm">
+                            Ricercatore e sviluppatore di soluzioni di intelligenza artificiale avanzate.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-1">Fabio D'Adda</h3>
-                    <p class="text-gray-700 text-center text-sm mb-2">Responsabile AI</p>
-                    <p class="text-gray-600 text-center text-sm">
-                        Ricercatore e sviluppatore di soluzioni di intelligenza artificiale avanzate.
-                    </p>
-                </div>
 
-                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
-                     data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
-                        <span class="text-2xl font-bold text-gray-900">HC</span>
+                    <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                         data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-24 h-24 bg-gray-100 flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-gray-900">HC</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-center mb-1">HACCA501 S.r.l.</h3>
+                        <p class="text-gray-700 text-center text-sm mb-2">Partner Finanziario</p>
+                        <p class="text-gray-600 text-center text-sm">
+                            Supporto strategico e finanziario per la crescita aziendale.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-center mb-1">HACCA501 S.r.l.</h3>
-                    <p class="text-gray-700 text-center text-sm mb-2">Partner Finanziario</p>
-                    <p class="text-gray-600 text-center text-sm">
-                        Supporto strategico e finanziario per la crescita aziendale.
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer & Contact Section -->
-    <footer id="contatti" class="bg-gray-900 text-white pt-16 pb-10">
-        <div class="container mx-auto px-4">
-            <div class="grid md:grid-cols-2 gap-16 mb-16">
-                <div>
-                    <h3 class="text-2xl font-bold mb-6">Resta aggiornato</h3>
-                    <form class="space-y-4">
-                        <div class="relative">
-                            <input type="email" 
-                                   placeholder="La tua email..." 
-                                   class="w-full bg-gray-800 border-2 border-gray-700 py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600 transition-colors font-mono"
-                                   required>
+    <footer id="contatti" class="min-h-screen bg-gray-900 text-white">
+        <div class="container mx-auto px-4 h-full flex items-center">
+            <div class="w-full">
+                <div class="grid md:grid-cols-2 gap-16 mb-16">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">Resta aggiornato</h3>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <input type="email" 
+                                       placeholder="La tua email..." 
+                                       class="w-full bg-gray-800 border-2 border-gray-700 py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-600 transition-colors font-mono"
+                                       required>
+                            </div>
+                            <button type="submit" 
+                                    class="bg-indigo-600 hover:bg-indigo-600/90 text-white font-mono py-2 px-6 transition-colors inline-flex items-center">
+                                INVIA ↳
+                            </button>
+                            <p class="text-sm text-gray-400">
+                                Riceverai solo aggiornamenti importanti. Niente spam.
+                            </p>
+                        </form>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold mb-4">Collegamenti</h4>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="#chi-siamo" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                        </svg>
+                                        Chi Siamo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#progetti" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                        </svg>
+                                        Progetti
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#team" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                        </svg>
+                                        Team
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <button type="submit" 
-                                class="bg-indigo-600 hover:bg-indigo-600/90 text-white font-mono py-2 px-6 transition-colors inline-flex items-center">
-                            INVIA ↳
-                        </button>
-                        <p class="text-sm text-gray-400">
-                            Riceverai solo aggiornamenti importanti. Niente spam.
+                        <div>
+                            <h4 class="text-lg font-bold mb-4">Social</h4>
+                            <ul class="space-y-2">
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                        </svg>
+                                        LinkedIn
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                        </svg>
+                                        X (Twitter)
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                                        </svg>
+                                        Instagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-800 pt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <p class="text-gray-400 text-sm">
+                            © 2024 Whattadata. Tutti i diritti riservati.
                         </p>
-                    </form>
-                </div>
-
-                <div class="grid grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-lg font-bold mb-4">Collegamenti</h4>
-                        <ul class="space-y-2">
-                            <li>
-                                <a href="#chi-siamo" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
-                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    Chi Siamo
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#progetti" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
-                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-                                    </svg>
-                                    Progetti
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#team" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
-                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
-                                    </svg>
-                                    Team
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold mb-4">Social</h4>
-                        <ul class="space-y-2">
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
-                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                                    </svg>
-                                    LinkedIn
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
-                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                    </svg>
-                                    X (Twitter)
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
-                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
-                                    </svg>
-                                    Instagram
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-t border-gray-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center">
-                    <p class="text-gray-400 text-sm">
-                        © 2024 Whattadata. Tutti i diritti riservati.
-                    </p>
-                    <div class="flex space-x-4 mt-4 md:mt-0">
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Termini</a>
-                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie</a>
+                        <div class="flex space-x-4 mt-4 md:mt-0">
+                            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
+                            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Termini</a>
+                            <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -551,6 +616,35 @@
             duration: 800,
             once: true
         });
+
+        // Smooth Scroll Function
+        function smoothScrollTo(target) {
+            const targetElement = document.querySelector(target);
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 1000;
+                let start = null;
+
+                function animation(currentTime) {
+                    if (start === null) start = currentTime;
+                    const timeElapsed = currentTime - start;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    // Easing function for smooth acceleration and deceleration
+                    const ease = t => t<.5 ? 2*t*t : -1+(4-2*t)*t;
+                    
+                    window.scrollTo(0, startPosition + (distance * ease(progress)));
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animation);
+                    }
+                }
+
+                requestAnimationFrame(animation);
+            }
+        }
 
         // Custom Cursor and Typing Animation
         document.addEventListener('DOMContentLoaded', function() {
@@ -619,24 +713,43 @@
 
         // Project Panel Toggle
         function showProject(id) {
-            document.querySelectorAll('[id$="-panel"]').forEach(panel => {
-                panel.classList.add('hidden');
-            });
+            const currentPanel = document.querySelector('#project-container > div:not(.hidden)');
+            const newPanel = document.getElementById(`${id}-panel`);
             
-            const selectedPanel = document.getElementById(`${id}-panel`);
-            selectedPanel.classList.remove('hidden');
-            selectedPanel.classList.add('animate-fade-in');
+            if (currentPanel) {
+                // Anima il pannello corrente in uscita
+                currentPanel.classList.add('panel-exit');
+                setTimeout(() => {
+                    currentPanel.classList.add('hidden');
+                    currentPanel.classList.remove('panel-exit');
+                    
+                    // Mostra e anima il nuovo pannello
+                    newPanel.classList.remove('hidden');
+                    newPanel.classList.add('panel-enter');
+                    setTimeout(() => {
+                        newPanel.classList.remove('panel-enter');
+                    }, 500);
+                }, 300);
+            } else {
+                // Prima visualizzazione
+                newPanel.classList.remove('hidden');
+                newPanel.classList.add('panel-enter');
+                setTimeout(() => {
+                    newPanel.classList.remove('panel-enter');
+                }, 500);
+            }
             
-            document.querySelectorAll('button').forEach(btn => {
-                if (btn.onclick.toString().includes(id)) {
-                    btn.classList.add('bg-gray-100', 'text-gray-900');
-                    btn.classList.remove('opacity-70');
-                } else {
-                    btn.classList.remove('bg-gray-100', 'text-gray-900');
-                    btn.classList.add('opacity-70');
-                }
-            });
+            // Aggiorna lo stato attivo dei div
+            document.querySelector('[onclick="showProject(\'arianne\')"]').classList.remove('bg-gray-700');
+            document.querySelector('[onclick="showProject(\'esg\')"]').classList.remove('bg-gray-700');
+            document.querySelector('[onclick="showProject(\'micare\')"]').classList.remove('bg-gray-700');
+            document.querySelector(`[onclick="showProject('${id}')"]`).classList.add('bg-gray-700');
         }
+
+        // Show Arianne project by default on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            showProject('arianne');
+        });
 
         // Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', function() {
@@ -676,6 +789,12 @@
             // Imposta le variabili CSS per l'animazione
             square.style.setProperty('--start-x', `${startX}px`);
             square.style.setProperty('--start-y', `${startY}px`);
+        });
+
+        // Add smooth scroll to explore button
+        document.querySelector('a[href="#chi-siamo"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            smoothScrollTo(this.getAttribute('href'));
         });
     </script>
 </body>
