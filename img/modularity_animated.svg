@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" baseProfile="full" height="84px" version="1.1" width="84px" viewBox="56 56 92 72">
+    
+    <!-- Styles -->
+    <style>
+        @keyframes pulseMod {
+            0% { fill: #4F46E5; }
+            50% { fill: #A3E635; }
+            100% { fill: #4F46E5; }
+        }
+        
+        @keyframes draw {
+            to { stroke-dashoffset: 0; }
+        }
+        
+        .animated-square {
+            animation: pulseMod 2s infinite;
+        }
+        
+        .animated-line {
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw 2s forwards;
+        }
+    </style>
+    
+    <defs />
+    
+    <!-- Lines -->
+    <line stroke="#000" stroke-width="2" x1="68" x2="108" y1="68" y2="68" class="animated-line" />
+    
+    <line stroke="#000" stroke-width="2" x1="88" x2="128" y1="108" y2="108" class="animated-line" />
+    
+    <!-- Squares -->
+    <rect fill="#F97316" height="16" stroke="#000" stroke-width="2" width="16" x="60" y="60" />
+    
+    <rect fill="#4F46E5" height="16" stroke="#000" stroke-width="2" width="16" x="100" y="60" class="animated-square" />
+    
+    <rect fill="white" height="16" stroke="#000" stroke-width="2" width="16" x="80" y="100" />
+    
+    <rect fill="white" height="16" stroke="#000" stroke-width="2" width="16" x="120" y="100" />
+</svg>
