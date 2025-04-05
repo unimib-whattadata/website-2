@@ -860,8 +860,13 @@
                 connections: []
             }));
 
+            // Gruppo per gli archi (creato per primo, quindi sotto)
+            const edgesGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+            edgesGroup.setAttribute("class", "edges-group");
+            graphContainer.appendChild(edgesGroup);
+
             // Crea elementi SVG per i nodi
-            nodes.forEach(node => {
+            const nodeElements = nodes.map(node => {
                 const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
                 rect.setAttribute("class", "graph-node");
                 rect.setAttribute("width", nodeSize);
@@ -870,13 +875,15 @@
                 rect.setAttribute("stroke-width", "2");
                 rect.setAttribute("fill", "rgb(79 70 229)");
                 graphContainer.appendChild(rect);
+                return rect;
             });
 
             // Funzione per aggiornare le connessioni dinamicamente
             function updateConnections() {
                 // Rimuovi tutte le linee esistenti
-                const oldLines = document.querySelectorAll('.graph-line');
-                oldLines.forEach(line => line.remove());
+                while (edgesGroup.firstChild) {
+                    edgesGroup.removeChild(edgesGroup.firstChild);
+                }
 
                 // Crea nuove connessioni basate sulla distanza
                 nodes.forEach((node, i) => {
@@ -895,14 +902,14 @@
                                     // Crea linea SVG
                                     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
                                     line.setAttribute("class", "graph-line");
-                                    line.setAttribute("stroke", "#84cc16");
+                                    line.setAttribute("stroke", "rgb(79, 70, 229)");
                                     line.setAttribute("stroke-width", "1.5");
                                     line.setAttribute("x1", node.x);
                                     line.setAttribute("y1", node.y);
                                     line.setAttribute("x2", otherNode.x);
                                     line.setAttribute("y2", otherNode.y);
                                     
-                                    graphContainer.appendChild(line);
+                                    edgesGroup.appendChild(line);
                                 }
                             }
                         }
@@ -958,7 +965,6 @@
                 updateConnections();
 
                 // Aggiorna posizione dei nodi
-                const nodeElements = document.querySelectorAll('.graph-node');
                 nodeElements.forEach((el, i) => {
                     el.setAttribute("x", nodes[i].x - nodeSize/2);
                     el.setAttribute("y", nodes[i].y - nodeSize/2);
