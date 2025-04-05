@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
 <head>
+    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whattadata – Soluzioni data-driven per la salute e la sostenibilità</title>
     <meta name="description" content="Soluzioni innovative di intelligenza artificiale e analisi dati per trasformare il tuo business">
     
-    <!-- Tailwind CSS -->
+    <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts - Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Tailwind Configuration -->
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -31,13 +30,15 @@
         }
     </script>
 
-    <!-- Base Styles -->
+    <!-- Custom Styles -->
     <style>
+        /* Base Styles */
         body {
             font-family: 'TT Hoves SL', sans-serif;
             cursor: none;
         }
         
+        /* Custom Cursor */
         #custom-cursor {
             width: 16px;
             height: 16px;
@@ -57,12 +58,11 @@
             transform: translate(-50%, -50%) scale(1.5);
         }
 
-        /* Remove rounded corners from all elements */
+        /* Utility Classes */
         .rounded-lg, .rounded-full, .rounded-2xl, .rounded-xl, .rounded-md, .rounded-sm {
             border-radius: 0 !important;
         }
 
-        /* Prevent default cursor on interactive elements */
         a, button, input, select, textarea {
             cursor: none !important;
         }
@@ -79,6 +79,7 @@
             }
         }
 
+        /* Square Animation */
         @keyframes square-move {
             0% {
                 transform: translate(var(--start-x), var(--start-y)) scale(2);
@@ -109,25 +110,26 @@
     </style>
 </head>
 <body class="bg-white">
-    <!-- Custom Cursor -->
+    <!-- Custom Cursor Element -->
     <div id="custom-cursor"></div>
 
-    <!-- Navigation -->
+    <!-- Main Navigation -->
     <nav class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4">
         <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Logo -->
             <a href="#" class="text-xl md:text-2xl flex items-center" id="logo">
                 <img src="img/logo.svg" alt="Whattadata Logo" class="h-8 w-auto mr-3">
                 <span class="font-bold">Whatta</span><span class="font-light">data</span>
             </a>
             
-            <!-- Mobile Menu Button -->
+            <!-- Mobile Menu Toggle -->
             <button class="md:hidden text-gray-900 focus:outline-none" id="mobile-menu-button">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                 </svg>
             </button>
 
-            <!-- Desktop Menu -->
+            <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#chi-siamo" class="hover:text-gray-900 transition-colors font-mono">CHI SIAMO</a>
                 <a href="#progetti" class="hover:text-gray-900 transition-colors font-mono">PROGETTI</a>
@@ -135,6 +137,7 @@
                 <a href="#contatti" class="hover:text-gray-900 transition-colors font-mono">CONTATTI</a>
             </div>
             
+            <!-- CTA Button -->
             <div class="hidden md:flex items-center space-x-4">
                 <a href="#" class="bg-lime-400 px-6 py-2 font-mono text-sm hover:scale-105 transition-transform">
                     INFO
@@ -142,7 +145,7 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
+        <!-- Mobile Navigation Menu -->
         <div class="md:hidden hidden bg-white border-t mt-4" id="mobile-menu">
             <div class="container mx-auto px-4 py-4 space-y-4">
                 <a href="#chi-siamo" class="block hover:text-gray-900 transition-colors font-mono">CHI SIAMO</a>
@@ -157,55 +160,72 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div class="container mx-auto px-4">
+    <section class="relative flex items-center justify-center min-h-screen pt-20">
+        <div class="container px-4 mx-auto">
             <div class="max-w-4xl">
-                <h1 class="text-4xl sm:text-5xl md:text-7xl mb-4 [text-shadow:_0_1px_2px_rgb(0_0_0_/_10%)] leading-tight text-left">
+                <!-- Main Heading -->
+                <h1 class="text-4xl sm:text-5xl md:text-7xl mb-4 leading-tight">
                     Potenziamo i tuoi dati
                 </h1>
-                <div class="text-4xl sm:text-5xl md:text-7xl text-indigo-600 mb-4 h-20 flex items-center [text-shadow:_0_1px_2px_rgb(0_0_0_/_10%)] text-left">
-                    <span id="typed-text"></span><span class="animate-pulse text-gray-400 font-thin">|</span>
+                
+                <!-- Animated Text -->
+                <div class="flex items-center h-20 mb-4 text-4xl sm:text-5xl md:text-7xl text-indigo-600">
+                    <span id="typed-text"></span>
+                    <span class="font-thin text-gray-400 animate-pulse">|</span>
                 </div>
-                <p class="text-4xl sm:text-5xl md:text-7xl mb-8 md:mb-12 [text-shadow:_0_1px_2px_rgb(0_0_0_/_10%)] leading-tight text-left">
+                
+                <!-- Subheading with Animated Square -->
+                <p class="text-4xl sm:text-5xl md:text-7xl mb-8 md:mb-12 leading-tight">
                     con soluzioni innovative<span class="animate-square-move" id="square"></span>
                 </p>
             </div>
             
-            <div class="absolute left-1/2 transform -translate-x-1/2 mt-8 md:mt-0" style="width: fit-content;">
-                <a href="#chi-siamo" class="inline-flex items-center bg-indigo-600 text-white px-6 md:px-8 py-2 hover:scale-105 transition-transform font-mono text-sm md:text-base">
+            <!-- CTA Button -->
+            <div class="absolute left-1/2 transform -translate-x-1/2 mt-8 md:mt-0">
+                <a href="#chi-siamo" class="inline-flex items-center px-6 md:px-8 py-2 text-sm md:text-base text-white bg-indigo-600 hover:scale-105 transition-transform font-mono">
                     ESPLORA
                     <span class="ml-2">↓</span>
                 </a>
             </div>
         </div>
         
-        <div class="absolute right-1/4 top-1/3 w-32 h-32 rounded-full border-4 border-indigo-600/20 
-                    opacity-0 scale-0 animate-[fade-in_1s_ease_forwards,scale-up_1s_ease_forwards]
-                    hover:scale-110 hover:shadow-lg hover:shadow-indigo-600/20 transition-all"></div>
+        <!-- Decorative Circle -->
+        <div class="absolute right-1/4 top-1/3 w-32 h-32 border-4 border-indigo-600/20 rounded-full opacity-0 scale-0 animate-[fade-in_1s_ease_forwards,scale-up_1s_ease_forwards] hover:scale-110 hover:shadow-lg hover:shadow-indigo-600/20 transition-all"></div>
         
+        <!-- Page Indicators -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
-            <div class="w-6 h-1.5 bg-black transition-all duration-300"></div>
-            <div class="w-4 h-1.5 bg-black/30 transition-all duration-300"></div>
-            <div class="w-4 h-1.5 bg-black/30 transition-all duration-300"></div>
+            <div class="w-6 h-1.5 bg-black"></div>
+            <div class="w-4 h-1.5 bg-black/30"></div>
+            <div class="w-4 h-1.5 bg-black/30"></div>
         </div>
         
+        <!-- Navigation Arrow -->
         <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono">
             →
         </button>
     </section>
 
-    <!-- Value Proposition -->
+    <!-- Value Proposition Section -->
     <section id="chi-siamo" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-4">
-                Diamo valore ai tuoi dati con soluzioni intelligenti
-            </h2>
-            <p class="text-gray-700 text-xl text-center max-w-3xl mx-auto mb-16">
-                In qualità di partner tecnologico, accompagniamo le aziende nel loro percorso di innovazione, 
-                integrando soluzioni avanzate di intelligenza artificiale e analisi dati.
-            </p>
-            
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <!-- Left Column - Main Title -->
+                <div>
+                    <h2 class="text-2xl md:text-3xl lg:text-3xl leading-tight">
+                        Diamo valore ai tuoi dati con soluzioni intelligenti
+                    </h2>
+                </div>
+                
+                <!-- Right Column - Description -->
+                <div>
+                    <p class="text-xl md:text-2xl font-thin text-indigo-600 leading-relaxed">
+                        In qualità di partner tecnologico, accompagniamo le aziende nel loro percorso di innovazione, 
+                        integrando soluzioni avanzate di intelligenza artificiale e analisi dati.                    </p>
+                </div>
+            </div>
+
+            <!-- Value Cards Grid -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-20">
                 <div class="group p-8 bg-white rounded-lg hover:border-b-4 hover:border-indigo-600 transition-all">
                     <div class="w-16 h-16 mb-4 animate-pulse">
                         <svg class="w-full h-full text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -419,7 +439,7 @@
         </div>
     </section>
 
-    <!-- Footer & Contacts -->
+    <!-- Footer & Contact Section -->
     <footer id="contatti" class="bg-gray-900 text-white pt-20 pb-10">
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-2 gap-16 mb-16">
@@ -519,16 +539,19 @@
         </div>
     </footer>
 
+    <!-- External Scripts -->
     <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- Custom Scripts -->
     <script>
+        // AOS Initialization
         AOS.init({
             duration: 800,
             once: true
         });
-    </script>
 
-    <script>
+        // Custom Cursor and Typing Animation
         document.addEventListener('DOMContentLoaded', function() {
             const cursor = document.getElementById('custom-cursor');
             const words = ['finanziari', 'aziendali', 'clinici', 'industriali'];
@@ -586,6 +609,7 @@
             typeWord();
         });
 
+        // Project Panel Toggle
         function showProject(id) {
             document.querySelectorAll('[id$="-panel"]').forEach(panel => {
                 panel.classList.add('hidden');
@@ -605,9 +629,8 @@
                 }
             });
         }
-    </script>
 
-    <script>
+        // Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', function() {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -628,9 +651,8 @@
                 }
             });
         });
-    </script>
 
-    <script>
+        // Square Animation Position Calculation
         document.addEventListener('DOMContentLoaded', function() {
             const logo = document.getElementById('logo');
             const square = document.getElementById('square');
