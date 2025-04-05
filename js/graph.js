@@ -1,4 +1,3 @@
-// Graph Animation Logic
 document.addEventListener('DOMContentLoaded', function() {
     const graphContainer = document.querySelector('.graph-svg');
     const containerRect = graphContainer.getBoundingClientRect();
@@ -6,22 +5,26 @@ document.addEventListener('DOMContentLoaded', function() {
     const numNodes = 12;
     const maxConnections = 3;
     const connectionThreshold = 200;
-    
-    // Distribuisci i nodi con velocità iniziale
-    const nodes = Array.from({ length: numNodes }, () => ({
-        x: Math.random() * containerRect.width,
-        y: Math.random() * containerRect.height,
-        vx: 1,  // Velocità fissa in orizzontale
-        vy: 1,  // Velocità fissa in verticale
-        connections: []
-    }));
+    const constantSpeed = 1; // velocità base (unità per secondo)
 
-    // Gruppo per gli archi (creato per primo, quindi sotto)
+    // Distribuisci i nodi con velocità costante in direzioni casuali
+    const nodes = Array.from({ length: numNodes }, () => {
+        const angle = Math.random() * 2 * Math.PI;
+        return {
+            x: Math.random() * containerRect.width,
+            y: Math.random() * containerRect.height,
+            vx: constantSpeed * Math.cos(angle),
+            vy: constantSpeed * Math.sin(angle),
+            connections: []
+        };
+    });
+
+    // Crea un gruppo SVG per le linee
     const edgesGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
     edgesGroup.setAttribute("class", "edges-group");
     graphContainer.appendChild(edgesGroup);
 
-    // Crea elementi SVG per i nodi
+    // Crea gli elementi SVG per i nodi
     const nodeElements = nodes.map(node => {
         const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
         rect.setAttribute("class", "graph-node");
@@ -34,14 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return rect;
     });
 
-    // Funzione per aggiornare le connessioni dinamicamente
+    // Funzione per aggiornare le connessioni
     function updateConnections() {
-        // Rimuovi tutte le linee esistenti
         while (edgesGroup.firstChild) {
             edgesGroup.removeChild(edgesGroup.firstChild);
         }
 
-        // Crea nuove connessioni basate sulla distanza
         nodes.forEach((node, i) => {
             node.connections = [];
             nodes.forEach((otherNode, j) => {
@@ -51,11 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < connectionThreshold && node.connections.length < maxConnections) {
-                        // Crea connessione solo se entrambi i nodi hanno spazio
                         if (otherNode.connections.length < maxConnections) {
                             node.connections.push(otherNode);
-                            
-                            // Crea linea SVG
                             const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
                             line.setAttribute("class", "graph-line");
                             line.setAttribute("stroke", "rgb(79, 70, 229)");
@@ -64,7 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             line.setAttribute("y1", node.y);
                             line.setAttribute("x2", otherNode.x);
                             line.setAttribute("y2", otherNode.y);
-                            
                             edgesGroup.appendChild(line);
                         }
                     }
@@ -73,45 +70,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animazione migliorata per effetto molecolare
-    function animate() {
-        // Movimento dei nodi
+    // Animazione con delta time
+    let lastTime = performance.now();
+    
+    function animate(currentTime) {
+        const deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+
         nodes.forEach(node => {
-            // Aggiorna posizione
-            node.x += node.vx;
-            node.y += node.vy;
+            // Applica movimento in base al tempo trascorso
+            node.x += node.vx * (deltaTime / 16.67); // Normalizza per 60 FPS
+            node.y += node.vy * (deltaTime / 16.67);
             
-            // Rimbalzo ai bordi senza perdita di velocità
             const margin = nodeSize / 2;
+            // Gestione rimbalzi
             if (node.x < margin) {
                 node.x = margin;
-                node.vx = -node.vx;  // Inverte la direzione senza perdere velocità
+                node.vx = Math.abs(node.vx);
             }
             if (node.x > containerRect.width - margin) {
                 node.x = containerRect.width - margin;
-                node.vx = -node.vx;
+                node.vx = -Math.abs(node.vx);
             }
             if (node.y < margin) {
                 node.y = margin;
-                node.vy = -node.vy;
+                node.vy = Math.abs(node.vy);
             }
             if (node.y > containerRect.height - margin) {
                 node.y = containerRect.height - margin;
-                node.vy = -node.vy;
+                node.vy = -Math.abs(node.vy);
             }
         });
 
-        // Aggiorna connessioni dinamiche
         updateConnections();
 
-        // Aggiorna posizione dei nodi
         nodeElements.forEach((el, i) => {
-            el.setAttribute("x", nodes[i].x - nodeSize/2);
-            el.setAttribute("y", nodes[i].y - nodeSize/2);
+            el.setAttribute("x", nodes[i].x - nodeSize / 2);
+            el.setAttribute("y", nodes[i].y - nodeSize / 2);
         });
 
-        requestAnimationFrame(animate);
+        requestAnimationFrame((timestamp) => animate(timestamp));
     }
 
-    animate();
-}); 
+    // Avvia animazione
+    requestAnimationFrame((timestamp) => animate(timestamp));
+});
