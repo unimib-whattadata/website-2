@@ -222,20 +222,8 @@
         }
 
         /* Graph Animation Styles */
-        .graph-node {
-            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        }
-
-        .graph-node:hover {
-            transform: scale(1.2);
-            opacity: 1;
-        }
-
         .graph-line {
-            stroke: #4F46E5;
-            stroke-width: 1.5;
-            opacity: 0.7;
-            transition: all 0.3s ease-in-out;
+            stroke: rgb(79 70 229);
         }
 
         @keyframes floatNode {
@@ -859,22 +847,10 @@
         document.addEventListener('DOMContentLoaded', function() {
             const graphContainer = document.querySelector('.graph-svg');
             const containerRect = graphContainer.getBoundingClientRect();
-            const nodeSize = 16;
+            const nodeSize = 14;
             const numNodes = 12;
             const maxConnections = 3;
             const connectionThreshold = 200;
-            
-            // Aggiungi tracciamento della posizione del mouse
-            let mouseX = 0;
-            let mouseY = 0;
-            const mouseRadius = 150; // Raggio di influenza del mouse
-            const mouseForce = 5; // Forza della repulsione
-            
-            graphContainer.addEventListener('mousemove', (e) => {
-                const rect = graphContainer.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
-            });
             
             // Distribuisci i nodi con velocità iniziale
             const nodes = Array.from({ length: numNodes }, () => ({
@@ -892,24 +868,10 @@
                 rect.setAttribute("width", nodeSize);
                 rect.setAttribute("height", nodeSize);
                 rect.setAttribute("stroke", "#84cc16");
-                rect.setAttribute("stroke-width", "3");
-                rect.setAttribute("fill", "none");
-                rect.setAttribute("opacity", "0.8");
+                rect.setAttribute("stroke-width", "2");
+                rect.setAttribute("fill", "rgb(79 70 229)");
                 graphContainer.appendChild(rect);
             });
-
-            // Funzione per calcolare la repulsione dal mouse
-            function applyMouseForce(node) {
-                const dx = node.x - mouseX;
-                const dy = node.y - mouseY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < mouseRadius) {
-                    const force = (1 - distance / mouseRadius) * mouseForce;
-                    node.vx += (dx / distance) * force;
-                    node.vy += (dy / distance) * force;
-                }
-            }
 
             // Funzione per aggiornare le connessioni dinamicamente
             function updateConnections() {
@@ -941,10 +903,6 @@
                                     line.setAttribute("x2", otherNode.x);
                                     line.setAttribute("y2", otherNode.y);
                                     
-                                    // Opacità basata sulla distanza ma con un minimo più alto
-                                    const opacity = 0.8 * (1 - distance / connectionThreshold) + 0.3;
-                                    line.setAttribute("opacity", opacity);
-                                    
                                     graphContainer.appendChild(line);
                                 }
                             }
@@ -957,15 +915,12 @@
             function animate() {
                 // Movimento dei nodi
                 nodes.forEach(node => {
-                    // Applica forza di repulsione dal mouse
-                    applyMouseForce(node);
-                    
                     // Movimento browniano più leggero
                     node.vx += (Math.random() - 0.5) * 0.1;
                     node.vy += (Math.random() - 0.5) * 0.1;
                     
                     // Limita la velocità massima
-                    const maxSpeed = 3; // Aumentato per movimento più reattivo
+                    const maxSpeed = 3;
                     const speed = Math.sqrt(node.vx * node.vx + node.vy * node.vy);
                     if (speed > maxSpeed) {
                         node.vx = (node.vx / speed) * maxSpeed;
