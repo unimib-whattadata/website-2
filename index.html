@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whattadata – Soluzioni data-driven per la salute e la sostenibilità</title>
+    <meta name="description" content="Soluzioni innovative di intelligenza artificiale e analisi dati per trasformare il tuo business">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4C4AF3',
+                        accent: '#E5F940',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Base Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            cursor: none;
+        }
+        
+        #custom-cursor {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #4C4AF3;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: background 0.3s, border-color 0.3s, transform 0.1s;
+            transform: translate(-50%, -50%);
+        }
+
+        #custom-cursor.on-dark {
+            border-color: #E5F940;
+        }
+
+        #custom-cursor.hover {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+
+        /* Remove rounded corners from all elements */
+        .rounded-lg, .rounded-full, .rounded-2xl, .rounded-xl, .rounded-md, .rounded-sm {
+            border-radius: 0 !important;
+        }
+
+        /* Prevent default cursor on interactive elements */
+        a, button, input, select, textarea {
+            cursor: none !important;
+        }
+
+        @media (pointer: coarse) {
+            body {
+                cursor: auto;
+            }
+            #custom-cursor {
+                display: none;
+            }
+            a, button, input, select, textarea {
+                cursor: pointer !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Custom Cursor -->
+    <div id="custom-cursor"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <a href="#" class="text-2xl">
+                <span class="font-bold">Whatta</span><span class="font-light">data</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#chi-siamo" class="hover:text-primary transition-colors">CHI SIAMO</a>
+                <a href="#progetti" class="hover:text-primary transition-colors">PROGETTI</a>
+                <a href="#team" class="hover:text-primary transition-colors">TEAM</a>
+                <a href="#contatti" class="hover:text-primary transition-colors">CONTATTI</a>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <a href="#" class="hidden md:block hover:text-primary transition-colors">ACCEDI</a>
+                <a href="#" class="bg-accent px-6 py-2 font-mono text-sm hover:scale-105 transition-transform">
+                    INIZIA ORA ↳
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                    Potenziamo i tuoi dati
+                </h1>
+                <div class="text-4xl md:text-6xl text-primary mb-4 h-20 flex items-center">
+                    <span id="typed-text"></span><span class="animate-pulse">|</span>
+                </div>
+                <p class="text-5xl md:text-7xl font-bold mb-12">
+                    con soluzioni innovative<span class="inline-block w-4 h-4 border-2 border-accent bg-transparent ml-2 relative -top-4"></span>
+                </p>
+            </div>
+            
+            <div class="absolute left-1/2 transform -translate-x-1/2" style="width: fit-content;">
+                <a href="#chi-siamo" class="inline-flex items-center bg-primary text-white px-8 py-4 hover:scale-105 transition-transform">
+                    Esplora
+                    <svg class="w-6 h-6 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decorative Circle -->
+        <div class="absolute right-1/4 top-1/3 w-32 h-32 rounded-full border-4 border-primary/20 
+                    opacity-0 scale-0 animate-[fade-in_1s_ease_forwards,scale-up_1s_ease_forwards]
+                    hover:scale-110 hover:shadow-lg hover:shadow-primary/20 transition-all"></div>
+        
+        <!-- Navigation Dots -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+            <div class="w-2 h-2 rounded-full bg-primary"></div>
+            <div class="w-2 h-2 rounded-full bg-gray-300"></div>
+        </div>
+        
+        <!-- Navigation Arrow -->
+        <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-primary hover:scale-110 transition-transform">
+            →
+        </button>
+    </section>
+
+    <!-- Value Proposition -->
+    <section id="chi-siamo" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">
+                Diamo valore ai tuoi dati con soluzioni intelligenti
+            </h2>
+            <p class="text-primary text-xl text-center max-w-3xl mx-auto mb-16">
+                In qualità di partner tecnologico, accompagniamo le aziende nel loro percorso di innovazione, 
+                integrando soluzioni avanzate di intelligenza artificiale e analisi dati.
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Value Props -->
+                <div class="group p-8 bg-white rounded-lg hover:border-b-4 hover:border-primary transition-all">
+                    <div class="w-16 h-16 mb-4 animate-pulse">
+                        <svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Efficienza Operativa</h3>
+                    <p class="text-gray-600">Ottimizziamo i processi aziendali attraverso l'intelligenza artificiale e l'automazione avanzata.</p>
+                </div>
+
+                <div class="group p-8 bg-white rounded-lg hover:border-b-4 hover:border-primary transition-all">
+                    <div class="w-16 h-16 mb-4 animate-[spin_10s_linear_infinite]">
+                        <svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Esperienze Personalizzate</h3>
+                    <p class="text-gray-600">Creiamo soluzioni su misura che si adattano perfettamente alle esigenze specifiche del tuo business.</p>
+                </div>
+
+                <div class="group p-8 bg-white rounded-lg hover:border-b-4 hover:border-primary transition-all">
+                    <div class="w-16 h-16 mb-4 animate-bounce">
+                        <svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Velocità di Valore</h3>
+                    <p class="text-gray-600">Acceleriamo il time-to-market delle tue innovazioni con metodologie agili e strumenti all'avanguardia.</p>
+                </div>
+
+                <div class="group p-8 bg-white rounded-lg hover:border-b-4 hover:border-primary transition-all">
+                    <div class="w-16 h-16 mb-4 animate-pulse">
+                        <svg class="w-full h-full text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Decisioni in Tempo Reale</h3>
+                    <p class="text-gray-600">Forniamo insights actionable per decisioni strategiche basate sui dati in tempo reale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="progetti" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Progetti</h2>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-16">
+                Le nostre soluzioni trasformano la ricerca in impatto concreto
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+                <!-- Project Menu -->
+                <div class="md:w-1/3">
+                    <div class="space-y-4">
+                        <button class="w-full text-left p-4 bg-primary/5 text-primary font-semibold rounded-lg transition-all"
+                                onclick="showProject('healthcare')">
+                            Sanità Digitale
+                        </button>
+                        <button class="w-full text-left p-4 hover:bg-primary/5 text-gray-600 hover:text-primary font-semibold rounded-lg transition-all opacity-70 hover:opacity-100"
+                                onclick="showProject('finance')">
+                            Finanza Intelligente
+                        </button>
+                        <button class="w-full text-left p-4 hover:bg-primary/5 text-gray-600 hover:text-primary font-semibold rounded-lg transition-all opacity-70 hover:opacity-100"
+                                onclick="showProject('industry')">
+                            Industria 4.0
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Panels -->
+                <div class="md:w-2/3">
+                    <!-- Healthcare Panel -->
+                    <div id="healthcare-panel" class="bg-primary/5 p-8 rounded-2xl">
+                        <span class="text-primary text-sm font-mono">HEALTHCARE</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Sanità Digitale</h3>
+                        <p class="text-gray-600 mb-8">
+                            Sviluppiamo soluzioni innovative per la gestione e l'analisi dei dati sanitari, 
+                            migliorando l'efficienza operativa e la qualità delle cure.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-white rounded-lg">
+                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                </svg>
+                                <h4 class="font-bold mb-1">Cartella Clinica Digitale</h4>
+                                <p class="text-sm text-gray-600">Gestione integrata dei dati paziente</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg">
+                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                                <h4 class="font-bold mb-1">Analisi Predittiva</h4>
+                                <p class="text-sm text-gray-600">Prevenzione e gestione del rischio</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Finance Panel (Hidden by default) -->
+                    <div id="finance-panel" class="hidden bg-accent/5 p-8 rounded-2xl">
+                        <span class="text-primary text-sm font-mono">FINTECH</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Finanza Intelligente</h3>
+                        <p class="text-gray-600 mb-8">
+                            Trasformiamo i dati finanziari in vantaggio competitivo attraverso 
+                            soluzioni di analisi predittiva e automazione dei processi.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-white rounded-lg">
+                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                                <h4 class="font-bold mb-1">Risk Management</h4>
+                                <p class="text-sm text-gray-600">Analisi e prevenzione dei rischi finanziari</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg">
+                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                                </svg>
+                                <h4 class="font-bold mb-1">Trading Algoritmico</h4>
+                                <p class="text-sm text-gray-600">Strategie automatizzate di trading</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Industry Panel (Hidden by default) -->
+                    <div id="industry-panel" class="hidden bg-primary/5 p-8 rounded-2xl">
+                        <span class="text-primary text-sm font-mono">INDUSTRY 4.0</span>
+                        <h3 class="text-3xl font-bold mt-2 mb-4">Industria 4.0</h3>
+                        <p class="text-gray-600 mb-8">
+                            Ottimizziamo i processi industriali attraverso l'IoT e l'intelligenza 
+                            artificiale per una produzione più efficiente e sostenibile.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 bg-white rounded-lg">
+                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                                <h4 class="font-bold mb-1">Manutenzione Predittiva</h4>
+                                <p class="text-sm text-gray-600">Prevenzione dei guasti e ottimizzazione</p>
+                            </div>
+                            <div class="p-4 bg-white rounded-lg">
+                                <svg class="w-8 h-8 text-primary mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                                </svg>
+                                <h4 class="font-bold mb-1">Automazione Smart</h4>
+                                <p class="text-sm text-gray-600">Controllo e ottimizzazione dei processi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-4">Il nostro team</h2>
+            <p class="text-xl text-center max-w-3xl mx-auto mb-16">
+                Esperienza accademica e passione per l'innovazione
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <!-- Team Member 1 -->
+                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                     data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">MC</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-1">Marco Cremaschi</h3>
+                    <p class="text-primary text-center text-sm mb-2">CTO</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Esperto di architetture cloud e sistemi distribuiti con focus su soluzioni enterprise.
+                    </p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                     data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">DC</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-1">David Chieregato</h3>
+                    <p class="text-primary text-center text-sm mb-2">CEO</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Visione strategica e leadership nell'innovazione tecnologica.
+                    </p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                     data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">FD</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-1">Fabio D'Adda</h3>
+                    <p class="text-primary text-center text-sm mb-2">Responsabile AI</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Ricercatore e sviluppatore di soluzioni di intelligenza artificiale avanzate.
+                    </p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all transform hover:scale-105"
+                     data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-accent/20 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-primary">HC</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-1">HACCA501 S.r.l.</h3>
+                    <p class="text-primary text-center text-sm mb-2">Partner Finanziario</p>
+                    <p class="text-gray-600 text-center text-sm">
+                        Supporto strategico e finanziario per la crescita aziendale.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer & Contacts -->
+    <footer id="contatti" class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-16 mb-16">
+                <!-- Newsletter -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Resta aggiornato</h3>
+                    <form class="space-y-4">
+                        <div class="relative">
+                            <input type="email" 
+                                   placeholder="La tua email..." 
+                                   class="w-full bg-gray-800 border-2 border-gray-700 py-3 px-4 text-white placeholder-gray-400 focus:outline-none focus:border-primary transition-colors font-mono"
+                                   required>
+                        </div>
+                        <button type="submit" 
+                                class="bg-primary hover:bg-primary/90 text-white font-mono py-3 px-6 transition-colors inline-flex items-center">
+                            INVIA ↳
+                        </button>
+                        <p class="text-sm text-gray-400">
+                            Riceverai solo aggiornamenti importanti. Niente spam.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Collegamenti</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#chi-siamo" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Chi Siamo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#progetti" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                    </svg>
+                                    Progetti
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#team" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+                                    </svg>
+                                    Team
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold mb-4">Social</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                                    </svg>
+                                    LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                    </svg>
+                                    X (Twitter)
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors inline-flex items-center">
+                                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                                    </svg>
+                                    Instagram
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2024 Whattadata. Tutti i diritti riservati.
+                    </p>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Termini</a>
+                        <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Cookie</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add AOS (Animate On Scroll) library -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+
+    <!-- Custom Cursor Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursor = document.getElementById('custom-cursor');
+            const words = ['finanziari', 'aziendali', 'clinici', 'industriali'];
+            let currentWord = 0;
+            const typedText = document.getElementById('typed-text');
+            
+            // Simple cursor movement
+            document.addEventListener('mousemove', e => {
+                cursor.style.left = e.clientX + 'px';
+                cursor.style.top = e.clientY + 'px';
+                
+                // Check if cursor is over primary-colored elements
+                const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
+                if (elementUnderCursor) {
+                    const isPrimaryElement = elementUnderCursor.closest('.bg-primary, .hover\\:bg-primary, button, a');
+                    if (isPrimaryElement) {
+                        cursor.classList.add('on-dark');
+                    } else {
+                        cursor.classList.remove('on-dark');
+                    }
+                }
+            });
+            
+            // Hover effect on interactive elements
+            document.querySelectorAll('a, button').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+            });
+            
+            // Typing animation
+            function typeWord() {
+                const word = words[currentWord];
+                let charIndex = 0;
+                
+                function type() {
+                    if (charIndex < word.length) {
+                        typedText.textContent += word[charIndex];
+                        charIndex++;
+                        setTimeout(type, 100);
+                    } else {
+                        setTimeout(erase, 2000);
+                    }
+                }
+                
+                function erase() {
+                    if (charIndex > 0) {
+                        typedText.textContent = word.substring(0, charIndex - 1);
+                        charIndex--;
+                        setTimeout(erase, 50);
+                    } else {
+                        currentWord = (currentWord + 1) % words.length;
+                        setTimeout(typeWord, 500);
+                    }
+                }
+                
+                type();
+            }
+            
+            typeWord();
+        });
+
+        function showProject(id) {
+            // Hide all panels
+            document.querySelectorAll('[id$="-panel"]').forEach(panel => {
+                panel.classList.add('hidden');
+            });
+            
+            // Show selected panel with animation
+            const selectedPanel = document.getElementById(`${id}-panel`);
+            selectedPanel.classList.remove('hidden');
+            selectedPanel.classList.add('animate-fade-in');
+            
+            // Update button styles
+            document.querySelectorAll('button').forEach(btn => {
+                if (btn.onclick.toString().includes(id)) {
+                    btn.classList.add('bg-primary/5', 'text-primary');
+                    btn.classList.remove('opacity-70');
+                } else {
+                    btn.classList.remove('bg-primary/5', 'text-primary');
+                    btn.classList.add('opacity-70');
+                }
+            });
+        }
+    </script>
+</body>
+</html> 
