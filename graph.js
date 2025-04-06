@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const graphContainer = document.querySelector('.graph-svg');
     const containerRect = graphContainer.getBoundingClientRect();
     const nodeSize = 14;
-    const numNodes = 12;
+    const numNodes = 14;
     const maxConnections = 3;
     const connectionThreshold = 200;
     const baseSpeed = 0.8;
