@@ -12,18 +12,59 @@ body {
 }
 
 section {
-    height: 100vh;
+    min-height: 100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
 }
 
 footer {
-    height: 100vh;
+    min-height: 100vh;
     scroll-snap-align: start;
     scroll-snap-stop: always;
     position: relative;
     overflow-y: auto;
+    padding: 4rem 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+    section {
+        padding: 2rem 0;
+        min-height: auto;
+        height: auto;
+        margin-bottom: 2rem;
+        padding-top: 6rem;
+    }
+    
+    footer {
+        padding: 2rem 0;
+        min-height: auto;
+        height: auto;
+        padding-top: 6rem;
+    }
+
+    #progetti {
+        margin-bottom: 4rem;
+    }
+
+    #team {
+        margin-top: 4rem;
+    }
+
+    #project-container {
+        height: auto;
+        min-height: 400px;
+    }
+
+    .project-screenshot {
+        height: 200px;
+    }
 }
 
 .project-screenshot {
