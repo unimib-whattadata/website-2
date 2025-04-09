@@ -42,10 +42,11 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#chi-siamo" class="hover:text-gray-900 transition-colors font-mono">CHI SIAMO</a>
-                <a href="#progetti" class="hover:text-gray-900 transition-colors font-mono">PROGETTI</a>
-                <a href="#team" class="hover:text-gray-900 transition-colors font-mono">TEAM</a>
-                <a href="#contatti" class="hover:text-gray-900 transition-colors font-mono">CONTATTI</a>
+                <a href="#chi-siamo" class="hover:text-indigo-600 transition-colors font-mono">CHI SIAMO</a>
+                <a href="#servizi" class="hover:text-indigo-600 transition-colors font-mono">SERVIZI</a>
+                <a href="#progetti" class="hover:text-indigo-600 transition-colors font-mono">PROGETTI</a>
+                <a href="#team" class="hover:text-indigo-600 transition-colors font-mono">TEAM</a>
+                <a href="#contatti" class="hover:text-indigo-600 transition-colors font-mono">CONTATTI</a>
             </div>
             
             <!-- CTA Button -->
@@ -60,6 +61,7 @@
         <div class="md:hidden hidden bg-white border-t mt-4" id="mobile-menu">
             <div class="container mx-auto px-4 py-4 space-y-4">
                 <a href="#chi-siamo" class="block hover:text-gray-900 transition-colors font-mono">CHI SIAMO</a>
+                <a href="#servizi" class="block hover:text-gray-900 transition-colors font-mono">SERVIZI</a>
                 <a href="#progetti" class="block hover:text-gray-900 transition-colors font-mono">PROGETTI</a>
                 <a href="#team" class="block hover:text-gray-900 transition-colors font-mono">TEAM</a>
                 <a href="#contatti" class="block hover:text-gray-900 transition-colors font-mono">CONTATTI</a>
@@ -166,7 +168,7 @@
     </section>
 
         <!-- Message Section -->
-        <section class="min-h-screen bg-white flex items-center justify-center">
+        <section id="servizi" class="min-h-screen bg-white flex items-center justify-center">
             <div class="w-full">
                 <div class="bg-primary relative overflow-hidden min-h-screen">
                     <!-- Graph Background -->
@@ -414,7 +416,7 @@
                         </p>
                     </div>
                     <div class="md:text-right">
-                        <h4 class="text-lg font-bold mb-4">Sede Amministrativa</h4>
+                        <h4 class="text-lg font-bold mb-4">Sede Operativa</h4>
                         <p class="text-gray-400">
                             Dipartimento di Informatica, Sistemistica e Comunicazione<br>
                             Università degli Studi di Milano-Bicocca<br>
@@ -451,6 +453,37 @@
             duration: 800,
             once: true
         });
+
+        // Update active menu item based on scroll position
+        function updateActiveMenuItem() {
+            const sections = ['chi-siamo', 'servizi', 'progetti', 'team', 'contatti'];
+            const menuItems = document.querySelectorAll('nav a[href^="#"]');
+            
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    const isVisible = rect.top <= 100 && rect.bottom >= 100;
+                    
+                    if (isVisible) {
+                        menuItems.forEach(item => {
+                            if (item.getAttribute('href') === `#${section}`) {
+                                item.classList.add('text-indigo-600');
+                                item.classList.add('font-bold');
+                            } else {
+                                item.classList.remove('text-indigo-600');
+                                item.classList.remove('font-bold');
+                            }
+                        });
+                    }
+                }
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateActiveMenuItem);
+        // Initial check
+        updateActiveMenuItem();
 
         // Smooth Scroll Function
         function smoothScrollTo(target) {
