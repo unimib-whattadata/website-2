@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whattadata – Soluzioni data-driven per la salute e la sostenibilità</title>
     
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="img/logo/whattadata.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style">
+    <link rel="preload" href="styles.css" as="style">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,11 +104,11 @@
     <div id="custom-cursor" aria-hidden="true"></div>
 
     <!-- Main Navigation -->
-    <nav class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4" role="navigation" aria-label="Menu principale">
+    <nav class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4" role="navigation" aria-label="Main menu">
         <div class="container mx-auto px-6 flex items-center justify-between">
             <!-- Logo -->
             <a href="#" class="text-xl md:text-2xl flex items-center" id="logo" aria-label="Whattadata - Torna alla home">
-                <img src="img/logo/whattadata.svg" alt="Whatta Logo" class="h-8 w-auto mr-3" width="32" height="32">
+                <img src="img/logo/whattadata.svg" alt="Whatta Logo" class="h-8 w-auto mr-3" width="32" height="32" loading="eager">
                 <span>WHATTA</span><span class="font-light">DATA</span>
             </a>
             
@@ -195,7 +200,7 @@
         </section>
 
         <!-- Value Proposition Section -->
-        <section id="servizi" class="min-h-screen bg-gray-50 flex items-center py-16 md:py-0" aria-label="Chi siamo">
+        <section id="servizi" class="min-h-screen bg-gray-50 flex items-center py-16 md:py-0" aria-label="Services">
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center mb-12 md:mb-16">
                     <!-- Left Column - Main Title -->
@@ -218,7 +223,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
                     <div class="p-4 md:p-8 md:pl-0" role="listitem">
                         <div class="flex justify-center mb-6 md:mb-8">
-                            <img src="img/animated_scheme/predictive.svg" alt="Analisi predittiva" width="80" height="80">
+                            <img src="img/animated_scheme/predictive.svg" alt="Predictive Analysis" width="80" height="80" loading="lazy">
                         </div>
                         <h3 class="text-xl md:text-2xl mb-4">Analisi predittiva</h3>
                         <p class="text-gray-600 text-base md:text-lg">Sviluppiamo soluzioni basate su algoritmi di machine learning per aiutarti a prendere decisioni informate e tempestive</p>
@@ -244,7 +249,7 @@
         </section>
 
         <!-- Message Section -->
-        <section id="chi-siamo" class="min-h-screen bg-white flex items-center justify-center" aria-label="Servizi">
+        <section id="chi-siamo" class="min-h-screen bg-white flex items-center justify-center" aria-label="About us">
             <div class="w-full">
                 <div class="bg-primary relative overflow-hidden min-h-screen flex items-center justify-center">
                     <!-- Graph Background -->
@@ -328,7 +333,7 @@
         </section>
         
         <!-- Projects Section -->
-        <section id="progetti" class="min-h-screen pt-16 md:pt-32" aria-label="Progetti">
+        <section id="progetti" class="min-h-screen pt-16 md:pt-32" aria-label="Projects">
             <div class="container mx-auto px-4 h-full flex items-center">
                 <div class="w-full">
                     <!-- Main Heading -->
@@ -424,7 +429,7 @@
                         <div class="space-y-4" role="listitem">
                             <h3 class="text-2xl font-bold">Marco Cremaschi</h3>
                             <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/marco.png" alt="Marco Cremaschi" class="w-full h-full object-cover transition-all duration-300" width="400" height="400">
+                                <img src="img/team/marco.png" alt="Marco Cremaschi" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
                                 <img src="img/team/marco_coloured.png" alt="Marco Cremaschi Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
                             </div>
                             <p class="text-gray-600">CTO</p>
@@ -434,7 +439,7 @@
                         <div class="space-y-4" role="listitem">
                             <h3 class="text-2xl font-bold">David Chieregato</h3>
                             <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/david.png" alt="David Chieregato" class="w-full h-full object-cover transition-all duration-300" width="400" height="400">
+                                <img src="img/team/david.png" alt="David Chieregato" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
                                 <img src="img/team/david_coloured.png" alt="David Chieregato Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
                             </div>
                             <p class="text-gray-600">CEO</p>
@@ -444,7 +449,7 @@
                         <div class="space-y-4" role="listitem">
                             <h3 class="text-2xl font-bold">Fabio D'Adda</h3>
                             <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/fabio.png" alt="Fabio D'Adda" class="w-full h-full object-cover transition-all duration-300" width="400" height="400">
+                                <img src="img/team/fabio.png" alt="Fabio D'Adda" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
                                 <img src="img/team/fabio_coloured.png" alt="Fabio D'Adda Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
                             </div>
                             <p class="text-gray-600">Lead AI</p>
@@ -454,7 +459,7 @@
                         <div class="space-y-4" role="listitem">
                             <h3 class="text-2xl font-bold">Gianluigi Ciufo</h3>
                             <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/ciufo.png" alt="Gianluigi Ciufo" class="w-full h-full object-cover transition-all duration-300" width="400" height="400">
+                                <img src="img/team/ciufo.png" alt="Gianluigi Ciufo" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
                                 <img src="img/team/ciufo_coloured.png" alt="Gianluigi Ciufo Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
                             </div>
                             <p class="text-gray-600">Financing</p>
@@ -523,7 +528,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <!-- Custom Scripts -->
-    <script src="graph.js"></script>
+    <script src="graph.js" defer></script>
     <script>
         // AOS Initialization
         AOS.init({
