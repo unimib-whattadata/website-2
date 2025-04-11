@@ -9,7 +9,6 @@ tailwind.config = {
             fontFamily: {
                 'sans': ['TT Hoves SL', 'sans-serif'],
                 'mono': ['JetBrains Mono', 'monospace'],
-                'montserrat-alt1': ['MontserratAlt1', 'sans-serif'],
             },
         },
     },
