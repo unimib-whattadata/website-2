@@ -244,7 +244,7 @@
             <div class="w-full">
                 <div class="bg-primary relative overflow-hidden min-h-screen flex items-center justify-center">
                     <!-- Graph Background -->
-                    <div class="absolute inset-0 pointer-events-none" id="graph-container" aria-hidden="true">
+                    <div class="absolute inset-0" id="graph-container">
                         <svg width="100%" height="100%" class="graph-svg">
                             <defs>
                                 <filter id="glow">
@@ -257,6 +257,32 @@
                             </defs>
                             <!-- Dynamic nodes and edges will be added here via JavaScript -->
                         </svg>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="absolute inset-0 z-10">
+                        <div class="container mx-auto px-4 py-24 h-full flex items-center">
+                            <div class="max-w-6xl mx-auto w-full">
+                                <div class="grid grid-cols-12 gap-8 items-center h-full">
+                                    <div class="col-span-8 flex items-center">
+                                        <div id="text-container" class="space-y-8">
+                                            <p class="text-xl md:text-2xl font-thin text-white leading-relaxed">
+                                                Whattadata è uno spin-off dell'<span style="background-color: #A3E635; padding: 2px 4px; border-radius: 2px;" class="text-gray-600">Università degli Studi di Milano-Bicocca</span> che trasforma la gestione e l'analisi dei dati in soluzioni concrete per la crescita di ogni azienda
+                                            </p>
+                                            <h2 class="text-2xl md:text-3xl leading-tight text-white">
+                                                Sblocca infinite possibilità per il tuo business
+                                            </h2>
+                                            <p class="text-xl md:text-2xl font-thin text-white leading-relaxed">
+                                                Scopri come Whattadata può aiutarti a raggiungere nuovi traguardi
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-span-4 flex items-center justify-center">
+                                        <img src="img/logo/bicocca.svg" alt="Università degli Studi di Milano-Bicocca" class="w-full max-w-[200px]">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Logo Carousel -->
@@ -279,30 +305,6 @@
                             </div>
                             <div class="logo-item">
                                 <img src="img/logo/micare.svg" alt="MiCare" width="120" height="40">
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!-- Content -->
-                    <div class="container mx-auto px-4 py-24 relative z-10 h-full flex items-center">
-                        <div class="max-w-6xl mx-auto w-full">
-                            <div class="grid grid-cols-12 gap-8 items-center h-full">
-                                <div class="col-span-8 flex items-center">
-                                    <div id="text-container" class="space-y-8">
-                                        <p class="text-xl md:text-2xl font-thin text-white leading-relaxed">
-                                            Whattadata è uno spin-off dell'<span style="background-color: #A3E635; padding: 2px 4px; border-radius: 2px;" class="text-gray-600">Università degli Studi di Milano-Bicocca</span> che trasforma la gestione e l'analisi dei dati in soluzioni concrete per la crescita di ogni azienda
-                                        </p>
-                                        <h2 class="text-2xl md:text-3xl leading-tight text-white">
-                                            Sblocca infinite possibilità per il tuo business
-                                        </h2>
-                                        <p class="text-xl md:text-2xl font-thin text-white leading-relaxed">
-                                            Scopri come Whattadata può aiutarti a raggiungere nuovi traguardi
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-span-4 flex items-center justify-center">
-                                    <img src="img/logo/bicocca.svg" alt="Università degli Studi di Milano-Bicocca" class="w-full max-w-[200px]">
-                                </div>
                             </div>
                         </div>
                     </div>
