@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    font-family: 'TT Hoves SL', sans-serif;
+    font-family: 'Inter', sans-serif;
     cursor: none;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -295,6 +295,7 @@ a, button, input, select, textarea {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #4F46E5;
 }
 
 .bg-primary .container {

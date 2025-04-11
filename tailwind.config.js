@@ -1,4 +1,6 @@
+/** @type {import('tailwindcss').Config} */
 tailwind.config = {
+    content: ["./*.{html,js}"],
     theme: {
         extend: {
             colors: {
@@ -7,9 +9,9 @@ tailwind.config = {
                 accent: '#A3E635', // lime
             },
             fontFamily: {
-                'sans': ['TT Hoves SL', 'sans-serif'],
-                'mono': ['JetBrains Mono', 'monospace'],
+                sans: ['Inter', 'sans-serif'],
             },
         },
     },
+    plugins: [],
 } 
