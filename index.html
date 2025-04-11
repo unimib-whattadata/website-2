@@ -128,13 +128,13 @@
         </div>
 
         <!-- Mobile Navigation Menu -->
-        <div class="md:hidden hidden bg-white border-t mt-4" id="mobile-menu" role="menu" aria-labelledby="mobile-menu-button">
+        <div class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50" id="mobile-menu" role="menu" aria-labelledby="mobile-menu-button">
             <div class="container mx-auto px-4 py-4 space-y-4">
-                <a href="#servizi" class="block hover:text-gray-900 transition-colors font-mono" role="menuitem">SERVIZI</a>
-                <a href="#chi-siamo" class="block hover:text-gray-900 transition-colors font-mono" role="menuitem">CHI SIAMO</a>
-                <a href="#progetti" class="block hover:text-gray-900 transition-colors font-mono" role="menuitem">PROGETTI</a>
-                <a href="#team" class="block hover:text-gray-900 transition-colors font-mono" role="menuitem">TEAM</a>
-                <a href="#contatti" class="block hover:text-gray-900 transition-colors font-mono" role="menuitem">CONTATTI</a>
+                <a href="#servizi" class="block hover:text-gray-900 transition-colors font-mono text-lg" role="menuitem">SERVIZI</a>
+                <a href="#chi-siamo" class="block hover:text-gray-900 transition-colors font-mono text-lg" role="menuitem">CHI SIAMO</a>
+                <a href="#progetti" class="block hover:text-gray-900 transition-colors font-mono text-lg" role="menuitem">PROGETTI</a>
+                <a href="#team" class="block hover:text-gray-900 transition-colors font-mono text-lg" role="menuitem">TEAM</a>
+                <a href="#contatti" class="block hover:text-gray-900 transition-colors font-mono text-lg" role="menuitem">CONTATTI</a>
                 <a href="#" class="inline-block bg-lime-400 px-6 py-2 font-mono text-sm hover:scale-105 transition-transform" role="button">
                     INFO
                 </a>
@@ -145,29 +145,29 @@
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="relative flex items-center justify-center min-h-screen pt-20" aria-label="Hero section">
-            <div class="container px-4 mx-auto">
+        <section class="relative flex items-center justify-center min-h-screen pt-20 px-4" aria-label="Hero section">
+            <div class="container mx-auto">
                 <div class="max-w-4xl">
                     <!-- Main Heading -->
-                    <h1 class="text-4xl sm:text-5xl md:text-7xl mb-8 leading-tight">
+                    <h1 class="text-3xl sm:text-4xl md:text-7xl mb-6 md:mb-8 leading-tight">
                         Potenziamo i tuoi dati
                     </h1>
                     
                     <!-- Animated Text -->
-                    <div class="flex items-center h-20 mb-8 text-4xl sm:text-5xl md:text-7xl text-indigo-600" aria-live="polite">
+                    <div class="flex items-center h-16 md:h-20 mb-6 md:mb-8 text-3xl sm:text-4xl md:text-7xl text-indigo-600" aria-live="polite">
                         <span id="typed-text"></span>
                         <span class="font-thin text-gray-400 animate-pulse" aria-hidden="true">|</span>
                     </div>
                     
                     <!-- Subheading with Animated Square -->
-                    <p class="text-4xl sm:text-5xl md:text-7xl mb-16 leading-tight">
+                    <p class="text-3xl sm:text-4xl md:text-7xl mb-12 md:mb-16 leading-tight">
                         con soluzioni innovative<span class="animate-square-move" id="square" aria-hidden="true"></span>
                     </p>
                 </div>
                 
                 <!-- CTA Button -->
-                <div class="absolute left-1/2 transform -translate-x-1/2">
-                    <a href="#chi-siamo" class="inline-flex items-center px-6 md:px-8 py-2 text-sm md:text-base text-white bg-indigo-600 hover:scale-105 transition-transform font-mono" role="button">
+                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-8 md:bottom-16">
+                    <a href="#servizi" class="inline-flex items-center px-6 md:px-8 py-2 text-sm md:text-base text-white bg-indigo-600 hover:scale-105 transition-transform font-mono" role="button">
                         ESPLORA
                         <span class="ml-2" aria-hidden="true">↓</span>
                     </a>
@@ -178,31 +178,31 @@
             <div class="absolute right-1/4 top-1/3 w-32 h-32 border-4 border-indigo-600/20 rounded-full opacity-0 scale-0 animate-[fade-in_1s_ease_forwards,scale-up_1s_ease_forwards] hover:scale-110 hover:shadow-lg hover:shadow-indigo-600/20 transition-all" aria-hidden="true"></div>
             
             <!-- Page Indicators -->
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2" aria-hidden="true">
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 hidden" aria-hidden="true">
                 <div class="w-6 h-1.5 bg-black"></div>
                 <div class="w-4 h-1.5 bg-black/30"></div>
                 <div class="w-4 h-1.5 bg-black/30"></div>
             </div>
             
             <!-- Navigation Arrow -->
-            <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono" aria-label="Scorri alla sezione successiva">
+            <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono hidden" aria-label="Scorri alla sezione successiva">
                 →
             </button>
         </section>
 
         <!-- Value Proposition Section -->
-        <section id="servizi" class="min-h-screen bg-gray-50 flex items-center" aria-label="Chi siamo">
+        <section id="servizi" class="min-h-screen bg-gray-50 flex items-center py-16 md:py-0" aria-label="Chi siamo">
             <div class="container mx-auto px-4">
-                <div class="grid grid-cols-12 gap-16 items-center mb-16">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center mb-12 md:mb-16">
                     <!-- Left Column - Main Title -->
-                    <div class="col-span-7">
+                    <div class="md:col-span-7">
                         <h2 class="text-2xl md:text-3xl leading-tight">
                             Diamo valore ai tuoi dati con soluzioni intelligenti
                         </h2>
                     </div>
                     
                     <!-- Right Column - Description -->
-                    <div class="col-span-5">
+                    <div class="md:col-span-5">
                         <p class="text-xl md:text-2xl font-thin text-indigo-600 leading-relaxed">
                             In qualità di partner tecnologico, accompagniamo le aziende nel loro percorso di innovazione, 
                             integrando soluzioni avanzate di intelligenza artificiale e analisi dati
@@ -211,29 +211,29 @@
                 </div>
 
                 <!-- Value Cards Grid -->
-                <div class="grid md:grid-cols-3 gap-8" role="list">
-                    <div class="p-8 pl-0" role="listitem">
-                        <div class="flex justify-center mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+                    <div class="p-4 md:p-8 md:pl-0" role="listitem">
+                        <div class="flex justify-center mb-6 md:mb-8">
                             <img src="img/animated_scheme/predictive.svg" alt="Analisi predittiva" width="80" height="80">
                         </div>
-                        <h3 class="text-2xl mb-4">Analisi predittiva</h3>
-                        <p class="text-gray-600 text-lg">Sviluppiamo soluzioni basate su algoritmi di machine learning per aiutarti a prendere decisioni informate e tempestive</p>
+                        <h3 class="text-xl md:text-2xl mb-4">Analisi predittiva</h3>
+                        <p class="text-gray-600 text-base md:text-lg">Sviluppiamo soluzioni basate su algoritmi di machine learning per aiutarti a prendere decisioni informate e tempestive</p>
                     </div>
 
-                    <div class="p-8" role="listitem">
-                        <div class="flex justify-center mb-8">
+                    <div class="p-4 md:p-8" role="listitem">
+                        <div class="flex justify-center mb-6 md:mb-8">
                             <img src="img/animated_scheme/ethics.svg" alt="IA etica" width="80" height="80">
                         </div>
-                        <h3 class="text-2xl mb-4">IA etica</h3>
-                        <p class="text-gray-600 text-lg">Progettiamo strumenti che rispettano i principi etici, trasparenti e responsabili, per un'innovazione sostenibile e inclusiva</p>
+                        <h3 class="text-xl md:text-2xl mb-4">IA etica</h3>
+                        <p class="text-gray-600 text-base md:text-lg">Progettiamo strumenti che rispettano i principi etici, trasparenti e responsabili, per un'innovazione sostenibile e inclusiva</p>
                     </div>
 
-                    <div class="p-8 pr-0" role="listitem">
-                        <div class="flex justify-center mb-8">
+                    <div class="p-4 md:p-8 md:pr-0" role="listitem">
+                        <div class="flex justify-center mb-6 md:mb-8">
                             <img src="img/animated_scheme/modularity.svg" alt="Soluzioni modulari" width="80" height="80">
                         </div>
-                        <h3 class="text-2xl mb-4">Soluzioni modulari</h3>
-                        <p class="text-gray-600 text-lg">Ogni progetto nasce da componenti scalabili, personalizzabili e facili da integrare nei tuoi ecosistemi digitali</p>
+                        <h3 class="text-xl md:text-2xl mb-4">Soluzioni modulari</h3>
+                        <p class="text-gray-600 text-base md:text-lg">Ogni progetto nasce da componenti scalabili, personalizzabili e facili da integrare nei tuoi ecosistemi digitali</p>
                     </div>
                 </div>
             </div>
@@ -324,43 +324,46 @@
         </section>
         
         <!-- Projects Section -->
-        <section id="progetti" class="min-h-screen pt-32" aria-label="Progetti">
+        <section id="progetti" class="min-h-screen pt-16 md:pt-32" aria-label="Progetti">
             <div class="container mx-auto px-4 h-full flex items-center">
                 <div class="w-full">
                     <!-- Main Heading -->
-                    <div class="mb-16">
+                    <div class="mb-12 md:mb-16">
                         <div class="relative">
                             <div class="flex items-start">
-                                <h2 class="text-7xl md:text-8xl lg:text-9xl">Progetti</h2>
+                                <h2 class="text-4xl md:text-7xl lg:text-9xl">Progetti</h2>
                                 <span class="text-base text-gray-400 mt-4 ml-2" aria-hidden="true">(03)</span>
                             </div>
                             <div class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10" aria-hidden="true"></div>
                         </div>
                     </div>
 
-                    <p class="text-xl max-w-3xl mb-16">
+                    <p class="text-lg md:text-xl max-w-3xl mb-12 md:mb-16">
                         Le nostre soluzioni trasformano la ricerca in impatto concreto
                     </p>
 
                     <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
                         <div class="md:w-1/3" role="tablist" aria-label="Progetti">
                             <div class="space-y-4">
-                                <button class="w-full h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('arianne')" role="tab" aria-selected="true" aria-controls="arianne-panel">
-                                    <img src="img/logo/arianne.svg" alt="Arianne" class="h-12 w-auto" width="48" height="48">
+                                <button class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('arianne')" role="tab" aria-selected="true" aria-controls="arianne-panel">
+                                    <img src="img/logo/arianne.svg" alt="Arianne" class="h-8 md:h-10 w-auto" width="48" height="48">
                                 </button>
-                                <button class="w-full h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('esg')" role="tab" aria-selected="false" aria-controls="esg-panel">
-                                    <img src="img/logo/esgquest.svg" alt="ESGquest" class="h-12 w-auto" width="48" height="48">
+                                <button class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('esg')" role="tab" aria-selected="false" aria-controls="esg-panel">
+                                    <img src="img/logo/esgquest.svg" alt="ESGquest" class="h-8 md:h-10 w-auto" width="48" height="48">
                                 </button>
-                                <button class="w-full h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('micare')" role="tab" aria-selected="false" aria-controls="micare-panel">
-                                    <img src="img/logo/micare.svg" alt="MiCare" class="h-12 w-auto" width="48" height="48">
+                                <button class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('micare')" role="tab" aria-selected="false" aria-controls="micare-panel">
+                                    <img src="img/logo/micare.svg" alt="MiCare" class="h-8 md:h-10 w-auto" width="48" height="48">
                                 </button>
                             </div>
                         </div>
 
                         <div id="project-container" class="md:w-2/3 overflow-hidden h-[500px]" role="tabpanel">
                             <div id="arianne-panel" class="bg-gray-100 p-8 rounded-2xl" role="tabpanel" aria-labelledby="arianne-tab">
-                                <p class="text-gray-600 mb-8">
-                                    Arianne è la nuova piattaforma digitale concepita per sostenere psicologi, psicoterapeuti e psichiatri in ogni fase del percorso di cura. Un ambiente unico, completo e sicuro, che integra videochiamate, oltre 50 test psicodiagnostici e strumenti di monitoraggio e diario digitale, consentendo ai professionisti di fornire interventi personalizzati e di mantenere un contatto costante con i pazienti. Grazie a una suite di funzionalità avanzate, Arianne offre un servizio più completo rispetto ai competitor, distinguendosi per l'approccio innovativo, l'elevata protezione dei dati e la semplicità d'uso, migliorando così l'efficacia terapeutica e la qualità dell'esperienza di cura.
+                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                                    Arianne è la nuova piattaforma digitale concepita per sostenere psicologi, psicoterapeuti e psichiatri in ogni fase del percorso di cura. Un ambiente unico, completo e sicuro, che integra videochiamate, oltre 50 test psicodiagnostici e strumenti di monitoraggio e diario digitale, consentendo ai professionisti di fornire interventi personalizzati e di mantenere un contatto costante con i pazienti.
+                                </p>
+                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                                    Grazie a una suite di funzionalità avanzate, Arianne offre un servizio più completo rispetto ai competitor, distinguendosi per l'approccio innovativo, l'elevata protezione dei dati e la semplicità d'uso, migliorando così l'efficacia terapeutica e la qualità dell'esperienza di cura.
                                 </p>
                                 <a href="https://arianne.whattadata.it" target="_blank" rel="noopener noreferrer" class="project-screenshot">
                                     <img src="img/screenshot/arriane-screenshot.png" alt="Arianne Platform Dashboard" width="1200" height="900">
@@ -368,9 +371,11 @@
                             </div>
 
                             <div id="esg-panel" class="hidden bg-gray-100 p-8 rounded-2xl" role="tabpanel" aria-labelledby="esg-tab">
-                                <p class="text-gray-600 mb-8">
+                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
                                     ESGQuest è un tool che sfrutta l'intelligenza artificiale per analizzare i documenti non finanziari delle aziende, valutando l'implementazione di iniziative ESG. Grazie a tecniche di elaborazione del linguaggio naturale, elabora fattori ambientali, sociali e di governance per fornire una panoramica accurata delle performance complessive.
-                                    Le analisi di ESGQuest evidenziano punti di forza e aree di miglioramento, facilitando una maggiore trasparenza e responsabilità. L'interfaccia intuitiva consente di tradurre i risultati in azioni strategiche, rispondendo alla crescente attenzione verso la sostenibilità
+                                </p>
+                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
+                                    Le analisi di ESGQuest evidenziano punti di forza e aree di miglioramento, facilitando una maggiore trasparenza e responsabilità. L'interfaccia intuitiva consente di tradurre i risultati in azioni strategiche, rispondendo alla crescente attenzione verso la sostenibilità.
                                 </p>
                                 <a href="https://esgquest.whattadata.it" target="_blank" rel="noopener noreferrer" class="project-screenshot">
                                     <img src="https://placehold.co/1200x900/CCCCCC/f5f5f5?text=ESGquest+Dashboard" alt="ESGquest Platform Dashboard" width="1200" height="900">
@@ -378,8 +383,10 @@
                             </div>
 
                             <div id="micare-panel" class="hidden bg-gray-100 p-8 rounded-2xl" role="tabpanel" aria-labelledby="micare-tab">
-                                <p class="text-gray-600 mb-8">
+                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
                                     MiCare è un sistema intelligente pensato per supportare i clinici nel processo decisionale attraverso modelli avanzati di intelligenza artificiale. Utilizza dati clinici eterogenei – come anamnesi, esami diagnostici e informazioni dalle cartelle elettroniche – per costruire una rappresentazione completa del paziente.
+                                </p>
+                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
                                     Questa visione integrata consente di fornire raccomandazioni dettagliate, favorendo un approccio personalizzato alla diagnosi e alla cura. MiCare contribuisce all'identificazione precoce del rischio di patologie e si integra facilmente nei flussi di lavoro clinici grazie a un'interfaccia intuitiva e strumenti di visualizzazione chiari.
                                 </p>
                                 <a href="#" target="_blank" rel="noopener noreferrer" class="project-screenshot">
@@ -393,14 +400,14 @@
         </section>
 
         <!-- Team Section -->
-        <section id="team" class="min-h-screen bg-white" aria-label="Team">
+        <section id="team" class="min-h-screen bg-white py-16 md:py-0" aria-label="Team">
             <div class="container mx-auto px-4 h-full flex items-center">
                 <div class="w-full">
                     <!-- Main Heading -->
-                    <div class="mb-32">
+                    <div class="mb-16 md:mb-32">
                         <div class="relative">
                             <div class="flex items-start">
-                                <h2 class="text-7xl md:text-8xl lg:text-9xl">Team</h2>
+                                <h2 class="text-4xl md:text-7xl lg:text-9xl">Team</h2>
                                 <span class="text-base text-gray-400 mt-4 ml-2" aria-hidden="true">(04)</span>
                             </div>
                             <div id="square-5" class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10" aria-hidden="true"></div>
@@ -408,7 +415,7 @@
                     </div>
                     
                     <!-- Team Grid -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
                         <!-- Team Member 1 -->
                         <div class="space-y-4" role="listitem">
                             <h3 class="text-2xl font-bold">Marco Cremaschi</h3>
@@ -454,10 +461,10 @@
         </section>
 
         <!-- Footer & Contact Section -->
-        <footer id="contatti" class="min-h-screen bg-gray-900 text-white" role="contentinfo">
+        <footer id="contatti" class="min-h-screen bg-gray-900 text-white py-16 md:py-0" role="contentinfo">
             <div class="container mx-auto px-4 h-full flex items-center">
                 <div class="w-full">
-                    <div class="grid md:grid-cols-2 gap-16 mb-16">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-16">
                         <div>
                             <h4 class="text-lg font-bold mb-4">Social</h4>
                             <ul class="space-y-2" role="list">
@@ -465,12 +472,6 @@
                                     <a href="#" class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center">
                                         <i class="lni lni-linkedin-original text-xl mr-2" aria-hidden="true"></i>
                                         LinkedIn
-                                    </a>
-                                </li>
-                                <li role="listitem">
-                                    <a href="#" class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center">
-                                        <i class="lni lni-twitter-original text-xl mr-2" aria-hidden="true"></i>
-                                        X (Twitter)
                                     </a>
                                 </li>
                                 <li role="listitem">
@@ -506,11 +507,6 @@
                             <p class="text-gray-400 text-sm">
                                 © 2025 Whattadata S.r.l. Tutti i diritti riservati.
                             </p>
-                            <div class="flex space-x-4 mt-4 md:mt-0" role="list">
-                                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors" role="listitem">Privacy</a>
-                                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors" role="listitem">Termini</a>
-                                <a href="#" class="text-gray-400 hover:text-white text-sm transition-colors" role="listitem">Cookie</a>
-                            </div>
                         </div>
                     </div>
                 </div>
