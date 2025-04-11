@@ -530,68 +530,170 @@
     <!-- Custom Scripts -->
     <script src="graph.js" defer></script>
     <script>
+        // Constants
+        const SECTIONS = ['chi-siamo', 'servizi', 'progetti', 'team', 'contatti'];
+        const TYPING_WORDS = ['finanziari', 'aziendali', 'clinici', 'industriali'];
+        const TYPING_SPEED = 100;
+        const ERASE_SPEED = 50;
+        const PAUSE_DURATION = 2000;
+        const ANIMATION_DURATION = 800;
+
+        // DOM Elements
+        const cursor = document.getElementById('custom-cursor');
+        const typedText = document.getElementById('typed-text');
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const logo = document.getElementById('logo');
+        const square = document.getElementById('square');
+
         // AOS Initialization
         AOS.init({
-            duration: 800,
+            duration: ANIMATION_DURATION,
             once: true
         });
 
-        // Update active menu item based on scroll position
+        // Menu Active State Management
         function updateActiveMenuItem() {
-            const sections = ['chi-siamo', 'servizi', 'progetti', 'team', 'contatti'];
             const menuItems = document.querySelectorAll('nav a[href^="#"]');
             
-            sections.forEach(section => {
+            SECTIONS.forEach(section => {
                 const element = document.getElementById(section);
                 if (element) {
                     const rect = element.getBoundingClientRect();
                     const isVisible = rect.top <= 100 && rect.bottom >= 100;
                     
-                    if (isVisible) {
-                        menuItems.forEach(item => {
-                            if (item.getAttribute('href') === `#${section}`) {
-                                item.classList.add('font-bold');
-                            } else {
-                                item.classList.remove('font-bold');
-                            }
-                        });
-                    }
+                    menuItems.forEach(item => {
+                        item.classList.toggle('font-bold', 
+                            isVisible && item.getAttribute('href') === `#${section}`
+                        );
+                    });
                 }
             });
         }
 
-        // Add scroll event listener
-        window.addEventListener('scroll', updateActiveMenuItem);
-        // Initial check
-        updateActiveMenuItem();
-
-        // Custom Cursor and Typing Animation
-        document.addEventListener('DOMContentLoaded', function() {
-            const cursor = document.getElementById('custom-cursor');
-            const words = ['finanziari', 'aziendali', 'clinici', 'industriali'];
-            let currentWord = 0;
-            const typedText = document.getElementById('typed-text');
+        // Custom Cursor Management
+        function handleCursorMove(e) {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
             
-            document.addEventListener('mousemove', e => {
-                cursor.style.left = e.clientX + 'px';
-                cursor.style.top = e.clientY + 'px';
+            const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
+            if (elementUnderCursor) {
+                const isIndigoButton = elementUnderCursor.closest('.bg-indigo-600, .hover\\:bg-indigo-600');
+                const isLimeButton = elementUnderCursor.closest('.bg-lime-400');
                 
-                const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
-                if (elementUnderCursor) {
-                    const isIndigoButton = elementUnderCursor.closest('.bg-indigo-600, .hover\\:bg-indigo-600');
-                    const isLimeButton = elementUnderCursor.closest('.bg-lime-400');
-                    
-                    if (isIndigoButton) {
-                        cursor.classList.add('on-dark');
-                        cursor.style.borderColor = 'rgb(163, 230, 53)';
-                    } else if (isLimeButton) {
-                        cursor.classList.add('on-dark');
-                        cursor.style.borderColor = 'rgb(79, 70, 229)';
-                    } else {
-                        cursor.classList.remove('on-dark');
-                        cursor.style.borderColor = 'rgb(163, 230, 53)';
-                    }
+                cursor.classList.toggle('on-dark', isIndigoButton || isLimeButton);
+                cursor.style.borderColor = isIndigoButton ? 'rgb(163, 230, 53)' : 
+                                         isLimeButton ? 'rgb(79, 70, 229)' : 
+                                         'rgb(163, 230, 53)';
+            }
+        }
+
+        // Typing Animation
+        function typeWord(words = TYPING_WORDS, currentWord = 0) {
+            const word = words[currentWord];
+            let charIndex = 0;
+            
+            function type() {
+                if (charIndex < word.length) {
+                    typedText.textContent += word[charIndex];
+                    charIndex++;
+                    setTimeout(type, TYPING_SPEED);
+                } else {
+                    setTimeout(erase, PAUSE_DURATION);
                 }
+            }
+            
+            function erase() {
+                if (charIndex > 0) {
+                    typedText.textContent = word.substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, ERASE_SPEED);
+                } else {
+                    const nextWord = (currentWord + 1) % words.length;
+                    setTimeout(() => typeWord(words, nextWord), 500);
+                }
+            }
+            
+            type();
+        }
+
+        // Project Panel Management
+        function showProject(id) {
+            const currentPanel = document.querySelector('#project-container > div:not(.hidden)');
+            const newPanel = document.getElementById(`${id}-panel`);
+            
+            if (currentPanel) {
+                currentPanel.classList.add('panel-exit');
+                setTimeout(() => {
+                    currentPanel.classList.add('hidden');
+                    currentPanel.classList.remove('panel-exit');
+                    showNewPanel(newPanel);
+                }, 300);
+            } else {
+                showNewPanel(newPanel);
+            }
+            
+            updateProjectTabs(id);
+        }
+
+        function showNewPanel(panel) {
+            panel.classList.remove('hidden');
+            panel.classList.add('panel-enter');
+            setTimeout(() => panel.classList.remove('panel-enter'), 500);
+        }
+
+        function updateProjectTabs(activeId) {
+            document.querySelectorAll('[role="tab"]').forEach(tab => {
+                const isActive = tab.getAttribute('onclick').includes(activeId);
+                tab.classList.toggle('bg-gray-700', isActive);
+                tab.setAttribute('aria-selected', isActive);
+            });
+        }
+
+        // Mobile Menu Management
+        function toggleMobileMenu() {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('hidden');
+        }
+
+        // Square Animation Position
+        function calculateSquarePosition() {
+            const logoRect = logo.getBoundingClientRect();
+            const squareRect = square.getBoundingClientRect();
+            
+            square.style.setProperty('--start-x', `${logoRect.left - squareRect.left}px`);
+            square.style.setProperty('--start-y', `${logoRect.top - squareRect.top}px`);
+        }
+
+        // Smooth Scroll
+        function handleSmoothScroll(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize animations
+            typeWord();
+            showProject('arianne');
+            calculateSquarePosition();
+            
+            // Add event listeners
+            document.addEventListener('mousemove', handleCursorMove);
+            window.addEventListener('scroll', updateActiveMenuItem);
+            mobileMenuButton.addEventListener('click', toggleMobileMenu);
+            
+            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                link.addEventListener('click', handleSmoothScroll);
             });
             
             document.querySelectorAll('a, button').forEach(el => {
@@ -599,148 +701,12 @@
                 el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
             });
             
-            function typeWord() {
-                const word = words[currentWord];
-                let charIndex = 0;
-                
-                function type() {
-                    if (charIndex < word.length) {
-                        typedText.textContent += word[charIndex];
-                        charIndex++;
-                        setTimeout(type, 100);
-                    } else {
-                        setTimeout(erase, 2000);
-                    }
-                }
-                
-                function erase() {
-                    if (charIndex > 0) {
-                        typedText.textContent = word.substring(0, charIndex - 1);
-                        charIndex--;
-                        setTimeout(erase, 50);
-                    } else {
-                        currentWord = (currentWord + 1) % words.length;
-                        setTimeout(typeWord, 500);
-                    }
-                }
-                
-                type();
-            }
-            
-            typeWord();
-        });
-
-        // Project Panel Toggle
-        function showProject(id) {
-            const currentPanel = document.querySelector('#project-container > div:not(.hidden)');
-            const newPanel = document.getElementById(`${id}-panel`);
-            
-            if (currentPanel) {
-                // Anima il pannello corrente in uscita
-                currentPanel.classList.add('panel-exit');
-                setTimeout(() => {
-                    currentPanel.classList.add('hidden');
-                    currentPanel.classList.remove('panel-exit');
-                    
-                    // Mostra e anima il nuovo pannello
-                    newPanel.classList.remove('hidden');
-                    newPanel.classList.add('panel-enter');
-                    setTimeout(() => {
-                        newPanel.classList.remove('panel-enter');
-                    }, 500);
-                }, 300);
-            } else {
-                // Prima visualizzazione
-                newPanel.classList.remove('hidden');
-                newPanel.classList.add('panel-enter');
-                setTimeout(() => {
-                    newPanel.classList.remove('panel-enter');
-                }, 500);
-            }
-            
-            // Aggiorna lo stato attivo dei div
-            document.querySelector('[onclick="showProject(\'arianne\')"]').classList.remove('bg-gray-700');
-            document.querySelector('[onclick="showProject(\'esg\')"]').classList.remove('bg-gray-700');
-            document.querySelector('[onclick="showProject(\'micare\')"]').classList.remove('bg-gray-700');
-            document.querySelector(`[onclick="showProject('${id}')"]`).classList.add('bg-gray-700');
-
-            // Update ARIA attributes
-            document.querySelectorAll('[role="tab"]').forEach(tab => {
-                tab.setAttribute('aria-selected', 'false');
-            });
-            document.querySelector(`[onclick="showProject('${id}')"]`).setAttribute('aria-selected', 'true');
-        }
-
-        // Show Arianne project by default on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            showProject('arianne');
-        });
-
-        // Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            mobileMenuButton.addEventListener('click', () => {
-                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-                mobileMenu.classList.toggle('hidden');
-            });
-
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                });
-            });
-
+            // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
                     mobileMenu.classList.add('hidden');
                     mobileMenuButton.setAttribute('aria-expanded', 'false');
                 }
-            });
-        });
-
-        // Square Animation Position Calculation
-        document.addEventListener('DOMContentLoaded', function() {
-            const logo = document.getElementById('logo');
-            const square = document.getElementById('square');
-            
-            // Calcola la posizione iniziale e finale
-            const logoRect = logo.getBoundingClientRect();
-            const squareRect = square.getBoundingClientRect();
-            
-            // Calcola la distanza tra il logo e il quadrato
-            const startX = logoRect.left - squareRect.left;
-            const startY = logoRect.top - squareRect.top;
-            
-            // Imposta le variabili CSS per l'animazione
-            square.style.setProperty('--start-x', `${startX}px`);
-            square.style.setProperty('--start-y', `${startY}px`);
-        });
-
-        // Add immediate scroll to all menu links
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get all menu links
-            const menuLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            menuLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView();
-                    }
-                    
-                    // Close mobile menu if open
-                    const mobileMenu = document.getElementById('mobile-menu');
-                    const mobileMenuButton = document.getElementById('mobile-menu-button');
-                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        mobileMenuButton.setAttribute('aria-expanded', 'false');
-                    }
-                });
             });
         });
     </script>
