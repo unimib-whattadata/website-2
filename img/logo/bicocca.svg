@@ -50,12 +50,6 @@
    <g id="container-id1">
     <g id="id1" class="Slide" clip-path="url(#presentation_clip_path)">
      <g class="Page">
-      <g class="com.sun.star.drawing.PolyPolygonShape">
-       <g id="id3">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1605" y="2486" width="2384" height="2331"/>
-        <path fill="rgb(255,255,255)" stroke="none" d="M 1605,4816 L 3988,4816 3988,2486 1605,2486 1605,4816 Z"/>
-       </g>
-      </g>
       <g class="com.sun.star.drawing.ClosedBezierShape">
        <g id="id4">
         <rect class="BoundingBox" stroke="none" fill="none" x="1795" y="4106" width="220" height="204"/>
