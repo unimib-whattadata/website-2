@@ -73,29 +73,6 @@ body {
     transition-duration: 300ms;
 }
 
-/* Custom Cursor */
-.cursor-dot {
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-}
-
-.cursor-dot-outline {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 163, 255, 0.1);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
-}
-
 /* Project Panel Styles */
 .project-panel {
     position: relative;
@@ -163,12 +140,6 @@ body {
 /* Base Styles */
 html {
     scroll-behavior: smooth;
-}
-
-body {
-    cursor: none;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }
 
 section {
@@ -261,47 +232,6 @@ footer {
     transform: translateY(-200px);
     z-index: 10;
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-}
-
-/* Custom Cursor */
-#custom-cursor {
-    width: 16px;
-    height: 16px;
-    border: 2px solid rgb(79, 70, 229);
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: background 0.3s, border-color 0.3s, transform 0.1s;
-    transform: translate(-50%, -50%);
-}
-
-#custom-cursor.on-dark {
-    border-color: rgb(163, 230, 53);
-}
-
-#custom-cursor.hover {
-    transform: translate(-50%, -50%) scale(1.5);
-}
-
-/* Utility Classes */
-.rounded-lg, .rounded-full, .rounded-2xl, .rounded-xl, .rounded-md, .rounded-sm {
-    border-radius: 0 !important;
-}
-
-a, button, input, select, textarea {
-    cursor: none !important;
-}
-
-@media (pointer: coarse) {
-    body {
-        cursor: auto;
-    }
-    #custom-cursor {
-        display: none;
-    }
-    a, button, input, select, textarea {
-        cursor: pointer !important;
-    }
 }
 
 /* Square Animation */
