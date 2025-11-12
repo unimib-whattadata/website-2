@@ -1,695 +1,1421 @@
 <!DOCTYPE html>
 <html lang="it" class="scroll-smooth">
-<head>
+  <head>
     <!-- Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whattadata - Soluzioni data-driven per la salute e la sostenibilità</title>
-    
-    <!-- Preload Critical Resources -->
-    <link rel="preload" href="img/logo/whattadata.svg" as="image" type="image/svg+xml">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" as="style">
-    <link rel="preload" href="styles.css" as="style">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Primary Meta Tags -->
-    <meta name="description" content="Whattadata offre soluzioni innovative di intelligenza artificiale e analisi dati per trasformare il tuo business. Scopri come possiamo aiutarti a potenziare i tuoi dati.">
-    <meta name="keywords" content="intelligenza artificiale, analisi dati, machine learning, data science, salute digitale, sostenibilità, ESG, soluzioni tecnologiche, innovazione">
-    <meta name="author" content="Whattadata S.r.l.">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="googlebot" content="index, follow">
-    <meta name="language" content="Italian">
-    <meta name="revisit-after" content="7 days">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://whattadata.it">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Whattadata - Soluzioni data-driven per la salute e la sostenibilità
+    </title>
 
-    
+    <!-- Preload Critical Resources -->
+    <link
+      rel="preload"
+      href="img/logo/whattadata.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      as="style"
+    />
+    <link rel="preload" href="styles.css" as="style" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Primary Meta Tags -->
+    <meta
+      name="description"
+      content="Whattadata offre soluzioni innovative di intelligenza artificiale e analisi dati per trasformare il tuo business. Scopri come possiamo aiutarti a potenziare i tuoi dati."
+    />
+    <meta
+      name="keywords"
+      content="intelligenza artificiale, analisi dati, machine learning, data science, salute digitale, sostenibilità, ESG, soluzioni tecnologiche, innovazione"
+    />
+    <meta name="author" content="Whattadata S.r.l." />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="Italian" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://whattadata.it" />
+
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="img/logo/whattadata.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <meta name="theme-color" content="#4F46E5">
-    
+    <link rel="icon" type="image/svg+xml" href="img/logo/whattadata.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon-16x16.png"
+    />
+    <meta name="theme-color" content="#4F46E5" />
+
     <!-- External Resources -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
-    
+
     <!-- Tailwind Configuration -->
     <script src="tailwind.config.js"></script>
 
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="cursor.css">
-    
-</head>
-<body class="bg-white">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cursor.css" />
+  </head>
+  <body class="bg-white">
     <!-- Skip to Main Content Link -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:p-4">
-        Vai al contenuto principale
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:p-4"
+    >
+      Vai al contenuto principale
     </a>
 
     <!-- Custom Cursor Element -->
     <div id="custom-cursor" aria-hidden="true"></div>
 
     <!-- Main Navigation -->
-    <nav class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4" role="navigation" aria-label="Main menu">
-        <div class="container mx-auto px-6 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="text-xl md:text-2xl flex items-center" id="logo" aria-label="Whattadata - Torna alla home">
-                <img src="img/logo/whattadata.svg" alt="Whatta Logo" class="h-8 w-auto mr-3" width="32" height="32" loading="eager">
-                <span>WHATTA</span><span class="font-light">DATA</span>
-            </a>
-            
-            <!-- Mobile Menu Toggle -->
-            <button class="md:hidden text-gray-900 focus:outline-none" id="mobile-menu-button" aria-label="Apri menu mobile" aria-expanded="false" aria-controls="mobile-menu">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-            </button>
+    <nav
+      class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4"
+      role="navigation"
+      aria-label="Main menu"
+    >
+      <div class="container mx-auto px-6 flex items-center justify-between">
+        <!-- Logo -->
+        <a
+          href="#"
+          class="text-xl md:text-2xl flex items-center"
+          id="logo"
+          aria-label="Whattadata - Torna alla home"
+        >
+          <img
+            src="img/logo/whattadata.svg"
+            alt="Whatta Logo"
+            class="h-8 w-auto mr-3"
+            width="32"
+            height="32"
+            loading="eager"
+          />
+          <span>WHATTA</span><span class="font-light">DATA</span>
+        </a>
 
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex items-center space-x-10" role="menubar">
-                <a href="#servizi" class="hover:text-indigo-600 transition-colors" role="menuitem">SERVIZI</a>
-                <a href="#chi-siamo" class="hover:text-indigo-600 transition-colors" role="menuitem">CHI SIAMO</a>
-                <a href="#progetti" class="hover:text-indigo-600 transition-colors" role="menuitem">PROGETTI</a>
-                <a href="#team" class="hover:text-indigo-600 transition-colors" role="menuitem">TEAM</a>
-                <a href="#contatti" class="hover:text-indigo-600 transition-colors" role="menuitem">CONTATTI</a>
-            </div>
-            
-            <!-- CTA Button -->
-            <div class="hidden md:flex items-center ml-8">
-                <a href="#" class="hidden bg-lime-400 px-6 py-2.5 text-sm hover:scale-105 transition-transform" role="button">
-                    INFO
-                </a>
-            </div>
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden text-gray-900 focus:outline-none"
+          id="mobile-menu-button"
+          aria-label="Apri menu mobile"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-10" role="menubar">
+          <a
+            href="#servizi"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >SERVIZI</a
+          >
+          <a
+            href="#chi-siamo"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >CHI SIAMO</a
+          >
+          <a
+            href="#progetti"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >PROGETTI</a
+          >
+          <a
+            href="#team"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >TEAM</a
+          >
+          <a
+            href="#contatti"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >CONTATTI</a
+          >
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50" id="mobile-menu" role="menu" aria-labelledby="mobile-menu-button">
-            <div class="container mx-auto px-6 py-4 space-y-4">
-                <a href="#servizi" class="block hover:text-gray-900 transition-colors text-lg" role="menuitem">SERVIZI</a>
-                <a href="#chi-siamo" class="block hover:text-gray-900 transition-colors text-lg" role="menuitem">CHI SIAMO</a>
-                <a href="#progetti" class="block hover:text-gray-900 transition-colors text-lg" role="menuitem">PROGETTI</a>
-                <a href="#team" class="block hover:text-gray-900 transition-colors text-lg" role="menuitem">TEAM</a>
-                <a href="#contatti" class="block hover:text-gray-900 transition-colors text-lg" role="menuitem">CONTATTI</a>
-                <a href="#" class="hidden inline-block bg-lime-400 px-6 py-2.5 text-sm hover:scale-105 transition-transform" role="button">
-                    INFO
-                </a>
-            </div>
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center ml-8">
+          <a
+            href="#"
+            class="hidden bg-lime-400 px-6 py-2.5 text-sm hover:scale-105 transition-transform"
+            role="button"
+          >
+            INFO
+          </a>
         </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50"
+        id="mobile-menu"
+        role="menu"
+        aria-labelledby="mobile-menu-button"
+      >
+        <div class="container mx-auto px-6 py-4 space-y-4">
+          <a
+            href="#servizi"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >SERVIZI</a
+          >
+          <a
+            href="#chi-siamo"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >CHI SIAMO</a
+          >
+          <a
+            href="#progetti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >PROGETTI</a
+          >
+          <a
+            href="#team"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >TEAM</a
+          >
+          <a
+            href="#contatti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >CONTATTI</a
+          >
+          <a
+            href="#"
+            class="hidden inline-block bg-lime-400 px-6 py-2.5 text-sm hover:scale-105 transition-transform"
+            role="button"
+          >
+            INFO
+          </a>
+        </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Section -->
-        <section class="relative flex items-center justify-center min-h-screen pt-20 px-4" aria-label="Hero section">
-            <div class="container mx-auto">
-                <div class="max-w-4xl">
-                    <!-- Main Heading -->
-                    <h1 class="text-3xl sm:text-4xl md:text-7xl mb-6 md:mb-8 leading-tight">
-                        Potenziamo i tuoi dati
-                    </h1>
-                    
-                    <!-- Animated Text -->
-                    <div class="flex items-center h-16 md:h-20 mb-6 md:mb-8 text-3xl sm:text-4xl md:text-7xl text-indigo-600" aria-live="polite">
-                        <span id="typed-text"></span>
-                        <span class="font-thin text-gray-400 animate-pulse" aria-hidden="true">|</span>
-                    </div>
-                    
-                    <!-- Subheading with Animated Square -->
-                    <p class="text-3xl sm:text-4xl md:text-7xl mb-12 md:mb-16 leading-tight">
-                        con soluzioni innovative<span class="animate-square-move" id="square" aria-hidden="true"></span>
-                    </p>
-                </div>
-                
-                <!-- CTA Button -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 bottom-8 md:bottom-16">
-                    <a href="#servizi" class="inline-flex items-center px-6 md:px-8 py-2 text-sm md:text-base text-white bg-indigo-600 hover:scale-105 transition-transform font-mono" role="button">
-                        ESPLORA
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Decorative Circle -->
-            <div class="absolute right-1/4 top-1/3 w-32 h-32 border-4 border-indigo-600/20 rounded-full opacity-0 scale-0 animate-[fade-in_1s_ease_forwards,scale-up_1s_ease_forwards] hover:scale-110 hover:shadow-lg hover:shadow-indigo-600/20 transition-all" aria-hidden="true"></div>
-            
-            <!-- Page Indicators -->
-            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 hidden" aria-hidden="true">
-                <div class="w-6 h-1.5 bg-black"></div>
-                <div class="w-4 h-1.5 bg-black/30"></div>
-                <div class="w-4 h-1.5 bg-black/30"></div>
-            </div>
-            
-            <!-- Navigation Arrow -->
-            <button class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono hidden" aria-label="Scorri alla sezione successiva">
-                →
-            </button>
-        </section>
+      <!-- Hero Section -->
+      <section
+        class="relative flex items-center justify-center min-h-screen pt-20 px-4"
+        aria-label="Hero section"
+      >
+        <div class="container mx-auto">
+          <div class="max-w-4xl">
+            <!-- Main Heading -->
+            <h1
+              class="text-3xl sm:text-4xl md:text-7xl mb-6 md:mb-8 leading-tight"
+            >
+              Potenziamo i tuoi dati
+            </h1>
 
-        <!-- Value Proposition Section -->
-        <section id="servizi" class="min-h-screen bg-gray-50 flex items-center py-16 md:py-0" aria-label="Services">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center mb-12 md:mb-16">
-                    <!-- Left Column - Main Title -->
-                    <div class="md:col-span-7">
+            <!-- Animated Text -->
+            <div
+              class="flex items-center h-16 md:h-20 mb-6 md:mb-8 text-3xl sm:text-4xl md:text-7xl text-indigo-600"
+              aria-live="polite"
+            >
+              <span id="typed-text"></span>
+              <span
+                class="font-thin text-gray-400 animate-pulse"
+                aria-hidden="true"
+                >|</span
+              >
+            </div>
+
+            <!-- Subheading with Animated Square -->
+            <p
+              class="text-3xl sm:text-4xl md:text-7xl mb-12 md:mb-16 leading-tight"
+            >
+              con soluzioni innovative<span
+                class="animate-square-move"
+                id="square"
+                aria-hidden="true"
+              ></span>
+            </p>
+          </div>
+
+          <!-- CTA Button -->
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 bottom-8 md:bottom-16"
+          >
+            <a
+              href="#servizi"
+              class="inline-flex items-center px-6 md:px-8 py-2 text-sm md:text-base text-white bg-indigo-600 hover:scale-105 transition-transform font-mono"
+              role="button"
+            >
+              ESPLORA
+            </a>
+          </div>
+        </div>
+
+        <!-- Decorative Circle -->
+        <div
+          class="absolute right-1/4 top-1/3 w-32 h-32 border-4 border-indigo-600/20 rounded-full opacity-0 scale-0 animate-[fade-in_1s_ease_forwards,scale-up_1s_ease_forwards] hover:scale-110 hover:shadow-lg hover:shadow-indigo-600/20 transition-all"
+          aria-hidden="true"
+        ></div>
+
+        <!-- Page Indicators -->
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 hidden"
+          aria-hidden="true"
+        >
+          <div class="w-6 h-1.5 bg-black"></div>
+          <div class="w-4 h-1.5 bg-black/30"></div>
+          <div class="w-4 h-1.5 bg-black/30"></div>
+        </div>
+
+        <!-- Navigation Arrow -->
+        <button
+          class="absolute right-8 top-1/2 transform -translate-y-1/2 text-4xl text-gray-900 hover:scale-110 transition-transform font-mono hidden"
+          aria-label="Scorri alla sezione successiva"
+        >
+          →
+        </button>
+      </section>
+
+      <!-- Value Proposition Section -->
+      <section
+        id="servizi"
+        class="min-h-screen bg-gray-50 flex items-center py-16 md:py-0"
+        aria-label="Services"
+      >
+        <div class="container mx-auto px-4">
+          <div
+            class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center mb-12 md:mb-16"
+          >
+            <!-- Left Column - Main Title -->
+            <div class="md:col-span-7">
+              <div class="flex items-start">
+                <h2 class="text-2xl md:text-3xl leading-tight">
+                  Diamo valore ai tuoi dati con soluzioni intelligenti
+                </h2>
+                <span class="text-base text-gray-400 mt-4" aria-hidden="true"
+                  >(01)</span
+                >
+              </div>
+            </div>
+
+            <!-- Right Column - Description -->
+            <div class="md:col-span-5">
+              <p
+                class="text-xl md:text-2xl font-thin text-indigo-600 leading-relaxed"
+              >
+                In qualità di partner tecnologico, accompagniamo le aziende nel
+                loro percorso di innovazione, integrando soluzioni avanzate di
+                intelligenza artificiale e analisi dati
+              </p>
+            </div>
+          </div>
+
+          <!-- Value Cards Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
+            <div class="p-4 md:p-8 md:pl-0" role="listitem">
+              <div class="flex justify-center mb-6 md:mb-8">
+                <img
+                  src="img/animated_scheme/predictive.svg"
+                  alt="Predictive Analysis"
+                  width="80"
+                  height="80"
+                  loading="lazy"
+                />
+              </div>
+              <h3 class="text-xl md:text-2xl mb-4">Analisi predittiva</h3>
+              <p class="text-gray-600 text-base md:text-lg">
+                Sviluppiamo soluzioni basate su algoritmi di machine learning
+                per aiutarti a prendere decisioni informate e tempestive
+              </p>
+            </div>
+
+            <div class="p-4 md:p-8" role="listitem">
+              <div class="flex justify-center mb-6 md:mb-8">
+                <img
+                  src="img/animated_scheme/ethics.svg"
+                  alt="IA etica"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="text-xl md:text-2xl mb-4">IA etica</h3>
+              <p class="text-gray-600 text-base md:text-lg">
+                Progettiamo strumenti che rispettano i principi etici,
+                trasparenti e responsabili, per un'innovazione sostenibile e
+                inclusiva
+              </p>
+            </div>
+
+            <div class="p-4 md:p-8 md:pr-0" role="listitem">
+              <div class="flex justify-center mb-6 md:mb-8">
+                <img
+                  src="img/animated_scheme/modularity.svg"
+                  alt="Soluzioni modulari"
+                  width="80"
+                  height="80"
+                />
+              </div>
+              <h3 class="text-xl md:text-2xl mb-4">Soluzioni modulari</h3>
+              <p class="text-gray-600 text-base md:text-lg">
+                Ogni progetto nasce da componenti scalabili, personalizzabili e
+                facili da integrare nei tuoi ecosistemi digitali
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Message Section -->
+      <section
+        id="chi-siamo"
+        class="min-h-screen bg-white flex items-center justify-center"
+        aria-label="About us"
+      >
+        <div class="w-full">
+          <div
+            class="bg-primary relative overflow-hidden min-h-screen flex items-center justify-center"
+          >
+            <!-- Graph Background -->
+            <div class="absolute inset-0" id="graph-container">
+              <svg
+                width="100%"
+                height="100%"
+                class="graph-svg absolute inset-0"
+              >
+                <defs>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+                <!-- Dynamic nodes and edges will be added here via JavaScript -->
+              </svg>
+
+              <!-- Content -->
+              <div class="relative h-full flex flex-col justify-center z-10">
+                <div class="container mx-auto px-4">
+                  <div class="max-w-6xl mx-auto">
+                    <!-- Main Heading -->
+                    <div class="mb-12">
+                      <div class="relative">
                         <div class="flex items-start">
-                            <h2 class="text-2xl md:text-3xl leading-tight">
-                                Diamo valore ai tuoi dati con soluzioni intelligenti
-                            </h2>
-                            <span class="text-base text-gray-400 mt-4" aria-hidden="true">(01)</span>
+                          <h2
+                            class="text-7xl md:text-8xl lg:text-9xl text-white font-light"
+                          >
+                            Chi siamo
+                          </h2>
+                          <span
+                            class="text-base text-gray-400 mt-4 ml-2"
+                            aria-hidden="true"
+                            >(02)</span
+                          >
                         </div>
+                        <div
+                          class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
+                          aria-hidden="true"
+                        ></div>
+                      </div>
                     </div>
-                    
-                    <!-- Right Column - Description -->
-                    <div class="md:col-span-5">
-                        <p class="text-xl md:text-2xl font-thin text-indigo-600 leading-relaxed">
-                            In qualità di partner tecnologico, accompagniamo le aziende nel loro percorso di innovazione, 
-                            integrando soluzioni avanzate di intelligenza artificiale e analisi dati
-                        </p>
+
+                    <div class="grid grid-cols-12 gap-16">
+                      <div class="col-span-7">
+                        <div class="space-y-8">
+                          <p
+                            class="text-xl md:text-2xl font-thin text-white leading-relaxed"
+                          >
+                            Whattadata è uno spin-off dell'<span
+                              style="
+                                background-color: #a3e635;
+                                padding: 2px 4px;
+                                border-radius: 2px;
+                              "
+                              class="text-gray-600"
+                              >Università degli Studi di Milano-Bicocca</span
+                            >
+                            che trasforma la gestione e l'analisi dei dati in
+                            soluzioni concrete per la crescita di ogni azienda
+                          </p>
+                          <h3
+                            class="text-2xl md:text-3xl leading-tight text-white"
+                          >
+                            Sblocca infinite possibilità per il tuo business
+                          </h3>
+                          <p
+                            class="text-xl md:text-2xl font-thin text-white leading-relaxed"
+                          >
+                            Scopri come Whattadata può aiutarti a raggiungere
+                            nuovi traguardi
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-span-5 flex items-center justify-center">
+                        <img
+                          src="img/logo/bicocca.svg"
+                          alt="Università degli Studi di Milano-Bicocca"
+                          class="w-full max-w-[200px]"
+                        />
+                      </div>
                     </div>
+                  </div>
                 </div>
-
-                <!-- Value Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
-                    <div class="p-4 md:p-8 md:pl-0" role="listitem">
-                        <div class="flex justify-center mb-6 md:mb-8">
-                            <img src="img/animated_scheme/predictive.svg" alt="Predictive Analysis" width="80" height="80" loading="lazy">
-                        </div>
-                        <h3 class="text-xl md:text-2xl mb-4">Analisi predittiva</h3>
-                        <p class="text-gray-600 text-base md:text-lg">Sviluppiamo soluzioni basate su algoritmi di machine learning per aiutarti a prendere decisioni informate e tempestive</p>
-                    </div>
-
-                    <div class="p-4 md:p-8" role="listitem">
-                        <div class="flex justify-center mb-6 md:mb-8">
-                            <img src="img/animated_scheme/ethics.svg" alt="IA etica" width="80" height="80">
-                        </div>
-                        <h3 class="text-xl md:text-2xl mb-4">IA etica</h3>
-                        <p class="text-gray-600 text-base md:text-lg">Progettiamo strumenti che rispettano i principi etici, trasparenti e responsabili, per un'innovazione sostenibile e inclusiva</p>
-                    </div>
-
-                    <div class="p-4 md:p-8 md:pr-0" role="listitem">
-                        <div class="flex justify-center mb-6 md:mb-8">
-                            <img src="img/animated_scheme/modularity.svg" alt="Soluzioni modulari" width="80" height="80">
-                        </div>
-                        <h3 class="text-xl md:text-2xl mb-4">Soluzioni modulari</h3>
-                        <p class="text-gray-600 text-base md:text-lg">Ogni progetto nasce da componenti scalabili, personalizzabili e facili da integrare nei tuoi ecosistemi digitali</p>
-                    </div>
-                </div>
+              </div>
             </div>
-        </section>
 
-        <!-- Message Section -->
-        <section id="chi-siamo" class="min-h-screen bg-white flex items-center justify-center" aria-label="About us">
-            <div class="w-full">
-                <div class="bg-primary relative overflow-hidden min-h-screen flex items-center justify-center">
-                    <!-- Graph Background -->
-                    <div class="absolute inset-0" id="graph-container">
-                        <svg width="100%" height="100%" class="graph-svg absolute inset-0">
-                            <defs>
-                                <filter id="glow">
-                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                                    <feMerge>
-                                        <feMergeNode in="coloredBlur"/>
-                                        <feMergeNode in="SourceGraphic"/>
-                                    </feMerge>
-                                </filter>
-                            </defs>
-                            <!-- Dynamic nodes and edges will be added here via JavaScript -->
-                        </svg>
-
-                        <!-- Content -->
-                        <div class="relative h-full flex flex-col justify-center z-10">
-                            <div class="container mx-auto px-4">
-                                <div class="max-w-6xl mx-auto">
-                                    <!-- Main Heading -->
-                                    <div class="mb-12">
-                                        <div class="relative">
-                                            <div class="flex items-start">
-                                                <h2 class="text-7xl md:text-8xl lg:text-9xl text-white font-light">Chi siamo</h2>
-                                                <span class="text-base text-gray-400 mt-4 ml-2" aria-hidden="true">(02)</span>
-                                            </div>
-                                            <div class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10" aria-hidden="true"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="grid grid-cols-12 gap-16">
-                                        <div class="col-span-7">
-                                            <div class="space-y-8">
-                                                <p class="text-xl md:text-2xl font-thin text-white leading-relaxed">
-                                                    Whattadata è uno spin-off dell'<span style="background-color: #A3E635; padding: 2px 4px; border-radius: 2px;" class="text-gray-600">Università degli Studi di Milano-Bicocca</span> che trasforma la gestione e l'analisi dei dati in soluzioni concrete per la crescita di ogni azienda
-                                                </p>
-                                                <h3 class="text-2xl md:text-3xl leading-tight text-white">
-                                                    Sblocca infinite possibilità per il tuo business
-                                                </h3>
-                                                <p class="text-xl md:text-2xl font-thin text-white leading-relaxed">
-                                                    Scopri come Whattadata può aiutarti a raggiungere nuovi traguardi
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-span-5 flex items-center justify-center">
-                                            <img src="img/logo/bicocca.svg" alt="Università degli Studi di Milano-Bicocca" class="w-full max-w-[200px]">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Logo Carousel -->
-                    <div class="logo-carousel" aria-hidden="true">
-                        <div class="logo-track">
-                            <div class="logo-item">
-                                <img src="img/logo/arianne.svg" alt="Arianne" width="120" height="40">
-                            </div>
-                            <div class="logo-item">
-                                <img src="img/logo/esgquest.svg" alt="ESGquest" width="120" height="40">
-                            </div>
-                            <div class="logo-item">
-                                <img src="img/logo/micare.svg" alt="MiCare" width="120" height="40">
-                            </div>
-                            <div class="logo-item">
-                                <img src="img/logo/arianne.svg" alt="Arianne" width="120" height="40">
-                            </div>
-                            <div class="logo-item">
-                                <img src="img/logo/esgquest.svg" alt="ESGquest" width="120" height="40">
-                            </div>
-                            <div class="logo-item">
-                                <img src="img/logo/micare.svg" alt="MiCare" width="120" height="40">
-                            </div>
-                        </div>
-                    </div>
+            <!-- Logo Carousel -->
+            <div class="logo-carousel" aria-hidden="true">
+              <div class="logo-track">
+                <div class="logo-item">
+                  <img
+                    src="img/logo/arianne.svg"
+                    alt="Arianne"
+                    width="120"
+                    height="40"
+                  />
                 </div>
-            </div>
-        </section>
-        
-        <!-- Projects Section -->
-        <section id="progetti" class="min-h-screen pt-16 md:pt-32" aria-label="Projects">
-            <div class="container mx-auto px-4 h-full flex items-center">
-                <div class="w-full">
-                    <!-- Main Heading -->
-                    <div class="mb-12 md:mb-16">
-                        <div class="relative">
-                            <div class="flex items-start">
-                                <h2 class="text-4xl md:text-7xl lg:text-9xl">Progetti</h2>
-                                <span class="text-base text-gray-400 mt-4 ml-2" aria-hidden="true">(03)</span>
-                            </div>
-                            <div class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10" aria-hidden="true"></div>
-                        </div>
-                    </div>
-
-                    <p class="text-lg md:text-xl max-w-3xl mb-12 md:mb-16">
-                        Le nostre soluzioni trasformano la ricerca in impatto concreto
-                    </p>
-
-                    <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-                        <div class="md:w-1/3" role="tablist" aria-label="Progetti">
-                            <div class="space-y-4">
-                                <button class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('arianne')" role="tab" aria-selected="true" aria-controls="arianne-panel">
-                                    <img src="img/logo/arianne.svg" alt="Arianne" class="h-8 md:h-10 w-auto" width="48" height="48">
-                                </button>
-                                <button class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('esg')" role="tab" aria-selected="false" aria-controls="esg-panel">
-                                    <img src="img/logo/esgquest.svg" alt="ESGquest" class="h-8 md:h-10 w-auto" width="48" height="48">
-                                </button>
-                                <button class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all" onclick="showProject('micare')" role="tab" aria-selected="false" aria-controls="micare-panel">
-                                    <img src="img/logo/micare.svg" alt="MiCare" class="h-8 md:h-10 w-auto" width="48" height="48">
-                                </button>
-                            </div>
-                        </div>
-
-                        <div id="project-container" class="md:w-2/3 overflow-hidden h-[500px]" role="tabpanel">
-                            <div id="arianne-panel" class="bg-gray-100 p-8 rounded-2xl" role="tabpanel" aria-labelledby="arianne-tab">
-                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                    Arianne è la <strong>nuova piattaforma digitale</strong> concepita per sostenere <strong>psicologi, psicoterapeuti e psichiatri</strong> in ogni fase del percorso di cura. Un <strong>ambiente unico, completo e sicuro</strong>, che integra <strong>videochiamate</strong>, <strong>oltre 50 test psicodiagnostici</strong> e <strong>strumenti di monitoraggio e diario digitale</strong>, consentendo ai professionisti di fornire <strong>interventi personalizzati</strong> e di mantenere un <strong>contatto costante</strong> con i pazienti.
-                                  </p>
-                                  <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                    Grazie a una <strong>suite di funzionalità avanzate</strong>, Arianne offre un <strong>servizio più completo</strong> rispetto ai competitor, distinguendosi per l'<strong>approccio innovativo</strong>, l'<strong>elevata protezione dei dati</strong> e la <strong>semplicità d'uso</strong>, migliorando così l'<strong>efficacia terapeutica</strong> e la <strong>qualità dell'esperienza di cura</strong>.
-                                  </p>
-                                <a href="https://arianne.whattadata.it" target="_blank" rel="noopener noreferrer" class="project-screenshot">
-                                    <img src="img/screenshot/arriane-screenshot.png" alt="Arianne Platform Dashboard" width="1200" height="900">
-                                </a>
-                            </div>
-
-                            <div id="esg-panel" class="hidden bg-gray-100 p-8 rounded-2xl" role="tabpanel" aria-labelledby="esg-tab">
-                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                    ESGQuest è un <strong>tool</strong> che sfrutta l'<strong>intelligenza artificiale</strong> per <strong>analizzare i documenti non finanziari</strong> delle aziende, valutando l'implementazione di <strong>iniziative ESG</strong>. Grazie a <strong>tecniche di elaborazione del linguaggio naturale</strong>, elabora <strong>fattori ambientali, sociali e di governance</strong> per fornire una <strong>panoramica accurata</strong> delle performance complessive.
-                                  </p>
-                                  <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                    Le <strong>analisi di ESGQuest</strong> evidenziano <strong>punti di forza</strong> e <strong>aree di miglioramento</strong>, facilitando una <strong>maggiore trasparenza</strong> e responsabilità. L'<strong>interfaccia intuitiva</strong> consente di <strong>tradurre i risultati in azioni strategiche</strong>, rispondendo alla crescente attenzione verso la sostenibilità.
-                                  </p>
-                                <a href="https://esgquest.whattadata.it" target="_blank" rel="noopener noreferrer" class="project-screenshot">
-                                    <img src="https://placehold.co/1200x900/CCCCCC/f5f5f5?text=ESGquest+Dashboard" alt="ESGquest Platform Dashboard" width="1200" height="900">
-                                </a>
-                            </div>
-
-                            <div id="micare-panel" class="hidden bg-gray-100 p-8 rounded-2xl" role="tabpanel" aria-labelledby="micare-tab">
-                                <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                    MiCare è un <strong>sistema intelligente</strong> pensato per <strong>supportare i clinici</strong> nel <strong>processo decisionale</strong> attraverso <strong>modelli avanzati di intelligenza artificiale</strong>. Utilizza <strong>dati clinici eterogenei</strong> – come <strong>anamnesi</strong>, <strong>esami diagnostici</strong> e <strong>informazioni dalle cartelle elettroniche</strong> – per costruire una <strong>rappresentazione completa del paziente</strong>.
-                                  </p>
-                                  <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-8">
-                                    Questa <strong>visione integrata</strong> consente di fornire <strong>raccomandazioni dettagliate</strong>, favorendo un <strong>approccio personalizzato</strong> alla diagnosi e alla cura. MiCare contribuisce all'<strong>identificazione precoce del rischio di patologie</strong> e si integra <strong>facilmente nei flussi di lavoro clinici</strong> grazie a un <strong>interfaccia intuitiva</strong> e <strong>strumenti di visualizzazione chiari</strong>.
-                                  </p>
-                                <a href="#" target="_blank" rel="noopener noreferrer" class="project-screenshot">
-                                    <img src="img/screenshot/micare-screenshot.png" alt="MiCare Platform Dashboard" width="1200" height="900">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="logo-item">
+                  <img
+                    src="img/logo/esgquest.svg"
+                    alt="ESGquest"
+                    width="120"
+                    height="40"
+                  />
                 </div>
-            </div>
-        </section>
-
-        <!-- Team Section -->
-        <section id="team" class="min-h-screen bg-white py-16 md:py-0" aria-label="Team">
-            <div class="container mx-auto px-4 h-full flex items-center">
-                <div class="w-full">
-                    <!-- Main Heading -->
-                    <div class="mb-16 md:mb-32">
-                        <div class="relative">
-                            <div class="flex items-start">
-                                <h2 class="text-4xl md:text-7xl lg:text-9xl">Team</h2>
-                                <span class="text-base text-gray-400 mt-4 ml-2" aria-hidden="true">(04)</span>
-                            </div>
-                            <div id="square-5" class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10" aria-hidden="true"></div>
-                        </div>
-                    </div>
-                    
-                    <!-- Team Grid -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8" role="list">
-                        <!-- Team Member 1 -->
-                        <div class="space-y-4" role="listitem">
-                            <h3 class="text-2xl font-bold">Marco<br/>Cremaschi</h3>
-                            <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/mc.png" alt="Marco Cremaschi" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
-                                <img src="img/team/mc-coloured.png" alt="Marco Cremaschi Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
-                            </div>
-                            <p class="text-gray-600">CTO</p>
-                            <span class="text-gray-400 mt-4" aria-hidden="true">Ricercatore@UNIMIB</span>
-                        </div>
-
-                        <!-- Team Member 2 -->
-                        <div class="space-y-4" role="listitem">
-                            <h3 class="text-2xl font-bold">David<br/>Chieregato</h3>
-                            <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/dc.png" alt="David Chieregato" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
-                                <img src="img/team/dc-coloured.png" alt="David Chieregato Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
-                            </div>
-                            <p class="text-gray-600">CEO</p>
-                        </div>
-
-                        <!-- Team Member 3 -->
-                        <div class="space-y-4" role="listitem">
-                            <h3 class="text-2xl font-bold">Fabio<br/>D'Adda</h3>
-                            <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/fd.png" alt="Fabio D'Adda" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
-                                <img src="img/team/fd-coloured.png" alt="Fabio D'Adda Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
-                            </div>
-                            <p class="text-gray-600">Lead AI</p>
-                        </div>
-
-                        <!-- Team Member 4 -->
-                        <div class="space-y-4" role="listitem">
-                            <h3 class="text-2xl font-bold">Gianluigi<br/>Ciufo</h3>
-                            <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/gc.png" alt="Gianluigi Ciufo" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
-                                <img src="img/team/gc-coloured.png" alt="Gianluigi Ciufo Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
-                            </div>
-                            <p class="text-gray-600">Financing</p>
-                        </div>
-
-                        <!-- Team Member 5 -->
-                        <div class="space-y-4" role="listitem">
-                            <h3 class="text-2xl font-bold">Andrea<br/>Maurino</h3>
-                            <div class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group">
-                                <img src="img/team/am.png" alt="Andrea Maurino" class="w-full h-full object-cover transition-all duration-300" width="400" height="400" loading="lazy">
-                                <img src="img/team/am-coloured.png" alt="Andrea Maurino Coloured" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300" width="400" height="400">
-                            </div>
-                            <p class="text-gray-600">Advisor</p>
-                            <span class="text-gray-400 mt-4" aria-hidden="true">Professore@UNIMIB</span>
-                        </div>
-
-                    </div>
+                <div class="logo-item">
+                  <img
+                    src="img/logo/micare.svg"
+                    alt="MiCare"
+                    width="120"
+                    height="40"
+                  />
                 </div>
-            </div>
-        </section>
-
-        <!-- Footer & Contact Section -->
-        <footer id="contatti" class="min-h-screen bg-gray-900 text-white py-16 md:py-0" role="contentinfo">
-            <div class="container mx-auto px-4 h-full flex items-center">
-                <div class="w-full">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-16">
-                        <div>
-                            <h4 class="text-lg font-bold mb-4">Social</h4>
-                            <ul class="space-y-2" role="list">
-                                <li role="listitem">
-                                    <a href="https://www.linkedin.com/company/whattadata/" class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center">
-                                        <i class="lni lni-linkedin-original text-xl mr-2" aria-hidden="true"></i>
-                                        LinkedIn
-                                    </a>
-                                </li>
-                                <li role="listitem">
-                                    <a href="https://github.com/unimib-whattadata" class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center">
-                                        <i class="lni lni-github-original text-xl mr-2" aria-hidden="true"></i>
-                                        GitHub
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-16 mb-16">
-                        <div>
-                            <h4 class="text-lg font-bold mb-4">Sede Legale</h4>
-                            <p class="text-gray-400">
-                                Via Rotonda dei Mille, 1 - 24124 Bergamo<br>
-                                P.IVA 04836660169
-                            </p>
-                        </div>
-                        <div class="md:text-right">
-                            <h4 class="text-lg font-bold mb-4">Sede Operativa</h4>
-                            <p class="text-gray-400">
-                                Dipartimento di Informatica, Sistemistica e Comunicazione<br>
-                                Università degli Studi di Milano-Bicocca<br>
-                                Viale Sarca, 336 - 20126, Milano
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="border-t border-gray-800 pt-8">
-                        <div class="flex flex-col md:flex-row justify-between items-center">
-                            <p class="text-gray-400 text-sm">
-                                © 2025 Whattadata S.r.l. Tutti i diritti riservati. <a href="/privacy" class="text-lime-400 hover:text-lime-500 transition-colors">Privacy Policy</a>
-                            </p>
-                        </div>
-                    </div>
+                <div class="logo-item">
+                  <img
+                    src="img/logo/arianne.svg"
+                    alt="Arianne"
+                    width="120"
+                    height="40"
+                  />
                 </div>
+                <div class="logo-item">
+                  <img
+                    src="img/logo/esgquest.svg"
+                    alt="ESGquest"
+                    width="120"
+                    height="40"
+                  />
+                </div>
+                <div class="logo-item">
+                  <img
+                    src="img/logo/micare.svg"
+                    alt="MiCare"
+                    width="120"
+                    height="40"
+                  />
+                </div>
+              </div>
             </div>
-        </footer>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section
+        id="progetti"
+        class="min-h-screen pt-16 md:pt-32"
+        aria-label="Projects"
+      >
+        <div class="container mx-auto px-4 h-full flex items-center">
+          <div class="w-full">
+            <!-- Main Heading -->
+            <div class="mb-12 md:mb-16">
+              <div class="relative">
+                <div class="flex items-start">
+                  <h2 class="text-4xl md:text-7xl lg:text-9xl">Progetti</h2>
+                  <span
+                    class="text-base text-gray-400 mt-4 ml-2"
+                    aria-hidden="true"
+                    >(05)</span
+                  >
+                </div>
+                <div
+                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
+                  aria-hidden="true"
+                ></div>
+              </div>
+            </div>
+
+            <p class="text-lg md:text-xl max-w-3xl mb-12 md:mb-16">
+              Le nostre soluzioni trasformano la ricerca in impatto concreto
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+              <div class="md:w-1/3" role="tablist" aria-label="Progetti">
+                <div class="space-y-4">
+                  <button
+                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
+                    onclick="showProject('arianne')"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="arianne-panel"
+                  >
+                    <img
+                      src="img/logo/arianne.svg"
+                      alt="Arianne"
+                      class="h-8 md:h-10 w-auto"
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                  <button
+                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
+                    onclick="showProject('esg')"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="esg-panel"
+                  >
+                    <img
+                      src="img/logo/esgquest.svg"
+                      alt="ESGquest"
+                      class="h-8 md:h-10 w-auto"
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                  <button
+                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
+                    onclick="showProject('micare')"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="micare-panel"
+                  >
+                    <img
+                      src="img/logo/micare.svg"
+                      alt="MiCare"
+                      class="h-8 md:h-10 w-auto"
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                  <button
+                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
+                    onclick="showProject('llmpatient')"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="llmpatient-panel"
+                  >
+                    <img
+                      src="img/logo/llmpatient.svg"
+                      alt="LLM Patient"
+                      class="h-8 md:h-10 w-auto"
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                  <button
+                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
+                    onclick="showProject('llmind')"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="llmind-panel"
+                  >
+                    <img
+                      src="img/logo/llmind.svg"
+                      alt="LLMind"
+                      class="h-8 md:h-10 w-auto"
+                      width="48"
+                      height="48"
+                    />
+                  </button>
+                </div>
+              </div>
+
+              <div
+                id="project-container"
+                class="md:w-2/3 overflow-hidden h-[500px]"
+                role="tabpanel"
+              >
+                <!-- Arianne -->
+                <div
+                  id="arianne-panel"
+                  class="bg-gray-100 p-8 rounded-2xl"
+                  role="tabpanel"
+                  aria-labelledby="arianne-tab"
+                >
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    Arianne è la
+                    <strong>nuova piattaforma digitale</strong> concepita per
+                    sostenere
+                    <strong>psicologi, psicoterapeuti e psichiatri</strong> in
+                    ogni fase del percorso di cura. Un
+                    <strong>ambiente unico, completo e sicuro</strong>, che
+                    integra <strong>videochiamate</strong>,
+                    <strong>oltre 50 test psicodiagnostici</strong> e
+                    <strong>strumenti di monitoraggio e diario digitale</strong
+                    >, consentendo ai professionisti di fornire
+                    <strong>interventi personalizzati</strong> e di mantenere un
+                    <strong>contatto costante</strong> con i pazienti.
+                  </p>
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    Grazie a una
+                    <strong>suite di funzionalità avanzate</strong>, Arianne
+                    offre un <strong>servizio più completo</strong> rispetto ai
+                    competitor, distinguendosi per l'<strong
+                      >approccio innovativo</strong
+                    >, l'<strong>elevata protezione dei dati</strong> e la
+                    <strong>semplicità d'uso</strong>, migliorando così
+                    l'<strong>efficacia terapeutica</strong> e la
+                    <strong>qualità dell'esperienza di cura</strong>.
+                  </p>
+                  <a
+                    href="https://arianne.whattadata.it"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-screenshot"
+                  >
+                    <img
+                      src="img/screenshot/arriane-screenshot.png"
+                      alt="Arianne Platform Dashboard"
+                      width="1200"
+                      height="900"
+                    />
+                  </a>
+                </div>
+
+                <!-- ESGQuest -->
+                <div
+                  id="esg-panel"
+                  class="hidden bg-gray-100 p-8 rounded-2xl"
+                  role="tabpanel"
+                  aria-labelledby="esg-tab"
+                >
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    ESGQuest è un <strong>tool</strong> che sfrutta l'<strong
+                      >intelligenza artificiale</strong
+                    >
+                    per
+                    <strong>analizzare i documenti non finanziari</strong> delle
+                    aziende, valutando l'implementazione di
+                    <strong>iniziative ESG</strong>. Grazie a
+                    <strong
+                      >tecniche di elaborazione del linguaggio naturale</strong
+                    >, elabora
+                    <strong>fattori ambientali, sociali e di governance</strong>
+                    per fornire una <strong>panoramica accurata</strong> delle
+                    performance complessive.
+                  </p>
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    Le <strong>analisi di ESGQuest</strong> evidenziano
+                    <strong>punti di forza</strong> e
+                    <strong>aree di miglioramento</strong>, facilitando una
+                    <strong>maggiore trasparenza</strong> e responsabilità.
+                    L'<strong>interfaccia intuitiva</strong> consente di
+                    <strong>tradurre i risultati in azioni strategiche</strong>,
+                    rispondendo alla crescente attenzione verso la
+                    sostenibilità.
+                  </p>
+                  <a
+                    href="https://esgquest.whattadata.it"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-screenshot"
+                  >
+                    <img
+                      src="https://placehold.co/1200x900/CCCCCC/f5f5f5?text=ESGquest+Dashboard"
+                      alt="ESGquest Platform Dashboard"
+                      width="1200"
+                      height="900"
+                    />
+                  </a>
+                </div>
+
+                <!-- MiCare -->
+                <div
+                  id="micare-panel"
+                  class="hidden bg-gray-100 p-8 rounded-2xl"
+                  role="tabpanel"
+                  aria-labelledby="micare-tab"
+                >
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    MiCare è un <strong>sistema intelligente</strong> pensato
+                    per <strong>supportare i clinici</strong> nel
+                    <strong>processo decisionale</strong> attraverso
+                    <strong>modelli avanzati di intelligenza artificiale</strong
+                    >. Utilizza <strong>dati clinici eterogenei</strong> – come
+                    <strong>anamnesi</strong>,
+                    <strong>esami diagnostici</strong> e
+                    <strong>informazioni dalle cartelle elettroniche</strong> –
+                    per costruire una
+                    <strong>rappresentazione completa del paziente</strong>.
+                  </p>
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    Questa <strong>visione integrata</strong> consente di
+                    fornire <strong>raccomandazioni dettagliate</strong>,
+                    favorendo un <strong>approccio personalizzato</strong> alla
+                    diagnosi e alla cura. MiCare contribuisce all'<strong
+                      >identificazione precoce del rischio di patologie</strong
+                    >
+                    e si integra
+                    <strong>facilmente nei flussi di lavoro clinici</strong>
+                    grazie a un <strong>interfaccia intuitiva</strong> e
+                    <strong>strumenti di visualizzazione chiari</strong>.
+                  </p>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-screenshot"
+                  >
+                    <img
+                      src="img/screenshot/micare-screenshot.png"
+                      alt="MiCare Platform Dashboard"
+                      width="1200"
+                      height="900"
+                    />
+                  </a>
+                </div>
+
+                <!-- LLM Patient -->
+                <div
+                  id="llmpatient-panel"
+                  class="hidden bg-gray-100 p-8 rounded-2xl"
+                  role="tabpanel"
+                  aria-labelledby="llmpatient-tab"
+                >
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    LLM Patient è un
+                    <strong
+                      >sistema di simulazione conversazionale avanzato</strong
+                    >
+                    progettato per
+                    <strong>supportare la formazione e la ricerca</strong> in
+                    ambito <strong>psicologico e psichiatrico</strong>.
+                    Attraverso
+                    <strong>modelli linguistici di grande scala</strong> e un
+                    <strong>meccanismo di memoria duale</strong> – che integra
+                    <strong>informazioni a breve e lungo termine</strong> – il
+                    sistema crea <strong>pazienti virtuali realistici</strong>,
+                    capaci di
+                    <strong
+                      >adattare dinamicamente tono, comportamento ed
+                      emotività</strong
+                    >
+                    in base allo stile dell’intervento terapeutico.
+                  </p>
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    Questa <strong>architettura innovativa</strong> consente di
+                    <strong>ricreare scenari clinici complessi</strong>,
+                    garantendo <strong>continuità tra le sessioni</strong> e
+                    offrendo un <strong>ambiente immersivo</strong> in cui
+                    interagire tramite <strong>chat testuale o vocale</strong>.
+                  </p>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-screenshot"
+                  >
+                    <img
+                      src="img/screenshot/llmpatient-screenshot.png"
+                      alt="LLM Patient Platform Screenshot"
+                      width="1200"
+                      height="900"
+                    />
+                  </a>
+                </div>
+
+                <!-- LLMind -->
+                <div
+                  id="llmind-panel"
+                  class="hidden bg-gray-100 p-8 rounded-2xl"
+                  role="tabpanel"
+                  aria-labelledby="llmind-tab"
+                >
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    LLMind è uno
+                    <strong
+                      >strumento basato sull'intelligenza artificiale</strong
+                    >
+                    progettato per
+                    <strong
+                      >supportare i professionisti della salute mentale</strong
+                    >
+                    nel <strong>processo diagnostico</strong>. LLMind è un
+                    <strong>assistente virtuale</strong> che combina la
+                    <strong>potenza di un avanzato modello linguistico</strong>
+                    con una <strong>vasta base di conoscenze</strong> derivata
+                    direttamente dal <strong>manuale ICD-11</strong>.
+                  </p>
+                  <p
+                    class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
+                  >
+                    Grazie a questa integrazione, LLMind consente di
+                    <strong>migliorare la precisione diagnostica</strong> e
+                    <strong>ottimizzare il processo decisionale</strong>,
+                    offrendo un
+                    <strong>supporto intelligente e affidabile</strong> ai
+                    professionisti del settore.
+                  </p>
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-screenshot"
+                  >
+                    <img
+                      src="img/screenshot/llmind-screenshot.png"
+                      alt="LLMind Assistant Interface"
+                      width="1200"
+                      height="900"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section
+        id="team"
+        class="min-h-screen bg-white py-16 md:py-0"
+        aria-label="Team"
+      >
+        <div class="container mx-auto px-4 h-full flex items-center">
+          <div class="w-full">
+            <!-- Main Heading -->
+            <div class="mb-16 md:mb-32">
+              <div class="relative">
+                <div class="flex items-start">
+                  <h2 class="text-4xl md:text-7xl lg:text-9xl">Team</h2>
+                  <span
+                    class="text-base text-gray-400 mt-4 ml-2"
+                    aria-hidden="true"
+                    >(04)</span
+                  >
+                </div>
+                <div
+                  id="square-5"
+                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
+                  aria-hidden="true"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Team Grid -->
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8"
+              role="list"
+            >
+              <!-- Team Member 1 -->
+              <div class="space-y-4" role="listitem">
+                <h3 class="text-2xl font-bold">Marco<br />Cremaschi</h3>
+                <div
+                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                >
+                  <img
+                    src="img/team/mc.png"
+                    alt="Marco Cremaschi"
+                    class="w-full h-full object-cover transition-all duration-300"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <img
+                    src="img/team/mc-coloured.png"
+                    alt="Marco Cremaschi Coloured"
+                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+                <p class="text-gray-600">CTO</p>
+                <span class="text-gray-400 mt-4" aria-hidden="true"
+                  >Ricercatore@UNIMIB</span
+                >
+              </div>
+
+              <!-- Team Member 2 -->
+              <div class="space-y-4" role="listitem">
+                <h3 class="text-2xl font-bold">David<br />Chieregato</h3>
+                <div
+                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                >
+                  <img
+                    src="img/team/dc.png"
+                    alt="David Chieregato"
+                    class="w-full h-full object-cover transition-all duration-300"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <img
+                    src="img/team/dc-coloured.png"
+                    alt="David Chieregato Coloured"
+                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+                <p class="text-gray-600">CEO</p>
+              </div>
+
+              <!-- Team Member 3 -->
+              <div class="space-y-4" role="listitem">
+                <h3 class="text-2xl font-bold">Fabio<br />D'Adda</h3>
+                <div
+                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                >
+                  <img
+                    src="img/team/fd.png"
+                    alt="Fabio D'Adda"
+                    class="w-full h-full object-cover transition-all duration-300"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <img
+                    src="img/team/fd-coloured.png"
+                    alt="Fabio D'Adda Coloured"
+                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+                <p class="text-gray-600">Lead AI</p>
+              </div>
+
+              <!-- Team Member 4 -->
+              <div class="space-y-4" role="listitem">
+                <h3 class="text-2xl font-bold">Gianluigi<br />Ciufo</h3>
+                <div
+                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                >
+                  <img
+                    src="img/team/gc.png"
+                    alt="Gianluigi Ciufo"
+                    class="w-full h-full object-cover transition-all duration-300"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <img
+                    src="img/team/gc-coloured.png"
+                    alt="Gianluigi Ciufo Coloured"
+                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+                <p class="text-gray-600">Financing</p>
+              </div>
+
+              <!-- Team Member 5 -->
+              <div class="space-y-4" role="listitem">
+                <h3 class="text-2xl font-bold">Andrea<br />Maurino</h3>
+                <div
+                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                >
+                  <img
+                    src="img/team/am.png"
+                    alt="Andrea Maurino"
+                    class="w-full h-full object-cover transition-all duration-300"
+                    width="400"
+                    height="400"
+                    loading="lazy"
+                  />
+                  <img
+                    src="img/team/am-coloured.png"
+                    alt="Andrea Maurino Coloured"
+                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    width="400"
+                    height="400"
+                  />
+                </div>
+                <p class="text-gray-600">Advisor</p>
+                <span class="text-gray-400 mt-4" aria-hidden="true"
+                  >Professore@UNIMIB</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer & Contact Section -->
+      <footer
+        id="contatti"
+        class="min-h-screen bg-gray-900 text-white py-16 md:py-0"
+        role="contentinfo"
+      >
+        <div class="container mx-auto px-4 h-full flex items-center">
+          <div class="w-full">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-16"
+            >
+              <div>
+                <h4 class="text-lg font-bold mb-4">Social</h4>
+                <ul class="space-y-2" role="list">
+                  <li role="listitem">
+                    <a
+                      href="https://www.linkedin.com/company/whattadata/"
+                      class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center"
+                    >
+                      <i
+                        class="lni lni-linkedin-original text-xl mr-2"
+                        aria-hidden="true"
+                      ></i>
+                      LinkedIn
+                    </a>
+                  </li>
+                  <li role="listitem">
+                    <a
+                      href="https://github.com/unimib-whattadata"
+                      class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center"
+                    >
+                      <i
+                        class="lni lni-github-original text-xl mr-2"
+                        aria-hidden="true"
+                      ></i>
+                      GitHub
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 mb-16">
+              <div>
+                <h4 class="text-lg font-bold mb-4">Sede Legale</h4>
+                <p class="text-gray-400">
+                  Via Rotonda dei Mille, 1 - 24124 Bergamo<br />
+                  P.IVA 04836660169
+                </p>
+              </div>
+              <div class="md:text-right">
+                <h4 class="text-lg font-bold mb-4">Sede Operativa</h4>
+                <p class="text-gray-400">
+                  Dipartimento di Informatica, Sistemistica e Comunicazione<br />
+                  Università degli Studi di Milano-Bicocca<br />
+                  Viale Sarca, 336 - 20126, Milano
+                </p>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+              <div
+                class="flex flex-col md:flex-row justify-between items-center"
+              >
+                <p class="text-gray-400 text-sm">
+                  © 2025 Whattadata S.r.l. Tutti i diritti riservati.
+                  <a
+                    href="/privacy"
+                    class="text-lime-400 hover:text-lime-500 transition-colors"
+                    >Privacy Policy</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </main>
 
     <!-- External Scripts -->
-    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
     <!-- Custom Scripts -->
     <script src="graph.js" defer></script>
     <script>
-        // Constants
-        const SECTIONS = ['chi-siamo', 'servizi', 'progetti', 'team', 'contatti'];
-        const TYPING_WORDS = ['finanziari', 'aziendali', 'clinici', 'industriali'];
-        const TYPING_SPEED = 100;
-        const ERASE_SPEED = 50;
-        const PAUSE_DURATION = 2000;
-        const ANIMATION_DURATION = 800;
+      // Constants
+      const SECTIONS = ["chi-siamo", "servizi", "progetti", "team", "contatti"];
+      const TYPING_WORDS = [
+        "finanziari",
+        "aziendali",
+        "clinici",
+        "industriali",
+      ];
+      const TYPING_SPEED = 100;
+      const ERASE_SPEED = 50;
+      const PAUSE_DURATION = 2000;
+      const ANIMATION_DURATION = 800;
 
-        // DOM Elements
-        const cursor = document.getElementById('custom-cursor');
-        const typedText = document.getElementById('typed-text');
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const logo = document.getElementById('logo');
-        const square = document.getElementById('square');
+      // DOM Elements
+      const cursor = document.getElementById("custom-cursor");
+      const typedText = document.getElementById("typed-text");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const logo = document.getElementById("logo");
+      const square = document.getElementById("square");
 
-        // AOS Initialization
-        AOS.init({
-            duration: ANIMATION_DURATION,
-            once: true
+      // AOS Initialization
+      AOS.init({
+        duration: ANIMATION_DURATION,
+        once: true,
+      });
+
+      // Menu Active State Management
+      function updateActiveMenuItem() {
+        const menuItems = document.querySelectorAll('nav a[href^="#"]');
+        const sections = SECTIONS.map((section) =>
+          document.getElementById(section)
+        );
+        const scrollPosition = window.scrollY + 100; // Offset per anticipare il cambio
+
+        // Trova la sezione attualmente visibile
+        let currentSection = null;
+        sections.forEach((section) => {
+          if (section) {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            if (
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionBottom
+            ) {
+              currentSection = section.id;
+            }
+          }
         });
 
-        // Menu Active State Management
-        function updateActiveMenuItem() {
-            const menuItems = document.querySelectorAll('nav a[href^="#"]');
-            const sections = SECTIONS.map(section => document.getElementById(section));
-            const scrollPosition = window.scrollY + 100; // Offset per anticipare il cambio
-
-            // Trova la sezione attualmente visibile
-            let currentSection = null;
-            sections.forEach(section => {
-                if (section) {
-                    const sectionTop = section.offsetTop;
-                    const sectionBottom = sectionTop + section.offsetHeight;
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                        currentSection = section.id;
-                    }
-                }
-            });
-
-            // Aggiorna lo stato attivo dei menu items
-            menuItems.forEach(item => {
-                const href = item.getAttribute('href').substring(1); // Rimuove il # dall'href
-                if (href === currentSection) {
-                    item.classList.add('text-indigo-600', 'font-bold');
-                    item.classList.remove('text-gray-900');
-                } else {
-                    item.classList.remove('text-indigo-600', 'font-bold');
-                    item.classList.add('text-gray-900');
-                }
-            });
-        }
-
-        // Custom Cursor Management
-        function handleCursorMove(e) {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-            
-            const elementUnderCursor = document.elementFromPoint(e.clientX, e.clientY);
-            if (elementUnderCursor) {
-                const isIndigoButton = elementUnderCursor.closest('.bg-indigo-600, .hover\\:bg-indigo-600');
-                const isLimeButton = elementUnderCursor.closest('.bg-lime-400');
-                
-                cursor.classList.toggle('on-dark', isIndigoButton || isLimeButton);
-                cursor.style.borderColor = isIndigoButton ? 'rgb(163, 230, 53)' : 
-                                         isLimeButton ? 'rgb(79, 70, 229)' : 
-                                         'rgb(163, 230, 53)';
-            }
-        }
-
-        // Typing Animation
-        function typeWord(words = TYPING_WORDS, currentWord = 0) {
-            const word = words[currentWord];
-            let charIndex = 0;
-            
-            function type() {
-                if (charIndex < word.length) {
-                    typedText.textContent += word[charIndex];
-                    charIndex++;
-                    setTimeout(type, TYPING_SPEED);
-                } else {
-                    setTimeout(erase, PAUSE_DURATION);
-                }
-            }
-            
-            function erase() {
-                if (charIndex > 0) {
-                    typedText.textContent = word.substring(0, charIndex - 1);
-                    charIndex--;
-                    setTimeout(erase, ERASE_SPEED);
-                } else {
-                    const nextWord = (currentWord + 1) % words.length;
-                    setTimeout(() => typeWord(words, nextWord), 500);
-                }
-            }
-            
-            type();
-        }
-
-        // Project Panel Management
-        function showProject(id) {
-            const currentPanel = document.querySelector('#project-container > div:not(.hidden)');
-            const newPanel = document.getElementById(`${id}-panel`);
-            
-            if (currentPanel) {
-                currentPanel.classList.add('panel-exit');
-                setTimeout(() => {
-                    currentPanel.classList.add('hidden');
-                    currentPanel.classList.remove('panel-exit');
-                    showNewPanel(newPanel);
-                }, 300);
-            } else {
-                showNewPanel(newPanel);
-            }
-            
-            updateProjectTabs(id);
-        }
-
-        function showNewPanel(panel) {
-            panel.classList.remove('hidden');
-            panel.classList.add('panel-enter');
-            setTimeout(() => panel.classList.remove('panel-enter'), 500);
-        }
-
-        function updateProjectTabs(activeId) {
-            document.querySelectorAll('[role="tab"]').forEach(tab => {
-                const isActive = tab.getAttribute('onclick').includes(activeId);
-                tab.classList.toggle('bg-gray-700', isActive);
-                tab.setAttribute('aria-selected', isActive);
-            });
-        }
-
-        // Mobile Menu Management
-        function toggleMobileMenu() {
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-            mobileMenu.classList.toggle('hidden');
-        }
-
-        // Square Animation Position
-        function calculateSquarePosition() {
-            const logoRect = logo.getBoundingClientRect();
-            const squareRect = square.getBoundingClientRect();
-            
-            square.style.setProperty('--start-x', `${logoRect.left - squareRect.left}px`);
-            square.style.setProperty('--start-y', `${logoRect.top - squareRect.top}px`);
-        }
-
-        // Smooth Scroll
-        function handleSmoothScroll(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({ behavior: 'smooth' });
-            }
-            
-            if (!mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-                mobileMenuButton.setAttribute('aria-expanded', 'false');
-            }
-        }
-
-        // Event Listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize animations
-            typeWord();
-            showProject('arianne');
-            calculateSquarePosition();
-            
-            // Add event listeners
-            document.addEventListener('mousemove', handleCursorMove);
-            window.addEventListener('scroll', updateActiveMenuItem);
-            mobileMenuButton.addEventListener('click', toggleMobileMenu);
-            
-            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-                link.addEventListener('click', handleSmoothScroll);
-            });
-            
-            document.querySelectorAll('a, button').forEach(el => {
-                el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
-                el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
-            });
-            
-            // Close mobile menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                }
-            });
+        // Aggiorna lo stato attivo dei menu items
+        menuItems.forEach((item) => {
+          const href = item.getAttribute("href").substring(1); // Rimuove il # dall'href
+          if (href === currentSection) {
+            item.classList.add("text-indigo-600", "font-bold");
+            item.classList.remove("text-gray-900");
+          } else {
+            item.classList.remove("text-indigo-600", "font-bold");
+            item.classList.add("text-gray-900");
+          }
         });
+      }
+
+      // Custom Cursor Management
+      function handleCursorMove(e) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+
+        const elementUnderCursor = document.elementFromPoint(
+          e.clientX,
+          e.clientY
+        );
+        if (elementUnderCursor) {
+          const isIndigoButton = elementUnderCursor.closest(
+            ".bg-indigo-600, .hover\\:bg-indigo-600"
+          );
+          const isLimeButton = elementUnderCursor.closest(".bg-lime-400");
+
+          cursor.classList.toggle("on-dark", isIndigoButton || isLimeButton);
+          cursor.style.borderColor = isIndigoButton
+            ? "rgb(163, 230, 53)"
+            : isLimeButton
+            ? "rgb(79, 70, 229)"
+            : "rgb(163, 230, 53)";
+        }
+      }
+
+      // Typing Animation
+      function typeWord(words = TYPING_WORDS, currentWord = 0) {
+        const word = words[currentWord];
+        let charIndex = 0;
+
+        function type() {
+          if (charIndex < word.length) {
+            typedText.textContent += word[charIndex];
+            charIndex++;
+            setTimeout(type, TYPING_SPEED);
+          } else {
+            setTimeout(erase, PAUSE_DURATION);
+          }
+        }
+
+        function erase() {
+          if (charIndex > 0) {
+            typedText.textContent = word.substring(0, charIndex - 1);
+            charIndex--;
+            setTimeout(erase, ERASE_SPEED);
+          } else {
+            const nextWord = (currentWord + 1) % words.length;
+            setTimeout(() => typeWord(words, nextWord), 500);
+          }
+        }
+
+        type();
+      }
+
+      // Project Panel Management
+      function showProject(id) {
+        const currentPanel = document.querySelector(
+          "#project-container > div:not(.hidden)"
+        );
+        const newPanel = document.getElementById(`${id}-panel`);
+
+        if (currentPanel) {
+          currentPanel.classList.add("panel-exit");
+          setTimeout(() => {
+            currentPanel.classList.add("hidden");
+            currentPanel.classList.remove("panel-exit");
+            showNewPanel(newPanel);
+          }, 300);
+        } else {
+          showNewPanel(newPanel);
+        }
+
+        updateProjectTabs(id);
+      }
+
+      function showNewPanel(panel) {
+        panel.classList.remove("hidden");
+        panel.classList.add("panel-enter");
+        setTimeout(() => panel.classList.remove("panel-enter"), 500);
+      }
+
+      function updateProjectTabs(activeId) {
+        document.querySelectorAll('[role="tab"]').forEach((tab) => {
+          const isActive = tab.getAttribute("onclick").includes(activeId);
+          tab.classList.toggle("bg-gray-700", isActive);
+          tab.setAttribute("aria-selected", isActive);
+        });
+      }
+
+      // Mobile Menu Management
+      function toggleMobileMenu() {
+        const isExpanded =
+          mobileMenuButton.getAttribute("aria-expanded") === "true";
+        mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      // Square Animation Position
+      function calculateSquarePosition() {
+        const logoRect = logo.getBoundingClientRect();
+        const squareRect = square.getBoundingClientRect();
+
+        square.style.setProperty(
+          "--start-x",
+          `${logoRect.left - squareRect.left}px`
+        );
+        square.style.setProperty(
+          "--start-y",
+          `${logoRect.top - squareRect.top}px`
+        );
+      }
+
+      // Smooth Scroll
+      function handleSmoothScroll(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute("href"));
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth" });
+        }
+
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      // Event Listeners
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initialize animations
+        typeWord();
+        showProject("arianne");
+        calculateSquarePosition();
+
+        // Add event listeners
+        document.addEventListener("mousemove", handleCursorMove);
+        window.addEventListener("scroll", updateActiveMenuItem);
+        mobileMenuButton.addEventListener("click", toggleMobileMenu);
+
+        document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
+          link.addEventListener("click", handleSmoothScroll);
+        });
+
+        document.querySelectorAll("a, button").forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            cursor.classList.add("hover")
+          );
+          el.addEventListener("mouseleave", () =>
+            cursor.classList.remove("hover")
+          );
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener("click", (e) => {
+          if (
+            !mobileMenu.contains(e.target) &&
+            !mobileMenuButton.contains(e.target)
+          ) {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
     </script>
-</body>
-</html> 
+  </body>
+</html>
