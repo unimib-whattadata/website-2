@@ -567,123 +567,237 @@
       <!-- Projects Section -->
       <section
         id="progetti"
-        class="min-h-screen pt-16 md:pt-32"
+        class="min-h-screen py-16 md:py-32 bg-gradient-to-b from-white to-gray-50"
         aria-label="Projects"
       >
-        <div class="container mx-auto px-4 h-full flex items-center">
-          <div class="w-full">
-            <!-- Main Heading -->
-            <div class="mb-12 md:mb-16">
-              <div class="relative">
-                <div class="flex items-start">
-                  <h2 class="text-4xl md:text-7xl lg:text-9xl">Progetti</h2>
-                  <span
-                    class="text-base text-gray-400 mt-4 ml-2"
-                    aria-hidden="true"
-                    >(05)</span
-                  >
-                </div>
-                <div
-                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
+        <div class="container mx-auto px-4">
+          <!-- Section Header -->
+          <div class="mb-16 md:mb-24">
+            <div class="relative">
+              <div class="flex items-start">
+                <h2 class="text-4xl md:text-7xl lg:text-9xl font-light">
+                  Progetti
+                </h2>
+                <span
+                  class="text-base text-gray-400 mt-4 ml-2"
                   aria-hidden="true"
-                ></div>
+                  >(05)</span
+                >
               </div>
+              <div
+                class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
+                aria-hidden="true"
+              ></div>
             </div>
+          </div>
 
-            <p class="text-lg md:text-xl max-w-3xl mb-12 md:mb-16">
-              Le nostre soluzioni trasformano la ricerca in impatto concreto
-            </p>
+          <p
+            class="text-lg md:text-xl text-gray-600 max-w-3xl mb-16 md:mb-24 leading-relaxed"
+          >
+            Le nostre soluzioni trasformano la ricerca in impatto concreto
+          </p>
 
-            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
-              <div class="md:w-1/3" role="tablist" aria-label="Progetti">
-                <div class="space-y-4">
-                  <button
-                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
-                    onclick="showProject('arianne')"
-                    role="tab"
-                    aria-selected="true"
-                    aria-controls="arianne-panel"
-                  >
-                    <img
-                      src="img/logo/arianne.svg"
-                      alt="Arianne"
-                      class="h-8 md:h-10 w-auto"
-                      width="48"
-                      height="48"
-                    />
-                  </button>
-                  <button
-                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
-                    onclick="showProject('esg')"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="esg-panel"
-                  >
-                    <img
-                      src="img/logo/esgquest.svg"
-                      alt="ESGquest"
-                      class="h-8 md:h-10 w-auto"
-                      width="48"
-                      height="48"
-                    />
-                  </button>
-                  <button
-                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
-                    onclick="showProject('micare')"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="micare-panel"
-                  >
-                    <img
-                      src="img/logo/micare.svg"
-                      alt="MiCare"
-                      class="h-8 md:h-10 w-auto"
-                      width="48"
-                      height="48"
-                    />
-                  </button>
-                  <button
-                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
-                    onclick="showProject('llmpatient')"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="llmpatient-panel"
-                  >
-                    <img
-                      src="img/logo/llmpatient.svg"
-                      alt="LLM Patient"
-                      class="h-8 md:h-10 w-auto"
-                      width="48"
-                      height="48"
-                    />
-                  </button>
-                  <button
-                    class="w-full h-20 md:h-24 bg-gray-800 p-4 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-all"
-                    onclick="showProject('llmind')"
-                    role="tab"
-                    aria-selected="false"
-                    aria-controls="llmind-panel"
-                  >
-                    <img
-                      src="img/logo/llmind.svg"
-                      alt="LLMind"
-                      class="h-8 md:h-10 w-auto"
-                      width="48"
-                      height="48"
-                    />
-                  </button>
+          <!-- New project cards grid layout with better design -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+            role="list"
+          >
+            <!-- Project Card 1: Arianne -->
+            <button
+              onclick="showProject('arianne')"
+              role="listitem"
+              class="project-card group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-indigo-300 transition-all duration-500 hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <div class="relative p-6 md:p-8 flex flex-col h-full">
+                <div class="mb-6 flex items-center justify-center h-16">
+                  <img
+                    src="img/logo/arianne.svg"
+                    alt="Arianne"
+                    class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                    width="80"
+                    height="40"
+                  />
+                </div>
+                <h3
+                  class="text-lg md:text-xl font-semibold text-gray-900 mb-3 line-clamp-2"
+                >
+                  Arianne
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-3 flex-grow">
+                  Piattaforma digitale completa per psicologi con videochiamate,
+                  test psicodiagnostici e monitoraggio.
+                </p>
+                <div
+                  class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
+                >
+                  Scopri <span class="ml-2" aria-hidden="true">→</span>
                 </div>
               </div>
+            </button>
 
+            <!-- Project Card 2: ESGQuest -->
+            <button
+              onclick="showProject('esg')"
+              role="listitem"
+              class="project-card group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-indigo-300 transition-all duration-500 hover:shadow-xl cursor-pointer"
+            >
               <div
-                id="project-container"
-                class="md:w-2/3 overflow-hidden h-[500px]"
-                role="tabpanel"
-              >
-                <!-- ARIANNE -->
+                class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <div class="relative p-6 md:p-8 flex flex-col h-full">
+                <div class="mb-6 flex items-center justify-center h-16">
+                  <img
+                    src="img/logo/esgquest.svg"
+                    alt="ESGquest"
+                    class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                    width="80"
+                    height="40"
+                  />
+                </div>
+                <h3
+                  class="text-lg md:text-xl font-semibold text-gray-900 mb-3 line-clamp-2"
+                >
+                  ESGQuest
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-3 flex-grow">
+                  Tool AI per analizzare documenti non finanziari e valutare
+                  iniziative ESG aziendali.
+                </p>
+                <div
+                  class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
+                >
+                  Scopri <span class="ml-2" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </button>
+
+            <!-- Project Card 3: MiCare -->
+            <button
+              onclick="showProject('micare')"
+              role="listitem"
+              class="project-card group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-indigo-300 transition-all duration-500 hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <div class="relative p-6 md:p-8 flex flex-col h-full">
+                <div class="mb-6 flex items-center justify-center h-16">
+                  <img
+                    src="img/logo/micare.svg"
+                    alt="MiCare"
+                    class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                    width="80"
+                    height="40"
+                  />
+                </div>
+                <h3
+                  class="text-lg md:text-xl font-semibold text-gray-900 mb-3 line-clamp-2"
+                >
+                  MiCare
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-3 flex-grow">
+                  Sistema intelligente che supporta i clinici nel processo
+                  decisionale con AI avanzata.
+                </p>
+                <div
+                  class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
+                >
+                  Scopri <span class="ml-2" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </button>
+
+            <!-- Project Card 4: LLM Patient -->
+            <button
+              onclick="showProject('llmpatient')"
+              role="listitem"
+              class="project-card group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-indigo-300 transition-all duration-500 hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <div class="relative p-6 md:p-8 flex flex-col h-full">
+                <div class="mb-6 flex items-center justify-center h-16">
+                  <img
+                    src="img/logo/llmpatient-black.svg"
+                    alt="LLM Patient"
+                    class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                    width="80"
+                    height="40"
+                  />
+                </div>
+                <h3
+                  class="text-lg md:text-xl font-semibold text-gray-900 mb-3 line-clamp-2"
+                >
+                  LLM Patient
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-3 flex-grow">
+                  Simulazione conversazionale avanzata per formazione e ricerca
+                  psicologica con memoria duale.
+                </p>
+                <div
+                  class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
+                >
+                  Scopri <span class="ml-2" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </button>
+
+            <!-- Project Card 5: LLMind -->
+            <button
+              onclick="showProject('llmind')"
+              role="listitem"
+              class="project-card group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-indigo-300 transition-all duration-500 hover:shadow-xl cursor-pointer"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-indigo-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <div class="relative p-6 md:p-8 flex flex-col h-full">
+                <div class="mb-6 flex items-center justify-center h-16">
+                  <img
+                    src="img/logo/llmind.svg"
+                    alt="LLMind"
+                    class="h-10 w-auto transition-transform duration-300 group-hover:scale-110"
+                    width="80"
+                    height="40"
+                  />
+                </div>
+                <h3
+                  class="text-lg md:text-xl font-semibold text-gray-900 mb-3 line-clamp-2"
+                >
+                  LLMind
+                </h3>
+                <p class="text-sm text-gray-600 line-clamp-3 flex-grow">
+                  Assistente AI per il supporto diagnostico integrato con il
+                  manuale ICD-11.
+                </p>
+                <div
+                  class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
+                >
+                  Scopri <span class="ml-2" aria-hidden="true">→</span>
+                </div>
+              </div>
+            </button>
+          </div>
+
+          <!-- Project Details Modal -->
+          <div
+            id="project-details"
+            class="mt-16 md:mt-24 hidden"
+            role="region"
+            aria-label="Project details"
+          >
+            <div
+              class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg"
+            >
+              <div id="project-container" class="min-h-[500px] p-8 md:p-12">
+                <!-- Arianne -->
                 <div
                   id="arianne-panel"
-                  class="bg-gray-100 p-8 rounded-2xl"
+                  class="project-detail-panel"
                   role="tabpanel"
                   aria-labelledby="arianne-tab"
                 >
@@ -731,13 +845,8 @@
                   </a>
                 </div>
 
-                <!-- ESGQUEST -->
-                <div
-                  id="esg-panel"
-                  class="hidden bg-gray-100 p-8 rounded-2xl"
-                  role="tabpanel"
-                  aria-labelledby="esg-tab"
-                >
+                <!-- ESGQuest -->
+                <div id="esg-panel" class="project-detail-panel hidden">
                   <p
                     class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
                   >
@@ -782,13 +891,8 @@
                   </a>
                 </div>
 
-                <!-- MICARE -->
-                <div
-                  id="micare-panel"
-                  class="hidden bg-gray-100 p-8 rounded-2xl"
-                  role="tabpanel"
-                  aria-labelledby="micare-tab"
-                >
+                <!-- MiCare -->
+                <div id="micare-panel" class="project-detail-panel hidden">
                   <p
                     class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
                   >
@@ -832,13 +936,8 @@
                   </a>
                 </div>
 
-                <!-- LLM PATIENT -->
-                <div
-                  id="llmpatient-panel"
-                  class="hidden bg-gray-100 p-8 rounded-2xl"
-                  role="tabpanel"
-                  aria-labelledby="llmpatient-tab"
-                >
+                <!-- LLM Patient -->
+                <div id="llmpatient-panel" class="project-detail-panel hidden">
                   <p
                     class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
                   >
@@ -859,7 +958,7 @@
                       >adattare dinamicamente tono, comportamento ed
                       emotività</strong
                     >
-                    in base allo stile dell’intervento terapeutico.
+                    in base allo stile dell'intervento terapeutico.
                   </p>
                   <p
                     class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
@@ -878,20 +977,15 @@
                   >
                     <img
                       src="img/screenshot/llmpatient-screenshot.png"
-                      alt="LLM Patient Simulation Platform"
+                      alt="LLM Patient Platform Screenshot"
                       width="1200"
                       height="900"
                     />
                   </a>
                 </div>
 
-                <!-- LLMIND -->
-                <div
-                  id="llmind-panel"
-                  class="hidden bg-gray-100 p-8 rounded-2xl"
-                  role="tabpanel"
-                  aria-labelledby="llmind-tab"
-                >
+                <!-- LLMind -->
+                <div id="llmind-panel" class="project-detail-panel hidden">
                   <p
                     class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
                   >
@@ -903,21 +997,21 @@
                     <strong
                       >supportare i professionisti della salute mentale</strong
                     >
-                    nel <strong>processo diagnostico</strong>. Si presenta come
-                    un <strong>assistente virtuale</strong> che combina la
-                    potenza di un
-                    <strong>avanzato modello linguistico</strong> con una
-                    <strong>vasta base di conoscenze</strong> derivata
+                    nel <strong>processo diagnostico</strong>. LLMind è un
+                    <strong>assistente virtuale</strong> che combina la
+                    <strong>potenza di un avanzato modello linguistico</strong>
+                    con una <strong>vasta base di conoscenze</strong> derivata
                     direttamente dal <strong>manuale ICD-11</strong>.
                   </p>
                   <p
                     class="text-gray-600 text-base md:text-lg leading-relaxed mb-8"
                   >
-                    Grazie a questa
-                    <strong>integrazione tra IA e conoscenza clinica</strong>,
-                    LLMind <strong>ottimizza l'analisi dei casi</strong>,
-                    favorendo <strong>accuratezza diagnostica</strong> e
-                    <strong>decisioni terapeutiche più informate</strong>.
+                    Grazie a questa integrazione, LLMind consente di
+                    <strong>migliorare la precisione diagnostica</strong> e
+                    <strong>ottimizzare il processo decisionale</strong>,
+                    offrendo un
+                    <strong>supporto intelligente e affidabile</strong>
+                    ai professionisti del settore.
                   </p>
                   <a
                     href="#"
@@ -927,7 +1021,7 @@
                   >
                     <img
                       src="img/screenshot/llmind-screenshot.png"
-                      alt="LLMind Diagnostic Assistant Interface"
+                      alt="LLMind Assistant Interface"
                       width="1200"
                       height="900"
                     />
@@ -1191,6 +1285,32 @@
 
     <!-- Custom Scripts -->
     <script src="graph.js" defer></script>
+    <style>
+      /* New project section styles */
+      .project-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .project-detail-panel {
+        animation: fadeIn 0.5s ease-in-out forwards;
+      }
+
+      .project-detail-panel.hidden {
+        display: none;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+
     <script>
       // Constants
       const SECTIONS = ["chi-siamo", "servizi", "progetti", "team", "contatti"];
@@ -1225,9 +1345,8 @@
         const sections = SECTIONS.map((section) =>
           document.getElementById(section)
         );
-        const scrollPosition = window.scrollY + 100; // Offset per anticipare il cambio
+        const scrollPosition = window.scrollY + 100;
 
-        // Trova la sezione attualmente visibile
         let currentSection = null;
         sections.forEach((section) => {
           if (section) {
@@ -1242,9 +1361,8 @@
           }
         });
 
-        // Aggiorna lo stato attivo dei menu items
         menuItems.forEach((item) => {
-          const href = item.getAttribute("href").substring(1); // Rimuove il # dall'href
+          const href = item.getAttribute("href").substring(1);
           if (href === currentSection) {
             item.classList.add("text-indigo-600", "font-bold");
             item.classList.remove("text-gray-900");
@@ -1307,40 +1425,37 @@
 
         type();
       }
+      function showProject(id, shouldScroll = true) {
+        const projectDetails = document.getElementById("project-details");
+        const panels = document.querySelectorAll(".project-detail-panel");
+        const targetPanel = document.getElementById(`${id}-panel`);
 
-      // Project Panel Management
-      function showProject(id) {
-        const currentPanel = document.querySelector(
-          "#project-container > div:not(.hidden)"
-        );
-        const newPanel = document.getElementById(`${id}-panel`);
-
-        if (currentPanel) {
-          currentPanel.classList.add("panel-exit");
-          setTimeout(() => {
-            currentPanel.classList.add("hidden");
-            currentPanel.classList.remove("panel-exit");
-            showNewPanel(newPanel);
-          }, 300);
-        } else {
-          showNewPanel(newPanel);
+        // Show details section if hidden
+        if (projectDetails.classList.contains("hidden")) {
+          projectDetails.classList.remove("hidden");
         }
 
-        updateProjectTabs(id);
-      }
-
-      function showNewPanel(panel) {
-        panel.classList.remove("hidden");
-        panel.classList.add("panel-enter");
-        setTimeout(() => panel.classList.remove("panel-enter"), 500);
-      }
-
-      function updateProjectTabs(activeId) {
-        document.querySelectorAll('[role="tab"]').forEach((tab) => {
-          const isActive = tab.getAttribute("onclick").includes(activeId);
-          tab.classList.toggle("bg-gray-700", isActive);
-          tab.setAttribute("aria-selected", isActive);
+        // Hide all panels and show target
+        panels.forEach((panel) => {
+          panel.classList.add("hidden");
         });
+
+        if (targetPanel) {
+          targetPanel.classList.remove("hidden");
+          // Smooth scroll to details with offset
+          if (shouldScroll) {
+            setTimeout(() => {
+              const elementPosition =
+                projectDetails.getBoundingClientRect().top;
+              const offsetPosition = elementPosition + window.pageYOffset - 100;
+
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            }, 100);
+          }
+        }
       }
 
       // Mobile Menu Management
@@ -1382,12 +1497,10 @@
 
       // Event Listeners
       document.addEventListener("DOMContentLoaded", () => {
-        // Initialize animations
         typeWord();
-        showProject("arianne");
+        // showProject("arianne");
         calculateSquarePosition();
 
-        // Add event listeners
         document.addEventListener("mousemove", handleCursorMove);
         window.addEventListener("scroll", updateActiveMenuItem);
         mobileMenuButton.addEventListener("click", toggleMobileMenu);
@@ -1405,7 +1518,6 @@
           );
         });
 
-        // Close mobile menu when clicking outside
         document.addEventListener("click", (e) => {
           if (
             !mobileMenu.contains(e.target) &&
