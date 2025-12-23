@@ -630,11 +630,12 @@
                   Piattaforma digitale completa per psicologi con videochiamate,
                   test psicodiagnostici e monitoraggio.
                 </p>
-                <div
+                <a
+                  href="arianne.html"
                   class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
                 >
                   Scopri <span class="ml-2" aria-hidden="true">→</span>
-                </div>
+                </a>
               </div>
             </button>
 
@@ -666,11 +667,12 @@
                   Tool AI per analizzare documenti non finanziari e valutare
                   iniziative ESG aziendali.
                 </p>
-                <div
+                <a
+                  href="esgquest.html"
                   class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
                 >
                   Scopri <span class="ml-2" aria-hidden="true">→</span>
-                </div>
+                </a>
               </div>
             </button>
 
@@ -702,11 +704,12 @@
                   Sistema intelligente che supporta i clinici nel processo
                   decisionale con AI avanzata.
                 </p>
-                <div
+                <a
+                  href="micare.html"
                   class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
                 >
                   Scopri <span class="ml-2" aria-hidden="true">→</span>
-                </div>
+                </a>
               </div>
             </button>
 
@@ -738,11 +741,12 @@
                   Simulazione conversazionale avanzata per formazione e ricerca
                   psicologica con memoria duale.
                 </p>
-                <div
+                <a
+                  href="llmpatient.html"
                   class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
                 >
                   Scopri <span class="ml-2" aria-hidden="true">→</span>
-                </div>
+                </a>
               </div>
             </button>
 
@@ -774,11 +778,12 @@
                   Assistente AI per il supporto diagnostico integrato con il
                   manuale ICD-11.
                 </p>
-                <div
+                <a
+                  href="llmind.html"
                   class="mt-6 flex items-center text-indigo-600 font-medium text-sm group-hover:translate-x-2 transition-transform duration-300"
                 >
                   Scopri <span class="ml-2" aria-hidden="true">→</span>
-                </div>
+                </a>
               </div>
             </button>
           </div>
@@ -1516,6 +1521,13 @@
           el.addEventListener("mouseleave", () =>
             cursor.classList.remove("hover")
           );
+        });
+
+        // Prevent button onclick when clicking on "Scopri" link
+        document.querySelectorAll(".project-card a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.stopPropagation();
+          });
         });
 
         document.addEventListener("click", (e) => {

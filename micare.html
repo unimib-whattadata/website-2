@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+  <head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      MiCare - Whattadata
+    </title>
+
+    <!-- Preload Critical Resources -->
+    <link
+      rel="preload"
+      href="img/logo/whattadata.svg"
+      as="image"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      as="style"
+    />
+    <link rel="preload" href="styles.css" as="style" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Primary Meta Tags -->
+    <meta
+      name="description"
+      content="MiCare - Sistema intelligente che supporta i clinici nel processo decisionale con AI avanzata."
+    />
+    <meta
+      name="keywords"
+      content="MiCare, sistema intelligente, supporto clinico, intelligenza artificiale, diagnosi, Whattadata"
+    />
+    <meta name="author" content="Whattadata S.r.l." />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="Italian" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://whattadata.it/micare.html" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="img/logo/whattadata.svg" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon/favicon-16x16.png"
+    />
+    <meta name="theme-color" content="#4F46E5" />
+
+    <!-- External Resources -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.lineicons.com/4.0/lineicons.css" />
+
+    <!-- Tailwind Configuration -->
+    <script src="tailwind.config.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="cursor.css" />
+  </head>
+  <body class="bg-white">
+    <!-- Skip to Main Content Link -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:bg-white focus:p-4"
+    >
+      Vai al contenuto principale
+    </a>
+
+    <!-- Custom Cursor Element -->
+    <div id="custom-cursor" aria-hidden="true"></div>
+
+    <!-- Main Navigation -->
+    <nav
+      class="fixed w-full top-0 bg-white/90 backdrop-blur-sm z-50 py-4"
+      role="navigation"
+      aria-label="Main menu"
+    >
+      <div class="container mx-auto px-6 flex items-center justify-between">
+        <!-- Logo -->
+        <a
+          href="index.html"
+          class="text-xl md:text-2xl flex items-center"
+          id="logo"
+          aria-label="Whattadata - Torna alla home"
+        >
+          <img
+            src="img/logo/whattadata.svg"
+            alt="Whatta Logo"
+            class="h-8 w-auto mr-3"
+            width="32"
+            height="32"
+            loading="eager"
+          />
+          <span>WHATTA</span><span class="font-light">DATA</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          class="md:hidden text-gray-900 focus:outline-none"
+          id="mobile-menu-button"
+          aria-label="Apri menu mobile"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center space-x-10" role="menubar">
+          <a
+            href="index.html#servizi"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >SERVIZI</a
+          >
+          <a
+            href="index.html#chi-siamo"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >CHI SIAMO</a
+          >
+          <a
+            href="index.html#progetti"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >PROGETTI</a
+          >
+          <a
+            href="index.html#team"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >TEAM</a
+          >
+          <a
+            href="index.html#contatti"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >CONTATTI</a
+          >
+        </div>
+
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center ml-8">
+          <a
+            href="#"
+            class="hidden bg-lime-400 px-6 py-2.5 text-sm hover:scale-105 transition-transform"
+            role="button"
+          >
+            INFO
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Menu -->
+      <div
+        class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50"
+        id="mobile-menu"
+        role="menu"
+        aria-labelledby="mobile-menu-button"
+      >
+        <div class="container mx-auto px-6 py-4 space-y-4">
+          <a
+            href="index.html#servizi"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >SERVIZI</a
+          >
+          <a
+            href="index.html#chi-siamo"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >CHI SIAMO</a
+          >
+          <a
+            href="index.html#progetti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >PROGETTI</a
+          >
+          <a
+            href="index.html#team"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >TEAM</a
+          >
+          <a
+            href="index.html#contatti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >CONTATTI</a
+          >
+          <a
+            href="#"
+            class="hidden inline-block bg-lime-400 px-6 py-2.5 text-sm hover:scale-105 transition-transform"
+            role="button"
+          >
+            INFO
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="main-content">
+      <!-- Project Title Section -->
+      <section
+        class="min-h-screen flex items-center justify-center pt-20 px-4"
+        aria-label="Project page"
+      >
+        <div class="container mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl lg:text-8xl font-light">
+            MiCare
+          </h1>
+        </div>
+      </section>
+
+      <!-- Footer & Contact Section -->
+      <footer
+        id="contatti"
+        class="min-h-screen bg-gray-900 text-white py-16 md:py-0"
+        role="contentinfo"
+      >
+        <div class="container mx-auto px-4 h-full flex items-center">
+          <div class="w-full">
+            <div
+              class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12 md:mb-16"
+            >
+              <div>
+                <h4 class="text-lg font-bold mb-4">Social</h4>
+                <ul class="space-y-2" role="list">
+                  <li role="listitem">
+                    <a
+                      href="https://www.linkedin.com/company/whattadata/"
+                      class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center"
+                    >
+                      <i
+                        class="lni lni-linkedin-original text-xl mr-2"
+                        aria-hidden="true"
+                      ></i>
+                      LinkedIn
+                    </a>
+                  </li>
+                  <li role="listitem">
+                    <a
+                      href="https://github.com/unimib-whattadata"
+                      class="text-lime-400 hover:text-lime-500 transition-colors inline-flex items-center"
+                    >
+                      <i
+                        class="lni lni-github-original text-xl mr-2"
+                        aria-hidden="true"
+                      ></i>
+                      GitHub
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-16 mb-16">
+              <div>
+                <h4 class="text-lg font-bold mb-4">Sede Legale</h4>
+                <p class="text-gray-400">
+                  Via Rotonda dei Mille, 1 - 24124 Bergamo<br />
+                  P.IVA 04836660169
+                </p>
+              </div>
+              <div class="md:text-right">
+                <h4 class="text-lg font-bold mb-4">Sede Operativa</h4>
+                <p class="text-gray-400">
+                  Dipartimento di Informatica, Sistemistica e Comunicazione<br />
+                  Università degli Studi di Milano-Bicocca<br />
+                  Viale Sarca, 336 - 20126, Milano
+                </p>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8">
+              <div
+                class="flex flex-col md:flex-row justify-between items-center"
+              >
+                <p class="text-gray-400 text-sm">
+                  © 2025 Whattadata S.r.l. Tutti i diritti riservati.
+                  <a
+                    href="privacy.html"
+                    class="text-lime-400 hover:text-lime-500 transition-colors"
+                    >Privacy Policy</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <!-- External Scripts -->
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="graph.js" defer></script>
+
+    <script>
+      // Constants
+      const ANIMATION_DURATION = 800;
+
+      // DOM Elements
+      const cursor = document.getElementById("custom-cursor");
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      // AOS Initialization
+      AOS.init({
+        duration: ANIMATION_DURATION,
+        once: true,
+      });
+
+      // Custom Cursor Management
+      function handleCursorMove(e) {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+
+        const elementUnderCursor = document.elementFromPoint(
+          e.clientX,
+          e.clientY
+        );
+        if (elementUnderCursor) {
+          const isIndigoButton = elementUnderCursor.closest(
+            ".bg-indigo-600, .hover\\:bg-indigo-600"
+          );
+          const isLimeButton = elementUnderCursor.closest(".bg-lime-400");
+
+          cursor.classList.toggle("on-dark", isIndigoButton || isLimeButton);
+          cursor.style.borderColor = isIndigoButton
+            ? "rgb(163, 230, 53)"
+            : isLimeButton
+            ? "rgb(79, 70, 229)"
+            : "rgb(163, 230, 53)";
+        }
+      }
+
+      // Mobile Menu Management
+      function toggleMobileMenu() {
+        const isExpanded =
+          mobileMenuButton.getAttribute("aria-expanded") === "true";
+        mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+        mobileMenu.classList.toggle("hidden");
+      }
+
+      // Smooth Scroll
+      function handleSmoothScroll(e) {
+        e.preventDefault();
+        const href = this.getAttribute("href");
+        if (href.includes("#")) {
+          const [path, hash] = href.split("#");
+          if (path === "" || path === "index.html" || path === window.location.pathname.split("/").pop()) {
+            const target = document.querySelector(`#${hash}`);
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        }
+
+        if (!mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+          mobileMenuButton.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      // Event Listeners
+      document.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("mousemove", handleCursorMove);
+        mobileMenuButton.addEventListener("click", toggleMobileMenu);
+
+        document.querySelectorAll('a[href^="#"], a[href*="#"]').forEach((link) => {
+          link.addEventListener("click", handleSmoothScroll);
+        });
+
+        document.querySelectorAll("a, button").forEach((el) => {
+          el.addEventListener("mouseenter", () =>
+            cursor.classList.add("hover")
+          );
+          el.addEventListener("mouseleave", () =>
+            cursor.classList.remove("hover")
+          );
+        });
+
+        document.addEventListener("click", (e) => {
+          if (
+            !mobileMenu.contains(e.target) &&
+            !mobileMenuButton.contains(e.target)
+          ) {
+            mobileMenu.classList.add("hidden");
+            mobileMenuButton.setAttribute("aria-expanded", "false");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+
