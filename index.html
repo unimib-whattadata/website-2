@@ -165,6 +165,12 @@
             >PROGETTI</a
           >
           <a
+            href="#clienti"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >CLIENTI</a
+          >
+          <a
             href="#team"
             class="hover:text-indigo-600 transition-colors"
             role="menuitem"
@@ -215,6 +221,12 @@
             class="block hover:text-gray-900 transition-colors text-lg"
             role="menuitem"
             >PROGETTI</a
+          >
+          <a
+            href="#clienti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >CLIENTI</a
           >
           <a
             href="#team"
@@ -1008,6 +1020,46 @@
         </div>
       </section>
 
+      <!-- Clients Section -->
+      <section
+        id="clienti"
+        class="min-h-screen bg-white py-16 md:py-32"
+        aria-label="Clients"
+      >
+        <div class="container mx-auto px-4">
+          <!-- Section Header -->
+          <div class="mb-16 md:mb-24">
+            <div class="relative">
+              <div class="flex items-start">
+                <h2 class="text-4xl md:text-7xl lg:text-9xl font-light">
+                  Clienti
+                </h2>
+                <span
+                  class="text-base text-gray-400 mt-4 ml-2"
+                  aria-hidden="true"
+                  >(06)</span
+                >
+              </div>
+              <div
+                class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
+                aria-hidden="true"
+              ></div>
+            </div>
+          </div>
+
+          <p
+            class="text-lg md:text-xl text-gray-600 max-w-3xl mb-16 md:mb-24 leading-relaxed"
+          >
+            Collaboriamo con aziende e organizzazioni che condividono la nostra visione di innovazione
+          </p>
+
+          <!-- Clients content will go here -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list">
+            <!-- Client items will be added here -->
+          </div>
+        </div>
+      </section>
+
       <!-- Team Section -->
       <section
         id="team"
@@ -1288,7 +1340,7 @@
 
     <script>
       // Constants
-      const SECTIONS = ["chi-siamo", "servizi", "progetti", "team", "contatti"];
+      const SECTIONS = ["chi-siamo", "servizi", "progetti", "clienti", "team", "contatti"];
       const TYPING_WORDS = [
         "finanziari",
         "aziendali",
