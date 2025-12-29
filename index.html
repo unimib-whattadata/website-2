@@ -1532,11 +1532,25 @@
         }
       }
 
+      // Scroll to hash on page load
+      function scrollToHash() {
+        if (window.location.hash) {
+          const hash = window.location.hash.substring(1);
+          const target = document.getElementById(hash);
+          if (target) {
+            setTimeout(() => {
+              target.scrollIntoView({ behavior: "smooth" });
+            }, 100);
+          }
+        }
+      }
+
       // Event Listeners
       document.addEventListener("DOMContentLoaded", () => {
         typeWord();
         // showProject("arianne");
         calculateSquarePosition();
+        scrollToHash();
 
         document.addEventListener("mousemove", handleCursorMove);
         window.addEventListener("scroll", updateActiveMenuItem);

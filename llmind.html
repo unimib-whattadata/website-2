@@ -165,6 +165,12 @@
             >PROGETTI</a
           >
           <a
+            href="index.html#portfolio"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >PORTFOLIO</a
+          >
+          <a
             href="index.html#team"
             class="hover:text-indigo-600 transition-colors"
             role="menuitem"
@@ -215,6 +221,12 @@
             class="block hover:text-gray-900 transition-colors text-lg"
             role="menuitem"
             >PROGETTI</a
+          >
+          <a
+            href="index.html#portfolio"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >PORTFOLIO</a
           >
           <a
             href="index.html#team"
@@ -396,6 +408,12 @@
         const href = this.getAttribute("href");
         if (href.includes("#")) {
           const [path, hash] = href.split("#");
+          // If link points to index.html, navigate to homepage first
+          if (path === "index.html" && window.location.pathname.split("/").pop() !== "index.html") {
+            window.location.href = href;
+            return;
+          }
+          // If on same page, scroll to section
           if (path === "" || path === "index.html" || path === window.location.pathname.split("/").pop()) {
             const target = document.querySelector(`#${hash}`);
             if (target) {
