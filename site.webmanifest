@@ -1,0 +1,18 @@
+{
+  "name": "Whattadata",
+  "short_name": "Whattadata",
+  "description": "Soluzioni di intelligenza artificiale e data analytics per salute digitale, sostenibilita ESG e processi aziendali.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "minimal-ui",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/img/whattadata.png",
+      "sizes": "300x300",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
