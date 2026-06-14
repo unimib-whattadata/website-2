@@ -1,5 +1,12 @@
 (() => {
-  const SECTIONS = ["servizi", "chi-siamo", "progetti", "team", "contatti"];
+  const SECTIONS = [
+    "servizi",
+    "chi-siamo",
+    "progetti",
+    "clienti",
+    "team",
+    "contatti",
+  ];
   const TYPING_WORDS = ["finanziari", "aziendali", "clinici", "industriali"];
   const TYPING_SPEED = 100;
   const ERASE_SPEED = 50;
@@ -93,6 +100,13 @@
   }
 
   function initSmoothScrolling() {
+    function scrollToTarget(target, behavior) {
+      target.scrollIntoView({
+        behavior,
+        block: "start",
+      });
+    }
+
     getAll('a[href^="#"]').forEach((link) => {
       link.addEventListener("click", (event) => {
         const targetId = link.hash.slice(1);
@@ -103,11 +117,39 @@
         }
 
         event.preventDefault();
-        target.scrollIntoView({
-          behavior: prefersReducedMotion.matches ? "auto" : "smooth",
-        });
+        scrollToTarget(
+          target,
+          prefersReducedMotion.matches ? "auto" : "smooth"
+        );
+
+        if (window.location.hash !== link.hash) {
+          window.history.pushState(null, "", link.hash);
+        }
       });
     });
+
+    function alignInitialHash() {
+      const targetId = window.location.hash.slice(1);
+      const target = targetId ? document.getElementById(targetId) : null;
+
+      if (!target) {
+        return;
+      }
+
+      window.requestAnimationFrame(() => scrollToTarget(target, "auto"));
+    }
+
+    if (window.location.hash) {
+      window.requestAnimationFrame(alignInitialHash);
+      window.addEventListener(
+        "load",
+        () => {
+          alignInitialHash();
+          window.setTimeout(alignInitialHash, 120);
+        },
+        { once: true }
+      );
+    }
   }
 
   function initCustomCursor() {

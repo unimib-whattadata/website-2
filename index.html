@@ -13,7 +13,7 @@
       as="image"
       type="image/svg+xml"
     />
-    <link rel="preload" href="styles.css" as="style" />
+    <link rel="preload" href="styles.css?v=clients-title-stack-1" as="style" />
     <link rel="preconnect" href="https://cdn.lineicons.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.lineicons.com" />
 
@@ -183,7 +183,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="tailwind.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=clients-title-stack-1" />
     <link rel="stylesheet" href="cursor.css" />
   </head>
   <body class="bg-white">
@@ -248,7 +248,10 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-10" role="menubar">
+        <div
+          class="site-nav-links hidden md:flex items-center"
+          role="menubar"
+        >
           <a
             href="#servizi"
             class="hover:text-indigo-600 transition-colors"
@@ -265,7 +268,13 @@
             href="#progetti"
             class="hover:text-indigo-600 transition-colors"
             role="menuitem"
-            >PROGETTI</a
+            >PRODOTTI</a
+          >
+          <a
+            href="#clienti"
+            class="hover:text-indigo-600 transition-colors"
+            role="menuitem"
+            >CLIENTI</a
           >
           <a
             href="#team"
@@ -306,7 +315,13 @@
             href="#progetti"
             class="block hover:text-gray-900 transition-colors text-lg"
             role="menuitem"
-            >PROGETTI</a
+            >PRODOTTI</a
+          >
+          <a
+            href="#clienti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            role="menuitem"
+            >CLIENTI</a
           >
           <a
             href="#team"
@@ -632,16 +647,16 @@
       <!-- Projects Section -->
       <section
         id="progetti"
-        class="min-h-screen pt-16 md:pt-32"
-        aria-label="Progetti Whattadata"
+        class="projects-section min-h-screen"
+        aria-label="Prodotti Whattadata"
       >
         <div class="container mx-auto px-4 h-full flex items-center">
           <div class="w-full">
             <!-- Main Heading -->
-            <div class="mb-12 md:mb-16">
+            <div class="mb-8 md:mb-10">
               <div class="relative">
                 <div class="flex items-start">
-                  <h2 class="text-4xl md:text-7xl lg:text-9xl">Progetti</h2>
+                  <h2 class="text-4xl md:text-7xl lg:text-9xl">Prodotti</h2>
                   <span
                     class="text-base text-gray-400 mt-4 ml-2"
                     aria-hidden="true"
@@ -655,16 +670,67 @@
               </div>
             </div>
 
-            <p class="text-lg md:text-xl max-w-3xl mb-12 md:mb-16">
+            <p class="text-lg md:text-xl max-w-3xl mb-8 md:mb-10">
               Soluzioni nate dalla ricerca e progettate per generare impatto
               operativo
             </p>
 
-            <div class="flex flex-col md:flex-row gap-8 max-w-6xl mx-auto">
+            <div
+              class="project-bento-grid"
+              role="list"
+              aria-label="Elenco prodotti Whattadata"
+            >
+              <a
+                href="https://arianne.whattadata.it"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-bento-tile project-bento-tile--arianne"
+                role="listitem"
+                aria-label="Arianne, piattaforma digitale per professionisti della salute mentale. Apri il sito"
+              >
+                <img
+                  src="img/logo/arianne.svg"
+                  alt=""
+                  class="project-bento-logo"
+                  width="120"
+                  height="40"
+                  loading="lazy"
+                />
+                <div class="project-bento-copy">
+                  <p>
+                    Piattaforma digitale per psicologi, psicoterapeuti e
+                    psichiatri.
+                  </p>
+                  <span class="project-bento-link">Apri il sito</span>
+                </div>
+              </a>
+
+              <article
+                class="project-bento-tile project-bento-tile--whattadocs"
+                role="listitem"
+              >
+                <img
+                  src="img/logo/whattadocs-logo.png"
+                  alt=""
+                  class="project-bento-logo"
+                  width="1461"
+                  height="354"
+                  loading="lazy"
+                />
+                <div class="project-bento-copy">
+                  <p>
+                    Agente conversazionale per interrogare documenti aziendali
+                    e fonti private.
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="hidden">
               <div
                 class="md:w-1/3"
                 role="tablist"
-                aria-label="Progetti Whattadata"
+                aria-label="Prodotti Whattadata"
               >
                 <div class="space-y-4">
                   <button
@@ -1016,6 +1082,187 @@
         </div>
       </section>
 
+      <!-- Clients Section -->
+      <section
+        id="clienti"
+        class="clients-section min-h-screen"
+        aria-label="Clienti e collaborazioni Whattadata"
+      >
+        <div class="container mx-auto px-4 h-full flex items-center">
+          <div class="clients-layout">
+            <div class="clients-heading">
+              <div class="relative">
+                <div class="flex items-start">
+                  <h2>
+                    <span>Clienti e</span>
+                    <span class="clients-heading-line--collab"
+                      >Collaborazioni</span
+                    >
+                  </h2>
+                </div>
+                <div
+                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-1 translate-x-[8rem] md:translate-y-6 md:translate-x-[7.5rem] z-10"
+                  aria-hidden="true"
+                ></div>
+              </div>
+            </div>
+
+            <div class="clients-logo-panel">
+              <div
+                class="clients-logo-grid"
+                role="list"
+                aria-label="Elenco clienti e collaborazioni Whattadata"
+              >
+              <a
+                href="https://gummyindustries.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--wide"
+                role="listitem"
+                aria-label="Gummy Industries"
+              >
+                <img
+                  src="img/clients/gummy-industries.png?v=clients-gray-2"
+                  alt="Gummy Industries"
+                  width="300"
+                  height="180"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://www.fondo-gomma-plastica.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--tall"
+                role="listitem"
+                aria-label="Fondo Gomma Plastica"
+              >
+                <img
+                  src="img/clients/fondo-gomma-plastica.png?v=clients-gray-2"
+                  alt="Fondo Gomma Plastica"
+                  width="120"
+                  height="174"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://www.emergency.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--wide"
+                role="listitem"
+                aria-label="EMERGENCY"
+              >
+                <img
+                  src="img/clients/emergency.png?v=clients-gray-2"
+                  alt="EMERGENCY"
+                  width="250"
+                  height="51"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://ftoitalia.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--tall"
+                role="listitem"
+                aria-label="FTO Italia"
+              >
+                <img
+                  src="img/clients/fto.png?v=clients-gray-2"
+                  alt="FTO Italia"
+                  width="2055"
+                  height="2055"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://aief.eu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--wide"
+                role="listitem"
+                aria-label="AIEF"
+              >
+                <img
+                  src="img/clients/aief.png?v=clients-gray-2"
+                  alt="AIEF"
+                  width="2560"
+                  height="1310"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://www.fisi.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--wide"
+                role="listitem"
+                aria-label="FISI"
+              >
+                <img
+                  src="img/clients/fisi.svg"
+                  alt="FISI"
+                  width="149"
+                  height="80"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://dmd.eu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--wide"
+                role="listitem"
+                aria-label="DMD"
+              >
+                <img
+                  src="img/clients/dmd.svg?v=clients-gray-2"
+                  alt="DMD"
+                  width="240"
+                  height="75"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://www.unimib.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--tall"
+                role="listitem"
+                aria-label="Università degli Studi di Milano-Bicocca"
+              >
+                <img
+                  src="img/clients/unimib.png?v=clients-gray-2"
+                  alt="Università degli Studi di Milano-Bicocca"
+                  width="160"
+                  height="172"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href="https://portale.unipv.it/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="client-logo-link client-logo-link--wide"
+                role="listitem"
+                aria-label="Università di Pavia"
+              >
+                <img
+                  src="img/clients/unipv.svg?v=clients-gray-2"
+                  alt="Università di Pavia"
+                  width="300"
+                  height="100"
+                  loading="lazy"
+                />
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Team Section -->
       <section
         id="team"
@@ -1052,7 +1299,7 @@
               <div class="space-y-4" role="listitem">
                 <h3 class="text-2xl font-bold">Marco<br />Cremaschi</h3>
                 <div
-                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                  class="relative aspect-square bg-gray-100 overflow-hidden group"
                 >
                   <img
                     src="img/team/mc.png"
@@ -1082,7 +1329,7 @@
               <div class="space-y-4" role="listitem">
                 <h3 class="text-2xl font-bold">David<br />Chieregato</h3>
                 <div
-                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                  class="relative aspect-square bg-gray-100 overflow-hidden group"
                 >
                   <img
                     src="img/team/dc.png"
@@ -1109,7 +1356,7 @@
               <div class="space-y-4" role="listitem">
                 <h3 class="text-2xl font-bold">Fabio<br />D'Adda</h3>
                 <div
-                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                  class="relative aspect-square bg-gray-100 overflow-hidden group"
                 >
                   <img
                     src="img/team/fd.png"
@@ -1136,7 +1383,7 @@
               <div class="space-y-4" role="listitem">
                 <h3 class="text-2xl font-bold">Gianluigi<br />Ciufo</h3>
                 <div
-                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                  class="relative aspect-square bg-gray-100 overflow-hidden group"
                 >
                   <img
                     src="img/team/gc.png"
@@ -1163,7 +1410,7 @@
               <div class="space-y-4" role="listitem">
                 <h3 class="text-2xl font-bold">Andrea<br />Maurino</h3>
                 <div
-                  class="relative aspect-square bg-gray-100 rounded-lg overflow-hidden group"
+                  class="relative aspect-square bg-gray-100 overflow-hidden group"
                 >
                   <img
                     src="img/team/am.png"
@@ -1278,6 +1525,6 @@
 
     <!-- Custom Scripts -->
     <script src="graph.js" defer></script>
-    <script src="main.js" defer></script>
+    <script src="main.js?v=clients-section-3" defer></script>
   </body>
 </html>
