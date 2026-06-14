@@ -7,11 +7,6 @@ html.custom-cursor-enabled textarea {
   cursor: none;
 }
 
-body {
-  overflow-x: hidden;
-  overflow-y: scroll;
-}
-
 #custom-cursor {
   display: none;
   width: 16px;
