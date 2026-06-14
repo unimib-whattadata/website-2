@@ -320,6 +320,10 @@ footer {
   font-size: clamp(2.55rem, 5.2vw, 5.1rem);
 }
 
+.clients-heading-index {
+  flex: 0 0 auto;
+}
+
 .clients-logo-panel {
   display: grid;
 }
@@ -391,6 +395,12 @@ footer {
 
   .clients-heading-line--collab {
     font-size: clamp(2.4rem, 10.5vw, 3.65rem);
+  }
+
+  .clients-heading-index {
+    margin-top: 0.6rem;
+    margin-left: 0.4rem;
+    font-size: 0.875rem;
   }
 
   .clients-logo-grid {
