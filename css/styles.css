@@ -466,6 +466,55 @@ footer {
   overflow: hidden;
 }
 
+.team-photo {
+  --team-color: #84cc16;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f3f4f6;
+}
+
+.team-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--team-color);
+  mix-blend-mode: color;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.team-photo:hover::after {
+  opacity: 1;
+}
+
+.team-photo__image {
+  display: block;
+  filter: grayscale(1);
+}
+
+.team-photo--mc {
+  --team-color: #84cc16;
+}
+
+.team-photo--dc {
+  --team-color: #f97316;
+}
+
+.team-photo--fd {
+  --team-color: #4f46e5;
+}
+
+.team-photo--gc {
+  --team-color: #e11d48;
+}
+
+.team-photo--am {
+  --team-color: #0891b2;
+}
+
 @media (min-width: 769px) and (max-width: 1023px) {
   #team {
     align-items: stretch;
