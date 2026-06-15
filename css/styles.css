@@ -515,6 +515,10 @@ footer {
   --team-color: #0891b2;
 }
 
+.team-photo--sb {
+  --team-color: #ca8a04;
+}
+
 @media (min-width: 769px) and (max-width: 1023px) {
   #team {
     align-items: stretch;
@@ -531,7 +535,7 @@ footer {
   }
 
   #team [role="list"] {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 1rem;
   }
 
