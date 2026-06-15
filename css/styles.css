@@ -536,6 +536,22 @@ footer {
   --team-color: #ca8a04;
 }
 
+.team-photo--dv {
+  --team-color: #16a34a;
+}
+
+@media (min-width: 1024px) {
+  #team [role="list"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  #team [role="list"] {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 769px) and (max-width: 1023px) {
   #team {
     align-items: stretch;
@@ -552,7 +568,7 @@ footer {
   }
 
   #team [role="list"] {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
   }
 
