@@ -31,13 +31,10 @@ if (host && canvases.length) {
       pointerFactor: 0.18,
       spinFactor: 0.42,
       cubes: [
-        ["indigo", 1.46, 0.82, -7.8, 0.42, 0.58],
-        ["lime", 0.9, 1.7, -8.1, 0.72, 0.24],
-        ["indigo", -0.68, 2.42, -7.2, 0.54, 0.82],
-        ["lime", 0.72, 3.18, -8.4, 0.62, 0.42],
-        ["indigo", -0.88, 4.08, -7.7, 0.5, 0.1],
-        ["lime", 0.18, 4.84, -8.1, 0.66, 0.7],
-        ["indigo", 0.84, 5.62, -7.5, 0.52, 0.34],
+        ["lime", 0.92, 1.4, -8.1, 0.88, 0.24],
+        ["indigo", -0.72, 2.9, -7.4, 0.64, 0.82],
+        ["lime", 0.7, 4.4, -8.2, 0.76, 0.42],
+        ["indigo", 0.88, 6, -7.6, 0.62, 0.34],
       ],
     },
     middle: {
@@ -47,15 +44,11 @@ if (host && canvases.length) {
       pointerFactor: 0.34,
       spinFactor: 0.78,
       cubes: [
-        ["lime", 0.73, 0.08, -4.2, 0.92, 0.14],
-        ["indigo", -0.76, 0.88, -4.8, 0.78, 0.68],
-        ["lime", 0.54, 1.52, -4.1, 1.08, 0.34],
-        ["indigo", -0.42, 2.16, -5.1, 0.64, 0.92],
-        ["lime", -0.83, 2.92, -4.3, 0.88, 0.2],
-        ["indigo", 0.82, 3.58, -4.8, 0.76, 0.74],
-        ["lime", -0.16, 4.28, -4.2, 0.98, 0.48],
-        ["indigo", -0.78, 5.12, -5.1, 0.68, 0.04],
-        ["indigo", -0.28, 4.82, -4.7, 0.78, 0.26],
+        ["lime", 0.78, 0.18, -4.2, 1.12, 0.14],
+        ["indigo", -0.82, 1.7, -4.8, 0.96, 0.68],
+        ["lime", -0.88, 3.2, -4.4, 1.08, 0.2],
+        ["indigo", 0.86, 4.65, -4.8, 0.92, 0.74],
+        ["lime", -0.34, 5.95, -4.4, 1.02, 0.48],
       ],
     },
     front: {
@@ -65,14 +58,11 @@ if (host && canvases.length) {
       pointerFactor: 0.56,
       spinFactor: 1.05,
       cubes: [
-        ["lime", 1.06, 0.46, -2.5, 1.38, 0.28],
-        ["indigo", -1.28, 1.34, -2.6, 1.08, 0.78],
-        ["lime", 1.12, 2.46, -2.3, 1.52, 0.08],
-        ["indigo", -1.14, 3.42, -2.8, 1.28, 0.54],
-        ["lime", 1.04, 4.44, -2.4, 1.42, 0.9],
-        ["indigo", -1.02, 5.38, -2.7, 1.16, 0.38],
-        ["lime", 1.22, 8, -2.35, 0.95, 0.72],
-        ["indigo", -0.42, 7.08, -2.6, 0.72, 0.16],
+        ["lime", 1.14, 0.52, -2.5, 1.58, 0.28],
+        ["indigo", -1.26, 2.35, -2.6, 1.34, 0.78],
+        ["lime", 1.18, 4.45, -2.35, 1.62, 0.9],
+        ["indigo", -1.04, 5.85, -2.7, 1.38, 0.38],
+        ["lime", 1.24, 8, -2.35, 1.18, 0.72],
       ],
     },
     overlay: {
@@ -82,12 +72,8 @@ if (host && canvases.length) {
       pointerFactor: 0.42,
       spinFactor: 0.72,
       cubes: [
-        ["lime", 0.9, 0.42, -3.25, 0.4, 0.11],
-        ["indigo", -1.12, 1.28, -3.45, 0.34, 0.44],
-        ["lime", 1.16, 2.3, -3.35, 0.36, 0.7],
-        ["indigo", -1.18, 3.36, -3.2, 0.36, 0.22],
-        ["lime", 1.18, 4.48, -3.3, 0.32, 0.86],
-        ["indigo", 0.86, 6.16, -3.25, 0.34, 0.52],
+        ["lime", 0.94, 0.42, -3.25, 0.48, 0.11],
+        ["indigo", -1.18, 3.36, -3.2, 0.44, 0.22],
       ],
     },
   };
@@ -235,7 +221,7 @@ if (host && canvases.length) {
     viewportHeight = Math.max(window.innerHeight, 1);
     const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.7);
     const mobileScale =
-      viewportWidth < 700 ? 0.34 : viewportWidth < 1100 ? 0.88 : 1;
+      viewportWidth < 700 ? 0.24 : viewportWidth < 1100 ? 0.88 : 1;
 
     layers.forEach((layer) => {
       layer.renderer.setPixelRatio(pixelRatio);
@@ -292,7 +278,7 @@ if (host && canvases.length) {
         const pushedXRatio =
           viewportWidth < 700
             ? Math.sign(xRatio || 1) *
-              Math.min(Math.abs(xRatio) + 2.15, 3.4)
+              Math.min(Math.abs(xRatio) + 5.8, 8)
             : xRatio;
         const mobileHeroLift =
           viewportWidth < 700 && scrollScreens < 0.75 && pageY < 0.7
