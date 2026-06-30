@@ -49,6 +49,12 @@
         item.classList.toggle("text-indigo-600", isActive);
         item.classList.toggle("font-bold", isActive);
         item.classList.toggle("text-gray-900", !isActive);
+
+        if (isActive) {
+          item.setAttribute("aria-current", "location");
+        } else {
+          item.removeAttribute("aria-current");
+        }
       });
 
       ticking = false;
@@ -73,16 +79,24 @@
       return;
     }
 
+    function setMobileMenuState(isOpen) {
+      mobileMenu.classList.toggle("hidden", !isOpen);
+      mobileMenu.hidden = !isOpen;
+      mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
+      mobileMenuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Chiudi menu mobile" : "Apri menu mobile"
+      );
+    }
+
     function closeMobileMenu() {
-      mobileMenu.classList.add("hidden");
-      mobileMenuButton.setAttribute("aria-expanded", "false");
+      setMobileMenuState(false);
     }
 
     mobileMenuButton.addEventListener("click", () => {
       const isExpanded =
         mobileMenuButton.getAttribute("aria-expanded") === "true";
-      mobileMenuButton.setAttribute("aria-expanded", String(!isExpanded));
-      mobileMenu.classList.toggle("hidden", isExpanded);
+      setMobileMenuState(!isExpanded);
     });
 
     document.addEventListener("click", (event) => {
@@ -91,6 +105,16 @@
         !mobileMenuButton.contains(event.target)
       ) {
         closeMobileMenu();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        mobileMenuButton.getAttribute("aria-expanded") === "true"
+      ) {
+        closeMobileMenu();
+        mobileMenuButton.focus();
       }
     });
 
@@ -157,6 +181,10 @@
     const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
 
     if (!cursor || !hasFinePointer) {
+      return;
+    }
+
+    if (prefersReducedMotion.matches) {
       return;
     }
 
@@ -331,34 +359,6 @@
     showProject(initialProject);
   }
 
-  function initSquareAnimation() {
-    const logo = document.getElementById("logo");
-    const square = document.getElementById("square");
-
-    if (!logo || !square) {
-      return;
-    }
-
-    function calculateSquarePosition() {
-      const logoRect = logo.getBoundingClientRect();
-      const squareRect = square.getBoundingClientRect();
-
-      square.style.setProperty(
-        "--start-x",
-        `${logoRect.left - squareRect.left}px`
-      );
-      square.style.setProperty(
-        "--start-y",
-        `${logoRect.top - squareRect.top}px`
-      );
-    }
-
-    calculateSquarePosition();
-    window.addEventListener("resize", calculateSquarePosition, {
-      passive: true,
-    });
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     initActiveNavigation();
     initMobileMenu();
@@ -366,6 +366,5 @@
     initCustomCursor();
     initTypingAnimation();
     initProjectTabs();
-    initSquareAnimation();
   });
 })();

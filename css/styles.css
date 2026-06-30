@@ -37,8 +37,9 @@ body {
 
 /* Focus Styles */
 :focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
+  outline: 3px solid #111827;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #facc15;
 }
 
 .site-nav-links {
@@ -65,6 +66,93 @@ section {
   justify-content: center;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+.hero-section {
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-cta {
+  z-index: 2;
+}
+
+.hero-cta a {
+  white-space: nowrap;
+}
+
+.site-cube-scene {
+  position: static;
+  pointer-events: none;
+}
+
+.site-cube-scene canvas {
+  position: fixed;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.site-cube-scene [data-cube-layer="back"],
+.site-cube-scene [data-cube-layer="middle"],
+.site-cube-scene [data-cube-layer="front"] {
+  z-index: 1;
+}
+
+.site-cube-scene [data-cube-layer="back"] {
+  filter: blur(1.4px);
+}
+
+.site-cube-scene [data-cube-layer="middle"] {
+  filter: none;
+}
+
+.site-cube-scene [data-cube-layer="front"] {
+  filter: blur(2.4px);
+}
+
+.site-cube-scene [data-cube-layer="overlay"] {
+  z-index: 3;
+  filter: none;
+}
+
+.hero-content :is(h1, p),
+#servizi h2,
+#chi-siamo h2,
+#progetti h2,
+#progetti > .container > .w-full > p,
+#clienti .clients-heading h2,
+#team h2,
+#servizi h2 + span,
+#chi-siamo h2 + span,
+#progetti h2 + span,
+#clienti .clients-heading-index,
+#team h2 + span {
+  position: relative;
+  z-index: 4;
+}
+
+#main-content > section:not(.hero-section) > .container,
+footer > .container {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .site-cube-scene [data-cube-layer="overlay"] {
+    display: none;
+  }
+
+  .site-cube-scene [data-cube-layer="front"] {
+    filter: blur(2px);
+  }
+
 }
 
 footer {
@@ -631,35 +719,6 @@ footer {
   }
 }
 
-/* Square Animation */
-@keyframes square-move {
-  0% {
-    transform: translate(var(--start-x), var(--start-y)) scale(2);
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-}
-
-.animate-square-move {
-  animation: square-move 2s ease-out forwards;
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 16px;
-  height: 16px;
-  border: 2px solid rgb(163, 230, 53);
-  background-color: transparent;
-  margin-left: 8px;
-  display: inline-block;
-  vertical-align: baseline;
-  margin-bottom: 0;
-}
-
 @keyframes slideInRight {
   from {
     opacity: 0;
@@ -833,11 +892,27 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html,
+  body {
     scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 
-  .animate-square-move,
+  section,
+  footer,
+  #team [role="listitem"] {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+  }
+
+  #team [role="list"] {
+    scroll-snap-type: none;
+  }
+
+  .site-cube-scene {
+    display: none;
+  }
+
   .logo-track,
   .panel-enter,
   .project-screenshot img {

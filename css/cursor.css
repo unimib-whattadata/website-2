@@ -45,3 +45,18 @@ html.custom-cursor-enabled #custom-cursor {
     display: none;
   }
 }
+
+@media (prefers-reduced-motion: reduce), (forced-colors: active) {
+  html.custom-cursor-enabled body,
+  html.custom-cursor-enabled a,
+  html.custom-cursor-enabled button,
+  html.custom-cursor-enabled input,
+  html.custom-cursor-enabled select,
+  html.custom-cursor-enabled textarea {
+    cursor: auto;
+  }
+
+  #custom-cursor {
+    display: none;
+  }
+}

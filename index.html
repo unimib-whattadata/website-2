@@ -13,9 +13,11 @@
       as="image"
       type="image/svg+xml"
     />
-    <link rel="preload" href="css/styles.css?v=responsive-1" as="style" />
+    <link rel="preload" href="css/styles.css?v=no-text-bg-1" as="style" />
     <link rel="preconnect" href="https://cdn.lineicons.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.lineicons.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
 
     <!-- Primary Meta Tags -->
     <meta
@@ -103,7 +105,7 @@
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Via Rotonda dei Mille, 1",
-              "postalCode": "24124",
+              "postalCode": "24122",
               "addressLocality": "Bergamo",
               "addressRegion": "BG",
               "addressCountry": "IT"
@@ -183,7 +185,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/tailwind.css?v=responsive-1" />
-    <link rel="stylesheet" href="css/styles.css?v=responsive-1" />
+    <link rel="stylesheet" href="css/styles.css?v=no-text-bg-1" />
     <link rel="stylesheet" href="css/cursor.css" />
   </head>
   <body class="bg-white">
@@ -197,6 +199,14 @@
 
     <!-- Custom Cursor Element -->
     <div id="custom-cursor" aria-hidden="true"></div>
+
+    <!-- Global Parallax Cubes -->
+    <div class="site-cube-scene" aria-hidden="true">
+      <canvas data-cube-layer="back"></canvas>
+      <canvas data-cube-layer="middle"></canvas>
+      <canvas data-cube-layer="front"></canvas>
+      <canvas data-cube-layer="overlay"></canvas>
+    </div>
 
     <!-- Main Navigation -->
     <nav
@@ -225,8 +235,9 @@
 
         <!-- Mobile Menu Toggle -->
         <button
-          class="md:hidden text-gray-900 focus:outline-none"
+          class="md:hidden text-gray-900"
           id="mobile-menu-button"
+          type="button"
           aria-label="Apri menu mobile"
           aria-expanded="false"
           aria-controls="mobile-menu"
@@ -248,44 +259,35 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <div
-          class="site-nav-links hidden md:flex items-center"
-          role="menubar"
-        >
+        <div class="site-nav-links hidden md:flex items-center">
           <a
             href="#servizi"
             class="hover:text-indigo-600 transition-colors"
-            role="menuitem"
             >SERVIZI</a
           >
           <a
             href="#chi-siamo"
             class="hover:text-indigo-600 transition-colors"
-            role="menuitem"
             >CHI SIAMO</a
           >
           <a
             href="#progetti"
             class="hover:text-indigo-600 transition-colors"
-            role="menuitem"
             >PRODOTTI</a
           >
           <a
             href="#clienti"
             class="hover:text-indigo-600 transition-colors"
-            role="menuitem"
             >CLIENTI</a
           >
           <a
             href="#team"
             class="hover:text-indigo-600 transition-colors"
-            role="menuitem"
             >TEAM</a
           >
           <a
             href="#contatti"
             class="hover:text-indigo-600 transition-colors"
-            role="menuitem"
             >CONTATTI</a
           >
         </div>
@@ -295,44 +297,37 @@
       <div
         class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50"
         id="mobile-menu"
-        role="menu"
-        aria-labelledby="mobile-menu-button"
+        hidden
       >
         <div class="container mx-auto px-6 py-4 space-y-4">
           <a
             href="#servizi"
             class="block hover:text-gray-900 transition-colors text-lg"
-            role="menuitem"
             >SERVIZI</a
           >
           <a
             href="#chi-siamo"
             class="block hover:text-gray-900 transition-colors text-lg"
-            role="menuitem"
             >CHI SIAMO</a
           >
           <a
             href="#progetti"
             class="block hover:text-gray-900 transition-colors text-lg"
-            role="menuitem"
             >PRODOTTI</a
           >
           <a
             href="#clienti"
             class="block hover:text-gray-900 transition-colors text-lg"
-            role="menuitem"
             >CLIENTI</a
           >
           <a
             href="#team"
             class="block hover:text-gray-900 transition-colors text-lg"
-            role="menuitem"
             >TEAM</a
           >
           <a
             href="#contatti"
             class="block hover:text-gray-900 transition-colors text-lg"
-            role="menuitem"
             >CONTATTI</a
           >
         </div>
@@ -343,11 +338,11 @@
     <main id="main-content">
       <!-- Hero Section -->
       <section
-        class="relative flex items-center justify-center min-h-screen pt-20 px-4"
+        class="hero-section relative flex items-center justify-center min-h-screen pt-20 px-4"
         aria-label="Presentazione Whattadata"
       >
         <div class="container mx-auto">
-          <div class="max-w-4xl">
+          <div class="max-w-4xl hero-content">
             <!-- Main Heading -->
             <h1
               class="text-3xl sm:text-4xl md:text-7xl mb-6 md:mb-8 leading-tight"
@@ -358,36 +353,34 @@
             <!-- Animated Text -->
             <div
               class="flex items-center h-16 md:h-20 mb-6 md:mb-8 text-3xl sm:text-4xl md:text-7xl text-indigo-600"
-              aria-live="polite"
+              aria-hidden="true"
             >
               <span id="typed-text"></span>
               <span
-                class="font-thin text-gray-400 animate-pulse"
+                class="font-thin text-gray-600 animate-pulse"
                 aria-hidden="true"
                 >|</span
               >
             </div>
+            <p class="sr-only">
+              Ambiti: dati finanziari, aziendali, clinici e industriali.
+            </p>
 
-            <!-- Subheading with Animated Square -->
+            <!-- Subheading -->
             <p
               class="text-3xl sm:text-4xl md:text-7xl mb-12 md:mb-16 leading-tight"
             >
-              con soluzioni innovative<span
-                class="animate-square-move"
-                id="square"
-                aria-hidden="true"
-              ></span>
+              con soluzioni innovative
             </p>
           </div>
 
           <!-- CTA Button -->
           <div
-            class="absolute left-1/2 transform -translate-x-1/2 bottom-8 md:bottom-16"
+            class="hero-cta absolute left-1/2 transform -translate-x-1/2 bottom-8 md:bottom-16"
           >
             <a
               href="#servizi"
               class="inline-flex items-center px-6 md:px-8 py-2 text-sm md:text-base text-white bg-indigo-600 hover:scale-105 transition-transform font-mono"
-              role="button"
             >
               SCOPRI I SERVIZI
             </a>
@@ -412,7 +405,7 @@
                 <h2 class="text-2xl md:text-3xl leading-tight">
                   Diamo valore ai tuoi dati con soluzioni intelligenti
                 </h2>
-                <span class="text-base text-gray-400 mt-4" aria-hidden="true"
+                <span class="text-base text-gray-600 mt-4" aria-hidden="true"
                   >(01)</span
                 >
               </div>
@@ -436,7 +429,8 @@
               <div class="flex justify-center mb-6 md:mb-8">
                 <img
                   src="img/animated_scheme/predictive.svg"
-                  alt="Icona analisi predittiva"
+                  alt=""
+                  aria-hidden="true"
                   width="80"
                   height="80"
                   loading="lazy"
@@ -453,7 +447,8 @@
               <div class="flex justify-center mb-6 md:mb-8">
                 <img
                   src="img/animated_scheme/ethics.svg"
-                  alt="Icona IA etica"
+                  alt=""
+                  aria-hidden="true"
                   width="80"
                   height="80"
                   loading="lazy"
@@ -471,7 +466,8 @@
               <div class="flex justify-center mb-6 md:mb-8">
                 <img
                   src="img/animated_scheme/modularity.svg"
-                  alt="Icona soluzioni modulari"
+                  alt=""
+                  aria-hidden="true"
                   width="80"
                   height="80"
                 />
@@ -502,6 +498,8 @@
                 width="100%"
                 height="100%"
                 class="graph-svg absolute inset-0"
+                aria-hidden="true"
+                focusable="false"
               >
                 <defs>
                   <filter id="glow">
@@ -534,10 +532,6 @@
                             >(02)</span
                           >
                         </div>
-                        <div
-                          class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
-                          aria-hidden="true"
-                        ></div>
                       </div>
                     </div>
 
@@ -658,15 +652,11 @@
                 <div class="flex items-start">
                   <h2 class="text-4xl md:text-7xl lg:text-9xl">Prodotti</h2>
                   <span
-                    class="text-base text-gray-400 mt-4 ml-2"
+                    class="text-base text-gray-600 mt-4 ml-2"
                     aria-hidden="true"
                     >(04)</span
                   >
                 </div>
-                <div
-                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
-                  aria-hidden="true"
-                ></div>
               </div>
             </div>
 
@@ -677,15 +667,12 @@
 
             <div
               class="project-bento-grid"
-              role="list"
-              aria-label="Elenco prodotti Whattadata"
             >
               <a
                 href="https://arianne.whattadata.it"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="project-bento-tile project-bento-tile--arianne"
-                role="listitem"
                 aria-label="Arianne, piattaforma digitale per professionisti della salute mentale. Apri il sito"
               >
                 <img
@@ -707,8 +694,8 @@
 
               <article
                 class="project-bento-tile project-bento-tile--whattadocs"
-                role="listitem"
               >
+                <h3 class="sr-only">Whattadocs</h3>
                 <img
                   src="img/logo/whattadocs-logo.png"
                   alt=""
@@ -1100,56 +1087,46 @@
                     >
                   </h2>
                   <span
-                    class="clients-heading-index text-base text-gray-400 mt-4 ml-2"
+                    class="clients-heading-index text-base text-gray-600 mt-4 ml-2"
                     aria-hidden="true"
                     >(05)</span
                   >
                 </div>
-                <div
-                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-1 translate-x-[8rem] md:translate-y-6 md:translate-x-[7.5rem] z-10"
-                  aria-hidden="true"
-                ></div>
               </div>
             </div>
 
             <div class="clients-logo-panel">
-              <div
-                class="clients-logo-grid"
-                role="list"
-                aria-label="Elenco clienti e collaborazioni Whattadata"
-              >
-              <a
-                href="https://gummyindustries.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="Gummy Industries"
-              >
-                <img
-                  src="img/clients/gummy-industries.png"
-                  alt="Gummy Industries"
-                  width="300"
-                  height="180"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://www.fondo-gomma-plastica.it/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--tall"
-                role="listitem"
-                aria-label="Fondo Gomma Plastica"
-              >
-                <img
-                  src="img/clients/fondo-gomma-plastica.png"
-                  alt="Fondo Gomma Plastica"
-                  width="120"
-                  height="174"
-                  loading="lazy"
-                />
-              </a>
+              <div class="clients-logo-grid">
+                <a
+                  href="https://gummyindustries.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="Gummy Industries"
+                >
+                  <img
+                    src="img/clients/gummy-industries.png"
+                    alt="Gummy Industries"
+                    width="300"
+                    height="180"
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://www.fondo-gomma-plastica.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--tall"
+                  aria-label="Fondo Gomma Plastica"
+                >
+                  <img
+                    src="img/clients/fondo-gomma-plastica.png"
+                    alt="Fondo Gomma Plastica"
+                    width="120"
+                    height="174"
+                    loading="lazy"
+                  />
+                </a>
               <!-- EMERGENCY temporaneamente nascosto
               <a
                 href="https://www.emergency.it/"
@@ -1168,38 +1145,36 @@
                 />
               </a>
               -->
-              <a
-                href="https://www.temposrl.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="Tempo srl"
-              >
-                <img
-                  src="img/clients/tempo.png"
-                  alt="Tempo srl"
-                  width="453"
-                  height="200"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://aief.eu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="AIEF"
-              >
-                <img
-                  src="img/clients/aief.png"
-                  alt="AIEF"
-                  width="2560"
-                  height="1310"
-                  loading="lazy"
-                />
-              </a>
+                <a
+                  href="https://www.temposrl.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="Tempo srl"
+                >
+                  <img
+                    src="img/clients/tempo.png"
+                    alt="Tempo srl"
+                    width="453"
+                    height="200"
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://aief.eu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="AIEF"
+                >
+                  <img
+                    src="img/clients/aief.png"
+                    alt="AIEF"
+                    width="2560"
+                    height="1310"
+                    loading="lazy"
+                  />
+                </a>
               <!-- FISI temporaneamente nascosto
               <a
                 href="https://www.fisi.org/"
@@ -1219,86 +1194,81 @@
               </a>
               -->
 
-              <a
-                href="https://dmd.eu/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="DMD"
-              >
-                <img
-                  src="img/clients/dmd.svg"
-                  alt="DMD"
-                  width="240"
-                  height="75"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://www.unimib.it/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--tall"
-                role="listitem"
-                aria-label="Università degli Studi di Milano-Bicocca"
-              >
-                <img
-                  src="img/clients/unimib.png"
-                  alt="Università degli Studi di Milano-Bicocca"
-                  width="160"
-                  height="172"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://portale.unipv.it/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="Università di Pavia"
-              >
-                <img
-                  src="img/clients/unipv.svg"
-                  alt="Università di Pavia"
-                  width="300"
-                  height="100"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://www.accapierre.it/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="Accapierre"
-              >
-                <img
-                  src="img/clients/accapierre.png"
-                  alt="Accapierre"
-                  width="1000"
-                  height="226"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://flatmatesagency.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="client-logo-link client-logo-link--wide"
-                role="listitem"
-                aria-label="Flatmates Agency"
-              >
-                <img
-                  src="img/clients/flatmates.png"
-                  alt="Flatmates Agency"
-                  width="640"
-                  height="140"
-                  loading="lazy"
-                />
-              </a>
+                <a
+                  href="https://dmd.eu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="DMD"
+                >
+                  <img
+                    src="img/clients/dmd.svg"
+                    alt="DMD"
+                    width="240"
+                    height="75"
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://www.unimib.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--tall"
+                  aria-label="Università degli Studi di Milano-Bicocca"
+                >
+                  <img
+                    src="img/clients/unimib.png"
+                    alt="Università degli Studi di Milano-Bicocca"
+                    width="160"
+                    height="172"
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://portale.unipv.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="Università di Pavia"
+                >
+                  <img
+                    src="img/clients/unipv.svg"
+                    alt="Università di Pavia"
+                    width="300"
+                    height="100"
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://www.accapierre.it/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="Accapierre"
+                >
+                  <img
+                    src="img/clients/accapierre.png"
+                    alt="Accapierre"
+                    width="1000"
+                    height="226"
+                    loading="lazy"
+                  />
+                </a>
+                <a
+                  href="https://flatmatesagency.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="client-logo-link client-logo-link--wide"
+                  aria-label="Flatmates Agency"
+                >
+                  <img
+                    src="img/clients/flatmates.png"
+                    alt="Flatmates Agency"
+                    width="640"
+                    height="140"
+                    loading="lazy"
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -1319,16 +1289,11 @@
                 <div class="flex items-start">
                   <h2 class="text-4xl md:text-7xl lg:text-9xl">Team</h2>
                   <span
-                    class="text-base text-gray-400 mt-4 ml-2"
+                    class="text-base text-gray-600 mt-4 ml-2"
                     aria-hidden="true"
                     >(07)</span
                   >
                 </div>
-                <div
-                  id="square-5"
-                  class="absolute top-0 left-0 w-8 h-8 border-2 border-lime-400 transform translate-y-8 translate-x-[6rem] z-10"
-                  aria-hidden="true"
-                ></div>
               </div>
             </div>
 
@@ -1399,7 +1364,7 @@
                   />
                 </div>
                 <p class="text-gray-600">CTO</p>
-                <span class="text-gray-400 mt-4" aria-hidden="true"
+                <span class="text-gray-600 mt-4"
                   >Ricercatore@UNIMIB</span
                 >
               </div>
@@ -1434,7 +1399,7 @@
                   />
                 </div>
                 <p class="text-gray-600">Advisor</p>
-                <span class="text-gray-400 mt-4" aria-hidden="true"
+                <span class="text-gray-600 mt-4"
                   >Professore@UNIMIB</span
                 >
               </div>
@@ -1537,7 +1502,7 @@
               <div>
                 <h4 class="text-lg font-bold mb-4">Sede legale</h4>
                 <p class="text-gray-400">
-                  Via Rotonda dei Mille, 1 - 24124 Bergamo<br />
+                  Via Rotonda dei Mille, 1 - 24122 Bergamo<br />
                   P.IVA 04836660169
                 </p>
               </div>
@@ -1572,6 +1537,7 @@
 
     <!-- Custom Scripts -->
     <script src="js/graph.js" defer></script>
+    <script type="module" src="js/cube-scene.js?v=no-cube-wrap-2"></script>
     <script src="js/main.js" defer></script>
   </body>
 </html>
