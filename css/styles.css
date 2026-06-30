@@ -20,6 +20,7 @@ body {
   background: var(--background);
   overflow-x: hidden;
   overflow-y: scroll;
+  overscroll-behavior-y: auto;
 }
 
 /* Accessibility */
@@ -144,17 +145,6 @@ footer > .container {
   z-index: 2;
 }
 
-@media (max-width: 768px) {
-  .site-cube-scene [data-cube-layer="overlay"] {
-    display: none;
-  }
-
-  .site-cube-scene [data-cube-layer="front"] {
-    filter: blur(2px);
-  }
-
-}
-
 footer {
   height: 100vh;
   height: 100dvh;
@@ -169,13 +159,13 @@ footer {
 }
 
 /* On touch / smaller viewports a single screen is often too short to hold a
-   section's content. Let sections grow with their content (min-height instead
-   of a fixed height) and soften the scroll snap so nothing gets clipped or
-   trapped out of reach. */
+   section's content. Let sections grow and use native scrolling so nothing gets
+   clipped or trapped out of reach. */
 @media (max-width: 1024px) {
   html,
   body {
-    scroll-snap-type: y proximity;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
   }
 
   section,
@@ -183,6 +173,7 @@ footer {
     height: auto;
     min-height: 100vh;
     min-height: 100svh;
+    scroll-snap-align: none;
     scroll-snap-stop: normal;
   }
 
@@ -195,6 +186,10 @@ footer {
 
 /* Mobile specific styles */
 @media (max-width: 768px) {
+  body {
+    overflow-y: auto;
+  }
+
   section {
     padding: 0;
     margin-bottom: 0;
@@ -203,6 +198,14 @@ footer {
   footer {
     padding: 2rem 0;
     padding-top: 6rem;
+  }
+
+  .site-cube-scene [data-cube-layer="overlay"] {
+    display: none;
+  }
+
+  .site-cube-scene [data-cube-layer="front"] {
+    filter: blur(2px);
   }
 
   #progetti {
