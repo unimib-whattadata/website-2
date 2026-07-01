@@ -5,7 +5,7 @@ const canvases = Array.from(host?.querySelectorAll("canvas") || []);
 
 if (host && canvases.length) {
   const BREAKPOINTS = {
-    mobile: 700,
+    mobile: 768,
     tablet: 1100,
   };
   const THEME_COLORS = {
@@ -264,7 +264,7 @@ if (host && canvases.length) {
 
   function getResponsiveScale(width) {
     if (width < BREAKPOINTS.mobile) {
-      return 0.24;
+      return THREE.MathUtils.clamp(width / BREAKPOINTS.mobile, 0.44, 0.64);
     }
 
     if (width < BREAKPOINTS.tablet) {
@@ -369,10 +369,13 @@ if (host && canvases.length) {
     }
 
     if (isMobileHeroAccent(paletteName, pageY)) {
-      return -1.12;
+      return -0.9;
     }
 
-    return Math.sign(xRatio || 1) * Math.min(Math.abs(xRatio) + 5.8, 8);
+    return (
+      Math.sign(xRatio || 1) *
+      (0.88 + Math.min(Math.abs(xRatio), 1.4) * 0.18)
+    );
   }
 
   function getMobileHeroLift(pageY, scrollScreens) {
