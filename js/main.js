@@ -4,7 +4,6 @@
     "chi-siamo",
     "progetti",
     "clienti",
-    "team",
     "contatti",
   ];
   const TYPING_WORDS = ["finanziari", "aziendali", "clinici", "industriali"];
