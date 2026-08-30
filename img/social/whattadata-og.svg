@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f4f5f7"/>
+  <rect x="64" y="64" width="96" height="96" fill="#4f46e5"/>
+  <g fill="#a3e635">
+    <rect x="64" y="64" width="20" height="20"/><rect x="90" y="64" width="20" height="20"/><rect x="116" y="64" width="20" height="20"/>
+    <rect x="64" y="90" width="20" height="20"/><rect x="90" y="90" width="20" height="20"/><rect x="64" y="116" width="20" height="20"/>
+    <path d="M116 108h20v20h-20zM136 128h20v20h-20z" transform="rotate(30 136 128)"/>
+  </g>
+  <text x="184" y="132" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" letter-spacing="-1">WHATTA<tspan font-weight="300">DATA</tspan></text>
+  <text x="64" y="304" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700" letter-spacing="-2">Living data.</text>
+  <text x="64" y="390" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700" letter-spacing="-2">Working intelligence.</text>
+  <text x="68" y="476" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="30">AI · machine learning · data analytics</text>
+  <g transform="translate(866 92)">
+    <rect x="0" y="208" width="110" height="110" fill="#4f46e5"/>
+    <rect x="118" y="90" width="110" height="110" fill="#a3e635"/>
+    <rect x="236" y="208" width="110" height="110" fill="#111827"/>
+    <path d="M55 208 173 90l118 118-118 118z" fill="#ffffff" fill-opacity=".8"/>
+  </g>
+  <rect x="64" y="558" width="1072" height="4" fill="#4f46e5"/>
+</svg>

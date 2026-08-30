@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#eff8f7"/>
+  <text x="66" y="118" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" letter-spacing="-1">WHATTA<tspan fill="#0f766e">FLOW</tspan></text>
+  <text x="64" y="270" fill="#10231f" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-2">Wearable studies in</text>
+  <text x="64" y="350" fill="#10231f" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-2">one continuous flow.</text>
+  <text x="68" y="430" fill="#52635f" font-family="Arial, Helvetica, sans-serif" font-size="28">Participants · Garmin data · research operations</text>
+  <g transform="translate(830 104)">
+    <rect x="0" y="156" width="104" height="104" fill="#0f766e"/>
+    <rect x="240" y="156" width="104" height="104" fill="#4f46e5"/>
+    <rect x="120" y="34" width="104" height="104" fill="#a3e635"/>
+    <rect x="120" y="278" width="104" height="104" fill="#ffffff" stroke="#0f766e" stroke-width="5"/>
+    <path d="M104 208h136M172 138v140" fill="none" stroke="#0f766e" stroke-width="8"/>
+    <circle cx="172" cy="208" r="18" fill="#eff8f7" stroke="#0f766e" stroke-width="8"/>
+  </g>
+  <rect x="64" y="552" width="1072" height="4" fill="#0f766e"/>
+</svg>

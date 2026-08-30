@@ -5,12 +5,12 @@
 >
   <url>
     <loc>https://whattadata.it/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-08-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://whattadata.it/img/whattadata.png</image:loc>
-      <image:title>Whattadata</image:title>
+      <image:loc>https://whattadata.it/img/social/whattadata-og.png</image:loc>
+      <image:title>Whattadata — AI, machine learning and data analytics</image:title>
     </image:image>
   </url>
   <url>
@@ -18,5 +18,35 @@
     <lastmod>2026-06-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://whattadata.it/arianne.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://whattadata.it/img/social/arianne-og.png</image:loc>
+      <image:title>Arianne digital mental health platform</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://whattadata.it/whattadocs.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://whattadata.it/img/social/whattadocs-og.png</image:loc>
+      <image:title>WhattaDocs AI document analysis</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://whattadata.it/whattaflow.html</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://whattadata.it/img/social/whattaflow-og.png</image:loc>
+      <image:title>WhattaFlow wearable data platform</image:title>
+    </image:image>
   </url>
 </urlset>

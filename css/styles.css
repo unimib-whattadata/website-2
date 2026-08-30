@@ -1,6 +1,7 @@
 /* Base Styles */
 :root {
   --primary: #4f46e5;
+  --accent: #a3e635;
   --text: #333333;
   --background: #ffffff;
 }
@@ -12,6 +13,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -21,6 +26,29 @@ body {
   overflow-x: hidden;
   overflow-y: scroll;
   overscroll-behavior-y: auto;
+}
+
+::selection {
+  color: #111827;
+  background: var(--accent);
+}
+
+html {
+  scrollbar-color: var(--primary) #eef2ff;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #eef2ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border: 2px solid #eef2ff;
 }
 
 /* Accessibility */
@@ -45,6 +73,31 @@ body {
 
 .site-nav-links {
   gap: clamp(1.25rem, 2.4vw, 2.5rem);
+}
+
+.nav-contact-link,
+.mobile-contact-link {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.nav-contact-link {
+  padding: 0.65rem 1rem;
+}
+
+.mobile-contact-link {
+  display: block;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.nav-contact-link:hover,
+.mobile-contact-link:hover {
+  background: #3730a3;
+  color: #fff;
 }
 
 /* Base Styles */
@@ -80,10 +133,43 @@ section {
 
 .hero-cta {
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
 }
 
 .hero-cta a {
   white-space: nowrap;
+}
+
+.hero-primary-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
+  padding: 0.8rem 1.4rem;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.hero-primary-action:hover {
+  background: #3730a3;
+  transform: translateY(-2px);
+}
+
+.hero-secondary-action {
+  color: #374151;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
 }
 
 .site-cube-scene {
@@ -238,13 +324,14 @@ footer {
 
 .project-bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(0.75rem, 1.6vw, 1.25rem);
-  max-width: 42rem;
+  max-width: 64rem;
   margin: 0 auto;
 }
 
 .project-bento-tile {
+  position: relative;
   aspect-ratio: 1;
   background: rgb(255 255 255 / 90%);
   border: 1px solid rgb(255 255 255 / 72%);
@@ -258,6 +345,7 @@ footer {
   padding: clamp(1rem, 2vw, 1.5rem);
   text-decoration: none;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
 }
 
 .project-bento-tile:nth-child(even) {
@@ -267,7 +355,7 @@ footer {
 .project-bento-tile--arianne {
   background:
     linear-gradient(rgb(255 255 255 / 70%), rgb(255 255 255 / 82%)),
-    url("../img/background/arianne-bento-grid-bg.png");
+    url("../img/background/arianne-bento-grid-bg-v3.webp");
   background-position: center;
   background-size: cover;
 }
@@ -275,9 +363,28 @@ footer {
 .project-bento-tile.project-bento-tile--whattadocs {
   background:
     linear-gradient(rgb(255 255 255 / 62%), rgb(255 255 255 / 82%)),
-    url("../img/background/whattadocs-bento-grid-bg-v2.png");
+    url("../img/background/whattadocs-bento-grid-bg-v3.webp");
   background-position: center;
   background-size: cover;
+}
+
+.project-bento-tile.project-bento-tile--whattaflow {
+  background:
+    linear-gradient(rgb(240 253 250 / 42%), rgb(236 253 245 / 84%)),
+    url("../img/background/whattaflow-bento-grid-bg-v1.webp");
+  background-position: center;
+  background-size: cover;
+  border-color: rgb(15 118 110 / 16%);
+}
+
+.project-bento-tile--whattaflow:is(a):hover,
+.project-bento-tile--whattaflow:is(a):focus-visible {
+  background:
+    linear-gradient(rgb(209 250 229 / 54%), rgb(209 250 229 / 86%)),
+    url("../img/background/whattaflow-bento-grid-bg-v1.webp");
+  background-position: center;
+  background-size: cover;
+  border-color: #0f766e;
 }
 
 .project-bento-tile:is(a):hover,
@@ -290,7 +397,7 @@ footer {
 .project-bento-tile--arianne:is(a):focus-visible {
   background:
     linear-gradient(rgb(238 242 255 / 74%), rgb(238 242 255 / 86%)),
-    url("../img/background/arianne-bento-grid-bg.png");
+    url("../img/background/arianne-bento-grid-bg-v3.webp");
   background-position: center;
   background-size: cover;
 }
@@ -310,6 +417,45 @@ footer {
   letter-spacing: 0;
   line-height: 1;
 }
+
+.project-bento-docsmark {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.65rem;
+  color: #111827;
+}
+
+.project-bento-docsmark img {
+  width: clamp(2.35rem, 4.4vw, 3.25rem);
+  height: auto;
+  flex: none;
+}
+
+.project-bento-docsmark span {
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 720;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.project-bento-flowmark {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: fit-content;
+  align-items: baseline;
+  color: #111827;
+  font-size: clamp(1.2rem, 2vw, 1.85rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.project-bento-flowmark span { font-weight: 350; }
+.project-bento-flowmark strong { color: #0f766e; font-weight: 760; }
+.project-bento-flowmark i { width: 0.4rem; height: 0.4rem; margin-left: 0.35rem; background: #84cc16; }
 
 .project-bento-copy {
   display: grid;
@@ -347,8 +493,8 @@ footer {
 
 @media (max-width: 1024px) {
   .project-bento-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    max-width: 42rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 52rem;
   }
 }
 
@@ -359,8 +505,9 @@ footer {
   }
 
   .project-bento-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 0.75rem;
+    max-width: 22rem;
   }
 
   .project-bento-tile {
@@ -370,6 +517,18 @@ footer {
   .project-bento-logo {
     max-height: 30px;
     width: min(74%, 120px);
+  }
+
+  .project-bento-docsmark {
+    gap: 0.5rem;
+  }
+
+  .project-bento-docsmark img {
+    width: 2.4rem;
+  }
+
+  .project-bento-docsmark span {
+    font-size: 1.4rem;
   }
 
   .project-bento-copy {
@@ -756,6 +915,111 @@ footer {
 #project-container > div:not(.hidden) {
   opacity: 1;
   position: relative;
+}
+
+/* Homepage refinement: clearer path, quieter motion, stronger close. */
+.service-path {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2.5vw, 2rem);
+  margin-top: clamp(2rem, 5vh, 3.5rem);
+  padding-top: 1.25rem;
+  border-top: 1px solid #d1d5db;
+}
+
+.service-path p {
+  max-width: 30ch;
+  color: #4b5563;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  line-height: 1.55;
+}
+
+.service-path strong {
+  color: #111827;
+  font-weight: 700;
+}
+
+.project-bento-tile--whattadocs .project-bento-copy {
+  padding-bottom: 0;
+}
+
+.contact-invitation {
+  max-width: 68rem;
+  margin-bottom: clamp(3rem, 8vh, 6rem);
+}
+
+footer#contatti {
+  height: auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+  align-items: flex-start;
+  padding-top: clamp(7rem, 13vh, 9rem);
+  padding-bottom: 4rem;
+}
+
+footer#contatti address,
+footer#contatti address p {
+  font-style: normal;
+}
+
+.contact-invitation h2 {
+  max-width: 15ch;
+  color: #fff;
+  font-size: clamp(2.5rem, 6.4vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+
+.contact-invitation p {
+  max-width: 58ch;
+  margin-top: 1.5rem;
+  color: #d1d5db;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+}
+
+.contact-invitation > a {
+  display: inline-flex;
+  margin-top: 1.75rem;
+  padding: 0.9rem 1.15rem;
+  background: var(--accent);
+  color: #1f2937;
+  font-weight: 750;
+  text-decoration: none;
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.contact-invitation > a:hover {
+  background: #bef264;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .service-path {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .service-path p {
+    max-width: 42ch;
+  }
+
+  .contact-invitation {
+    margin-bottom: 3rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-primary-action,
+  .contact-invitation > a {
+    transition: none;
+  }
+
+  .hero-primary-action:hover,
+  .contact-invitation > a:hover {
+    transform: none;
+  }
 }
 
 /* Graph Animation Styles */

@@ -1,7 +1,7 @@
 {
   "name": "Whattadata",
   "short_name": "Whattadata",
-  "description": "Soluzioni di intelligenza artificiale e data analytics per salute digitale, sostenibilita ESG e processi aziendali.",
+  "description": "AI, machine learning and data analytics solutions for digital health, research, ESG and business operations.",
   "start_url": "/",
   "scope": "/",
   "display": "minimal-ui",

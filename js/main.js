@@ -6,7 +6,7 @@
     "clienti",
     "contatti",
   ];
-  const TYPING_WORDS = ["finanziari", "aziendali", "clinici", "industriali"];
+  const TYPING_WORDS = ["financial", "business", "clinical", "industrial"];
   const TYPING_SPEED = 100;
   const ERASE_SPEED = 50;
   const PAUSE_DURATION = 2000;
@@ -84,7 +84,7 @@
       mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
       mobileMenuButton.setAttribute(
         "aria-label",
-        isOpen ? "Chiudi menu mobile" : "Apri menu mobile"
+        isOpen ? "Close mobile menu" : "Open mobile menu"
       );
     }
 

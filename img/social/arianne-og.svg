@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#fbf7f2"/>
+  <rect x="0" width="22" height="630" fill="#f97316"/>
+  <text x="70" y="126" fill="#f97316" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700" letter-spacing="-2">Arianne</text>
+  <text x="70" y="264" fill="#182033" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-2">Connected care around</text>
+  <text x="70" y="344" fill="#182033" font-family="Arial, Helvetica, sans-serif" font-size="66" font-weight="700" letter-spacing="-2">every therapy session.</text>
+  <text x="74" y="424" fill="#5b6476" font-family="Arial, Helvetica, sans-serif" font-size="28">Digital mental health for patients and therapists</text>
+  <g transform="translate(860 72)">
+    <rect x="0" y="208" width="120" height="120" fill="#f97316" fill-opacity=".88"/>
+    <rect x="128" y="80" width="120" height="120" fill="#4f46e5"/>
+    <rect x="256" y="208" width="120" height="120" fill="#a3e635" fill-opacity=".9"/>
+    <rect x="128" y="336" width="120" height="120" fill="#ffffff" stroke="#f97316" stroke-width="5"/>
+    <path d="M60 208 188 80l128 128-128 128z" fill="#ffffff" fill-opacity=".74"/>
+  </g>
+  <text x="72" y="550" fill="#182033" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">A Whattadata product</text>
+</svg>
