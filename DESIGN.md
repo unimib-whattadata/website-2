@@ -10,18 +10,17 @@ colors:
   signal-lime: "#a3e635"
   signal-lime-light: "#bef264"
   evidence-lime-mark: "#d9f99d"
-  whattadocs-gold: "#ffca05"
+  whattadocs-gold: "#eab308"
   whattadocs-blue: "#00a6f4"
-  whattadocs-purple: "#8e179e"
-  arianne-orange: "#f97316"
-  arianne-orange-deep: "#c2410c"
-  arianne-orange-light: "#fb923c"
-  arianne-orange-paper: "#fff8f3"
-  whattaflow-teal: "#0f766e"
-  whattaflow-teal-deep: "#115e59"
-  whattaflow-mint-rule: "#a7f3d0"
-  whattaflow-mint-paper: "#ecfdf5"
-  whattaflow-mint-hover: "#d1fae5"
+  whattadocs-purple: "#86198f"
+  arianne-orange: "#ff8c42"
+  arianne-petrol: "#006279"
+  arianne-orange-paper: "#fff7f0"
+  arianne-cool-paper: "#f6f9fc"
+  whattaflow-indigo: "#4c44db"
+  whattaflow-indigo-deep: "#3e37be"
+  whattaflow-indigo-light: "#625af5"
+  whattaflow-indigo-paper: "#f1f0ff"
   whattaflow-connected: "#16a34a"
   carbon: "#111827"
   graphite: "#333333"
@@ -177,7 +176,7 @@ components:
     padding: "14px 19px"
     height: "52px"
   button-whattaflow:
-    backgroundColor: "{colors.whattaflow-teal}"
+    backgroundColor: "{colors.whattaflow-indigo}"
     textColor: "{colors.paper}"
     typography: "{typography.product-action-label}"
     rounded: "{rounded.square}"
@@ -189,7 +188,7 @@ components:
     rounded: "{rounded.square}"
     padding: "24px"
   product-tile-whattaflow:
-    backgroundColor: "{colors.whattaflow-mint-paper}"
+    backgroundColor: "{colors.whattaflow-indigo-paper}"
     textColor: "{colors.carbon}"
     rounded: "{rounded.square}"
     padding: "24px"
@@ -244,14 +243,12 @@ The palette behaves like a bright laboratory: white and cool neutral surfaces cr
 
 ### Tertiary
 
-- **Arianne Orange** (`#f97316`): Product-authentic accent for Arianne actions, section close, list signals and workflow borders. It identifies the care product without replacing Whattadata indigo.
-- **Deep Arianne Orange** (`#c2410c`): Accessible text-link state on paper.
-- **Light Arianne Orange** (`#fb923c`): Arianne filled-action hover state.
-- **Arianne Orange Paper** (`#fff8f3`): Restrained warm backing for the authentic Arianne hero screenshot.
-- **WhattaFlow Research Teal** (`#0f766e`): Product-authentic accent for the code-native wordmark, participant action, stage border, operational statuses and closing surface.
-- **Deep WhattaFlow Teal** (`#115e59`): Filled participant-action hover state. Teal borders and diagram rules may use the same hue at `16–40%` opacity.
-- **WhattaFlow Mint Rule** (`#a7f3d0`), **WhattaFlow Mint Paper** (`#ecfdf5`) and **WhattaFlow Mint Hover** (`#d1fae5`): Bounded connection and homepage-tile planes. They indicate a wearable data path, not a general wellness palette.
-- **Connected Status Green** (`#16a34a`): A functional connected-state mark inside the WhattaFlow stage only. Signal lime remains the brand continuity cue.
+- **Arianne Orange** (`#ff8c42`): Official Arianne primary for the wordmark, primary action, homepage tile signal and closing surface.
+- **Arianne Petrol** (`#006279`): Official secondary for hover, text links, the workflow band and structural rules.
+- **Arianne Cool Paper** (`#f6f9fc`) and **Orange Paper** (`#fff7f0`): Quiet page and tile surfaces that let the orange wordmark remain legible.
+- **WhattaDocs Gold** (`#eab308`), **Blue** (`#00a6f4`) and **Purple** (`#86198f`): The exact large-mark document stack. Gold owns the action, blue signals the source page and purple owns verification and the closing surface.
+- **WhattaFlow Indigo** (`#4c44db`): Current product primary for the code-native wordmark, participant action, stage border and closing surface.
+- **Deep WhattaFlow Indigo** (`#3e37be`), **Light Indigo** (`#625af5`) and **Indigo Paper** (`#f1f0ff`): Hover, tonal support and homepage/product surfaces. Status colours remain functional and do not become brand decoration.
 
 ### Neutral
 
@@ -268,7 +265,7 @@ The palette behaves like a bright laboratory: white and cool neutral surfaces cr
 
 **The Clean Laboratory Rule.** Preserve large fields of paper or mist around complex data visuals. Do not fill empty space with decoration.
 
-**The Product Accent Boundary.** Product colours identify a product-specific workflow or action. Arianne orange stays inside Arianne; WhattaDocs evidence tints stay inside document and citation planes; WhattaFlow teal and mint stay inside wearable-study routes, statuses and signal diagrams.
+**The Product Accent Boundary.** Product colours identify a product-specific workflow or action. Arianne orange and petrol stay inside Arianne; WhattaDocs gold, blue and purple stay inside document and citation planes; WhattaFlow indigo stays inside wearable-study routes, statuses and signal diagrams.
 
 ## Typography
 
@@ -288,7 +285,7 @@ The palette behaves like a bright laboratory: white and cool neutral surfaces cr
 - **Label** (650, `0.9rem`, `1.2`): Buttons, navigation and compact action labels.
 - **Workflow Label** (750, `0.72rem`, `0.07em`): Uppercase stage labels and similar micro labels; system headers may tighten tracking to `0.045em`, while status copy remains sentence case with normal tracking.
 - **Product Navigation and Actions** (`0.8rem` context, `0.94rem` action): Compact, high-weight labels distinguish page context from conversion controls without using monospace.
-- **WhattaFlow Wordmark** (`clamp(1.7rem, 3vw, 2.7rem)` on the product page; `clamp(1.2rem, 2vw, 1.85rem)` on the homepage tile): A code-native split mark with lightweight “WHATTA”, heavy teal “FLOW” and one lime square. Do not substitute an invented logo asset.
+- **WhattaFlow Wordmark** (`clamp(1.9rem, 3.2vw, 2.85rem)` on the product page; `clamp(1.55rem, 2.6vw, 2.45rem)` on the homepage tile): A code-native `WhattaFlow` split mark matching the live participant product: lightweight “Whatta” and semibold indigo “Flow”. Do not substitute an invented logo asset or add an unauthorised symbol.
 - **Product Lead** (400, `clamp(1.05rem, 1.45vw, 1.3rem)`, `1.55`): First-viewport explanation, capped at a compact reading measure.
 - **Workflow Interface Scale** (`0.68rem`–`0.95rem`): Source metadata starts at the smallest step, followed by pane labels (`0.72rem`), system labels (`0.76rem`), source copy (`0.78rem`), compact detail text (`0.82rem`), action labels (`0.94rem`) and check-in values (`0.95rem`).
 - **Workflow Title** (600, `clamp(1.4rem, 2.2vw, 2rem)`, `1.08`): Functional titles inside later mechanism sections.
@@ -305,13 +302,13 @@ The palette behaves like a bright laboratory: white and cool neutral surfaces cr
 
 ## Layout
 
-The wide-screen experience is organised as a sequence of viewport-scale chapters. Each section aligns to a centred container and uses a 12-column mental model: dominant statements usually occupy seven columns, while context or proof occupies five. Product and client areas use compact internal grids but retain generous outer negative space.
+The wide-screen experience is organised as a sequence of viewport-scale chapters with proximity snapping: chapters settle when the scroll ends near their boundary, but never trap the visitor. The taller contact footer remains in natural flow so legal and privacy information is always reachable. Each section aligns to a centred container and uses a 12-column mental model: dominant statements usually occupy seven columns, while context or proof occupies five. Product and client areas use compact internal grids but retain generous outer negative space.
 
 Spacing follows an 8px base rhythm, with 16px, 24px, 32px and 64px as the main steps. Related copy stays close; chapter changes receive substantially more space. Primary text must remain above the global cube layers with protected reading zones.
 
 Product-detail pages use a centred `80rem` shell and natural document flow at every size. Above `960px`, the first viewport is a deliberately asymmetric split: concise copy occupies the smaller column and one application screenshot occupies the larger one. Arianne, WhattaDocs and WhattaFlow use the same screenshot container and information sequence. Later audience panels remain equal width. Every product page then follows the same compact sequence: two audiences, a four-step carbon mechanism band, four core capabilities and one explicit final action.
 
-At `1024px` and below, homepage scroll snapping is removed and sections grow with their content. At `960px`, product heroes, capability layouts and closing actions stack. At `760px`, equal audience columns and four-step mechanism bands become single columns with horizontal rules replacing vertical dividers; WhattaFlow preserves participant before researcher. At `480px`, actions become full width. The screenshot keeps its full frame and contains rather than crops the product UI, so the composition simplifies without changing the information order.
+At `1024px` and below, homepage scroll snapping is removed and sections grow with their content. The homepage product grid changes from three equal columns to one column at the content-driven `900px` breakpoint; product tiles never use an aspect-ratio lock and expand with their copy. A single document scroll offset on `html` clears the fixed navigation on compact viewports (`4rem` on phones, `5rem` on tablet-sized layouts). At `960px`, product heroes, capability layouts and closing actions stack. At `760px`, equal audience columns and four-step mechanism bands become single columns with horizontal rules replacing vertical dividers; WhattaFlow preserves participant before researcher. At `480px`, actions become full width. The screenshot keeps its full frame and contains rather than crops the product UI, so the composition simplifies without changing the information order.
 
 Product pages give the shared cube field an adaptive content safe-zone. Canvas layers are masked out of the central reading area with an edge gutter of `max(0.75rem, calc((100vw - 80rem) / 2))`, matching the `80rem` product shell on wide screens and retaining only a narrow edge signal when the viewport is smaller. At `960px`, the front and overlay layers disappear while back and middle remain at `0.72` opacity; at `480px`, the middle layer also disappears and the back layer drops to `0.58` opacity.
 
@@ -351,10 +348,11 @@ Cubes, modular blocks, node diagrams and thin connecting lines are the recurring
 - **Shape:** Square (`0` radius), compact and decisive.
 - **Primary:** Laboratory indigo with paper text, `52px` minimum height and roughly `13px 22px` padding.
 - **Signal:** Signal lime with carbon text, used for the final contact action on the dark footer.
-- **Arianne:** Arianne orange with carbon text on the product page; hover shifts to the established light orange rather than to an unrelated dark state.
-- **WhattaFlow Participant:** Research teal with paper text in the first viewport. This filled action is the primary route and darkens to deep teal on hover.
+- **Arianne:** Official orange with carbon text on the product page; hover shifts to official petrol with paper text.
+- **WhattaDocs:** Official gold with carbon text; hover shifts to official purple with paper text.
+- **WhattaFlow Participant:** Product indigo with paper text in the first viewport. This filled action is the primary route and darkens to deep indigo on hover.
 - **WhattaFlow Researcher:** A visibly underlined indigo text link beside the participant action. It stays secondary and does not compete inside the closing surface.
-- **Hover / Focus:** Move to the documented palette state—indigo and WhattaFlow teal darken, while lime and Arianne orange lighten—and translate upward by `2px` on hover. Keyboard focus is a `3px` carbon outline with `3px` offset and a `5px` signal-yellow support ring.
+- **Hover / Focus:** Move to the documented product state—Arianne orange to petrol, WhattaDocs gold to purple and WhattaFlow indigo to deep indigo—and translate upward by `2px` on hover. Keyboard focus is a `3px` signal-lime outline with `3px` offset and a `5px` laboratory-indigo support ring.
 - **Secondary:** A plain text link with visible underline, `1px` thickness and `0.25em` offset.
 
 ### Cards / Containers
@@ -371,7 +369,17 @@ The navigation is a fixed paper surface with slight translucency. Labels are com
 
 ### Product Tile
 
-Product tiles are equal square modules that combine an authentic wordmark, one sentence of explanation and an explicit action. Arianne and WhattaDocs may use abstract product-specific raster depth; WhattaFlow uses a code-native teal wordmark, mint paper and a thin three-node signal map instead. Every tile keeps text and marks semantic rather than embedding them inside raster assets.
+Product tiles are equal planar modules with the authentic product mark/name, one bounded mechanism sentence, one audience cue and one explicit action. Arianne uses the official orange vector on warm paper; WhattaDocs uses the compact official purple-grid WD mark on gold paper; WhattaFlow uses the code-native indigo split wordmark on violet paper. Every tile shares the same centred brand field and bottom action rule; the text stays subordinate to the identity and no decorative imagery competes with it. Composite wordmarks scale from the tile’s own inline size through container-relative units, never from the viewport, so mark and live type remain inside the card at every column width.
+
+### Client Proof
+
+The client and collaboration wall explicitly identifies itself as a mixed selection rather than implying one uniform relationship. A short explanation precedes the logo grid, marks are optically balanced in grayscale, and colour returns only on hover or keyboard focus. Do not assign a specific relationship type to an organisation unless that status has been verified.
+
+### Contact Recovery
+
+Primary conversion language is consistently “Talk to us”. The mail link remains the direct route, paired with a copy-email control and live confirmation so visitors without a configured email client retain a working next step.
+
+Product-page screenshots come from the corresponding product pages in the Figma design-system file and retain their native 16:9 interface composition. They appear only in the hero as direct product evidence rather than inside decorative device mockups. When a product has multiple views, the hero cycles between them with a pausable horizontal flow wipe and a reduced-motion fallback; WhattaFlow alternates the researcher and participant dashboards, suspending the loop whenever the hero is offscreen or the page is hidden.
 
 ### Product Hero Screenshot
 
@@ -389,7 +397,7 @@ A carbon band turns a workflow into four square, rule-separated steps. Each step
 
 ### Product Close
 
-Every product page ends with a full-width product-accent surface, one large closing sentence and one explicit action. Arianne uses orange with carbon text and a paper action; WhattaDocs uses laboratory indigo with paper text and a signal-lime action; WhattaFlow uses research teal with paper text and a paper participant action. Do not add the researcher route or any competing link inside the close.
+Every product page ends with a full-width product-accent surface, one large closing sentence and one explicit action. Arianne uses orange with carbon text and a paper action; WhattaDocs uses official purple with paper text and a gold action; WhattaFlow uses product indigo with paper text and a paper participant action. Do not add the researcher route or any competing link inside the close.
 
 **The Role Route Rule.** On WhattaFlow, the participant portal owns the filled first-viewport action and the sole final action. Researcher access remains a visible, underlined secondary route in the first viewport.
 
@@ -416,7 +424,7 @@ Four fixed canvas layers—back, middle, front and overlay—create the signatur
 - **Do** choose a WhattaDocs screenshot where answers, citations and source context remain visible together.
 - **Do** crop authenticated product screenshots to remove account identity and other personal data.
 - **Do** preserve the participant-primary and researcher-secondary CTA hierarchy at every breakpoint.
-- **Do** use WhattaFlow teal, mint and lime for connection, continuity and operational state—not lifestyle decoration.
+- **Do** use WhattaFlow indigo for identity and reserve green, amber or red for real operational states.
 
 ### Don't:
 
@@ -428,7 +436,7 @@ Four fixed canvas layers—back, middle, front and overlay—create the signatur
 - **Don't** combine multiple screenshots in a product hero or crop away the interface context that makes the image credible.
 - **Don't** use decorative section numbers, monospace labels or vague actions as a shortcut to “technical” character.
 - **Don't** promote Arianne orange or WhattaDocs evidence tints into general Whattadata surfaces.
-- **Don't** promote WhattaFlow teal or mint into general Whattadata surfaces or sibling product pages.
+- **Don't** promote WhattaFlow indigo into general Whattadata surfaces or sibling product pages.
 - **Don't** reduce Arianne to either the patient or therapist experience; both sides of care carry equal weight.
 - **Don't** present WhattaDocs as an answer-only chat surface detached from citations and source pages.
 - **Don't** style WhattaFlow like a consumer fitness tracker with activity rings, streaks, goals, coaching scores or achievement badges.

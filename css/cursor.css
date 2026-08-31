@@ -9,6 +9,7 @@ html.custom-cursor-enabled textarea {
 
 #custom-cursor {
   display: none;
+  visibility: hidden;
   width: 16px;
   height: 16px;
   border: 2px solid rgb(79, 70, 229);
@@ -21,6 +22,10 @@ html.custom-cursor-enabled textarea {
 
 html.custom-cursor-enabled #custom-cursor {
   display: block;
+}
+
+html.custom-cursor-enabled #custom-cursor.is-visible {
+  visibility: visible;
 }
 
 #custom-cursor.on-dark {

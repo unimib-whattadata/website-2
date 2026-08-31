@@ -7,9 +7,8 @@
     "contatti",
   ];
   const TYPING_WORDS = ["financial", "business", "clinical", "industrial"];
-  const TYPING_SPEED = 100;
-  const ERASE_SPEED = 50;
-  const PAUSE_DURATION = 2000;
+  const WORD_CHANGE_INTERVAL = 2400;
+  const WORD_FADE_DURATION = 180;
   const PANEL_ANIMATION_DURATION = 500;
 
   const prefersReducedMotion = window.matchMedia(
@@ -201,6 +200,7 @@
       const { clientX, clientY } = lastEvent;
       cursor.style.left = `${clientX}px`;
       cursor.style.top = `${clientY}px`;
+      cursor.classList.add("is-visible");
 
       const hoveredElement = document.elementFromPoint(clientX, clientY);
       const isDarkTarget = hoveredElement?.closest(
@@ -252,41 +252,71 @@
     }
 
     let wordIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let timeoutId = null;
+    let intervalId = null;
+    let fadeId = null;
 
-    function tick() {
-      const currentWord = TYPING_WORDS[wordIndex];
-      typedText.textContent = currentWord.slice(0, charIndex);
+    typedText.textContent = TYPING_WORDS[wordIndex];
+    intervalId = window.setInterval(() => {
+      typedText.classList.add("is-changing");
+      fadeId = window.setTimeout(() => {
+        wordIndex = (wordIndex + 1) % TYPING_WORDS.length;
+        typedText.textContent = TYPING_WORDS[wordIndex];
+        typedText.classList.remove("is-changing");
+      }, WORD_FADE_DURATION);
+    }, WORD_CHANGE_INTERVAL);
 
-      if (!isDeleting && charIndex < currentWord.length) {
-        charIndex += 1;
-        timeoutId = window.setTimeout(tick, TYPING_SPEED);
-        return;
-      }
+    window.addEventListener(
+      "pagehide",
+      () => {
+        window.clearInterval(intervalId);
+        window.clearTimeout(fadeId);
+      },
+      { once: true }
+    );
+  }
 
-      if (!isDeleting) {
-        isDeleting = true;
-        timeoutId = window.setTimeout(tick, PAUSE_DURATION);
-        return;
-      }
+  function initCopyEmail() {
+    const copyButton = document.querySelector("[data-copy-email]");
+    const status = document.querySelector("[data-copy-status]");
 
-      if (charIndex > 0) {
-        charIndex -= 1;
-        timeoutId = window.setTimeout(tick, ERASE_SPEED);
-        return;
-      }
-
-      isDeleting = false;
-      wordIndex = (wordIndex + 1) % TYPING_WORDS.length;
-      timeoutId = window.setTimeout(tick, TYPING_SPEED);
+    if (!copyButton || !status) {
+      return;
     }
 
-    tick();
-    window.addEventListener("pagehide", () => window.clearTimeout(timeoutId), {
-      once: true,
-    });
+    async function copyEmail() {
+      const email = copyButton.dataset.copyEmail;
+
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(email);
+        } else {
+          const field = document.createElement("textarea");
+          field.value = email;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.appendChild(field);
+          field.select();
+          const didCopy = document.execCommand("copy");
+          field.remove();
+
+          if (!didCopy) {
+            throw new Error("Copy command unavailable");
+          }
+        }
+
+        status.textContent = "Email address copied.";
+        copyButton.textContent = "Copied";
+      } catch (_error) {
+        status.textContent = `Copy unavailable. Use ${email}.`;
+      }
+
+      window.setTimeout(() => {
+        copyButton.textContent = "Copy email address";
+      }, 2400);
+    }
+
+    copyButton.addEventListener("click", copyEmail);
   }
 
   function initProjectTabs() {
@@ -358,12 +388,110 @@
     showProject(initialProject);
   }
 
+  function initProductShotCarousels() {
+    getAll("[data-shot-carousel]").forEach((carousel) => {
+      const slides = getAll("[data-shot-slide]", carousel);
+      const toggle = carousel.querySelector("[data-shot-toggle]");
+      const label = carousel.querySelector("[data-shot-toggle-label]");
+      const status = carousel.querySelector("[data-shot-status]");
+
+      if (slides.length < 2 || !toggle || !label || !status) {
+        return;
+      }
+
+      const CYCLE_DURATION = 6000;
+      const TRANSITION_DURATION = 720;
+      let activeIndex = Math.max(slides.findIndex((slide) => slide.classList.contains("is-active")), 0);
+      let userPaused = false;
+      let isInView = true;
+      let cycleTimer = null;
+      let transitionTimer = null;
+
+      const shouldPlay = () =>
+        !prefersReducedMotion.matches && !userPaused && isInView && !document.hidden;
+
+      const updateControl = () => {
+        toggle.setAttribute("aria-pressed", String(userPaused));
+        toggle.setAttribute("aria-label", userPaused ? "Resume screenshot rotation" : "Pause screenshot rotation");
+        label.textContent = userPaused ? "Play" : "Pause";
+      };
+
+      const showSlide = (nextIndex) => {
+        const previousSlide = slides[activeIndex];
+        const nextSlide = slides[nextIndex];
+
+        if (previousSlide === nextSlide) {
+          return;
+        }
+
+        window.clearTimeout(transitionTimer);
+        previousSlide.classList.remove("is-active");
+        previousSlide.classList.add("is-previous");
+        nextSlide.classList.remove("is-previous");
+        nextSlide.classList.add("is-active");
+        carousel.classList.add("is-transitioning");
+        status.textContent = nextSlide.dataset.shotLabel;
+        activeIndex = nextIndex;
+
+        transitionTimer = window.setTimeout(() => {
+          previousSlide.classList.remove("is-previous");
+          carousel.classList.remove("is-transitioning");
+        }, TRANSITION_DURATION);
+      };
+
+      const scheduleNext = () => {
+        window.clearTimeout(cycleTimer);
+
+        if (!shouldPlay()) {
+          return;
+        }
+
+        cycleTimer = window.setTimeout(() => {
+          showSlide((activeIndex + 1) % slides.length);
+          scheduleNext();
+        }, CYCLE_DURATION);
+      };
+
+      toggle.addEventListener("click", () => {
+        userPaused = !userPaused;
+        updateControl();
+        scheduleNext();
+      });
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          isInView = entry.isIntersecting;
+          scheduleNext();
+        },
+        { threshold: 0.2 }
+      );
+
+      observer.observe(carousel);
+      document.addEventListener("visibilitychange", scheduleNext);
+      prefersReducedMotion.addEventListener?.("change", scheduleNext);
+      updateControl();
+      scheduleNext();
+
+      window.addEventListener(
+        "pagehide",
+        () => {
+          window.clearTimeout(cycleTimer);
+          window.clearTimeout(transitionTimer);
+          observer.disconnect();
+        },
+        { once: true }
+      );
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", () => {
     initActiveNavigation();
     initMobileMenu();
     initSmoothScrolling();
     initCustomCursor();
     initTypingAnimation();
+    initCopyEmail();
     initProjectTabs();
+    initProductShotCarousels();
   });
 })();

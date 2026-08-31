@@ -31,11 +31,11 @@
     <link rel="icon" type="image/svg+xml" href="img/logo/whattadata.svg" />
     <link rel="apple-touch-icon" href="img/whattadata.png" />
     <link rel="manifest" href="site.webmanifest" />
-    <meta name="theme-color" content="#0f766e" />
+    <meta name="theme-color" content="#4c44db" />
     <link rel="stylesheet" href="css/tailwind.css" />
-    <link rel="stylesheet" href="css/cursor.css" />
-    <link rel="stylesheet" href="css/styles.css?v=product-art-3" />
-    <link rel="stylesheet" href="css/product-pages.css?v=5" />
+    <link rel="stylesheet" href="css/cursor.css?v=home-polish-1" />
+    <link rel="stylesheet" href="css/styles.css?v=home-responsive-5" />
+    <link rel="stylesheet" href="css/product-pages.css?v=product-motion-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -46,7 +46,7 @@
             "url": "https://whattadata.it/whattaflow.html",
             "name": "WhattaFlow | Wearable data platform for research studies",
             "description": "WhattaFlow connects Garmin participants and research teams for wearable study onboarding, data continuity monitoring and research-ready exports.",
-            "dateModified": "2026-08-30",
+            "dateModified": "2026-08-31",
             "isPartOf": {"@id": "https://whattadata.it/#website"},
             "about": {"@id": "https://whattadata.it/whattaflow.html#software"},
             "mainEntity": {"@id": "https://whattadata.it/whattaflow.html#software"},
@@ -84,7 +84,7 @@
   <body>
     <!--
       THESIS: WhattaFlow keeps the participant, the wearable signal and the research operation inside one observable path.
-      OWN-WORLD: Paper, mist, carbon, signal lime and research teal; square controls, study planes, live status marks and fine laboratory rules.
+      OWN-WORLD: Product indigo, violet paper, carbon and restrained status color; square study planes, live status marks and fine laboratory rules.
       STORY: Participants understand the small action required of them; research teams see how projects, cohorts, continuity and export remain connected.
       FIRST VIEWPORT: A concise product thesis and participant CTA face one authentic participant-dashboard screenshot.
       FORM: Single product screenshot, shared with the other product-detail pages.
@@ -112,14 +112,14 @@
         <div class="site-nav-links hidden md:flex items-center">
           <a href="/#servizi" class="hover:text-indigo-600 transition-colors">SERVICES</a>
           <a href="/#progetti" class="text-indigo-600 font-bold" aria-current="page">PRODUCTS</a>
-          <a href="/#contatti" class="nav-contact-link">LET'S TALK</a>
+          <a href="/#contatti" class="nav-contact-link">TALK TO US</a>
         </div>
       </div>
       <div class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50" id="mobile-menu" hidden>
         <div class="container mx-auto px-6 py-4 space-y-4">
           <a href="/#servizi" class="block text-lg">SERVICES</a>
           <a href="/#progetti" class="block text-lg font-bold text-indigo-600">PRODUCTS</a>
-          <a href="/#contatti" class="mobile-contact-link">TELL US ABOUT YOUR PROJECT</a>
+          <a href="/#contatti" class="mobile-contact-link">TALK TO US</a>
         </div>
       </div>
     </nav>
@@ -128,7 +128,7 @@
       <section class="product-hero" aria-labelledby="whattaflow-title">
         <div class="product-shell product-hero__grid">
           <div class="product-hero__copy">
-            <div class="product-flow-mark" aria-label="WhattaFlow"><span>WHATTA</span><strong>FLOW</strong><i aria-hidden="true"></i></div>
+            <div class="product-flow-mark" aria-label="WhattaFlow"><span>Whatta</span><strong>Flow</strong></div>
             <h1 id="whattaflow-title">WhattaFlow keeps wearable studies in one continuous flow.</h1>
             <p>A wearable data platform that connects each participant’s Garmin account with the project, monitoring and export workflow used by the research team.</p>
             <div class="product-actions">
@@ -141,8 +141,13 @@
             </div>
           </div>
 
-          <figure class="product-hero-shot product-hero-shot--whattaflow">
-            <img src="img/screenshot/whattaflow-dashboard.webp" alt="WhattaFlow participant dashboard with health summaries, a trend chart and recent training activity" width="1000" height="620" decoding="async" fetchpriority="high" />
+          <figure class="product-hero-shot product-hero-shot--whattaflow product-hero-shot--carousel" data-shot-carousel>
+            <img class="product-hero-shot__slide is-active" data-shot-slide data-shot-label="Researcher view" src="img/screenshot/whattaflow-research-dashboard-figma-v1.webp" alt="WhattaFlow researcher dashboard showing study participation, synchronisation trends and device data continuity" width="1920" height="1080" decoding="async" fetchpriority="high" />
+            <img class="product-hero-shot__slide" data-shot-slide data-shot-label="Participant view" src="img/screenshot/whattaflow-participant-dashboard-figma-v1.webp" alt="WhattaFlow participant dashboard with health summaries, an activity trend and recent workouts" width="1920" height="1080" decoding="async" />
+            <div class="product-hero-shot__controls">
+              <span class="product-hero-shot__status" data-shot-status>Researcher view</span>
+              <button class="product-hero-shot__toggle" type="button" data-shot-toggle aria-label="Pause screenshot rotation" aria-pressed="false"><span data-shot-toggle-label>Pause</span></button>
+            </div>
           </figure>
         </div>
       </section>
@@ -201,6 +206,6 @@
       <div class="product-shell product-footer__row"><p>© 2026 Whattadata S.r.l. All rights reserved.</p><p><a href="/">Home</a> · <a href="/arianne.html">Arianne</a> · <a href="/whattadocs.html">WhattaDocs</a> · <a href="/whattaflow.html" aria-current="page">WhattaFlow</a> · <a href="/privacy.html">Privacy</a></p></div>
     </footer>
     <script type="module" src="js/cube-scene.js?v=polish-6"></script>
-    <script src="js/main.js?v=english-1" defer></script>
+    <script src="js/main.js?v=home-polish-1" defer></script>
   </body>
 </html>
