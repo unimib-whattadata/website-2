@@ -6,9 +6,12 @@
     "clienti",
     "contatti",
   ];
-  const TYPING_WORDS = ["financial", "business", "clinical", "industrial"];
-  const WORD_CHANGE_INTERVAL = 2400;
-  const WORD_FADE_DURATION = 180;
+  const TYPING_WORDS = ["industrial", "clinical", "business", "financial"];
+  const TYPEWRITER_START_DELAY = 420;
+  const TYPEWRITER_KEYSTROKE = 82;
+  const TYPEWRITER_DELETE = 44;
+  const TYPEWRITER_HOLD = 1450;
+  const TYPEWRITER_WORD_GAP = 260;
   const PANEL_ANIMATION_DURATION = 500;
 
   const prefersReducedMotion = window.matchMedia(
@@ -77,13 +80,111 @@
       return;
     }
 
+    let menuAnimation = null;
+    let menuSequence = 0;
+
+    function clearMenuAnimationStyles() {
+      mobileMenu.style.removeProperty("will-change");
+    }
+
+    function hideMobileMenu() {
+      mobileMenu.classList.add("hidden");
+      mobileMenu.hidden = true;
+      clearMenuAnimationStyles();
+    }
+
     function setMobileMenuState(isOpen) {
-      mobileMenu.classList.toggle("hidden", !isOpen);
-      mobileMenu.hidden = !isOpen;
+      const sequence = ++menuSequence;
+      const canAnimate =
+        !prefersReducedMotion.matches &&
+        typeof mobileMenu.animate === "function";
+
+      menuAnimation?.cancel();
+      menuAnimation = null;
+
       mobileMenuButton.setAttribute("aria-expanded", String(isOpen));
       mobileMenuButton.setAttribute(
         "aria-label",
         isOpen ? "Close mobile menu" : "Open mobile menu"
+      );
+
+      if (isOpen) {
+        mobileMenu.classList.remove("hidden");
+        mobileMenu.hidden = false;
+
+        if (!canAnimate) {
+          clearMenuAnimationStyles();
+          return;
+        }
+
+        mobileMenu.style.willChange = "clip-path, opacity";
+        menuAnimation = mobileMenu.animate(
+          [
+            { clipPath: "inset(0 0 100% 0)", opacity: 0.58 },
+            { clipPath: "inset(0)", opacity: 1 },
+          ],
+          {
+            duration: 280,
+            easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+            fill: "both",
+          }
+        );
+
+        menuAnimation.addEventListener(
+          "finish",
+          () => {
+            if (sequence !== menuSequence) {
+              return;
+            }
+
+            menuAnimation?.cancel();
+            menuAnimation = null;
+            clearMenuAnimationStyles();
+          },
+          { once: true }
+        );
+        return;
+      }
+
+      if (mobileMenu.hidden || mobileMenu.classList.contains("hidden")) {
+        hideMobileMenu();
+        return;
+      }
+
+      if (!canAnimate) {
+        hideMobileMenu();
+        return;
+      }
+
+      const currentStyle = window.getComputedStyle(mobileMenu);
+      const currentClipPath =
+        currentStyle.clipPath === "none" ? "inset(0)" : currentStyle.clipPath;
+
+      mobileMenu.style.willChange = "clip-path, opacity";
+      menuAnimation = mobileMenu.animate(
+        [
+          { clipPath: currentClipPath, opacity: Number(currentStyle.opacity) },
+          { clipPath: "inset(0 0 100% 0)", opacity: 0.58 },
+        ],
+        {
+          duration: 180,
+          easing: "cubic-bezier(0.4, 0, 1, 1)",
+          fill: "both",
+        }
+      );
+
+      menuAnimation.addEventListener(
+        "finish",
+        () => {
+          if (sequence !== menuSequence) {
+            return;
+          }
+
+          hideMobileMenu();
+          menuAnimation?.cancel();
+          menuAnimation = null;
+        },
+        { once: true }
       );
     }
 
@@ -119,6 +220,80 @@
     getAll('nav a[href^="#"]').forEach((link) => {
       link.addEventListener("click", closeMobileMenu);
     });
+  }
+
+  function initProductEvidenceArrival() {
+    const frame = document.querySelector(".product-hero-shot");
+
+    if (
+      !frame ||
+      prefersReducedMotion.matches ||
+      document.visibilityState === "hidden" ||
+      typeof frame.animate !== "function"
+    ) {
+      return;
+    }
+
+    const isCompact = window.matchMedia("(max-width: 760px)").matches;
+    const duration = isCompact ? 560 : 720;
+    const distance = isCompact ? "12px" : "20px";
+    const sweep = document.createElement("span");
+    sweep.className = "product-evidence-sweep";
+    sweep.setAttribute("aria-hidden", "true");
+    frame.appendChild(sweep);
+
+    frame.style.willChange = "clip-path, transform";
+    sweep.style.willChange = "transform, opacity";
+
+    const frameAnimation = frame.animate(
+      [
+        {
+          clipPath: "inset(0 100% 0 0)",
+          transform: `translate3d(${distance}, 0, 0)`,
+        },
+        { clipPath: "inset(0)", transform: "translate3d(0, 0, 0)" },
+      ],
+      {
+        duration,
+        delay: 90,
+        easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+        fill: "both",
+      }
+    );
+
+    const sweepAnimation = sweep.animate(
+      [
+        { transform: "translate3d(-120%, 0, 0)", opacity: 0 },
+        { opacity: 1, offset: 0.12 },
+        { transform: "translate3d(620%, 0, 0)", opacity: 0.9, offset: 0.84 },
+        { transform: "translate3d(720%, 0, 0)", opacity: 0 },
+      ],
+      {
+        duration,
+        delay: 90,
+        easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+        fill: "both",
+      }
+    );
+
+    let cleanedUp = false;
+
+    function cleanup() {
+      if (cleanedUp) {
+        return;
+      }
+
+      cleanedUp = true;
+      frameAnimation.cancel();
+      sweepAnimation.cancel();
+      frame.style.removeProperty("will-change");
+      sweep.remove();
+    }
+
+    Promise.allSettled([frameAnimation.finished, sweepAnimation.finished]).then(
+      cleanup
+    );
+    window.addEventListener("pagehide", cleanup, { once: true });
   }
 
   function initSmoothScrolling() {
@@ -204,7 +379,7 @@
 
       const hoveredElement = document.elementFromPoint(clientX, clientY);
       const isDarkTarget = hoveredElement?.closest(
-        "#chi-siamo, .bg-primary, .bg-indigo-600, .bg-gray-800, .bg-gray-900, footer"
+        "#chi-siamo, .about-section, .section-space--dark, .product-close, .bg-primary, .bg-indigo-600, .bg-gray-800, .bg-gray-900, footer"
       );
       const isLimeTarget = hoveredElement?.closest(".bg-lime-400");
 
@@ -241,35 +416,113 @@
 
   function initTypingAnimation() {
     const typedText = document.getElementById("typed-text");
+    const caret = typedText?.nextElementSibling;
 
     if (!typedText) {
       return;
     }
 
-    if (prefersReducedMotion.matches) {
-      typedText.textContent = TYPING_WORDS[0];
-      return;
+    let wordIndex = 0;
+    let characterIndex = 0;
+    let isDeleting = false;
+    let timeoutId = null;
+    let isRunning = false;
+
+    function setCaretState(isTyping) {
+      caret?.classList.toggle("is-typing", isTyping);
     }
 
-    let wordIndex = 0;
-    let intervalId = null;
-    let fadeId = null;
+    function schedule(delay) {
+      timeoutId = window.setTimeout(step, delay);
+    }
 
-    typedText.textContent = TYPING_WORDS[wordIndex];
-    intervalId = window.setInterval(() => {
-      typedText.classList.add("is-changing");
-      fadeId = window.setTimeout(() => {
-        wordIndex = (wordIndex + 1) % TYPING_WORDS.length;
-        typedText.textContent = TYPING_WORDS[wordIndex];
-        typedText.classList.remove("is-changing");
-      }, WORD_FADE_DURATION);
-    }, WORD_CHANGE_INTERVAL);
+    function step() {
+      if (!isRunning) {
+        return;
+      }
+
+      const word = TYPING_WORDS[wordIndex];
+      setCaretState(true);
+
+      if (isDeleting) {
+        characterIndex = Math.max(characterIndex - 1, 0);
+        typedText.textContent = word.slice(0, characterIndex);
+
+        if (characterIndex === 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % TYPING_WORDS.length;
+          setCaretState(false);
+          schedule(TYPEWRITER_WORD_GAP);
+          return;
+        }
+
+        schedule(TYPEWRITER_DELETE);
+        return;
+      }
+
+      characterIndex = Math.min(characterIndex + 1, word.length);
+      typedText.textContent = word.slice(0, characterIndex);
+
+      if (characterIndex === word.length) {
+        isDeleting = true;
+        setCaretState(false);
+        schedule(TYPEWRITER_HOLD);
+        return;
+      }
+
+      schedule(TYPEWRITER_KEYSTROKE + (characterIndex % 3) * 12);
+    }
+
+    function stopTyping() {
+      isRunning = false;
+      window.clearTimeout(timeoutId);
+      setCaretState(false);
+    }
+
+    function startTyping() {
+      stopTyping();
+
+      if (prefersReducedMotion.matches) {
+        typedText.textContent = TYPING_WORDS[0];
+        return;
+      }
+
+      wordIndex = 0;
+      characterIndex = 0;
+      isDeleting = false;
+      isRunning = true;
+      typedText.textContent = "";
+      schedule(TYPEWRITER_START_DELAY);
+    }
+
+    function handleMotionPreferenceChange() {
+      startTyping();
+    }
+
+    startTyping();
+
+    if (typeof prefersReducedMotion.addEventListener === "function") {
+      prefersReducedMotion.addEventListener(
+        "change",
+        handleMotionPreferenceChange
+      );
+    } else {
+      prefersReducedMotion.addListener(handleMotionPreferenceChange);
+    }
 
     window.addEventListener(
       "pagehide",
       () => {
-        window.clearInterval(intervalId);
-        window.clearTimeout(fadeId);
+        stopTyping();
+
+        if (typeof prefersReducedMotion.removeEventListener === "function") {
+          prefersReducedMotion.removeEventListener(
+            "change",
+            handleMotionPreferenceChange
+          );
+        } else {
+          prefersReducedMotion.removeListener(handleMotionPreferenceChange);
+        }
       },
       { once: true }
     );
@@ -492,6 +745,7 @@
     initTypingAnimation();
     initCopyEmail();
     initProjectTabs();
+    initProductEvidenceArrival();
     initProductShotCarousels();
   });
 })();

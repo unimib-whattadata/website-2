@@ -1,148 +1,89 @@
 ---
 name: Whattadata
-description: A living data lab that turns research, models and data into decisions people can act on.
+description: A precise research-transfer system that carries university data and AI work into organisations.
 colors:
   laboratory-indigo: "#4f46e5"
   laboratory-indigo-deep: "#3730a3"
-  evidence-indigo-ink: "#312e81"
-  evidence-indigo-rule: "#c7d2fe"
-  evidence-indigo-paper: "#eef2ff"
+  laboratory-indigo-ink: "#312e81"
+  indigo-rule: "#c7d2fe"
+  indigo-paper: "#eef2ff"
   signal-lime: "#a3e635"
   signal-lime-light: "#bef264"
-  evidence-lime-mark: "#d9f99d"
-  whattadocs-gold: "#eab308"
-  whattadocs-blue: "#00a6f4"
-  whattadocs-purple: "#86198f"
-  arianne-orange: "#ff8c42"
-  arianne-petrol: "#006279"
-  arianne-orange-paper: "#fff7f0"
-  arianne-cool-paper: "#f6f9fc"
-  whattaflow-indigo: "#4c44db"
-  whattaflow-indigo-deep: "#3e37be"
-  whattaflow-indigo-light: "#625af5"
-  whattaflow-indigo-paper: "#f1f0ff"
-  whattaflow-connected: "#16a34a"
   carbon: "#111827"
+  carbon-soft: "#1f2937"
   graphite: "#333333"
   slate: "#4b5563"
   rule-gray: "#d1d5db"
   rule-gray-soft: "#e5e7eb"
   mist: "#f5f5f7"
   paper: "#ffffff"
+  arianne-orange: "#ff8c42"
+  arianne-petrol: "#006279"
+  whattadocs-gold: "#eab308"
+  whattadocs-blue: "#00a6f4"
+  whattadocs-purple: "#86198f"
+  whattaflow-indigo: "#4c44db"
+  whattaflow-indigo-deep: "#3e37be"
+  whattaflow-signal: "#7d87ff"
 typography:
   display:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(2.5rem, 6.4vw, 6rem)"
-    fontWeight: 400
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(3.9rem, 7.2vw, 6rem)"
+    fontWeight: 390
+    lineHeight: 0.94
+    letterSpacing: "-0.04em"
+  section-display:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(3rem, 5.8vw, 5.8rem)"
+    fontWeight: 390
     lineHeight: 0.98
-    letterSpacing: "-0.035em"
+    letterSpacing: "-0.038em"
   product-display:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(3.15rem, 6vw, 6rem)"
-    fontWeight: 400
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(3.35rem, 5.7vw, 5.8rem)"
+    fontWeight: 390
+    lineHeight: 0.96
+    letterSpacing: "-0.04em"
+  close-display:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(3rem, 6.5vw, 6rem)"
+    fontWeight: 370
     lineHeight: 0.96
     letterSpacing: "-0.038em"
-  product-display-mobile:
-    fontSize: "clamp(3rem, 15vw, 4.5rem)"
-    fontWeight: 400
-    lineHeight: 0.96
-    letterSpacing: "-0.038em"
-  product-brand:
-    fontSize: "clamp(1rem, 1.8vw, 1.5rem)"
-    lineHeight: 1
-  product-context:
-    fontSize: "0.8rem"
-    fontWeight: 700
-    lineHeight: 1
-    letterSpacing: "0.05em"
-  product-lead:
-    fontSize: "clamp(1.05rem, 1.45vw, 1.3rem)"
-    fontWeight: 400
-    lineHeight: 1.55
-  product-action-label:
+  title:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.4rem, 2vw, 2rem)"
+    fontWeight: 620
+    lineHeight: 1.08
+    letterSpacing: "-0.025em"
+  audience-title:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1.8rem, 3vw, 3rem)"
+    fontWeight: 560
+    lineHeight: 1.05
+    letterSpacing: "-0.03em"
+  body:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 430
+    lineHeight: 1.6
+  lead:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
+    fontSize: "clamp(1rem, 1.35vw, 1.2rem)"
+    fontWeight: 430
+    lineHeight: 1.6
+  action-label:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
     fontSize: "0.94rem"
     fontWeight: 750
     lineHeight: 1
-  whattaflow-wordmark:
-    fontSize: "clamp(1.7rem, 3vw, 2.7rem)"
-    lineHeight: 1
-    letterSpacing: "-0.035em"
-  whattaflow-tile-wordmark:
-    fontSize: "clamp(1.2rem, 2vw, 1.85rem)"
-    lineHeight: 1
-    letterSpacing: "-0.035em"
-  headline:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(2rem, 5vw, 4.5rem)"
-    fontWeight: 400
-    lineHeight: 1.05
-    letterSpacing: "-0.02em"
-  title:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "clamp(1.25rem, 2vw, 2rem)"
-    fontWeight: 600
-    lineHeight: 1.15
-  body:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "1rem"
-    fontWeight: 400
-    lineHeight: 1.6
-  label:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "0.9rem"
-    fontWeight: 650
-    lineHeight: 1.2
-  workflow-label:
-    fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
-    fontSize: "0.72rem"
-    fontWeight: 750
-    lineHeight: 1.2
-    letterSpacing: "0.07em"
-  workflow-system-label:
+  navigation-label:
+    fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
     fontSize: "0.76rem"
-    fontWeight: 700
-  workflow-title:
-    fontSize: "clamp(1.4rem, 2.2vw, 2rem)"
-    fontWeight: 600
-    lineHeight: 1.08
-    letterSpacing: "-0.025em"
-  workflow-value:
-    fontSize: "0.95rem"
-    fontWeight: 700
-  detail-small:
-    fontSize: "0.82rem"
-  source-meta:
-    fontSize: "0.68rem"
-  source-copy:
-    fontSize: "0.78rem"
-    lineHeight: 1.55
-  section-heading:
-    fontSize: "clamp(2.5rem, 5vw, 4.8rem)"
-    fontWeight: 400
-    lineHeight: 1
-    letterSpacing: "-0.035em"
-  audience-title:
-    fontSize: "clamp(1.8rem, 3vw, 3rem)"
-    fontWeight: 500
-    lineHeight: 1.05
-    letterSpacing: "-0.03em"
-  mechanism-title:
-    fontSize: "1.2rem"
-    fontWeight: 700
-  capability-title:
-    fontSize: "1.05rem"
-    fontWeight: 750
-  product-close:
-    fontSize: "clamp(3rem, 6.5vw, 6rem)"
-    fontWeight: 400
-    lineHeight: 0.96
-    letterSpacing: "-0.038em"
-  product-close-lead:
-    fontSize: "clamp(1rem, 1.5vw, 1.2rem)"
-    fontWeight: 400
+    fontWeight: 680
+    letterSpacing: "0.065em"
 rounded:
   square: "0"
-  highlight: "2px"
   document: "12px"
 spacing:
   xs: "8px"
@@ -150,294 +91,298 @@ spacing:
   md: "24px"
   lg: "32px"
   xl: "64px"
+  2xl: "96px"
 components:
   button-primary:
     backgroundColor: "{colors.laboratory-indigo}"
     textColor: "{colors.paper}"
-    typography: "{typography.label}"
+    typography: "{typography.action-label}"
     rounded: "{rounded.square}"
-    padding: "13px 22px"
-    height: "52px"
+    padding: "0.82rem 1.35rem"
+    height: "3.25rem"
+    depth: "0.42rem"
   button-primary-hover:
     backgroundColor: "{colors.laboratory-indigo-deep}"
     textColor: "{colors.paper}"
     rounded: "{rounded.square}"
   button-signal:
     backgroundColor: "{colors.signal-lime}"
-    textColor: "{colors.carbon}"
-    typography: "{typography.label}"
+    textColor: "{colors.carbon-soft}"
+    typography: "{typography.action-label}"
     rounded: "{rounded.square}"
-    padding: "14px 18px"
+    padding: "0.9rem 1.15rem"
+    height: "3.25rem"
+    depth: "0.42rem"
   button-arianne:
     backgroundColor: "{colors.arianne-orange}"
     textColor: "{colors.carbon}"
-    typography: "{typography.label}"
+    typography: "{typography.action-label}"
     rounded: "{rounded.square}"
-    padding: "14px 19px"
-    height: "52px"
+    padding: "0.85rem 1.2rem"
+    height: "3.25rem"
+    depth: "0.42rem"
+  button-whattadocs:
+    backgroundColor: "{colors.whattadocs-gold}"
+    textColor: "{colors.carbon}"
+    typography: "{typography.action-label}"
+    rounded: "{rounded.square}"
+    padding: "0.85rem 1.2rem"
+    height: "3.25rem"
+    depth: "0.42rem"
   button-whattaflow:
     backgroundColor: "{colors.whattaflow-indigo}"
     textColor: "{colors.paper}"
-    typography: "{typography.product-action-label}"
+    typography: "{typography.action-label}"
     rounded: "{rounded.square}"
-    padding: "14px 19px"
-    height: "52px"
-  product-tile:
+    padding: "0.85rem 1.2rem"
+    height: "3.25rem"
+    depth: "0.42rem"
+  product-index-row:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.carbon}"
     rounded: "{rounded.square}"
-    padding: "24px"
-  product-tile-whattaflow:
-    backgroundColor: "{colors.whattaflow-indigo-paper}"
-    textColor: "{colors.carbon}"
-    rounded: "{rounded.square}"
-    padding: "24px"
-  product-hero-shot:
+    padding: "1.5rem 0"
+  product-preview:
     backgroundColor: "{colors.paper}"
     textColor: "{colors.carbon}"
     rounded: "{rounded.square}"
-    padding: "clamp(0.65rem, 1.4vw, 1.15rem)"
-    border: "1px solid product accent at 34–40% opacity"
+    padding: "clamp(0.65rem, 1.3vw, 1rem)"
+  mechanism-step:
+    backgroundColor: "{colors.laboratory-indigo-ink}"
+    textColor: "{colors.paper}"
+    rounded: "{rounded.square}"
+    padding: "1.5rem 1.4rem"
 ---
 
 # Design System: Whattadata
 
 ## Overview
 
-**Creative North Star: “The Living Data Lab”**
+**Creative North Star: "The Research Transfer System"**
 
-Whattadata should feel like an active research environment where data is not an abstract resource but a material that can be shaped, connected and put to work. The visual system combines scientific precision with visible energy: large editorial typography establishes clarity, while moving cubes and network geometries make analysis feel alive. Human language, real product imagery and institutional proof keep the laboratory metaphor grounded and trustworthy.
+Whattadata should feel like a precise route from university research to working technology. Paper and mist provide a calm ground; carbon establishes consequence; laboratory indigo carries structure; signal lime marks the moment where knowledge becomes action. Generous Manrope typography makes the proposition immediately legible, while square rules and modular planes show how research, engineering, integration and impact connect.
 
-The system is scientific, energetic and human. Interfaces are predominantly flat and direct; depth belongs to the authored 3D cube world rather than generic card shadows or decorative glass. Components are geometric, confident and easy to recognise. Expression comes from scale, motion, indigo–lime contrast and modular composition—not from ornamental UI effects.
+The system is rigorous, direct and approachable. It is not a continuous editorial laboratory or a stream of research commentary. The visual language exists to explain transfer: research results are engineered, integrated into existing organisational contexts and made useful in industrial, clinical, business and research work.
 
-Product-detail pages extend the laboratory into an observable working surface. Their first viewport pairs a concise product thesis with one large, authentic application screenshot. The screenshot is the proof-bearing visual: it must come from the real product, show a representative working state and exclude personal or sensitive account data.
+Real WebGL cubes preserve the established Whattadata depth through four independent spatial planes. Distant cubes are small, slow and softened; middle cubes drift behind the work; a few large cubes cross chapter boundaries at the outer edges; crisp overlay cubes punctuate the nearest plane. Their paths enter and leave from different sides without competing with reading. One Arianne-orange cube marks the handoff into Products as a rare event. Product-specific colors otherwise identify routes and states without fragmenting the family. Arianne, WhattaDocs and WhattaFlow use the same hero, audience, mechanism, capabilities and close architecture so the company reads as one system.
 
 **Key Characteristics:**
 
-- Editorial scale paired with practical, plain-spoken copy.
-- Laboratory indigo as the operational brand colour; signal lime as a rare high-energy accent.
-- Floating cubes, modular blocks and connected nodes as the signature visual language.
-- Square controls and containers with explicit actions and visible keyboard focus.
-- Full-viewport chapters on wide screens; natural document flow on touch and smaller screens.
-- Research credibility balanced with approachable, outcome-led communication.
-- Product-detail first viewports led by one authentic application screenshot.
-- Thin screenshot frames, four-step mechanism bands and explicit closing actions.
-- Product-specific accents that remain confined to their product route and screenshot frame.
+- Manrope display typography with low line heights, tight tracking and generous scale.
+- Paper, mist and carbon planes structured by one-pixel rules rather than card chrome.
+- Laboratory indigo as the system color, signal lime as a scarce marker and one orange transfer accent.
+- A visible research → engineering → integration → impact progression.
+- Square controls, containers, labels and screenshot frames.
+- Real cube depth from heterogeneous scale, blur, movement and section-edge crossings, with central reading and interaction zones kept clear.
+- One coherent product-page family with restrained, product-specific accents.
+- Authentic application screenshots used as evidence and explicitly labelled as demonstrations.
 
 ## Colors
 
-The palette behaves like a bright laboratory: white and cool neutral surfaces create working space, indigo carries authority and technology, while lime marks energy, action and transformation.
+The palette is a research-transfer instrument: neutral working surfaces carry the information, indigo structures it, lime signals movement, and product colors identify one bounded route at a time.
 
 ### Primary
 
-- **Laboratory Indigo** (`#4f46e5`): Primary actions, active navigation, animated hero language, the institutional “About” surface and key product accents.
-- **Deep Laboratory Indigo** (`#3730a3`): Hover state for primary actions. Never introduce a new purple merely to create a state.
-- **Evidence Indigo Ink** (`#312e81`), **Evidence Indigo Rule** (`#c7d2fe`) and **Evidence Indigo Paper** (`#eef2ff`): A bounded dark-to-pale range for WhattaDocs query, citation and source planes. These colours clarify evidence relationships; they do not become a second site-wide palette.
+- **Laboratory Indigo** (`#4f46e5`): Primary actions, active navigation, the changing hero domain and the principal WebGL cube family.
+- **Deep Laboratory Indigo** (`#3730a3`): Primary-action hover and the dark end of the interaction range.
+- **Laboratory Indigo Ink** (`#312e81`): The institutional proof plane and the shared four-step mechanism band across all product pages.
+- **Indigo Rule** (`#c7d2fe`) and **Indigo Paper** (`#eef2ff`): Pale structural support for copy, scroll chrome and indigo-adjacent evidence details.
 
 ### Secondary
 
-- **Signal Lime** (`#a3e635`): High-salience action, cube faces, focus support and short highlighted phrases. Use sparingly so it remains a signal.
-- **Signal Lime Light** (`#bef264`): Hover state for lime actions and controlled tonal variation.
-- **Evidence Lime Mark** (`#d9f99d`): Inline source highlighting inside WhattaDocs evidence planes only.
-- **WhattaDocs identity mark:** Use the official golden-yellow `WD` document mark with its blue pixel-grid page at standard display sizes and the supplied purple-grid variant at compact display sizes. Keep the product name as live text beside the mark when a readable lockup is needed.
+- **Signal Lime** (`#a3e635`): Cube faces, focus outlines, transfer-path labels and the high-salience contact action.
+- **Signal Lime Light** (`#bef264`): Hover state for the lime contact action and product-footer links.
 
 ### Tertiary
 
-- **Arianne Orange** (`#ff8c42`): Official Arianne primary for the wordmark, primary action, homepage tile signal and closing surface.
-- **Arianne Petrol** (`#006279`): Official secondary for hover, text links, the workflow band and structural rules.
-- **Arianne Cool Paper** (`#f6f9fc`) and **Orange Paper** (`#fff7f0`): Quiet page and tile surfaces that let the orange wordmark remain legible.
-- **WhattaDocs Gold** (`#eab308`), **Blue** (`#00a6f4`) and **Purple** (`#86198f`): The exact large-mark document stack. Gold owns the action, blue signals the source page and purple owns verification and the closing surface.
-- **WhattaFlow Indigo** (`#4c44db`): Current product primary for the code-native wordmark, participant action, stage border and closing surface.
-- **Deep WhattaFlow Indigo** (`#3e37be`), **Light Indigo** (`#625af5`) and **Indigo Paper** (`#f1f0ff`): Hover, tonal support and homepage/product surfaces. Status colours remain functional and do not become brand decoration.
+- **Arianne Orange** (`#ff8c42`) and **Arianne Petrol** (`#006279`): Arianne identity, mechanism signals, action and hover/structural state. Orange may also appear on exactly one cube in the global field to announce the transition into Products.
+- **WhattaDocs Gold** (`#eab308`), **Blue** (`#00a6f4`) and **Purple** (`#86198f`): WhattaDocs action, mechanism signal and evidence-oriented identity state.
+- **WhattaFlow Indigo** (`#4c44db`), **Deep Indigo** (`#3e37be`) and **Signal Periwinkle** (`#7d87ff`): WhattaFlow identity, hover state and mechanism signal.
 
 ### Neutral
 
-- **Carbon** (`#111827`): Dark footer surface and strongest foreground text.
-- **Graphite** (`#333333`): Default body and display text.
-- **Slate** (`#4b5563`): Secondary copy where contrast remains sufficient.
-- **Rule Gray** (`#d1d5db`) and **Soft Rule Gray** (`#e5e7eb`): One-pixel separators between workflow planes, audience columns, capabilities and evidence rows.
-- **Mist** (`#f5f5f7`): Product and service chapter background.
-- **Paper** (`#ffffff`): Primary page surface, navigation and clean negative space.
+- **Carbon** (`#111827`) and **Carbon Soft** (`#1f2937`): Strong text, footer and closing planes, with the softer value used where lime requires a slightly quieter foreground.
+- **Graphite** (`#333333`) and **Slate** (`#4b5563`): Default and secondary copy.
+- **Rule Gray** (`#d1d5db`) and **Soft Rule Gray** (`#e5e7eb`): One-pixel boundaries between steps, rows and paired audiences.
+- **Mist** (`#f5f5f7`): Alternating chapter, client and product-hero ground.
+- **Paper** (`#ffffff`): Navigation, screenshot frame and primary page plane.
 
 ### Named Rules
 
-**The Signal Rule.** Lime identifies energy, change or the next meaningful action. It is not a general-purpose background colour.
+**The Structure-and-Signal Rule.** Indigo builds the system; lime marks a transition or next action. Never give both colors equal area.
 
-**The Clean Laboratory Rule.** Preserve large fields of paper or mist around complex data visuals. Do not fill empty space with decoration.
+**The Product Accent Boundary Rule.** Product accents identify their own route, mechanism signal and action. They never replace laboratory indigo on general Whattadata surfaces.
 
-**The Product Accent Boundary.** Product colours identify a product-specific workflow or action. Arianne orange and petrol stay inside Arianne; WhattaDocs gold, blue and purple stay inside document and citation planes; WhattaFlow indigo stays inside wearable-study routes, statuses and signal diagrams.
+**The Neutral Working Ground Rule.** Complex claims and product evidence sit on paper, mist or carbon. Do not introduce decorative color fields behind reading content.
 
 ## Typography
 
-**Display Font:** system UI sans-serif stack
-**Body Font:** system UI sans-serif stack
-**Label Font:** system UI sans-serif stack
+**Display Font:** Manrope (with Helvetica Neue, Arial and sans-serif fallback)
+**Body Font:** Manrope (with Helvetica Neue, Arial and sans-serif fallback)
+**Label Font:** Manrope (with Helvetica Neue, Arial and sans-serif fallback)
 
-**Character:** Neutral, highly legible letterforms let scale and composition carry the identity. The voice is contemporary and technical without adopting a developer-tool costume.
+**Character:** Manrope gives the system one voice from expansive propositions to compact operational labels. Variable weights create hierarchy without switching typefaces or adopting a technical-costume mono.
 
 ### Hierarchy
 
-- **Display** (400, `clamp(2.5rem, 6.4vw, 6rem)`, `0.98`): Hero statements, section-defining headings and the contact close. Keep tracking between `-0.02em` and `-0.035em`.
-- **Product Display** (400, `clamp(3.15rem, 6vw, 6rem)`, `0.96`; compact `clamp(3rem, 15vw, 4.5rem)`): Product-detail first-viewport theses. The tighter rhythm makes the screenshot and the sentence read as one composition.
-- **Headline** (400, `clamp(2rem, 5vw, 4.5rem)`, `1.05`): Major supporting statements and chapter headings.
-- **Title** (600, `clamp(1.25rem, 2vw, 2rem)`, `1.15`): Service and product titles.
-- **Body** (400, `1rem`, `1.6`): Explanatory copy. Keep reading measures near 65–75 characters and shorter inside cards.
-- **Label** (650, `0.9rem`, `1.2`): Buttons, navigation and compact action labels.
-- **Workflow Label** (750, `0.72rem`, `0.07em`): Uppercase stage labels and similar micro labels; system headers may tighten tracking to `0.045em`, while status copy remains sentence case with normal tracking.
-- **Product Navigation and Actions** (`0.8rem` context, `0.94rem` action): Compact, high-weight labels distinguish page context from conversion controls without using monospace.
-- **WhattaFlow Wordmark** (`clamp(1.9rem, 3.2vw, 2.85rem)` on the product page; `clamp(1.55rem, 2.6vw, 2.45rem)` on the homepage tile): A code-native `WhattaFlow` split mark matching the live participant product: lightweight “Whatta” and semibold indigo “Flow”. Do not substitute an invented logo asset or add an unauthorised symbol.
-- **Product Lead** (400, `clamp(1.05rem, 1.45vw, 1.3rem)`, `1.55`): First-viewport explanation, capped at a compact reading measure.
-- **Workflow Interface Scale** (`0.68rem`–`0.95rem`): Source metadata starts at the smallest step, followed by pane labels (`0.72rem`), system labels (`0.76rem`), source copy (`0.78rem`), compact detail text (`0.82rem`), action labels (`0.94rem`) and check-in values (`0.95rem`).
-- **Workflow Title** (600, `clamp(1.4rem, 2.2vw, 2rem)`, `1.08`): Functional titles inside later mechanism sections.
-- **Section Heading** (400, `clamp(2.5rem, 5vw, 4.8rem)`, `1`): Product-detail chapter statements.
-- **Audience Title** (500, `clamp(1.8rem, 3vw, 3rem)`, `1.05`): Equal-audience panel headings.
-- **Mechanism / Capability Title** (700–750, `1.05rem`–`1.2rem`): Dense explanatory rows and four-step bands.
-- **Product Close** (400, `clamp(3rem, 6.5vw, 6rem)`, `0.96`): The final sentence above the single explicit action.
+- **Display** (390, `clamp(3.9rem, 7.2vw, 6rem)`, `0.94`, `-0.04em`): The homepage research-to-impact statement.
+- **Section Display** (390, `clamp(3rem, 5.8vw, 5.8rem)`, `0.98`, `-0.038em`): Homepage chapter propositions.
+- **Product Display** (390, `clamp(3.35rem, 5.7vw, 5.8rem)`, `0.96`, `-0.04em`): Product-page value proposition beside the evidence frame.
+- **Close Display** (370, `clamp(3rem, 6.5vw, 6rem)`, `0.96`, `-0.038em`): The single decisive sentence in a product or contact close.
+- **Title** (620, `clamp(1.4rem, 2vw, 2rem)`, `1.08`, `-0.025em`): Service and system row titles.
+- **Audience Title** (560, `clamp(1.8rem, 3vw, 3rem)`, `1.05`, `-0.03em`): Equal-weight product-audience statements.
+- **Body** (430, `1rem`, `1.6`): Explanations and reading copy; keep line length near 38–58 characters inside structured rows.
+- **Lead** (430, `clamp(1rem, 1.35vw, 1.2rem)`, `1.6`): Supporting chapter and hero copy.
+- **Action Label** (750, `0.94rem`, `1`): Product and contact actions.
+- **Navigation Label** (680, `0.76rem`, `0.065em`): Compact uppercase desktop navigation.
 
 ### Named Rules
 
-**The One Clear Sentence Rule.** A display heading carries one idea. Supporting copy explains or proves it; it never paraphrases the same sentence.
+**The One Clear Sentence Rule.** A display heading carries one proposition. Supporting copy explains the mechanism or context; it does not restate the heading.
 
-**No Technical Costume.** Do not use monospace merely to make a control feel more technological.
+**The Manrope Continuity Rule.** Use weight, scale and spacing to change register. Do not introduce a second display face or monospace merely to signal research or technology.
 
 ## Layout
 
-The wide-screen experience is organised as a sequence of viewport-scale chapters with proximity snapping: chapters settle when the scroll ends near their boundary, but never trap the visitor. The taller contact footer remains in natural flow so legal and privacy information is always reachable. Each section aligns to a centred container and uses a 12-column mental model: dominant statements usually occupy seven columns, while context or proof occupies five. Product and client areas use compact internal grids but retain generous outer negative space.
+The homepage uses a centered `88rem` container and a 12-column mental model. The first viewport gives the research-to-impact statement eight columns and places the explanation and actions in the remaining four; a four-cell spectrum makes research → engineering → integration → impact explicit at the base. Services, institutional proof and products reuse the same broad left-statement/right-context relationship. Sections may fill the viewport on wide screens, but the document always scrolls naturally—there is no scroll snapping.
 
-Spacing follows an 8px base rhythm, with 16px, 24px, 32px and 64px as the main steps. Related copy stays close; chapter changes receive substantially more space. Primary text must remain above the global cube layers with protected reading zones.
+Spacing follows an 8px rhythm with 16px, 24px, 32px, 64px and 96px as the main authored steps. Dense internal systems use one-pixel dividers and compact padding; chapter transitions use large vertical fields. Related text stays close and evidence receives more area than decoration.
 
-Product-detail pages use a centred `80rem` shell and natural document flow at every size. Above `960px`, the first viewport is a deliberately asymmetric split: concise copy occupies the smaller column and one application screenshot occupies the larger one. Arianne, WhattaDocs and WhattaFlow use the same screenshot container and information sequence. Later audience panels remain equal width. Every product page then follows the same compact sequence: two audiences, a four-step carbon mechanism band, four core capabilities and one explicit final action.
+Product pages use a centered `80rem` shell and one shared order: hero, equal audience pair, four-step mechanism band, four-capability list and carbon close. The wide hero is asymmetric, with copy in the smaller column and a 16:9 application frame in the larger. The product color is a signal inside that fixed architecture, not permission to redesign the page.
 
-At `1024px` and below, homepage scroll snapping is removed and sections grow with their content. The homepage product grid changes from three equal columns to one column at the content-driven `900px` breakpoint; product tiles never use an aspect-ratio lock and expand with their copy. A single document scroll offset on `html` clears the fixed navigation on compact viewports (`4rem` on phones, `5rem` on tablet-sized layouts). At `960px`, product heroes, capability layouts and closing actions stack. At `760px`, equal audience columns and four-step mechanism bands become single columns with horizontal rules replacing vertical dividers; WhattaFlow preserves participant before researcher. At `480px`, actions become full width. The screenshot keeps its full frame and contains rather than crops the product UI, so the composition simplifies without changing the information order.
+At `1024px`, homepage statement columns tighten; at `768px`, homepage structures stack, viewport-height chapters become natural-height sections, and the 12-column model becomes a vertical reading order. At `480px`, primary actions become full width. Product heroes compress at `1100px`; between `761px` and `960px` the hero retains a compact split while capability and close layouts stack; at `760px` and below the hero, audience pair and mechanism band become one column. Product actions become full width at `480px`.
 
-Product pages give the shared cube field an adaptive content safe-zone. Canvas layers are masked out of the central reading area with an edge gutter of `max(0.75rem, calc((100vw - 80rem) / 2))`, matching the `80rem` product shell on wide screens and retaining only a narrow edge signal when the viewport is smaller. At `960px`, the front and overlay layers disappear while back and middle remain at `0.72` opacity; at `480px`, the middle layer also disappears and the back layer drops to `0.58` opacity.
+Cube scenes are layout-aware. Homepage positions resolve from real section starts, centres and ends so selected cubes can straddle chapter boundaries even when content height changes. Every cube owns an independent scroll rate, entry side, exit side, curved drift, rotation direction and scale pulse. Product canvases are masked to an edge gutter of `max(0.75rem, calc((100vw - 80rem) / 2))`. Below `960px`, front and overlay layers disappear; below `480px`, only the attenuated back layer remains. On the homepage below `768px`, front and overlay layers also disappear and the remaining layers reduce opacity.
 
-**The Product Before Motto Rule.** A product-detail first viewport shows exactly one large, authentic application screenshot. Do not replace it with an abstract hero, a decorative cube field, a reconstructed interface or a multi-image collage.
+**The Evidence Gets the Area Rule.** Give screenshots, institutional proof and mechanism copy the dominant clear planes. Atmospheric cubes occupy what remains.
 
-**The Product Cube Safe-Zone Rule.** Cubes may signal the Living Data Lab at product-page edges, but they never occupy the central reading and workflow zone. Reduce layer count before reducing content clarity.
+**The Product Family Rule.** Arianne, WhattaDocs and WhattaFlow keep the same information sequence, shell, spacing logic and responsive order.
 
 ## Elevation & Depth
 
-The system is flat by default. Structural hierarchy comes from tonal surfaces, scale and spacing rather than stacked shadows. The signature depth is produced by real 3D cube layers: back and front layers may blur to create focus, while the middle layer remains crisp. Product imagery may contain soft rendered depth, but the surrounding UI stays flat.
+The interface is flat by default. Hierarchy comes from paper/mist/carbon contrast, one-pixel rules, scale and whitespace. Signature depth lives primarily in the real WebGL cube scene: back, middle, front and overlay canvases use distinct z-order, opacity and blur, while cube size and motion speed reinforce distance. Primary conversion actions borrow that material language as shallow cuboids; product screenshot frames and all secondary or utility controls remain planar and shadowless.
 
-Product-detail screenshot frames remain planar: a one-pixel product-accent border and restrained tonal backing separate the image from the page without a drop shadow.
-
-The privacy document is the narrow exception: it may use a restrained ambient shadow to separate a long reading surface from the mist background. Interactive focus uses an explicit outline and signal-colour support, never a soft decorative glow.
+The privacy policy is the single surface exception: its long-form paper document uses a restrained ambient shadow (`0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)`) over a pale reading ground.
 
 ### Shadow Vocabulary
 
-- **Document Ambient** (`0 1px 3px rgb(0 0 0 / 0.1), 0 1px 2px rgb(0 0 0 / 0.06)`): Long-form reading surfaces only.
-- **Product Preview Lift** (`0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)`): Existing interactive screenshot hover only.
+- **Document Ambient** (`0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px -1px rgba(0,0,0,.1)`): Privacy-policy paper document only.
 
 ### Named Rules
 
-**Flat by Default.** If a surface can be separated with spacing or tone, do not add a shadow.
+**The Flat-by-Default Rule.** If tone, spacing or a one-pixel rule separates a surface, do not add a shadow.
 
-**Depth Belongs to the Data.** Cubes and product visuals may carry volume; controls and layout containers remain crisp and planar.
+**The Research-Field Depth Rule.** Cubes carry volume through scale, blur, occlusion and heterogeneous parallax. Primary conversion actions may echo them with one shallow right face, one lower face and a soft offset shadow; secondary links, utility controls, rows, product frames and content panels stay planar.
+
+**The Safe-Zone Rule.** 3D atmosphere never covers primary copy, screenshots or controls. Remove cube layers before reducing content clarity.
 
 ## Shapes
 
-Square geometry is the default. Buttons, navigation actions, product tiles and product screenshot frames use zero radius. The small `2px` radius is reserved for inline text highlights where a perfectly sharp block would feel brittle. The privacy document uses a `12px` radius because it is a reading artifact, not a marketing chapter.
+Square geometry is the system default (`0` radius). Buttons, navigation actions, service planes, product rows, screenshot frames, demonstration labels, audience panels, mechanism steps and closing actions all use crisp corners. Lines are one-pixel structural boundaries, not decorative frames.
 
-Cubes, modular blocks, node diagrams and thin connecting lines are the recurring silhouettes. Borders are single-pixel separators or interaction cues, never ornamental frames. Pills are reserved for genuinely compact status or filter controls; the current marketing surface does not use them.
+The privacy document uses a `12px` radius because it is a contained reading artifact rather than a marketing-system plane. Cubes, squares, planar bands and thin connector lines form the recurring silhouette vocabulary. Pills and soft card clusters are not part of the current system.
+
+### Named Rules
+
+**The Square Plane Rule.** Keep the marketing system crisp and square. Primary CTA cuboids are the only interface elements allowed to leave the plane; reserve rounding for the privacy reading artifact.
+
+## Motion
+
+Motion explains transfer, evidence and state; it does not announce every section. The homepage typewriter and heterogeneous WebGL cube field remain the main atmospheric sequence. On product pages, the authentic interface frame arrives once through a left-to-right `clip-path` aperture with a narrow product-color seam (`720ms` desktop, `560ms` compact). The content is visible by default, the temporary sweep node is removed at completion and `will-change` exists only while the aperture runs.
+
+The mobile navigation opens as one square paper plane from the top edge (`280ms`) and closes faster (`180ms`). Cuboid CTA hover and press states supply interaction feedback. WhattaFlow's screenshot change remains a contained evidence transition, pauses offscreen or when requested, and never turns other product pages into carousels. Services, audience panels, mechanism steps and capability rows do not receive generic scroll reveals or decorative loops.
+
+Under `prefers-reduced-motion`, the evidence aperture and menu travel are removed, the hero domain becomes static, the cube field is progressively reduced or removed and screenshot state changes remain immediate and legible.
+
+**The One Authored Arrival Rule.** A page may own one focal entrance that reveals meaningful evidence. Never stagger every section or repeat the same fade-and-rise pattern through the document.
 
 ## Components
 
+### Hero Typewriter
+
+The changing research-domain word is written character by character, held long enough to read, then deleted more quickly before the next domain begins. The indigo caret stays solid while characters move and resumes its measured blink during pauses. The sequence cycles through industrial, clinical, business and financial without changing the three-line hero composition. Under reduced motion, show “industrial” as static text and keep the caret still.
+
 ### Buttons
 
-- **Shape:** Square (`0` radius), compact and decisive.
-- **Primary:** Laboratory indigo with paper text, `52px` minimum height and roughly `13px 22px` padding.
-- **Signal:** Signal lime with carbon text, used for the final contact action on the dark footer.
-- **Arianne:** Official orange with carbon text on the product page; hover shifts to official petrol with paper text.
-- **WhattaDocs:** Official gold with carbon text; hover shifts to official purple with paper text.
-- **WhattaFlow Participant:** Product indigo with paper text in the first viewport. This filled action is the primary route and darkens to deep indigo on hover.
-- **WhattaFlow Researcher:** A visibly underlined indigo text link beside the participant action. It stays secondary and does not compete inside the closing surface.
-- **Hover / Focus:** Move to the documented product state—Arianne orange to petrol, WhattaDocs gold to purple and WhattaFlow indigo to deep indigo—and translate upward by `2px` on hover. Keyboard focus is a `3px` signal-lime outline with `3px` offset and a `5px` laboratory-indigo support ring.
-- **Secondary:** A plain text link with visible underline, `1px` thickness and `0.25em` offset.
-
-### Cards / Containers
-
-- **Corner Style:** Square for marketing, product tiles and product-detail document planes; `12px` only for the long-form privacy reading surface.
-- **Background:** Paper over mist, often combined with purpose-built product imagery.
-- **Shadow Strategy:** Flat at rest; use tonal separation and a one-pixel border.
-- **Border:** White-translucent at rest, changing to laboratory indigo on interactive hover or focus.
-- **Internal Padding:** `16–24px`, responsive to viewport.
+- **Shape:** Square (`0` radius) with a `3.25rem` minimum height.
+- **Construction:** Primary conversion actions expose a shallow `0.42rem` right and lower face with tonal shading and a soft offset shadow. Compact navigation actions use `0.3rem` depth. Hover changes the front-face tone and lifts by `2px`; active press moves into the extrusion and suppresses the side faces.
+- **Primary:** Laboratory indigo with paper text and `0.82rem 1.35rem` padding.
+- **Signal:** Signal lime with carbon-soft text and `0.9rem 1.15rem` padding; reserved for the contact conversion on carbon.
+- **Product:** Arianne uses orange → petrol, WhattaDocs uses gold → purple and WhattaFlow uses indigo → deep indigo. Product close actions use the same mapping.
+- **Secondary:** Underlined text with a `1px` line and `0.25em` offset; use for subordinate routes such as WhattaFlow researcher access.
+- **Focus:** A `3px` signal-lime outline with `3px` offset and a `5px` laboratory-indigo support ring.
 
 ### Navigation
 
-The navigation is a fixed paper surface with slight translucency. Labels are compact, direct and uppercase in the implementation. Default links use carbon; hover and active states use laboratory indigo. The conversion action is a filled indigo rectangle. On mobile, navigation becomes a full-width panel with the primary action occupying its own filled row.
+The navigation is a `4.75rem` paper bar at `94%` opacity with a `14px` backdrop blur and one bottom rule. Brand type is compact and firm; desktop labels are uppercase and tracked. One filled indigo action owns conversion. At `768px`, the navigation becomes `4rem` high and exposes a full-width mobile panel.
 
-### Product Tile
+### Service System
 
-Product tiles are equal planar modules with the authentic product mark/name, one bounded mechanism sentence, one audience cue and one explicit action. Arianne uses the official orange vector on warm paper; WhattaDocs uses the compact official purple-grid WD mark on gold paper; WhattaFlow uses the code-native indigo split wordmark on violet paper. Every tile shares the same centred brand field and bottom action rule; the text stays subordinate to the identity and no decorative imagery competes with it. Composite wordmarks scale from the tile’s own inline size through container-relative units, never from the viewport, so mark and live type remain inside the card at every column width.
+Each service is a square, rule-separated row: one small static indigo-and-lime cube, a functional title and a plain-language explanation. The cube is a structural marker, not a looping diagram, and it has no surrounding card. The adjacent carbon transfer path contains Context, Design and Integration as three equal planes with lime labels. At `768px`, service rows reduce to cube-plus-copy and the path becomes a vertical sequence.
 
-### Client Proof
+### Product Index
 
-The client and collaboration wall explicitly identifies itself as a mixed selection rather than implying one uniform relationship. A short explanation precedes the logo grid, marks are optically balanced in grayscale, and colour returns only on hover or keyboard focus. Do not assign a specific relationship type to an organisation unless that status has been verified.
+Homepage products are full-width planar rows, not a grid of promotional cards. Each row contains the authentic mark, one mechanism sentence, one audience cue and an accent arrow. Hover or focus adds mist, introduces `1rem` inline inset and moves the arrow diagonally by `0.25rem`. Orange, purple and product indigo remain small route signals.
 
-### Contact Recovery
+### Product Hero Evidence Frame
 
-Primary conversion language is consistently “Talk to us”. The mail link remains the direct route, paired with a copy-email control and live confirmation so visitors without a configured email client retain a working next step.
+Every product hero pairs a concise proposition with one dominant `16:9` paper frame, product-accent rule and authentic interface image using `object-fit: contain`. On first arrival, the frame opens once from left to right behind a narrow product-color seam; it is fully visible without JavaScript and appears immediately under reduced motion. A square carbon label reads “Demonstration interface · illustrative data.” Arianne and WhattaDocs show one representative view. WhattaFlow may alternate researcher and participant views inside the same frame with a visible pause control, a horizontal flow wipe and a reduced-motion fallback.
 
-Product-page screenshots come from the corresponding product pages in the Figma design-system file and retain their native 16:9 interface composition. They appear only in the hero as direct product evidence rather than inside decorative device mockups. When a product has multiple views, the hero cycles between them with a pausable horizontal flow wipe and a reduced-motion fallback; WhattaFlow alternates the researcher and participant dashboards, suspending the loop whenever the hero is offscreen or the page is hidden.
-
-### Product Hero Screenshot
-
-The product-detail signature is one large square-framed screenshot of the live product. Use one image per page and one representative working state: Arianne shows the patient dashboard, WhattaDocs shows the evidence workspace with source context, and WhattaFlow shows study metrics, trend data and recent activity. The image uses `object-fit: contain` so interface evidence is never cropped to fit the marketing layout. Remove account names, email addresses and other personal data before publishing.
-
-**The One Screenshot Rule.** A hero contains one authentic application view—never a collage, carousel, overlaid duplicate, reconstructed UI or decorative replacement.
+**The One Evidence Frame Rule.** A product hero contains one dominant screenshot frame—never a collage, device mockup or reconstructed interface. A controlled multi-view state stays inside that one frame.
 
 ### Audience Pair
 
-Two equal-width columns give sibling audiences equivalent narrative and visual weight. Arianne uses the pattern for patients and therapists; WhattaDocs uses it for internal knowledge and evidence-sensitive review; WhattaFlow uses it for participants and researchers. On narrow screens, preserve the source order and replace the centre divider with a horizontal rule.
+Two equal-width, rule-separated panels give sibling audiences equivalent visual weight. Arianne balances patient and therapist, WhattaDocs balances internal knowledge and evidence-sensitive review, and WhattaFlow balances participant and researcher. On narrow screens, preserve source order and replace the center rule with a horizontal boundary.
 
 ### Mechanism Band
 
-A carbon band turns a workflow into four square, rule-separated steps. Each step begins with one product-signal square, then a plain-language title and short explanation. The pattern becomes a vertical sequence on narrow screens without decorative numbering.
+A shared laboratory-indigo-ink band explains each product in four square steps. Every step starts with one small product-color signal, then a direct title and short explanation. Vertical rules become horizontal rules below `760px`; decorative numbering is not used.
+
+### Capability List
+
+Four border-separated rows sit beside one section proposition. Product deep color identifies the capability titles while slate carries the explanation. At `960px` the proposition and list stack; within each row, title and explanation stack below `760px`.
 
 ### Product Close
 
-Every product page ends with a full-width product-accent surface, one large closing sentence and one explicit action. Arianne uses orange with carbon text and a paper action; WhattaDocs uses official purple with paper text and a gold action; WhattaFlow uses product indigo with paper text and a paper participant action. Do not add the researcher route or any competing link inside the close.
+All three pages close on carbon with a `0.45rem` product-accent top rule, one large sentence, supporting copy and one product-accent action. Do not put a second competing route inside the close. WhattaFlow researcher access remains a secondary link in the hero.
 
-**The Role Route Rule.** On WhattaFlow, the participant portal owns the filled first-viewport action and the sole final action. Researcher access remains a visible, underlined secondary route in the first viewport.
+### Institutional Proof
 
-### Service Path
-
-The service path is a three-step horizontal sequence—Context, Design, Integration—separated from the service descriptions by a single top rule. On mobile it becomes a vertical stack. It explains progression without resorting to numbered decorative sections.
+The University of Milano-Bicocca origin and the selected-organisation wall are evidence surfaces, not endorsement theater. Logos remain optically balanced, the relationship language stays bounded, and surrounding mist protects legibility. Do not assign a relationship type that has not been verified.
 
 ### Living Cube Scene
 
-Four fixed canvas layers—back, middle, front and overlay—create the signature parallax field. Lime and indigo cubes rotate at different depths, respond subtly to pointer and scroll, and respect reduced-motion preferences. On product pages, the layers are edge atmosphere only: the adaptive safe-zone masks them out of the `80rem` content shell, then progressively reduces the field to two layers below `960px` and one attenuated back layer below `480px`. The scene is non-interactive, carries no information required for comprehension and must never block controls.
+Four non-interactive canvas layers—back, middle, front and overlay—create the retained 3D signature. Indigo and lime cubes use different sizes, scroll rates, curved entrances, exits, drifts and spin directions; one orange cube punctuates the Products transition. Selected cubes cross section edges while all primary copy, evidence and controls remain readable. The scene carries no required information, respects reduced motion and is progressively removed on compact viewports.
 
 ## Do's and Don'ts
 
 ### Do:
 
-- **Do** use the data-to-decision narrative to connect research, products and client outcomes.
-- **Do** protect text with clear negative space even when cube layers cross the viewport.
-- **Do** keep primary actions explicit: “Let’s talk about your data,” not generic “Learn more.”
-- **Do** use real logos, product assets and institutional proof; use generated imagery only as supporting atmosphere.
-- **Do** preserve strong keyboard focus, descriptive link names and reduced-motion behaviour.
-- **Do** let layout become natural document flow below `1024px`.
-- **Do** lead each product-detail first viewport with one authentic application screenshot larger than its supporting copy.
-- **Do** give paired audiences equal columns and preserve their order when stacked.
-- **Do** choose a WhattaDocs screenshot where answers, citations and source context remain visible together.
-- **Do** crop authenticated product screenshots to remove account identity and other personal data.
-- **Do** preserve the participant-primary and researcher-secondary CTA hierarchy at every breakpoint.
-- **Do** use WhattaFlow indigo for identity and reserve green, amber or red for real operational states.
+- **Do** describe Whattadata as a university spin-off that transfers results from data and AI research into tools used inside organisations.
+- **Do** make research → engineering → integration → impact visible in information order and spatial structure.
+- **Do** use Manrope consistently and let weight, scale and whitespace create hierarchy.
+- **Do** keep paper, mist and carbon as the dominant surfaces; use indigo to structure and lime to signal.
+- **Do** build WebGL depth with varied scale, blur, speed, entry and exit paths; let selected cubes cross section edges while protecting reading zones.
+- **Do** use the small static indigo-and-lime cube as the restrained structural marker for service rows.
+- **Do** preserve the hero → audiences → mechanism → capabilities → close architecture across all three product pages.
+- **Do** use authentic, contained screenshots and label demonstration data clearly.
+- **Do** preserve equal narrative weight for the two audiences on each product page.
+- **Do** keep keyboard focus explicit and remove non-essential motion for reduced-motion users.
+- **Do** reserve one-time authored motion for evidence arrival and state continuity; keep the default DOM visible and usable.
+- **Do** preserve the participant-primary and researcher-secondary route hierarchy on WhattaFlow.
 
 ### Don't:
 
-- **Don't** replace the cube world with generic AI gradients, glowing brains, circuitry or stock office photography.
-- **Don't** use lime and indigo at equal visual weight; indigo structures, lime signals.
-- **Don't** introduce pills, glassmorphism, rounded card grids or soft UI merely to modernise the surface.
-- **Don't** add shadows to containers that spacing or tone already separates.
-- **Don't** place text inside generated product images; keep copy semantic and editable in HTML.
-- **Don't** combine multiple screenshots in a product hero or crop away the interface context that makes the image credible.
-- **Don't** use decorative section numbers, monospace labels or vague actions as a shortcut to “technical” character.
-- **Don't** promote Arianne orange or WhattaDocs evidence tints into general Whattadata surfaces.
-- **Don't** promote WhattaFlow indigo into general Whattadata surfaces or sibling product pages.
-- **Don't** reduce Arianne to either the patient or therapist experience; both sides of care carry equal weight.
-- **Don't** present WhattaDocs as an answer-only chat surface detached from citations and source pages.
-- **Don't** style WhattaFlow like a consumer fitness tracker with activity rings, streaks, goals, coaching scores or achievement badges.
-- **Don't** use visual proof bands or CTA copy to imply diagnosis, treatment efficacy or other clinical outcomes; show study operations and data continuity only.
+- **Don't** frame Whattadata as a continuous editorial laboratory, research journal or abstract idea factory.
+- **Don't** replace the research-transfer system with generic AI gradients, glowing brains, circuit patterns or stock office imagery.
+- **Don't** introduce rounded card grids, glassmorphism, pills or soft UI into the marketing system.
+- **Don't** use product colors as general Whattadata section backgrounds or let them fragment the shared product family; the single orange cube is the deliberate exception.
+- **Don't** duplicate the orange cube or turn orange into a second global system color.
+- **Don't** place cubes over primary copy, interface evidence or controls.
+- **Don't** use looping schematic animations, pulsing colors or disappearing connector lines inside service rows.
+- **Don't** add generic fade-and-rise reveals, per-section entrance choreography or a new continuous animation outside the existing cube field and typewriter.
+- **Don't** add shadows where a rule, tone or spacing already establishes hierarchy.
+- **Don't** crop away interface context, combine product screenshots into a collage or publish personal account data.
+- **Don't** diverge one product page from the shared audience, mechanism, capability and close sequence.
+- **Don't** use monospace, decorative numbering or tiny labels as shorthand for technical credibility.
+- **Don't** imply customers, certifications, deployment guarantees, clinical outcomes or performance claims that the supplied evidence does not establish.

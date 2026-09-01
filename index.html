@@ -13,7 +13,7 @@
       as="image"
       type="image/svg+xml"
     />
-    <link rel="preload" href="css/styles.css?v=home-responsive-5" as="style" />
+    <link rel="preload" href="css/styles.css?v=research-transfer-7" as="style" />
     <link rel="preconnect" href="https://cdn.lineicons.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.lineicons.com" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -341,10 +341,18 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/tailwind.css?v=responsive-1" />
-    <link rel="stylesheet" href="css/styles.css?v=home-responsive-5" />
+    <link rel="stylesheet" href="css/styles.css?v=research-transfer-7" />
     <link rel="stylesheet" href="css/cursor.css?v=home-polish-1" />
   </head>
   <body class="bg-white">
+    <!--
+      THESIS: Whattadata is a university spin-off that transfers research in data and artificial intelligence into solutions industry can use.
+      OWN-WORLD: A precise research-transfer system in paper, mist, carbon, laboratory indigo and signal lime; square rules, generous type and real 3D cubes provide the rhythm.
+      STORY: Visitors understand the university-to-industry promise in the first viewport, see how research becomes working technology, compare the products, recognise the proof and start a conversation.
+      FIRST VIEWPORT: One three-line research-to-impact statement owns the left eight columns; the animated application context lives inside it, while a compact explanation and the two actions anchor the lower-right quadrant.
+      FORM: Research-to-industry transfer path; one spatial grammar connects knowledge, engineering, products and industrial proof. Concept-roll seed c6e03229.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+    -->
     <!-- Skip to Main Content Link -->
     <a
       href="#main-content"
@@ -432,8 +440,13 @@
             >PRODUCTS</a
           >
           <a
+            href="#clienti"
+            class="hover:text-indigo-600 transition-colors"
+            >CLIENTS</a
+          >
+          <a
             href="#contatti"
-            class="nav-contact-link"
+            class="nav-contact-link cube-action"
             >TALK TO US</a
           >
         </div>
@@ -462,8 +475,13 @@
             >PRODUCTS</a
           >
           <a
+            href="#clienti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            >CLIENTS</a
+          >
+          <a
             href="#contatti"
-            class="mobile-contact-link"
+            class="mobile-contact-link cube-action"
             >TALK TO US</a
           >
         </div>
@@ -473,298 +491,124 @@
     <!-- Main Content -->
     <main id="main-content">
       <!-- Hero Section -->
-      <section
-        class="hero-section relative flex items-center justify-center min-h-screen pt-20 px-4"
-        aria-label="Whattadata introduction"
-      >
-        <div class="container mx-auto">
-          <div class="max-w-4xl hero-content">
-            <!-- Main Heading -->
-            <h1
-              class="text-3xl sm:text-4xl md:text-7xl mb-6 md:mb-8 leading-tight"
-            >
-              Turn
+      <section class="hero-section" aria-label="Whattadata introduction">
+        <div class="hero-frame container mx-auto px-4">
+          <div class="hero-content">
+            <h1>
+              <span class="hero-line">From research to</span>
+              <span class="hero-domain" aria-hidden="true">
+                <span id="typed-text">industrial</span><span class="hero-caret">|</span>
+              </span>
+              <span class="hero-line">impact.</span>
             </h1>
-
-            <!-- Animated Text -->
-            <div
-              class="flex items-center h-16 md:h-20 mb-6 md:mb-8 text-3xl sm:text-4xl md:text-7xl text-indigo-600"
-              aria-hidden="true"
-            >
-              <span id="typed-text"></span>
-              <span
-                class="font-thin text-gray-600 animate-pulse"
-                aria-hidden="true"
-                >|</span
-              >
-            </div>
             <p class="sr-only">
-              Turn financial, business, clinical and industrial data into better decisions.
-            </p>
-
-            <!-- Subheading -->
-            <p
-              class="text-3xl sm:text-4xl md:text-7xl mb-12 md:mb-16 leading-tight"
-            >
-              data into better decisions
+              From university research to financial, business, clinical and industrial impact.
             </p>
           </div>
 
-          <!-- CTA Button -->
-          <div
-            class="hero-cta absolute left-1/2 transform -translate-x-1/2 bottom-8 md:bottom-16"
-          >
-            <a
-              href="#contatti"
-              class="hero-primary-action"
-            >
-              Talk to us
-            </a>
-            <a href="#servizi" class="hero-secondary-action">See how we work</a>
+          <div class="hero-aside">
+            <p>
+              We transfer results from university research in data and artificial
+              intelligence into tools that work inside real organisations.
+            </p>
+            <div class="hero-actions">
+              <a href="#contatti" class="hero-primary-action cube-action">Talk to us</a>
+              <a href="#servizi" class="hero-secondary-action">See how we work</a>
+            </div>
+          </div>
+
+          <div class="hero-spectrum" aria-hidden="true">
+            <span>Research</span><span>Engineering</span><span>Integration</span><span>Impact</span>
           </div>
         </div>
-
       </section>
 
       <!-- Value Proposition Section -->
-      <section
-        id="servizi"
-        class="min-h-screen bg-gray-50 flex items-center py-16 md:py-0"
-        aria-label="AI and data analytics services"
-      >
+      <section id="servizi" class="services-section" aria-label="AI and data analytics services">
         <div class="container mx-auto px-4">
-          <div
-            class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center mb-12 md:mb-16"
-          >
-            <!-- Left Column - Main Title -->
-            <div class="md:col-span-7">
-              <div class="flex items-start">
-                <h2 class="text-2xl md:text-3xl leading-tight">
-                  From complex data to decisions you can act on
-                </h2>
-              </div>
-            </div>
-
-            <!-- Right Column - Description -->
-            <div class="md:col-span-5">
-              <p
-                class="text-xl md:text-2xl font-thin text-indigo-600 leading-relaxed"
-              >
-                We work alongside your team to design and integrate AI and data
-                solutions around real operational needs.
-              </p>
-            </div>
+          <div class="section-intro">
+            <h2>Research becomes useful when it reaches the real world.</h2>
+            <p>
+              We translate advances in AI and data into solutions that fit real
+              industrial processes, systems and constraints.
+            </p>
           </div>
 
-          <!-- Value Cards Grid -->
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" role="list">
-            <div class="p-4 md:p-8 md:pl-0" role="listitem">
-              <div class="flex justify-center mb-6 md:mb-8">
-                <img
-                  src="img/animated_scheme/predictive.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width="80"
-                  height="80"
-                  loading="lazy"
-                />
+          <div class="service-system" role="list">
+            <article class="service-item" role="listitem">
+              <div class="service-signal" aria-hidden="true">
+                <svg class="service-cube" viewBox="0 0 72 72" focusable="false">
+                  <path class="service-cube__top" d="M36 4 64 20 36 36 8 20Z" />
+                  <path class="service-cube__front" d="M8 20 36 36 36 68 8 52Z" />
+                  <path class="service-cube__side" d="M36 36 64 20 64 52 36 68Z" />
+                </svg>
               </div>
-              <h3 class="text-xl md:text-2xl mb-4">Predictive analytics</h3>
-              <p class="text-gray-600 text-base md:text-lg">
-                We build machine-learning solutions that help your team make
-                informed decisions at the right time.
+              <h3>Predictive analytics</h3>
+              <p>
+                Machine-learning solutions that help teams read what is happening,
+                anticipate what comes next and decide at the right time.
               </p>
-            </div>
-
-            <div class="p-4 md:p-8" role="listitem">
-              <div class="flex justify-center mb-6 md:mb-8">
-                <img
-                  src="img/animated_scheme/ethics.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width="80"
-                  height="80"
-                  loading="lazy"
-                />
+            </article>
+            <article class="service-item" role="listitem">
+              <div class="service-signal" aria-hidden="true">
+                <svg class="service-cube" viewBox="0 0 72 72" focusable="false">
+                  <path class="service-cube__top" d="M36 4 64 20 36 36 8 20Z" />
+                  <path class="service-cube__front" d="M8 20 36 36 36 68 8 52Z" />
+                  <path class="service-cube__side" d="M36 36 64 20 64 52 36 68Z" />
+                </svg>
               </div>
-              <h3 class="text-xl md:text-2xl mb-4">Responsible AI</h3>
-              <p class="text-gray-600 text-base md:text-lg">
-                We design transparent, accountable tools around ethical
-                principles, supporting sustainable and inclusive innovation.
+              <h3>Responsible AI</h3>
+              <p>
+                Transparent and accountable tools designed around the people,
+                evidence and consequences involved in each decision.
               </p>
-            </div>
-
-            <div class="p-4 md:p-8 md:pr-0" role="listitem">
-              <div class="flex justify-center mb-6 md:mb-8">
-                <img
-                  src="img/animated_scheme/modularity.svg"
-                  alt=""
-                  aria-hidden="true"
-                  width="80"
-                  height="80"
-                />
+            </article>
+            <article class="service-item" role="listitem">
+              <div class="service-signal" aria-hidden="true">
+                <svg class="service-cube" viewBox="0 0 72 72" focusable="false">
+                  <path class="service-cube__top" d="M36 4 64 20 36 36 8 20Z" />
+                  <path class="service-cube__front" d="M8 20 36 36 36 68 8 52Z" />
+                  <path class="service-cube__side" d="M36 36 64 20 64 52 36 68Z" />
+                </svg>
               </div>
-              <h3 class="text-xl md:text-2xl mb-4">Modular solutions</h3>
-              <p class="text-gray-600 text-base md:text-lg">
-                Every project is built from scalable, adaptable components that
-                fit your existing digital ecosystem.
+              <h3>Modular solutions</h3>
+              <p>
+                Scalable components shaped to fit existing workflows, systems and
+                constraints instead of forcing a separate technology stack.
               </p>
-            </div>
+            </article>
           </div>
 
           <div class="service-path" aria-label="How we work">
-            <p><strong>Context.</strong> We start with the decision or process you need to improve.</p>
-            <p><strong>Design.</strong> We shape the solution around your data and real constraints.</p>
-            <p><strong>Integration.</strong> We bring models and tools into your existing ecosystem.</p>
+            <div><strong>Context</strong><p>Start with the decision or process that needs to improve.</p></div>
+            <div><strong>Design</strong><p>Shape the solution around the available data and real constraints.</p></div>
+            <div><strong>Integration</strong><p>Bring models and tools into the organisation’s working ecosystem.</p></div>
           </div>
         </div>
       </section>
 
       <!-- Message Section -->
-      <section
-        id="chi-siamo"
-        class="min-h-screen bg-white flex items-center justify-center"
-        aria-label="About Whattadata"
-      >
-        <div class="w-full">
-          <div
-            class="bg-primary relative overflow-hidden min-h-screen flex items-center justify-center"
-          >
-            <!-- Graph Background -->
-            <div class="absolute inset-0" id="graph-container">
-              <svg
-                width="100%"
-                height="100%"
-                class="graph-svg absolute inset-0"
-                aria-hidden="true"
-                focusable="false"
-              >
-                <defs>
-                  <filter id="glow">
-                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                    <feMerge>
-                      <feMergeNode in="coloredBlur" />
-                      <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                  </filter>
-                </defs>
-                <!-- Dynamic nodes and edges will be added here via JavaScript -->
-              </svg>
+      <section id="chi-siamo" class="about-section" aria-label="About Whattadata">
+        <div class="about-shell container mx-auto px-4">
+          <div class="about-statement">
+            <h2>Born in the university. Built for the world outside it.</h2>
+            <p>
+              Whattadata is a spin-off of the University of Milano-Bicocca. We
+              bring results from data and artificial-intelligence research into
+              industrial contexts, turning them into practical solutions for
+              decisions, operations and services.
+            </p>
+          </div>
 
-              <!-- Content -->
-              <div class="relative h-full flex flex-col justify-center z-10">
-                <div class="container mx-auto px-4">
-                  <div class="max-w-6xl mx-auto">
-                    <!-- Main Heading -->
-                    <div class="mb-12">
-                      <div class="relative">
-                        <div class="flex items-start">
-                          <h2
-                            class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-white font-light"
-                          >
-                            About us
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
-                      <div class="md:col-span-7">
-                        <div class="space-y-6 md:space-y-8">
-                          <p
-                            class="text-xl md:text-2xl font-thin text-white leading-relaxed"
-                          >
-                            Whattadata is a spin-off of the <span
-                              style="
-                                background-color: #a3e635;
-                                padding: 2px 4px;
-                                border-radius: 2px;
-                              "
-                              class="text-gray-600"
-                              >University of Milano-Bicocca</span
-                            >
-                            that turns data management and analytics into
-                            practical solutions for decisions, operations and
-                            services.
-                          </p>
-                          <h3
-                            class="text-2xl md:text-3xl leading-tight text-white"
-                          >
-                            From data to decisions
-                          </h3>
-                          <p
-                            class="text-xl md:text-2xl font-thin text-white leading-relaxed"
-                          >
-                            We help organisations turn insights, models and
-                            platforms into measurable outcomes.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="md:col-span-5 flex items-center justify-center">
-                        <img
-                          src="img/logo/bicocca.svg"
-                          alt="University of Milano-Bicocca"
-                          class="w-full max-w-[140px] md:max-w-[200px]"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="about-proof">
+            <div class="about-origin">
+              <img src="img/logo/bicocca.svg" alt="University of Milano-Bicocca" width="220" height="90" loading="lazy" />
+              <p>Academic origin, applied to real organisational contexts.</p>
             </div>
-
-            <!-- Logo Carousel -->
-            <div class="logo-carousel" aria-hidden="true">
-              <div class="logo-track">
-                <div class="logo-item">
-                  <img
-                    src="img/logo/arianne.svg"
-                    alt="Arianne"
-                    width="120"
-                    height="40"
-                  />
-                </div>
-                <div class="logo-item">
-                  <img
-                    src="img/logo/esgquest.svg"
-                    alt="ESGquest"
-                    width="120"
-                    height="40"
-                  />
-                </div>
-                <div class="logo-item">
-                  <img
-                    src="img/logo/micare.svg"
-                    alt="MiCare"
-                    width="120"
-                    height="40"
-                  />
-                </div>
-                <div class="logo-item">
-                  <img
-                    src="img/logo/arianne.svg"
-                    alt="Arianne"
-                    width="120"
-                    height="40"
-                  />
-                </div>
-                <div class="logo-item">
-                  <img
-                    src="img/logo/esgquest.svg"
-                    alt="ESGquest"
-                    width="120"
-                    height="40"
-                  />
-                </div>
-                <div class="logo-item">
-                  <img
-                    src="img/logo/micare.svg"
-                    alt="MiCare"
-                    width="120"
-                    height="40"
-                  />
-                </div>
-              </div>
+            <div class="about-principles">
+              <article><h3>Understand first</h3><p>We begin with the decision, the people and the constraints around it.</p></article>
+              <article><h3>Build for use</h3><p>Models become valuable when they fit the workflow that depends on them.</p></article>
+              <article><h3>Keep evidence visible</h3><p>Responsible systems make their data, limits and reasoning easier to inspect.</p></article>
             </div>
           </div>
         </div>
@@ -778,75 +622,78 @@
       >
         <div class="container mx-auto px-4 h-full flex items-center">
           <div class="w-full">
-            <!-- Main Heading -->
-            <div class="mb-8 md:mb-10">
-              <div class="relative">
-                <div class="flex items-start">
-                  <h2 class="text-4xl md:text-7xl lg:text-9xl">Products</h2>
-                </div>
-              </div>
+            <div class="products-intro">
+              <h2>Products built around real work.</h2>
+              <p>
+                Three focused systems. One shared approach: make complex data
+                understandable, inspectable and useful.
+              </p>
             </div>
 
-            <p class="text-lg md:text-xl max-w-3xl mb-8 md:mb-10">
-              Research-led products designed for real-world impact
-            </p>
-
-            <div
-              class="project-bento-grid"
-            >
+            <div class="product-index">
               <a
                 href="/arianne.html"
-                class="project-bento-tile project-bento-tile--arianne"
+                class="product-index-row product-index-row--arianne"
                 aria-label="Discover Arianne"
               >
-                <div class="project-bento-brand" aria-hidden="true">
+                <div class="product-index-brand" aria-hidden="true">
                   <img
                     src="img/logo/arianne.svg"
                     alt=""
-                    class="project-bento-logo"
+                    class="product-index-logo"
                     width="120"
                     height="40"
                     loading="lazy"
                   />
                 </div>
-                <div class="project-bento-copy">
-                  <span class="project-bento-audience">For therapists and patients</span>
+                <div class="product-index-copy">
                   <p>Keeps therapy connected between sessions through two purpose-built interfaces.</p>
+                  <span>Connected care for therapists and patients</span>
                 </div>
-                <span class="project-bento-link">Discover Arianne</span>
+                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
               </a>
 
               <a
                 href="/whattadocs.html"
-                class="project-bento-tile project-bento-tile--whattadocs"
+                class="product-index-row product-index-row--whattadocs"
                 aria-label="Discover WhattaDocs"
               >
-                <div class="project-bento-brand" aria-hidden="true">
-                  <div class="project-bento-docsmark">
+                <div class="product-index-brand" aria-hidden="true">
+                  <div class="product-index-docsmark">
                     <img src="img/logo/whattadocs-mark-small.png" alt="" width="126" height="128" loading="lazy" />
                     <span>WhattaDocs</span>
                   </div>
                 </div>
-                <div class="project-bento-copy">
-                  <span class="project-bento-audience">For evidence-sensitive teams</span>
+                <div class="product-index-copy">
                   <p>Questions long documents while keeping every answer connected to its source.</p>
+                  <span>Inspectable evidence for evidence-sensitive teams</span>
                 </div>
-                <span class="project-bento-link">Discover WhattaDocs</span>
+                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
               </a>
 
               <a
                 href="/whattaflow.html"
-                class="project-bento-tile project-bento-tile--whattaflow"
+                class="product-index-row product-index-row--whattaflow"
                 aria-label="Discover WhattaFlow"
               >
-                <div class="project-bento-brand" aria-hidden="true">
-                  <div class="project-bento-flowmark"><span>Whatta</span><strong>Flow</strong></div>
+                <div class="product-index-brand" aria-hidden="true">
+                  <div class="product-index-flowlockup">
+                    <img
+                      class="product-index-flow-logo"
+                      src="img/logo/whattaflow-mark.svg"
+                      alt=""
+                      width="184"
+                      height="184"
+                      loading="lazy"
+                    />
+                    <span class="product-index-flowname"><span>Whatta</span><strong>Flow</strong></span>
+                  </div>
                 </div>
-                <div class="project-bento-copy">
-                  <span class="project-bento-audience">For researchers and participants</span>
+                <div class="product-index-copy">
                   <p>Connects wearable onboarding, data continuity and research-ready exports.</p>
+                  <span>Wearable research for researchers and participants</span>
                 </div>
-                <span class="project-bento-link">Discover WhattaFlow</span>
+                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
               </a>
             </div>
 
@@ -1206,7 +1053,7 @@
                 you need. Together, we will see where we can make a difference.
               </p>
               <div class="contact-actions">
-                <a href="mailto:info@whattadata.it?subject=Project%20enquiry">
+                <a class="cube-action" href="mailto:info@whattadata.it?subject=Project%20enquiry">
                   Talk to us
                 </a>
                 <button
@@ -1335,8 +1182,7 @@
     </main>
 
     <!-- Custom Scripts -->
-    <script src="js/graph.js" defer></script>
-    <script type="module" src="js/cube-scene.js?v=polish-6"></script>
-    <script src="js/main.js?v=home-polish-1" defer></script>
+    <script type="module" src="js/cube-scene.js?v=depth-1"></script>
+    <script src="js/main.js?v=motion-system-1" defer></script>
   </body>
 </html>

@@ -59,7 +59,7 @@ WhattaFlow supports research and clinical-study operations around wearable data.
 ## Brand Commitments
 
 - Use the established Whattadata identity and the documented “The Living Data Lab” visual system.
-- Preserve the Whattadata, Arianne, WhattaDocs and WhattaFlow names. Use existing logo assets where supplied; keep the WhattaFlow wordmark code-native unless an official brand asset is provided.
+- Preserve the Whattadata, Arianne, WhattaDocs and WhattaFlow names. Use the supplied logo assets, including the official indigo-and-lime WhattaFlow mark exported from the brand design system; do not reconstruct product marks with live text.
 - Keep the site voice direct, evidence-aware and approachable in English.
 - Preserve the existing indigo-and-lime cube language; product-specific imagery can extend it without replacing it.
 

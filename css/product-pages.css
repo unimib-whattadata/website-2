@@ -207,25 +207,12 @@
   color: #86198f;
 }
 
-.product-page .product-flow-mark {
-  position: relative;
-  width: fit-content;
-  display: flex;
-  align-items: baseline;
+.product-page .product-flow-logo {
+  display: block;
+  width: clamp(5rem, 8vw, 7rem);
+  height: clamp(5rem, 8vw, 7rem);
   margin-bottom: clamp(2rem, 5vh, 3.5rem);
-  color: #111827;
-  font-size: clamp(1.9rem, 3.2vw, 2.85rem);
-  letter-spacing: -0.035em;
-  line-height: 1;
-}
-
-.product-page .product-flow-mark span {
-  font-weight: 350;
-}
-
-.product-page .product-flow-mark strong {
-  color: #4c44db;
-  font-weight: 700;
+  object-fit: contain;
 }
 
 .product-page h1,
@@ -341,6 +328,54 @@
   display: block;
   object-fit: contain;
   object-position: center;
+}
+
+.product-page .product-evidence-sweep {
+  position: absolute;
+  z-index: 8;
+  inset: 0 auto 0 0;
+  width: 18%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent 0,
+    color-mix(in srgb, var(--product-accent) 18%, transparent) 62%,
+    var(--product-accent) 100%
+  );
+}
+
+.product-page .product-demo-label {
+  position: absolute;
+  z-index: 5;
+  top: clamp(0.9rem, 1.8vw, 1.35rem);
+  left: clamp(0.9rem, 1.8vw, 1.35rem);
+  padding: 0.45rem 0.6rem;
+  background: rgb(17 24 39 / 92%);
+  color: #ffffff;
+  font-size: clamp(0.62rem, 0.72vw, 0.72rem);
+  font-weight: 720;
+  letter-spacing: 0.025em;
+  line-height: 1.15;
+}
+
+.product-page .product-hero-shot--arianne::before,
+.product-page .product-hero-shot--whattadocs::before {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  left: clamp(0.65rem, 1.3vw, 1rem);
+  bottom: clamp(0.65rem, 1.3vw, 1rem);
+  width: 20%;
+  height: 14%;
+  pointer-events: none;
+}
+
+.product-page .product-hero-shot--arianne::before {
+  background: #f4f5f6;
+}
+
+.product-page .product-hero-shot--whattadocs::before {
+  background: #080d1a;
 }
 
 .product-page .product-hero-shot--carousel .product-hero-shot__slide {
@@ -706,12 +741,13 @@
 
   .product-page .product-mark,
   .product-page .product-docs-mark,
-  .product-page .product-flow-mark {
+  .product-page .product-flow-logo {
     margin-bottom: 1.25rem;
   }
 
-  .product-page .product-flow-mark {
-    font-size: 1.7rem;
+  .product-page .product-flow-logo {
+    width: 4.25rem;
+    height: 4.25rem;
   }
 
   .product-page h1 {
@@ -835,4 +871,175 @@
   .product-page .product-hero-shot__controls {
     display: none;
   }
+}
+
+/* Product family coherence — one Whattadata structure, product colour as signal. */
+.product-page {
+  --product-paper: #f5f5f7;
+  --product-border: rgb(79 70 229 / 24%);
+  --product-mechanism: #312e81;
+  --product-close: #111827;
+  --product-on-close: #ffffff;
+}
+
+.product-page .product-nav {
+  min-height: 4.75rem;
+  background: rgb(255 255 255 / 94%) !important;
+  backdrop-filter: blur(14px);
+}
+
+.product-page .product-nav__brand {
+  font-weight: 680;
+  letter-spacing: -0.025em;
+}
+
+.product-page .product-nav__context {
+  color: var(--product-accent-deep);
+}
+
+.product-page .product-hero {
+  min-height: calc(100svh - 4.75rem);
+  padding: clamp(4rem, 8vh, 6.5rem) 0;
+  background: rgb(245 245 247 / 96%);
+}
+
+.product-page .product-hero__grid {
+  grid-template-columns: minmax(18rem, 0.72fr) minmax(38rem, 1.28fr);
+  gap: clamp(2.5rem, 5.5vw, 5.5rem);
+}
+
+.product-page h1 {
+  font-size: clamp(3.35rem, 5.7vw, 5.8rem);
+  font-weight: 390;
+  letter-spacing: -0.04em;
+}
+
+.product-page .product-hero__copy > p {
+  color: #4b5563;
+}
+
+.product-page .product-hero-shot,
+.product-page--arianne .product-hero-shot,
+.product-page--whattadocs .product-hero-shot,
+.product-page--whattaflow .product-hero-shot {
+  padding: clamp(0.65rem, 1.3vw, 1rem);
+  background: #ffffff;
+  border-color: var(--product-border);
+}
+
+.product-page .section-space--mist {
+  background: rgb(245 245 247 / 97%);
+}
+
+.product-page .section-space--dark {
+  background: #312e81;
+}
+
+.product-page .section-heading {
+  font-weight: 390;
+  letter-spacing: -0.038em;
+}
+
+.product-page .audience-panel h3 {
+  font-weight: 560;
+}
+
+.product-page .mechanism-step__signal {
+  background: var(--product-signal);
+}
+
+.product-page .capability-item h3 {
+  color: var(--product-accent-deep);
+}
+
+.product-page .product-close,
+.product-page--arianne .product-close {
+  background: #111827;
+  color: #ffffff;
+  border-top: 0.45rem solid var(--product-accent);
+}
+
+.product-page .product-close h2,
+.product-page--arianne .product-close h2 {
+  color: #ffffff;
+  font-weight: 370;
+}
+
+.product-page .product-close p,
+.product-page--arianne .product-close p {
+  color: #d1d5db;
+}
+
+.product-page .product-close .product-action,
+.product-page--whattadocs .product-close .product-action {
+  background: var(--product-accent);
+  color: var(--product-on-accent);
+}
+
+.product-page .product-close .product-action:hover,
+.product-page--whattadocs .product-close .product-action:hover {
+  background: var(--product-accent-deep);
+  color: var(--product-on-accent-hover);
+}
+
+.product-page .product-footer {
+  border-top: 1px solid rgb(255 255 255 / 12%);
+  background: #111827;
+}
+
+@media (max-width: 960px) {
+  .product-page .product-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-page .product-hero__copy {
+    max-width: 50rem;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 960px) {
+  .product-page .product-hero__grid {
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .product-page .product-nav {
+    min-height: 4rem;
+  }
+
+  .product-page .product-hero {
+    min-height: 0;
+    padding: 6rem 0 4rem;
+  }
+
+  .product-page h1 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+}
+
+.product-page .product-action.cube-action {
+  --cube-face: var(--product-accent);
+  --cube-face-hover: var(--product-accent-deep);
+  background: var(--cube-face-current);
+}
+
+.product-page .product-action.cube-action:hover {
+  background: var(--cube-face-current);
+  color: var(--product-on-accent-hover);
+}
+
+.product-page .product-action.cube-action:active {
+  box-shadow: 0.12rem 0.18rem 0.35rem rgb(17 24 39 / 18%);
+  transform: translate3d(
+    calc(var(--cube-depth) * 0.65),
+    calc(var(--cube-depth) * 0.65),
+    0
+  );
+}
+
+.product-page .product-action.cube-action:focus-visible {
+  box-shadow:
+    0.4rem 0.58rem 1.05rem rgb(17 24 39 / 20%),
+    0 0 0 5px var(--product-accent-deep);
 }

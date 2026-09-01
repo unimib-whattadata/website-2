@@ -11,14 +11,43 @@ if (host && canvases.length) {
   const THEME_COLORS = {
     lime: "#a3e635",
     indigo: "#4f46e5",
+    orange: "#ff8c42",
   };
-  const cubeSpec = (paletteName, xRatio, pageY, z, size, phase) => ({
+  const sectionAnchor = (
+    selector,
+    edge = "start",
+    offset = 0,
+    fallback = 0
+  ) => ({ selector, edge, offset, fallback });
+  const cubeSpec = (
     paletteName,
     xRatio,
     pageY,
     z,
     size,
     phase,
+    motion = {}
+  ) => ({
+    paletteName,
+    xRatio,
+    pageY,
+    z,
+    size,
+    phase,
+    motion: {
+      scrollRate: 1,
+      entryX: 0,
+      exitX: 0,
+      curveX: 0,
+      driftX: 0.035,
+      driftY: 0.12,
+      driftRate: 0.46,
+      orbit: 0,
+      scalePulse: 0.025,
+      spinRate: 1,
+      spinDirection: 1,
+      ...motion,
+    },
   });
   const reducedMotionQuery = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
@@ -38,6 +67,10 @@ if (host && canvases.length) {
       color: THEME_COLORS.indigo,
       edge: THEME_COLORS.indigo,
     },
+    orange: {
+      color: THEME_COLORS.orange,
+      edge: THEME_COLORS.orange,
+    },
   };
 
   const layerConfigs = {
@@ -48,10 +81,60 @@ if (host && canvases.length) {
       pointerFactor: 0.18,
       spinFactor: 0.42,
       cubes: [
-        cubeSpec("lime", 0.92, 1.4, -8.1, 0.88, 0.24),
-        cubeSpec("indigo", -0.72, 2.9, -7.4, 0.64, 0.82),
-        cubeSpec("lime", 0.7, 4.4, -8.2, 0.76, 0.42),
-        cubeSpec("indigo", 0.88, 6, -7.6, 0.62, 0.34),
+        cubeSpec(
+          "lime",
+          0.9,
+          sectionAnchor(".hero-section", "center", -0.08, 0.42),
+          -9.2,
+          0.42,
+          0.24,
+          { scrollRate: 0.62, entryX: 0.18, exitX: -0.1, driftRate: 0.28 }
+        ),
+        cubeSpec(
+          "indigo",
+          -0.84,
+          sectionAnchor("#servizi", "start", -0.08, 1.02),
+          -8.4,
+          0.66,
+          0.82,
+          { scrollRate: 0.76, entryX: -0.14, exitX: 0.12, curveX: 0.08 }
+        ),
+        cubeSpec(
+          "lime",
+          0.72,
+          sectionAnchor("#chi-siamo", "start", 0.12, 2.7),
+          -9.6,
+          0.32,
+          0.42,
+          { scrollRate: 0.5, entryX: 0.08, exitX: -0.18, driftRate: 0.34 }
+        ),
+        cubeSpec(
+          "indigo",
+          0.9,
+          sectionAnchor("#progetti", "start", -0.14, 4.15),
+          -8.7,
+          0.74,
+          0.34,
+          { scrollRate: 0.88, entryX: 0.2, exitX: -0.16, curveX: -0.08 }
+        ),
+        cubeSpec(
+          "lime",
+          -0.76,
+          sectionAnchor("#clienti", "center", 0.08, 5.55),
+          -9.3,
+          0.48,
+          0.64,
+          { scrollRate: 0.58, entryX: -0.16, exitX: 0.18, driftRate: 0.3 }
+        ),
+        cubeSpec(
+          "indigo",
+          0.78,
+          sectionAnchor("#contatti", "start", 0.12, 7.1),
+          -8.8,
+          0.38,
+          0.52,
+          { scrollRate: 0.7, entryX: 0.1, exitX: -0.2, curveX: 0.06 }
+        ),
       ],
     },
     middle: {
@@ -61,12 +144,60 @@ if (host && canvases.length) {
       pointerFactor: 0.34,
       spinFactor: 0.78,
       cubes: [
-        cubeSpec("lime", 0.78, 0.18, -4.2, 1.12, 0.14),
-        cubeSpec("indigo", -0.92, 0.62, -4.6, 0.82, 0.56),
-        cubeSpec("indigo", -0.82, 1.7, -4.8, 0.96, 0.68),
-        cubeSpec("lime", -0.88, 3.2, -4.4, 1.08, 0.2),
-        cubeSpec("indigo", 0.86, 4.65, -4.8, 0.92, 0.74),
-        cubeSpec("lime", -0.34, 5.95, -4.4, 1.02, 0.48),
+        cubeSpec(
+          "lime",
+          0.76,
+          sectionAnchor(".hero-section", "start", 0.2, 0.2),
+          -4.4,
+          1.08,
+          0.14,
+          { scrollRate: 0.92, entryX: 0.22, exitX: -0.08, curveX: 0.12, orbit: 0.035 }
+        ),
+        cubeSpec(
+          "indigo",
+          -0.96,
+          sectionAnchor("#servizi", "start", 0.08, 1.18),
+          -4.9,
+          0.78,
+          0.56,
+          { scrollRate: 1.18, entryX: -0.22, exitX: 0.16, driftRate: 0.62, spinDirection: -1 }
+        ),
+        cubeSpec(
+          "lime",
+          1.28,
+          sectionAnchor("#servizi", "end", -0.12, 2.55),
+          -4.5,
+          1.02,
+          0.68,
+          { scrollRate: 0.98, entryX: 0.18, exitX: 0.02, curveX: -0.05, driftY: 0.2 }
+        ),
+        cubeSpec(
+          "indigo",
+          -0.9,
+          sectionAnchor("#chi-siamo", "end", -0.06, 3.8),
+          -4.7,
+          0.88,
+          0.2,
+          { scrollRate: 1.28, entryX: -0.24, exitX: 0.2, curveX: 0.1, spinRate: 1.18 }
+        ),
+        cubeSpec(
+          "orange",
+          0.86,
+          sectionAnchor("#progetti", "start", -0.04, 4.18),
+          -4.15,
+          1.02,
+          0.74,
+          { scrollRate: 0.96, entryX: 0.26, exitX: -0.2, curveX: -0.16, driftRate: 0.54, scalePulse: 0.045 }
+        ),
+        cubeSpec(
+          "lime",
+          -0.88,
+          sectionAnchor("#clienti", "end", -0.12, 6.6),
+          -4.6,
+          1.14,
+          0.48,
+          { scrollRate: 0.82, entryX: -0.12, exitX: 0.28, curveX: 0.14, spinDirection: -1 }
+        ),
       ],
     },
     front: {
@@ -76,11 +207,51 @@ if (host && canvases.length) {
       pointerFactor: 0.56,
       spinFactor: 1.05,
       cubes: [
-        cubeSpec("lime", 1.14, 0.52, -2.5, 1.58, 0.28),
-        cubeSpec("indigo", -1.26, 2.35, -2.6, 1.34, 0.78),
-        cubeSpec("lime", 1.18, 4.45, -2.35, 1.62, 0.9),
-        cubeSpec("indigo", -1.04, 5.85, -2.7, 1.38, 0.38),
-        cubeSpec("lime", 1.24, 8, -2.35, 1.18, 0.72),
+        cubeSpec(
+          "lime",
+          1.36,
+          sectionAnchor(".hero-section", "end", -0.12, 0.88),
+          -2.45,
+          1.66,
+          0.28,
+          { scrollRate: 1.34, entryX: 0.34, exitX: 0.08, curveX: -0.05, driftY: 0.22, spinRate: 0.82 }
+        ),
+        cubeSpec(
+          "indigo",
+          -1.34,
+          sectionAnchor("#servizi", "end", -0.08, 2.52),
+          -2.65,
+          1.44,
+          0.78,
+          { scrollRate: 0.86, entryX: -0.3, exitX: -0.06, curveX: 0.05, spinDirection: -1, scalePulse: 0.04 }
+        ),
+        cubeSpec(
+          "lime",
+          1.32,
+          sectionAnchor("#chi-siamo", "end", 0.04, 3.95),
+          -2.35,
+          1.26,
+          0.9,
+          { scrollRate: 1.46, entryX: 0.26, exitX: 0.04, curveX: -0.04, driftRate: 0.7, spinRate: 1.2 }
+        ),
+        cubeSpec(
+          "indigo",
+          -1.36,
+          sectionAnchor("#progetti", "end", 0.06, 5.4),
+          -2.7,
+          1.52,
+          0.38,
+          { scrollRate: 1.04, entryX: -0.28, exitX: -0.04, curveX: 0.05, driftY: 0.24 }
+        ),
+        cubeSpec(
+          "lime",
+          1.34,
+          sectionAnchor("#clienti", "end", -0.1, 6.72),
+          -2.4,
+          1.3,
+          0.72,
+          { scrollRate: 0.68, entryX: 0.3, exitX: 0.05, curveX: -0.05, spinDirection: -1 }
+        ),
       ],
     },
     overlay: {
@@ -90,8 +261,33 @@ if (host && canvases.length) {
       pointerFactor: 0.42,
       spinFactor: 0.72,
       cubes: [
-        cubeSpec("lime", 0.94, 0.42, -3.25, 0.48, 0.11),
-        cubeSpec("indigo", -1.18, 3.36, -3.2, 0.44, 0.22),
+        cubeSpec(
+          "indigo",
+          -0.98,
+          sectionAnchor(".hero-section", "center", 0.08, 0.56),
+          -3.15,
+          0.46,
+          0.11,
+          { scrollRate: 1.52, entryX: -0.18, exitX: 0.3, curveX: 0.12, driftRate: 0.82, spinRate: 1.35 }
+        ),
+        cubeSpec(
+          "lime",
+          1.02,
+          sectionAnchor("#chi-siamo", "start", 0.18, 2.95),
+          -3.25,
+          0.54,
+          0.22,
+          { scrollRate: 0.78, entryX: 0.22, exitX: -0.28, curveX: -0.18, orbit: 0.06 }
+        ),
+        cubeSpec(
+          "indigo",
+          -1.02,
+          sectionAnchor("#clienti", "start", -0.14, 5.2),
+          -3.1,
+          0.4,
+          0.61,
+          { scrollRate: 1.38, entryX: -0.26, exitX: 0.22, curveX: 0.14, driftRate: 0.76, spinDirection: -1 }
+        ),
       ],
     },
   };
@@ -137,7 +333,7 @@ if (host && canvases.length) {
       scene.add(rimLight);
 
       const cubes = config.cubes.map((spec, index) =>
-        createCube({ ...spec, index })
+        createCube({ ...spec, index, layerName: name })
       );
 
       cubes.forEach((cube) => group.add(cube));
@@ -195,41 +391,77 @@ if (host && canvases.length) {
     );
   }
 
-  function cubeMaterial(paletteName) {
+  function cubeMaterial(paletteName, layerName) {
     const palette = palettes[paletteName];
+    const opacity = layerName === "back" ? 0.74 : 1;
 
     return new THREE.MeshStandardMaterial({
       color: palette.color,
       roughness: 0.34,
       metalness: 0.08,
+      transparent: opacity < 1,
+      opacity,
     });
   }
 
-  function createCube({ paletteName, xRatio, pageY, z, size, phase, index }) {
+  function createCube({
+    paletteName,
+    xRatio,
+    pageY,
+    z,
+    size,
+    phase,
+    motion,
+    index,
+    layerName,
+  }) {
     const palette = palettes[paletteName];
     const cube = new THREE.Group();
-    const body = new THREE.Mesh(cubeGeometry, cubeMaterial(paletteName));
+    const body = new THREE.Mesh(
+      cubeGeometry,
+      cubeMaterial(paletteName, layerName)
+    );
     const edges = new THREE.LineSegments(
       edgeGeometry,
-      new THREE.LineBasicMaterial({ color: palette.edge })
+      new THREE.LineBasicMaterial({
+        color: palette.edge,
+        transparent: layerName === "back",
+        opacity: layerName === "back" ? 0.58 : 0.9,
+      })
     );
+    const baseRotation = {
+      x: -0.24 + phase * 0.46,
+      y: 0.42 + phase * 0.62,
+      z: -0.16 + phase * 0.34,
+    };
+    const alternateDirection = index % 2 ? -1 : 1;
 
     cube.add(body, edges);
     cube.scale.setScalar(size);
-    cube.rotation.set(
-      -0.24 + phase * 0.46,
-      0.42 + phase * 0.62,
-      -0.16 + phase * 0.34
-    );
+    cube.rotation.set(baseRotation.x, baseRotation.y, baseRotation.z);
     cube.userData = {
       paletteName,
       xRatio,
       pageY,
+      resolvedPageY: typeof pageY === "number" ? pageY : pageY.fallback,
       z,
       size,
       phase,
-      spinX: (0.0012 + index * 0.00018) * (index % 2 ? -1 : 1),
-      spinY: (0.0016 + index * 0.00016) * (index % 3 ? 1 : -1),
+      motion,
+      baseRotation,
+      spinX:
+        (0.032 + phase * 0.034) *
+        motion.spinRate *
+        motion.spinDirection *
+        alternateDirection,
+      spinY:
+        (0.048 + phase * 0.052) *
+        motion.spinRate *
+        (index % 3 ? 1 : -1),
+      spinZ:
+        (0.012 + phase * 0.018) *
+        motion.spinRate *
+        motion.spinDirection,
     };
 
     return cube;
@@ -257,6 +489,9 @@ if (host && canvases.length) {
         layer.camera.position.z;
       layer.world.width = layer.world.height * layer.camera.aspect;
       layer.group.scale.setScalar(layer.config.scale * responsiveScale);
+      layer.cubes.forEach((cube) => {
+        cube.userData.resolvedPageY = resolvePageY(cube.userData.pageY);
+      });
     });
 
     render();
@@ -281,6 +516,29 @@ if (host && canvases.length) {
   function updatePointer(event) {
     pointer.targetX = (event.clientX / viewportWidth - 0.5) * 2;
     pointer.targetY = (event.clientY / viewportHeight - 0.5) * 2;
+  }
+
+  function resolvePageY(pageY) {
+    if (typeof pageY === "number") {
+      return pageY;
+    }
+
+    const target = document.querySelector(pageY.selector);
+
+    if (!target) {
+      return pageY.fallback;
+    }
+
+    const bounds = target.getBoundingClientRect();
+    const documentTop = bounds.top + window.scrollY;
+    const edgeOffset =
+      pageY.edge === "end"
+        ? bounds.height
+        : pageY.edge === "center"
+          ? bounds.height * 0.5
+          : 0;
+
+    return (documentTop + edgeOffset) / viewportHeight + pageY.offset;
   }
 
   function animate() {
@@ -313,8 +571,13 @@ if (host && canvases.length) {
     const easing = reduceMotion ? 1 : 0.08;
     const scrollScreens = scrollY / viewportHeight;
 
-    pointer.x += (pointer.targetX - pointer.x) * easing;
-    pointer.y += (pointer.targetY - pointer.y) * easing;
+    if (reduceMotion) {
+      pointer.x = 0;
+      pointer.y = 0;
+    } else {
+      pointer.x += (pointer.targetX - pointer.x) * easing;
+      pointer.y += (pointer.targetY - pointer.y) * easing;
+    }
 
     layers.forEach((layer) => {
       if (!layer.isVisible) {
@@ -329,33 +592,93 @@ if (host && canvases.length) {
       camera.lookAt(0, scrollCameraShift, -3);
 
       cubes.forEach((cube) => {
-        const { paletteName, xRatio, pageY, z, phase, spinX, spinY } =
-          cube.userData;
+        const {
+          paletteName,
+          xRatio,
+          resolvedPageY,
+          z,
+          size,
+          phase,
+          motion,
+          baseRotation,
+          spinX,
+          spinY,
+          spinZ,
+        } = cube.userData;
         const pushedXRatio = getResponsiveXRatio(
           paletteName,
           xRatio,
-          pageY
+          resolvedPageY
         );
-        const mobileHeroLift = getMobileHeroLift(pageY, scrollScreens);
+        const mobileHeroLift = getMobileHeroLift(
+          resolvedPageY,
+          scrollScreens
+        );
+        const scrollRate = reduceMotion ? 0.28 : motion.scrollRate;
         const parallaxY =
-          (pageY - scrollScreens * config.scrollFactor) * world.height;
-        const drift = reduceMotion
+          (resolvedPageY - scrollScreens * config.scrollFactor * scrollRate) *
+          world.height;
+        const pathProgress = THREE.MathUtils.clamp(
+          0.5 - parallaxY / (world.height * 2),
+          0,
+          1
+        );
+        const easedPath =
+          pathProgress * pathProgress * (3 - 2 * pathProgress);
+        const pathX = reduceMotion
           ? 0
-          : Math.sin(elapsed * 0.5 + phase * 7) * 0.18;
+          : THREE.MathUtils.lerp(
+              motion.entryX,
+              motion.exitX,
+              easedPath
+            ) + Math.sin(Math.PI * easedPath) * motion.curveX;
+        const driftX = reduceMotion
+          ? 0
+          : Math.sin(elapsed * motion.driftRate + phase * 11) *
+            motion.driftX;
+        const driftY = reduceMotion
+          ? 0
+          : Math.cos(elapsed * motion.driftRate * 0.83 + phase * 9) *
+            motion.driftY;
+        const orbitX = reduceMotion
+          ? 0
+          : Math.cos(elapsed * motion.driftRate * 0.72 + phase * 8) *
+            motion.orbit;
+        const orbitY = reduceMotion
+          ? 0
+          : Math.sin(elapsed * motion.driftRate * 0.72 + phase * 8) *
+            motion.orbit * world.height;
+        const scalePulse = reduceMotion
+          ? 1
+          : 1 +
+            Math.sin(elapsed * motion.driftRate * 0.64 + phase * 13) *
+              motion.scalePulse;
 
         cube.position.x =
-          pushedXRatio * world.width * 0.5 +
+          (pushedXRatio + pathX + driftX + orbitX) * world.width * 0.5 +
           pointer.x * config.pointerFactor * (2.2 + Math.abs(z) * 0.12);
         cube.position.y =
           parallaxY +
-          drift +
+          driftY +
+          orbitY +
           mobileHeroLift -
           pointer.y * config.pointerFactor;
         cube.position.z = z;
+        cube.scale.setScalar(size * scalePulse);
 
         if (!reduceMotion) {
-          cube.rotation.x += spinX * config.spinFactor;
-          cube.rotation.y += spinY * config.spinFactor;
+          cube.rotation.x =
+            baseRotation.x + elapsed * spinX * config.spinFactor;
+          cube.rotation.y =
+            baseRotation.y + elapsed * spinY * config.spinFactor;
+          cube.rotation.z =
+            baseRotation.z + elapsed * spinZ * config.spinFactor;
+        } else {
+          cube.rotation.set(
+            baseRotation.x,
+            baseRotation.y,
+            baseRotation.z
+          );
         }
       });
 
