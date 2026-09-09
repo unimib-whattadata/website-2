@@ -1,8 +1,8 @@
 (() => {
   const SECTIONS = [
+    "progetti",
     "servizi",
     "chi-siamo",
-    "progetti",
     "pubblicazioni",
     "clienti",
     "contatti",
@@ -71,6 +71,7 @@
 
     updateActiveMenuItem();
     window.addEventListener("scroll", requestMenuUpdate, { passive: true });
+    window.addEventListener("resize", requestMenuUpdate, { passive: true });
   }
 
   function initMobileMenu() {
@@ -220,6 +221,13 @@
 
     getAll('nav a[href^="#"]').forEach((link) => {
       link.addEventListener("click", closeMobileMenu);
+    });
+
+    const compactNavigation = window.matchMedia("(max-width: 1100px)");
+    compactNavigation.addEventListener("change", (event) => {
+      if (!event.matches) {
+        closeMobileMenu();
+      }
     });
   }
 

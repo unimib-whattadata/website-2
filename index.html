@@ -13,7 +13,7 @@
       as="image"
       type="image/svg+xml"
     />
-    <link rel="preload" href="css/styles.css?v=research-transfer-8" as="style" />
+    <link rel="preload" href="css/styles.css?v=homepage-clarity-1" as="style" />
     <link rel="preconnect" href="https://cdn.lineicons.com" crossorigin />
     <link rel="dns-prefetch" href="https://cdn.lineicons.com" />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
@@ -387,14 +387,14 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/tailwind.css?v=responsive-1" />
-    <link rel="stylesheet" href="css/styles.css?v=research-transfer-8" />
+    <link rel="stylesheet" href="css/styles.css?v=homepage-clarity-1" />
     <link rel="stylesheet" href="css/cursor.css?v=home-polish-1" />
   </head>
   <body class="bg-white">
     <!--
       THESIS: Whattadata is a university spin-off that transfers research in data and artificial intelligence into solutions industry can use.
       OWN-WORLD: A precise research-transfer system in paper, mist, carbon, laboratory indigo and signal lime; square rules, generous type and real 3D cubes provide the rhythm.
-      STORY: Visitors understand the university-to-industry promise in the first viewport, see how research becomes working technology, compare the products, recognise the proof and start a conversation.
+      STORY: Visitors understand the university-to-industry promise, immediately compare the products, then explore the services, academic origin and supporting evidence before starting a conversation.
       FIRST VIEWPORT: One three-line research-to-impact statement owns the left eight columns; the animated application context lives inside it, while a compact explanation and the two actions anchor the lower-right quadrant.
       FORM: Research-to-industry transfer path; one spatial grammar connects knowledge, engineering, products and industrial proof. Concept-roll seed c6e03229.
       FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
@@ -445,7 +445,7 @@
 
         <!-- Mobile Menu Toggle -->
         <button
-          class="md:hidden text-gray-900"
+          class="text-gray-900"
           id="mobile-menu-button"
           type="button"
           aria-label="Open mobile menu"
@@ -469,7 +469,12 @@
         </button>
 
         <!-- Desktop Navigation -->
-        <div class="site-nav-links hidden md:flex items-center">
+        <div class="site-nav-links items-center">
+          <a
+            href="#progetti"
+            class="hover:text-indigo-600 transition-colors"
+            >PRODUCTS</a
+          >
           <a
             href="#servizi"
             class="hover:text-indigo-600 transition-colors"
@@ -479,11 +484,6 @@
             href="#chi-siamo"
             class="hover:text-indigo-600 transition-colors"
             >ABOUT</a
-          >
-          <a
-            href="#progetti"
-            class="hover:text-indigo-600 transition-colors"
-            >PRODUCTS</a
           >
           <a
             href="#pubblicazioni"
@@ -505,11 +505,16 @@
 
       <!-- Mobile Navigation Menu -->
       <div
-        class="md:hidden hidden bg-white border-t mt-4 fixed w-full top-16 left-0 right-0 z-50"
+        class="hidden bg-white border-t fixed w-full left-0 right-0 z-50"
         id="mobile-menu"
         hidden
       >
         <div class="container mx-auto px-6 py-4 space-y-4">
+          <a
+            href="#progetti"
+            class="block hover:text-gray-900 transition-colors text-lg"
+            >PRODUCTS</a
+          >
           <a
             href="#servizi"
             class="block hover:text-gray-900 transition-colors text-lg"
@@ -519,11 +524,6 @@
             href="#chi-siamo"
             class="block hover:text-gray-900 transition-colors text-lg"
             >ABOUT</a
-          >
-          <a
-            href="#progetti"
-            class="block hover:text-gray-900 transition-colors text-lg"
-            >PRODUCTS</a
           >
           <a
             href="#pubblicazioni"
@@ -569,7 +569,7 @@
             </p>
             <div class="hero-actions">
               <a href="#contatti" class="hero-primary-action cube-action">Talk to us</a>
-              <a href="#servizi" class="hero-secondary-action">See how we work</a>
+              <a href="#progetti" class="hero-secondary-action">Explore the products</a>
             </div>
           </div>
 
@@ -579,14 +579,104 @@
         </div>
       </section>
 
+      <!-- Projects Section -->
+      <section
+        id="progetti"
+        class="projects-section min-h-screen"
+        aria-label="Whattadata products"
+      >
+        <div class="container mx-auto px-4 h-full flex items-center">
+          <div class="w-full">
+            <div class="products-intro">
+              <h2>Products built around real work.</h2>
+              <p>
+                Three focused systems. One shared approach: make complex data
+                understandable, inspectable and useful.
+              </p>
+            </div>
+
+            <div class="product-index">
+              <a
+                href="/arianne.html"
+                class="product-index-row product-index-row--arianne"
+                aria-label="Discover Arianne"
+                aria-describedby="arianne-summary"
+              >
+                <div class="product-index-brand" aria-hidden="true">
+                  <img
+                    src="img/logo/arianne.svg"
+                    alt=""
+                    class="product-index-logo"
+                    width="120"
+                    height="40"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="product-index-copy" id="arianne-summary">
+                  <p>Keeps therapy connected between sessions through two purpose-built interfaces.</p>
+                  <span>Connected care for therapists and patients</span>
+                </div>
+                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+
+              <a
+                href="/whattadocs.html"
+                class="product-index-row product-index-row--whattadocs"
+                aria-label="Discover WhattaDocs"
+                aria-describedby="whattadocs-summary"
+              >
+                <div class="product-index-brand" aria-hidden="true">
+                  <div class="product-index-docsmark">
+                    <img src="img/logo/whattadocs-mark-small.png" alt="" width="126" height="128" loading="lazy" />
+                    <span>WhattaDocs</span>
+                  </div>
+                </div>
+                <div class="product-index-copy" id="whattadocs-summary">
+                  <p>Questions long documents while keeping every answer connected to its source.</p>
+                  <span>Inspectable evidence for evidence-sensitive teams</span>
+                </div>
+                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+
+              <a
+                href="/whattaflow.html"
+                class="product-index-row product-index-row--whattaflow"
+                aria-label="Discover WhattaFlow"
+                aria-describedby="whattaflow-summary"
+              >
+                <div class="product-index-brand" aria-hidden="true">
+                  <div class="product-index-flowlockup">
+                    <img
+                      class="product-index-flow-logo"
+                      src="img/logo/whattaflow-mark.svg"
+                      alt=""
+                      width="184"
+                      height="184"
+                      loading="lazy"
+                    />
+                    <span class="product-index-flowname"><span>Whatta</span><strong>Flow</strong></span>
+                  </div>
+                </div>
+                <div class="product-index-copy" id="whattaflow-summary">
+                  <p>Connects wearable onboarding, data continuity and research-ready exports.</p>
+                  <span>Wearable research for researchers and participants</span>
+                </div>
+                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       <!-- Value Proposition Section -->
       <section id="servizi" class="services-section" aria-label="AI and data analytics services">
         <div class="container mx-auto px-4">
           <div class="section-intro">
-            <h2>Research becomes useful when it reaches the real world.</h2>
+            <h2>AI shaped around your work.</h2>
             <p>
-              We translate advances in AI and data into solutions that fit real
-              industrial processes, systems and constraints.
+              Predictive models, responsible AI and modular components shaped
+              around your existing processes, systems and constraints.
             </p>
           </div>
 
@@ -647,11 +737,10 @@
       <section id="chi-siamo" class="about-section" aria-label="About Whattadata">
         <div class="about-shell container mx-auto px-4">
           <div class="about-statement">
-            <h2>Born in the university. Built for the world outside it.</h2>
+            <h2>A spin-off of Milano-Bicocca.</h2>
             <p>
               Whattadata is a spin-off of the University of Milano-Bicocca. We
-              bring results from data and artificial-intelligence research into
-              industrial contexts, turning them into practical solutions for
+              turn data and artificial-intelligence research into tools for
               decisions, operations and services.
             </p>
           </div>
@@ -666,93 +755,6 @@
               <article><h3>Build for use</h3><p>Models become valuable when they fit the workflow that depends on them.</p></article>
               <article><h3>Keep evidence visible</h3><p>Responsible systems make their data, limits and reasoning easier to inspect.</p></article>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects Section -->
-      <section
-        id="progetti"
-        class="projects-section min-h-screen"
-        aria-label="Whattadata products"
-      >
-        <div class="container mx-auto px-4 h-full flex items-center">
-          <div class="w-full">
-            <div class="products-intro">
-              <h2>Products built around real work.</h2>
-              <p>
-                Three focused systems. One shared approach: make complex data
-                understandable, inspectable and useful.
-              </p>
-            </div>
-
-            <div class="product-index">
-              <a
-                href="/arianne.html"
-                class="product-index-row product-index-row--arianne"
-                aria-label="Discover Arianne"
-              >
-                <div class="product-index-brand" aria-hidden="true">
-                  <img
-                    src="img/logo/arianne.svg"
-                    alt=""
-                    class="product-index-logo"
-                    width="120"
-                    height="40"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="product-index-copy">
-                  <p>Keeps therapy connected between sessions through two purpose-built interfaces.</p>
-                  <span>Connected care for therapists and patients</span>
-                </div>
-                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
-              </a>
-
-              <a
-                href="/whattadocs.html"
-                class="product-index-row product-index-row--whattadocs"
-                aria-label="Discover WhattaDocs"
-              >
-                <div class="product-index-brand" aria-hidden="true">
-                  <div class="product-index-docsmark">
-                    <img src="img/logo/whattadocs-mark-small.png" alt="" width="126" height="128" loading="lazy" />
-                    <span>WhattaDocs</span>
-                  </div>
-                </div>
-                <div class="product-index-copy">
-                  <p>Questions long documents while keeping every answer connected to its source.</p>
-                  <span>Inspectable evidence for evidence-sensitive teams</span>
-                </div>
-                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
-              </a>
-
-              <a
-                href="/whattaflow.html"
-                class="product-index-row product-index-row--whattaflow"
-                aria-label="Discover WhattaFlow"
-              >
-                <div class="product-index-brand" aria-hidden="true">
-                  <div class="product-index-flowlockup">
-                    <img
-                      class="product-index-flow-logo"
-                      src="img/logo/whattaflow-mark.svg"
-                      alt=""
-                      width="184"
-                      height="184"
-                      loading="lazy"
-                    />
-                    <span class="product-index-flowname"><span>Whatta</span><strong>Flow</strong></span>
-                  </div>
-                </div>
-                <div class="product-index-copy">
-                  <p>Connects wearable onboarding, data continuity and research-ready exports.</p>
-                  <span>Wearable research for researchers and participants</span>
-                </div>
-                <svg class="product-index-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 17 17 7M8 7h9v9" /></svg>
-              </a>
-            </div>
-
           </div>
         </div>
       </section>
@@ -1314,6 +1316,6 @@
 
     <!-- Custom Scripts -->
     <script type="module" src="js/cube-scene.js?v=depth-1"></script>
-    <script src="js/main.js?v=motion-system-1" defer></script>
+    <script src="js/main.js?v=homepage-navigation-1" defer></script>
   </body>
 </html>

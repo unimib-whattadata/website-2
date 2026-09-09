@@ -79,7 +79,7 @@ typography:
     lineHeight: 1
   navigation-label:
     fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
-    fontSize: "0.76rem"
+    fontSize: "0.875rem"
     fontWeight: 680
     letterSpacing: "0.065em"
 rounded:
@@ -314,7 +314,7 @@ The changing research-domain word is written character by character, held long e
 
 ### Navigation
 
-The navigation is a `4.75rem` paper bar at `94%` opacity with a `14px` backdrop blur and one bottom rule. Brand type is compact and firm; desktop labels are uppercase and tracked. One filled indigo action owns conversion. At `768px`, the navigation becomes `4rem` high and exposes a full-width mobile panel.
+The navigation is a `4.75rem` paper bar at `94%` opacity with a `14px` backdrop blur and one bottom rule. Brand type is compact and firm; desktop labels are uppercase, tracked and at least `0.875rem`, with a `2.75rem` minimum link height. One filled indigo action owns conversion. Homepage navigation switches to a `4rem` bar and a full-width menu at `1100px`; its toggle and menu links provide at least `44px` targets. The panel scrolls within the available viewport height. Its order follows the page: Products, Services, About, Research, Clients, Contact.
 
 ### Service System
 
@@ -323,6 +323,8 @@ Each service is a square, rule-separated row: one small static indigo-and-lime c
 ### Product Index
 
 Homepage products are full-width planar rows, not a grid of promotional cards. Each row contains the authentic mark, one mechanism sentence, one audience cue and an accent arrow. Hover or focus adds mist, introduces `1rem` inline inset and moves the arrow diagonally by `0.25rem`. Orange, purple and product indigo remain small route signals.
+
+The product index follows the hero immediately, so visitors encounter concrete systems before Services and About. Those two chapters use shorter introductions and content-driven heights. Each product link has an accessible name and a description associated with its visible mechanism and audience.
 
 ### Product Hero Evidence Frame
 
