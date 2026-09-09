@@ -3,6 +3,7 @@
     "servizi",
     "chi-siamo",
     "progetti",
+    "pubblicazioni",
     "clienti",
     "contatti",
   ];

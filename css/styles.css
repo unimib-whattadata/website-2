@@ -1717,6 +1717,142 @@ footer#contatti > .container,
   transform: translate(0.25rem, -0.25rem);
 }
 
+.publications-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(7rem, 12vw, 10rem) 0 !important;
+  background: var(--carbon);
+  color: var(--paper);
+}
+
+.publications-intro {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: end;
+  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.publications-intro h2 {
+  grid-column: 1 / span 8;
+  max-width: 12ch;
+  color: var(--paper);
+  font-size: clamp(3rem, 5.8vw, 5.8rem);
+  font-weight: 370;
+  letter-spacing: -0.038em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.publications-intro > p {
+  grid-column: 9 / -1;
+  max-width: 39ch;
+  color: #d1d5db;
+  font-size: clamp(1rem, 1.35vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.publication-index {
+  position: relative;
+  z-index: 4;
+  border-top: 1px solid rgb(255 255 255 / 58%);
+}
+
+.publication-item {
+  border-bottom: 1px solid rgb(255 255 255 / 22%);
+}
+
+.publication-link {
+  display: grid;
+  grid-template-columns: minmax(0, 8fr) minmax(15rem, 3fr) 2.5rem;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: center;
+  min-height: clamp(14rem, 18vw, 17rem);
+  padding: clamp(2rem, 4vw, 3.25rem) 0;
+  color: inherit;
+  text-decoration: none;
+  transition: padding 220ms cubic-bezier(0.16, 1, 0.3, 1), background-color 180ms ease;
+}
+
+.publication-link:hover,
+.publication-link:focus-visible {
+  padding-inline: 1rem;
+  background: rgb(255 255 255 / 6%);
+}
+
+.publication-relation {
+  margin-top: 1rem;
+  color: var(--accent);
+  font-weight: 680;
+}
+
+.publication-copy h3 {
+  max-width: 31ch;
+  color: var(--paper);
+  font-size: clamp(1.55rem, 2.45vw, 2.5rem);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+.publication-copy cite {
+  font-style: normal;
+}
+
+.publication-authors {
+  max-width: 64ch;
+  margin-top: 1.2rem;
+  color: #c7d2fe;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.publication-meta {
+  align-self: center;
+  color: #d1d5db;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.publication-meta p + p {
+  margin-top: 0.75rem;
+}
+
+.publication-meta strong {
+  color: var(--paper);
+  font-weight: 680;
+}
+
+.publication-meta span {
+  display: inline-block;
+  margin-top: 1.5rem;
+  color: var(--accent);
+  font-weight: 720;
+  text-underline-offset: 0.28em;
+}
+
+.publication-relation + span {
+  margin-top: 0.75rem;
+}
+
+.publication-link:hover .publication-meta span,
+.publication-link:focus-visible .publication-meta span {
+  text-decoration: underline;
+}
+
+.publication-arrow {
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent);
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.publication-link:hover .publication-arrow,
+.publication-link:focus-visible .publication-arrow {
+  transform: translate(0.25rem, -0.25rem);
+}
+
 .clients-section {
   background: rgb(245 245 247 / 97%);
 }
@@ -1824,6 +1960,19 @@ footer#contatti h3 {
 }
 
 @media (max-width: 1024px) {
+  .site-nav-links {
+    gap: 0.8rem;
+  }
+
+  .site-nav-links > a:not(.nav-contact-link) {
+    font-size: 0.68rem;
+  }
+
+  .nav-contact-link {
+    padding-inline: 0.8rem;
+    font-size: 0.7rem;
+  }
+
   .hero-content {
     grid-column: 1 / span 9;
   }
@@ -1834,18 +1983,24 @@ footer#contatti h3 {
 
   .section-intro h2,
   .products-intro h2,
+  .publications-intro h2,
   .about-statement h2 {
     grid-column: 1 / span 7;
   }
 
   .section-intro > p,
   .products-intro > p,
+  .publications-intro > p,
   .about-statement > p {
     grid-column: 8 / -1;
   }
 
   .product-index-row {
     grid-template-columns: minmax(13rem, 1.6fr) minmax(17rem, 2.4fr) 2.5rem;
+  }
+
+  .publication-link {
+    grid-template-columns: minmax(0, 7fr) minmax(13rem, 4fr) 2rem;
   }
 }
 
@@ -1938,6 +2093,7 @@ footer#contatti h3 {
 
   .services-section,
   .projects-section,
+  .publications-section,
   .clients-section,
   .about-section {
     min-height: 0 !important;
@@ -1946,6 +2102,7 @@ footer#contatti h3 {
 
   .section-intro,
   .products-intro,
+  .publications-intro,
   .about-statement {
     display: block;
     margin-bottom: 3rem;
@@ -1953,6 +2110,7 @@ footer#contatti h3 {
 
   .section-intro h2,
   .products-intro h2,
+  .publications-intro h2,
   .about-statement h2 {
     max-width: 12ch;
     font-size: clamp(2.8rem, 12.5vw, 4.5rem);
@@ -1960,6 +2118,7 @@ footer#contatti h3 {
 
   .section-intro > p,
   .products-intro > p,
+  .publications-intro > p,
   .about-statement > p {
     max-width: 39ch;
     margin-top: 1.5rem;
@@ -2039,6 +2198,41 @@ footer#contatti h3 {
     align-self: center;
   }
 
+  .publication-link {
+    grid-template-columns: minmax(0, 1fr) 2.5rem;
+    gap: 1.25rem;
+    min-height: 0;
+    padding: 2.5rem 0;
+  }
+
+  .publication-copy,
+  .publication-meta {
+    grid-column: 1;
+  }
+
+  .publication-copy h3 {
+    max-width: 28ch;
+    font-size: clamp(1.45rem, 6.5vw, 2rem);
+  }
+
+  .publication-authors {
+    margin-top: 1rem;
+  }
+
+  .publication-meta {
+    align-self: start;
+  }
+
+  .publication-meta span {
+    margin-top: 1.1rem;
+  }
+
+  .publication-arrow {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
   .clients-layout {
     min-height: 0;
   }
@@ -2100,7 +2294,9 @@ footer#contatti h3 {
   }
 
   .hero-caret,
-  .product-index-arrow {
+  .product-index-arrow,
+  .publication-link,
+  .publication-arrow {
     animation: none;
     transition: none;
   }
