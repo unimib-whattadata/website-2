@@ -1712,7 +1712,7 @@ footer#contatti > .container,
 }
 
 .product-index-docsmark span {
-  color: #86198f;
+  color: var(--graphite);
   font-weight: 720;
 }
 

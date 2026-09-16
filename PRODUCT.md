@@ -22,7 +22,7 @@ The Whattadata website explains the company, its services and its products at a 
 
 Arianne connects the moments between therapy sessions with the clinical encounter. Its Whattadata product page should help patients and therapists understand the shared ecosystem, then continue to the dedicated Arianne website.
 
-WhattaDocs turns long-document question answering into an inspectable workflow. Its Whattadata product page should explain how answers, citations and source context stay connected, then invite interested organisations to contact Whattadata at info@whattadata.it.
+WhattaDocs turns long-document question answering into an inspectable workflow. Its Whattadata product page should explain how answers, citations and source context stay connected, then route visitors to the dedicated WhattaDocs website.
 
 WhattaFlow connects participant onboarding to the operational side of wearable-data studies. Its Whattadata product page should show the continuous path from Garmin connection to project and group organisation, data-flow monitoring, analysis and export, then route visitors to the dedicated WhattaFlow website while keeping researcher access available.
 
@@ -49,7 +49,7 @@ WhattaFlow supports research and clinical-study operations around wearable data.
 - Arianne must give equal narrative and visual weight to patients and therapists.
 - Arianne's final primary action leads to https://arianne.whattadata.it/.
 - WhattaDocs must address both organisations with internal knowledge bases and professionals in regulated settings.
-- WhattaDocs' final primary action opens an email to info@whattadata.it.
+- WhattaDocs' primary actions lead to https://whattadocs-web.whattadata.it/.
 - WhattaFlow must give participant and researcher paths equal narrative and visual weight while showing that they belong to one continuous system.
 - WhattaFlow's primary actions lead to https://whattaflow.it/; the researcher portal at https://whattaflow.whattadata.it/ remains a secondary route.
 - WhattaFlow may describe research operations and data continuity, but must not imply that it is a consumer fitness tracker or make clinical-outcome claims.
