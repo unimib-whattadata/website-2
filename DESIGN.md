@@ -371,7 +371,7 @@ Four non-interactive canvas layers—back, middle, front and overlay—create th
 - **Do** preserve equal narrative weight for the two audiences on each product page.
 - **Do** keep keyboard focus explicit and remove non-essential motion for reduced-motion users.
 - **Do** reserve one-time authored motion for evidence arrival and state continuity; keep the default DOM visible and usable.
-- **Do** preserve the participant-primary and researcher-secondary route hierarchy on WhattaFlow.
+- **Do** preserve the dedicated-site-primary and researcher-access-secondary route hierarchy on WhattaFlow.
 
 ### Don't:
 

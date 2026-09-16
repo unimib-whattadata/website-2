@@ -1716,36 +1716,12 @@ footer#contatti > .container,
   font-weight: 720;
 }
 
-.product-index-flowlockup {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-}
-
 .product-index-flow-logo {
   display: block;
-  width: clamp(3.75rem, 5vw, 4.5rem);
-  height: clamp(3.75rem, 5vw, 4.5rem);
+  width: min(13.5rem, 90%);
+  height: auto;
   object-fit: contain;
-}
-
-.product-index-flowname {
-  display: flex;
-  align-items: baseline;
-  color: var(--carbon);
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  letter-spacing: -0.035em;
-  line-height: 1;
-  white-space: nowrap;
-}
-
-.product-index-flowname > span {
-  font-weight: 380;
-}
-
-.product-index-flowname strong {
-  color: #4f46e5;
-  font-weight: 720;
+  object-position: left center;
 }
 
 .product-index-copy p {

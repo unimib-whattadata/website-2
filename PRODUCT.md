@@ -24,7 +24,7 @@ Arianne connects the moments between therapy sessions with the clinical encounte
 
 WhattaDocs turns long-document question answering into an inspectable workflow. Its Whattadata product page should explain how answers, citations and source context stay connected, then invite interested organisations to contact Whattadata at info@whattadata.it.
 
-WhattaFlow connects participant onboarding to the operational side of wearable-data studies. Its Whattadata product page should show the continuous path from Garmin connection to project and group organisation, data-flow monitoring, analysis and export, then route visitors to the participant portal while keeping the researcher portal available.
+WhattaFlow connects participant onboarding to the operational side of wearable-data studies. Its Whattadata product page should show the continuous path from Garmin connection to project and group organisation, data-flow monitoring, analysis and export, then route visitors to the dedicated WhattaFlow website while keeping researcher access available.
 
 ## Positioning
 
@@ -51,7 +51,7 @@ WhattaFlow supports research and clinical-study operations around wearable data.
 - WhattaDocs must address both organisations with internal knowledge bases and professionals in regulated settings.
 - WhattaDocs' final primary action opens an email to info@whattadata.it.
 - WhattaFlow must give participant and researcher paths equal narrative and visual weight while showing that they belong to one continuous system.
-- WhattaFlow's final primary action leads to https://whattaflow-partecipants.whattadata.it/; the researcher portal at https://whattaflow.whattadata.it/ remains a secondary route.
+- WhattaFlow's primary actions lead to https://whattaflow.it/; the researcher portal at https://whattaflow.whattadata.it/ remains a secondary route.
 - WhattaFlow may describe research operations and data continuity, but must not imply that it is a consumer fitness tracker or make clinical-outcome claims.
 - Do not invent pricing, customers, testimonials, certifications, deployment guarantees or performance claims.
 - Research metrics may be shown only with their study context and must not be generalized into commercial guarantees.
