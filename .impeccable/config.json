@@ -1,0 +1,81 @@
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-font",
+        "value": "sfmono-regular",
+        "files": [
+          "privacy.html"
+        ],
+        "createdAt": "2026-10-27T22:44:47.063Z",
+        "reason": "Codex review: semantic code elements localStorage and sessionStorage intentionally use the native monospace stack; policy prose uses documented Manrope."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "css/styles.css"
+        ],
+        "createdAt": "2026-10-27T22:51:30.888Z",
+        "reason": "Codex triage: the only detected stripe is legacy .project-bento-tile::before; none of the five visitor pages or active scripts contains that class. No active side-tab surface is present."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "privacy.html"
+        ],
+        "createdAt": "2026-10-27T22:51:30.958Z",
+        "reason": "Codex triage: detector attributes unused .project-bento-tile::before from shared CSS to privacy.html; the policy contains no matching bento elements."
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "privacy.html"
+        ],
+        "createdAt": "2026-10-27T22:51:31.024Z",
+        "reason": "Codex triage: privacy.html has no scrolling track, screenshot animation, or application script. The shared stylesheet contains legacy marquee selectors unused by this document; fresh privacy scan does not reproduce this finding."
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-27T23:05:48.836Z",
+        "reason": "Codex triage: all six findings inspect full-width rule-separated wrappers. Product rows have 24px vertical padding; service rows have 24.8px and service-path children 24–40px; publication links have 32–52px padding. Shared page gutters protect text horizontally; DESIGN.md deliberately aligns planar rows with section headings."
+      },
+      {
+        "rule": "marquee",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-27T23:05:48.915Z",
+        "reason": "Codex triage: current visitor markup contains no logo-track, logo-carousel, project-screenshot, or marquee elements. Shared CSS has unused legacy scroll animations; fresh scan does not reproduce an active marquee."
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-27T23:05:48.988Z",
+        "reason": "Codex triage: this is the same unused .project-bento-tile::before rule imported from shared CSS; no matching element exists in index.html."
+      },
+      {
+        "rule": "tight-leading",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-10-27T23:05:49.059Z",
+        "reason": "Codex triage: the three findings are the large publication h3 display headings at 1.12 line-height, consistent with the compact display/title hierarchy in DESIGN.md and checked at 1280, 390 and 320px. Paragraph line-height remains independently readable; the generic 1.3 body threshold does not describe this heading role."
+      }
+    ]
+  }
+}

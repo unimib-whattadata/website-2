@@ -18,7 +18,8 @@ node_modules/
 # Strumenti e artefatti locali degli assistenti
 /.agents/
 /.codex/
-/.impeccable/
+/.impeccable/*
+!/.impeccable/config.json
 /.claude/settings.local.json
 
 # Metadati di generazione delle immagini
