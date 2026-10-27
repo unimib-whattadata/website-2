@@ -20,6 +20,7 @@ node_modules/
 /.codex/
 /.impeccable/*
 !/.impeccable/config.json
+!/.impeccable/design.json
 /.claude/settings.local.json
 
 # Metadati di generazione delle immagini
