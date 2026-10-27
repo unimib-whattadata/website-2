@@ -322,7 +322,7 @@ Each service is a square, rule-separated row: one small static indigo-and-lime c
 
 ### Product Index
 
-Homepage products are full-width planar rows, not a grid of promotional cards. Each row contains the authentic mark, one mechanism sentence, one audience cue and an accent arrow. Hover or focus adds mist, introduces `1rem` inline inset and moves the arrow diagonally by `0.25rem`. Orange, purple and product indigo remain small route signals.
+Homepage products are full-width planar rows, not a grid of promotional cards. Each row contains the authentic mark, one mechanism sentence, one audience cue and an accent arrow. Hover or focus adds mist, introduces a visual `1rem` inline inset and moves the arrow diagonally by `0.25rem`. Product and publication rows create this inset through child transforms: padding, grid-track widths and text wrapping remain fixed during the interaction. Compact layouts keep arrows in their reserved lane while the copy moves inward. Under reduced motion these state changes are immediate. Orange, purple and product indigo remain small route signals.
 
 The product index follows the hero immediately, so visitors encounter concrete systems before Services and About. Those two chapters use shorter introductions and content-driven heights. Each product link has an accessible name and a description associated with its visible mechanism and audience.
 
