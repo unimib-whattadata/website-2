@@ -40,10 +40,10 @@ typography:
     letterSpacing: "-0.038em"
   product-display:
     fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
-    fontSize: "clamp(3.35rem, 5.7vw, 5.8rem)"
+    fontSize: "clamp(2.75rem, 4.2vw, 4rem)"
     fontWeight: 390
-    lineHeight: 0.96
-    letterSpacing: "-0.04em"
+    lineHeight: 1.02
+    letterSpacing: "-0.035em"
   close-display:
     fontFamily: "Manrope, Helvetica Neue, Arial, sans-serif"
     fontSize: "clamp(3rem, 6.5vw, 6rem)"
@@ -328,7 +328,9 @@ The product index follows the hero immediately, so visitors encounter concrete s
 
 ### Product Hero Evidence Frame
 
-Every product hero pairs a concise proposition with one dominant `16:9` paper frame, product-accent rule and authentic interface image using `object-fit: contain`. On first arrival, the frame opens once from left to right behind a narrow product-color seam; it is fully visible without JavaScript and appears immediately under reduced motion. A square carbon label reads “Demonstration interface · illustrative data.” Arianne and WhattaDocs show one representative view. WhattaFlow may alternate researcher and participant views inside the same frame with a visible pause control, a horizontal flow wipe and a reduced-motion fallback.
+Every product hero pairs a concise proposition with one dominant `16:9` paper frame, product-accent rule and authentic interface image using `object-fit: contain`. Balanced copy and evidence columns keep the proposition, explanation and primary action visible together on a standard laptop. The product heading is limited to `19ch`, with a smaller compact-screen scale. On first arrival, the frame opens once from left to right behind a narrow product-color seam; it is fully visible without JavaScript and appears immediately under reduced motion.
+
+Below the frame, a readable `0.875rem` label reads “Demonstration interface · illustrative data,” beside a full-resolution screenshot link with a `44px` minimum target. A short caption explains what to inspect without covering the application image. Arianne and WhattaDocs show one representative view; Arianne's caption connects its therapist view with the patient's separate sharing experience. WhattaFlow alternates researcher and participant views inside the same frame, with direct view selection, a pause control and a horizontal flow wipe. Only the active screenshot is exposed to assistive technology. Choosing or opening a view pauses rotation; reduced motion preserves direct selection and removes automatic rotation.
 
 **The One Evidence Frame Rule.** A product hero contains one dominant screenshot frame—never a collage, device mockup or reconstructed interface. A controlled multi-view state stays inside that one frame.
 
@@ -354,7 +356,11 @@ The University of Milano-Bicocca origin and the selected-organisation wall are e
 
 ### Living Cube Scene
 
-Four non-interactive canvas layers—back, middle, front and overlay—create the retained 3D signature. Indigo and lime cubes use different sizes, scroll rates, curved entrances, exits, drifts and spin directions; one orange cube punctuates the Products transition. Selected cubes cross section edges while all primary copy, evidence and controls remain readable. The scene carries no required information, respects reduced motion and is progressively removed on compact viewports.
+Four non-interactive canvas layers—back, middle, front and overlay—create the retained 3D signature. Indigo and lime cubes use different sizes, scroll rates, curved entrances, exits, drifts and spin directions; one orange cube punctuates the Products transition. Selected cubes cross section edges while all primary copy, evidence and controls remain readable. The scene carries no required information, respects reduced motion and is progressively removed on compact viewports. At `768px` and below, homepage canvases are masked to the outer `0.75rem` gutters so movement cannot enter the reading column.
+
+### Privacy Reading
+
+The privacy document retains its paper surface and document radius, with a `68ch` reading measure inside responsive padding. An in-page contents list links to the controller and each policy section; its links have `44px` minimum targets and wrap to one column on compact screens. A quiet closing navigation returns to the homepage or the document title. These reading controls do not change policy wording or its update date.
 
 ## Do's and Don'ts
 

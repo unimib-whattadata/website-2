@@ -656,6 +656,10 @@
       const toggle = carousel.querySelector("[data-shot-toggle]");
       const label = carousel.querySelector("[data-shot-toggle-label]");
       const status = carousel.querySelector("[data-shot-status]");
+      const controls = carousel.querySelector("[data-shot-controls]");
+      const selectors = getAll("[data-shot-select]", carousel);
+      const fullSizeLink = carousel.querySelector("[data-shot-open]");
+      const caption = carousel.querySelector("[data-shot-caption]");
 
       if (slides.length < 2 || !toggle || !label || !status) {
         return;
@@ -666,16 +670,35 @@
       let activeIndex = Math.max(slides.findIndex((slide) => slide.classList.contains("is-active")), 0);
       let userPaused = false;
       let isInView = true;
+      let hasFocus = false;
       let cycleTimer = null;
       let transitionTimer = null;
 
       const shouldPlay = () =>
-        !prefersReducedMotion.matches && !userPaused && isInView && !document.hidden;
+        !prefersReducedMotion.matches && !userPaused && !hasFocus && isInView && !document.hidden;
 
       const updateControl = () => {
         toggle.setAttribute("aria-pressed", String(userPaused));
         toggle.setAttribute("aria-label", userPaused ? "Resume screenshot rotation" : "Pause screenshot rotation");
         label.textContent = userPaused ? "Play" : "Pause";
+      };
+
+      const updateSlideState = () => {
+        const activeSlide = slides[activeIndex];
+        slides.forEach((slide, index) => {
+          slide.setAttribute("aria-hidden", String(index !== activeIndex));
+        });
+        selectors.forEach((button) => {
+          button.setAttribute("aria-pressed", String(Number(button.dataset.shotSelect) === activeIndex));
+        });
+        status.textContent = activeSlide.dataset.shotLabel;
+        if (fullSizeLink) {
+          fullSizeLink.href = activeSlide.src;
+          fullSizeLink.setAttribute("aria-label", `${activeSlide.dataset.shotLabel}: view screenshot at full size (opens in a new tab)`);
+        }
+        if (caption) {
+          caption.textContent = activeSlide.dataset.shotDescription;
+        }
       };
 
       const showSlide = (nextIndex) => {
@@ -687,13 +710,14 @@
         }
 
         window.clearTimeout(transitionTimer);
+        slides.forEach((slide) => slide.classList.remove("is-previous"));
         previousSlide.classList.remove("is-active");
         previousSlide.classList.add("is-previous");
         nextSlide.classList.remove("is-previous");
         nextSlide.classList.add("is-active");
         carousel.classList.add("is-transitioning");
-        status.textContent = nextSlide.dataset.shotLabel;
         activeIndex = nextIndex;
+        updateSlideState();
 
         transitionTimer = window.setTimeout(() => {
           previousSlide.classList.remove("is-previous");
@@ -720,6 +744,34 @@
         scheduleNext();
       });
 
+      selectors.forEach((button) => {
+        button.addEventListener("click", () => {
+          const nextIndex = Number(button.dataset.shotSelect);
+          if (!Number.isInteger(nextIndex) || nextIndex < 0 || nextIndex >= slides.length) {
+            return;
+          }
+          userPaused = true;
+          showSlide(nextIndex);
+          updateControl();
+          scheduleNext();
+        });
+      });
+
+      // Keep the requested image stable while a visitor inspects or opens it.
+      carousel.addEventListener("focusin", () => {
+        hasFocus = true;
+        scheduleNext();
+      });
+      carousel.addEventListener("focusout", (event) => {
+        hasFocus = carousel.contains(event.relatedTarget);
+        scheduleNext();
+      });
+      fullSizeLink?.addEventListener("click", () => {
+        userPaused = true;
+        updateControl();
+        scheduleNext();
+      });
+
       const observer = new IntersectionObserver(
         ([entry]) => {
           isInView = entry.isIntersecting;
@@ -731,6 +783,8 @@
       observer.observe(carousel);
       document.addEventListener("visibilitychange", scheduleNext);
       prefersReducedMotion.addEventListener?.("change", scheduleNext);
+      if (controls) controls.hidden = false;
+      updateSlideState();
       updateControl();
       scheduleNext();
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="privacy-page">
   <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8" />
@@ -140,8 +140,8 @@
       }
     </script>
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="css/tailwind.css?v=responsive-1" />
-    <link rel="stylesheet" href="css/styles.css?v=research-transfer-2" />
+    <link rel="stylesheet" href="css/tailwind.css?v=review-priorities-2" />
+    <link rel="stylesheet" href="css/styles.css?v=review-priorities-2" />
   </head>
   <body class="bg-white text-gray-700">
     <main
@@ -149,8 +149,8 @@
       class="min-h-screen bg-gray-50 flex items-center py-16 md:py-24"
       aria-label="Privacy policy"
     >
-      <div class="container mx-auto px-4 max-w-4xl">
-        <article class="p-4 md:p-8 bg-white rounded-xl shadow">
+      <div class="privacy-shell">
+        <article class="privacy-document bg-white rounded-xl shadow">
           <!-- Logo -->
           <a
             href="/"
@@ -168,14 +168,30 @@
             />
             <span>WHATTA</span><span class="font-light">DATA</span>
           </a>
-          <h1 class="text-2xl md:text-4xl font-semibold mb-6 text-gray-900">
+          <h1 id="privacy-title" tabindex="-1" class="text-2xl md:text-4xl font-semibold mb-6 text-gray-900">
             Privacy policy
           </h1>
           <p class="text-sm text-gray-500 mb-8">
             Last updated: 30 June 2026
           </p>
+          <nav class="privacy-toc" aria-labelledby="privacy-contents-title">
+            <h2 id="privacy-contents-title">On this page</h2>
+            <ul>
+              <li><a href="#policy-controller">Data controller</a></li>
+              <li><a href="#policy-scope">Scope of this policy</a></li>
+              <li><a href="#policy-data">Data processed</a></li>
+              <li><a href="#policy-purposes">Purposes and legal bases</a></li>
+              <li><a href="#policy-cookies">Cookies and tracking</a></li>
+              <li><a href="#policy-hosting">Hosting and resources</a></li>
+              <li><a href="#policy-retention">Recipients and retention</a></li>
+              <li><a href="#policy-decisions">Automated decisions</a></li>
+              <li><a href="#policy-rights">Your rights</a></li>
+              <li><a href="#policy-contact">Contact and complaints</a></li>
+              <li><a href="#policy-updates">Policy updates</a></li>
+            </ul>
+          </nav>
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">Data controller</h2>
+            <h2 id="policy-controller" tabindex="-1" class="text-xl font-semibold mb-2">Data controller</h2>
             <p>
               The data controller is Whattadata S.r.l., with registered office
               at Rotonda dei Mille 1, 24122 Bergamo, Italy, VAT number
@@ -183,20 +199,20 @@
               certified email address
               <a
                 href="mailto:whattadata@trustpec.it"
-                class="text-blue-600 hover:underline"
+                class="privacy-link"
                 >whattadata@trustpec.it</a
               >
               or to
               <a
                 href="mailto:info@whattadata.it"
-                class="text-blue-600 hover:underline"
+                class="privacy-link"
                 >info@whattadata.it</a
               >.
             </p>
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-scope" tabindex="-1" class="text-xl font-semibold mb-2">
               1. Scope of this policy
             </h2>
             <p>
@@ -208,7 +224,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-data" tabindex="-1" class="text-xl font-semibold mb-2">
               2. Data processed while browsing
             </h2>
             <p>
@@ -222,7 +238,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-purposes" tabindex="-1" class="text-xl font-semibold mb-2">
               3. Purposes and legal bases
             </h2>
             <ul class="list-disc list-inside space-y-1">
@@ -251,7 +267,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-cookies" tabindex="-1" class="text-xl font-semibold mb-2">
               4. Cookies and tracking technologies
             </h2>
             <p>
@@ -267,7 +283,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-hosting" tabindex="-1" class="text-xl font-semibold mb-2">
               5. Hosting and external resources
             </h2>
             <ul class="list-disc list-inside space-y-2">
@@ -279,7 +295,7 @@
                 <br />
                 <a
                   href="https://docs.github.com/it/site-policy/privacy-policies/github-privacy-statement"
-                  class="text-blue-600 hover:underline"
+                  class="privacy-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   >GitHub Privacy Statement</a
@@ -293,7 +309,7 @@
                 <br />
                 <a
                   href="https://lineicons.com/privacy-policy"
-                  class="text-blue-600 hover:underline"
+                  class="privacy-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   >Lineicons Privacy Policy</a
@@ -307,7 +323,7 @@
                 <br />
                 <a
                   href="https://www.jsdelivr.com/terms/privacy-policy"
-                  class="text-blue-600 hover:underline"
+                  class="privacy-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   >jsDelivr Privacy Policy</a
@@ -317,7 +333,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-retention" tabindex="-1" class="text-xl font-semibold mb-2">
               6. Recipients, transfers and retention
             </h2>
             <p>
@@ -341,7 +357,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-decisions" tabindex="-1" class="text-xl font-semibold mb-2">
               7. Automated decision-making
             </h2>
             <p>
@@ -352,7 +368,7 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-rights" tabindex="-1" class="text-xl font-semibold mb-2">
               8. Your rights
             </h2>
             <p>
@@ -366,26 +382,26 @@
           </div>
 
           <div class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-contact" tabindex="-1" class="text-xl font-semibold mb-2">
               9. Exercising your rights and making a complaint
             </h2>
             <p>
               To exercise your rights or request more information, write to
               <a
                 href="mailto:info@whattadata.it"
-                class="text-blue-600 hover:underline"
+                class="privacy-link"
                 >info@whattadata.it</a
               >
               or to the certified email address
               <a
                 href="mailto:whattadata@trustpec.it"
-                class="text-blue-600 hover:underline"
+                class="privacy-link"
                 >whattadata@trustpec.it</a
               >. You also have the right to lodge a complaint with the Italian
               data protection authority,
               <a
                 href="https://www.garanteprivacy.it/"
-                class="text-blue-600 hover:underline"
+                class="privacy-link"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Garante per la protezione dei dati personali</a
@@ -394,7 +410,7 @@
           </div>
 
           <div>
-            <h2 class="text-xl font-semibold mb-2">
+            <h2 id="policy-updates" tabindex="-1" class="text-xl font-semibold mb-2">
               10. Updates to this policy
             </h2>
             <p>
@@ -403,6 +419,10 @@
               this page is the version currently applicable to use of the site.
             </p>
           </div>
+          <nav class="privacy-end" aria-label="Policy navigation">
+            <a href="/">Back to home</a>
+            <a href="#privacy-title">Back to top</a>
+          </nav>
         </article>
       </div>
     </main>

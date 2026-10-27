@@ -32,10 +32,10 @@
     <link rel="apple-touch-icon" href="img/whattadata.png" />
     <link rel="manifest" href="site.webmanifest" />
     <meta name="theme-color" content="#4c44db" />
-    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/tailwind.css?v=review-priorities-2" />
     <link rel="stylesheet" href="css/cursor.css?v=home-polish-1" />
-    <link rel="stylesheet" href="css/styles.css?v=research-transfer-3" />
-    <link rel="stylesheet" href="css/product-pages.css?v=product-motion-1" />
+    <link rel="stylesheet" href="css/styles.css?v=review-priorities-2" />
+    <link rel="stylesheet" href="css/product-pages.css?v=review-priorities-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -147,14 +147,27 @@
             </div>
           </div>
 
-          <figure class="product-hero-shot product-hero-shot--whattaflow product-hero-shot--carousel" data-shot-carousel>
-            <img class="product-hero-shot__slide is-active" data-shot-slide data-shot-label="Researcher view" src="img/screenshot/whattaflow-research-dashboard-figma-v1.webp" alt="WhattaFlow researcher dashboard showing study participation, synchronisation trends and device data continuity" width="1920" height="1080" decoding="async" fetchpriority="high" />
-            <img class="product-hero-shot__slide" data-shot-slide data-shot-label="Participant view" src="img/screenshot/whattaflow-participant-dashboard-figma-v1.webp" alt="WhattaFlow participant dashboard with health summaries, an activity trend and recent workouts" width="1920" height="1080" decoding="async" />
-            <figcaption class="product-demo-label">Demonstration interface · illustrative data</figcaption>
-            <div class="product-hero-shot__controls">
-              <span class="product-hero-shot__status" data-shot-status>Researcher view</span>
-              <button class="product-hero-shot__toggle" type="button" data-shot-toggle aria-label="Pause screenshot rotation" aria-pressed="false"><span data-shot-toggle-label>Pause</span></button>
+          <figure class="product-evidence" data-shot-carousel>
+            <div class="product-hero-shot product-hero-shot--whattaflow product-hero-shot--carousel">
+              <img class="product-hero-shot__slide is-active" data-shot-slide data-shot-label="Researcher view" data-shot-description="The researcher view brings study participation and synchronisation trends together. Select Participant to see the other side of the study." src="img/screenshot/whattaflow-research-dashboard-figma-v1.webp" alt="WhattaFlow researcher dashboard showing study participation, synchronisation trends and device data continuity" width="1920" height="1080" decoding="async" fetchpriority="high" aria-hidden="false" />
+              <img class="product-hero-shot__slide" data-shot-slide data-shot-label="Participant view" data-shot-description="The participant view shows personal summaries and recent activity. Select Researcher to see how the study is monitored." src="img/screenshot/whattaflow-participant-dashboard-figma-v1.webp" alt="WhattaFlow participant dashboard with health summaries, an activity trend and recent workouts" width="1920" height="1080" decoding="async" aria-hidden="true" />
             </div>
+            <figcaption class="product-evidence__caption">
+              <div class="product-evidence__tools">
+                <span class="product-demo-label">Demonstration interface · illustrative data</span>
+                <a class="product-evidence__enlarge" data-shot-open href="img/screenshot/whattaflow-research-dashboard-figma-v1.webp" target="_blank" rel="noopener noreferrer" aria-label="Researcher view: view screenshot at full size (opens in a new tab)">
+                  View full size <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17 17 7M8 7h9v9" /></svg>
+                  <span class="sr-only"> (opens the screenshot in a new tab)</span>
+                </a>
+              </div>
+              <div class="product-hero-shot__controls" role="group" aria-label="Screenshot views" data-shot-controls hidden>
+                <button type="button" data-shot-select="0" aria-pressed="true">Researcher</button>
+                <button type="button" data-shot-select="1" aria-pressed="false">Participant</button>
+                <button class="product-hero-shot__toggle" type="button" data-shot-toggle aria-label="Pause screenshot rotation" aria-pressed="false"><span data-shot-toggle-label>Pause</span></button>
+              </div>
+              <span class="sr-only" data-shot-status aria-live="off">Researcher view</span>
+              <p data-shot-caption>The researcher view brings study participation and synchronisation trends together. Select Participant to see the other side of the study.</p>
+            </figcaption>
           </figure>
         </div>
       </section>
@@ -213,6 +226,6 @@
       <div class="product-shell product-footer__row"><p>© 2026 Whattadata S.r.l. All rights reserved.</p><p><a href="/">Home</a> · <a href="/arianne.html">Arianne</a> · <a href="/whattadocs.html">WhattaDocs</a> · <a href="/whattaflow.html" aria-current="page">WhattaFlow</a> · <a href="/privacy.html">Privacy</a></p></div>
     </footer>
     <script type="module" src="js/cube-scene.js?v=depth-1"></script>
-    <script src="js/main.js?v=motion-system-1" defer></script>
+    <script src="js/main.js?v=review-priorities-2" defer></script>
   </body>
 </html>
